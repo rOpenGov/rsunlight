@@ -11,14 +11,14 @@
  * Sunlight Labs Capitol Words API 
  * New York Times Congress API
 
-Functions that wrap these sets of APIs will be prefixed by (respectively from list above):
+Functions that wrap these sets of APIs will be prefixed by `sll` for Sunlight Labs, `nyt` for New York Times, and `cg`, `ts`, `os`, `rt`, and `cw` for the different methods above:
 
- * sll_cg_`fxn` 
- * sll_ts_`fxn` 
- * sll_os_`fxn` 
- * sll_rt_`fxn` 
- * sll_cw_`fxn`
- * nyt_cg_`fxn`
+ * sll + cg + `fxn` 
+ * sll + ts + `fxn` 
+ * sll + os + `fxn` 
+ * sll + rt + `fxn` 
+ * sll + cw + `fxn`
+ * nyt + cg + `fxn`
 
 where `fxn` would be a wrapper function to a specific API method. 
 
