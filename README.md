@@ -13,12 +13,12 @@
 
 Functions that wrap these sets of APIs will be prefixed by (respectively from list above):
 
- * sllcg_`fxn` 
- * sllts_`fxn` 
- * sllos_`fxn` 
- * sllrt_`fxn` 
- * sllcw_`fxn`
- * nytc_`fxn`
+ * sll_cg_`fxn` 
+ * sll_ts_`fxn` 
+ * sll_os_`fxn` 
+ * sll_rt_`fxn` 
+ * sll_cw_`fxn`
+ * nyt_cg_`fxn`
 
 where `fxn` would be a wrapper function to a specific API method. 
 
