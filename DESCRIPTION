@@ -1,0 +1,38 @@
+Package: govdat
+Description: Interface to various APIs for government data.
+Title: Interface to API methods for government data.
+Version: 0.0-1
+Date: 12-18-11
+License: BSD
+Author: Scott Chamberlain
+Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>
+Depends:
+    RJSONIO,
+    RCurl (>= 1.6),
+    XML,
+    stringr
+Imports:
+    RJSONIO,
+    RCurl (>= 1.6),
+    XML,
+    stringr
+Collate:
+    'sll_cg_getcommittees.R'
+    'sll_cg_getcommitteesallleg.R'
+    'sll_cg_getcommitteeslist.R'
+    'sll_cg_getdistrictlatlong.R'
+    'sll_cg_getdistrictzip.R'
+    'sll_cg_getlegislator.R'
+    'sll_cg_getlegislatorlist.R'
+    'sll_cg_getlegislatorsearch.R'
+    'sll_cg_legislatorsallforlatlong.R'
+    'sll_cg_legislatorsallforzip.R'
+    'sll_os_billlookup.R'
+    'sll_os_billsearch.R'
+    'sll_os_legislatorsearch.R'
+    'sll_os_statemetasearch.R'
+    'sll_ts_aggregateentityview.R'
+    'sll_ts_aggregatelookupid.R'
+    'sll_ts_aggregatesearch.R'
+    'sll_ts_aggregatetopcontribs.R'
+    'sll_ts_aggregatetopsectors.R'
