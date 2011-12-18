@@ -13,14 +13,14 @@
 
 Functions that wrap these sets of APIs will be prefixed by `sll` for Sunlight Labs, `nyt` for New York Times, and `cg`, `ts`, `os`, `rt`, and `cw` for the different methods above:
 
- * sll + cg + `fxn` 
- * sll + ts + `fxn` 
- * sll + os + `fxn` 
- * sll + rt + `fxn` 
- * sll + cw + `fxn`
- * nyt + cg + `fxn`
+ * `sll` + `cg` + `fxn` 
+ * `sll` + `ts` + `fxn` 
+ * `sll` + `os` + `fxn` 
+ * `sll` + `rt` + `fxn` 
+ * `sll` + `cw` + `fxn`
+ * `nyt` + `cg` + `fxn`
 
-where `fxn` would be a wrapper function to a specific API method. 
+where `fxn` would be a wrapper function to a specific API method.  Other functions will be written to search across multiple API providers, and will not follow this format. 
 
 Please get your own API keys if you plant to use these functions for Sunlight Labs (http://services.sunlightlabs.com/) and New York Times (http://developer.nytimes.com/apps/register).
 
