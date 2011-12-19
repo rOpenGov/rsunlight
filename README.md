@@ -4,12 +4,12 @@
 
 `govdat` wraps functions in APIs for:
 
- * Sunlight Labs Congress API 
- * Sunlight Labs Transparency API 
- * Sunlight Labs Open States API 
- * Sunlight Labs Real Time Congress API 
- * Sunlight Labs Capitol Words API 
- * New York Times Congress API
+ * Sunlight Labs Congress API (`cg`)
+ * Sunlight Labs Transparency API (`ts`)
+ * Sunlight Labs Open States API (`os`)
+ * Sunlight Labs Real Time Congress API (`rt`) 
+ * Sunlight Labs Capitol Words API (`cw`)
+ * New York Times Congress API (`cg`)
 
 Functions that wrap these sets of APIs will be prefixed by `sll` for Sunlight Labs, `nyt` for New York Times, and `cg`, `ts`, `os`, `rt`, and `cw` for the different methods above:
 
@@ -24,8 +24,6 @@ where `fxn` would be a wrapper function to a specific API method.  Other functio
 
 Please get your own API keys if you plant to use these functions for Sunlight Labs (http://services.sunlightlabs.com/) and New York Times (http://developer.nytimes.com/apps/register).
 
-I set up the functions so that you can either enter your API key on the actual call to each function or enter in your .Rprofile file, which will be called on startup of R, and then you don't have to enter your API key for each run of a function. 
-
-See the Wiki for examples of function use. 
+I set up the functions so that you can put the key in your .Rprofile file, which will be called on startup of R, and then you don't have to enter your API key for each run of a function. 
 
 This is a work in progress, so please fork and add to, suggest changes, etc. 

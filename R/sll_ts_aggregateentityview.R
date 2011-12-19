@@ -14,7 +14,7 @@
 #'    given external ID.
 #' @export
 #' @examples \dontrun{
-#' sll_ts_aggregateentityview(id = 'ff96aa62d48f48e5a1e284efe74a0ba8')
+#' sll_ts_aggregateentityview(id = '85ab2e74589a414495d18cc7a9233981')
 #' }
 sll_ts_aggregateentityview <- 
 
