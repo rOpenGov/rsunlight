@@ -1,4 +1,5 @@
-#' Get a list of members who have left the Senate or House or have announced plans to do so.
+#' Compare bill sponsorship between two members who served in the same 
+#'    Congress and chamber.
 #' @import RJSONIO RCurl XML
 #' @param memberid_1 The member's unique ID number (alphanumeric). To find a 
 #'    member's ID number, get the list of members for the appropriate House 
@@ -16,12 +17,13 @@
 #' @param ... optional additional curl options (debugging tools mostly)
 #' @param curl If using in a loop, call getCurlHandle() first and pass 
 #'    the returned value in here (avoids unnecessary footprint)
-#' @return List of new members of he current Congress.
+#' @return Compare bill sponsorship between two members who served in the same 
+#'    Congress and chamber. 
 #' @export
 #' @examples \dontrun{
-#' nyt_cg_membervotecompare('S001181', 'A000368', 112, 'senate')
+#' nyt_cg_membersponsorcompare('S001181', 'A000368', 112, 'senate')
 #' }
-nyt_cg_membervotecompare <- 
+nyt_cg_membersponsorcompare <- 
 
 function(memberid_1 = NA, memberid_2 = NA, congress_no = NA, chamber = NA, 
     responseformat = 'json',
@@ -30,7 +32,7 @@ function(memberid_1 = NA, memberid_2 = NA, congress_no = NA, chamber = NA,
     ...,
     curl = getCurlHandle() ) 
 {
-  url2 <- paste(url, memberid_1, '/votes/', memberid_2, '/',
+  url2 <- paste(url, memberid_1, '/bills/', memberid_2, '/',
                 congress_no, '/', chamber, '.', responseformat, sep='')
   args <- list('api-key' = key)
   tt <- getForm(url2, 
@@ -39,4 +41,4 @@ function(memberid_1 = NA, memberid_2 = NA, congress_no = NA, chamber = NA,
     curl = curl)
   if(responseformat == 'json') {fromJSON(tt)} else {xmlToList(tt)}
 }
-# http://api.nytimes.com/svc/politics/v3/us/legislative/congress/members/{first-member-id}/votes/{second-member-id}/{congress-number}/{chamber}[.response-format]?api-key={your-API-key}
+# http://api.nytimes.com/svc/politics/v3/us/legislative/congress/members/{member-id-1}/bills/{member-id-2}/{congress-number}/{chamber}[.response-format]?api-key={your-API-key}

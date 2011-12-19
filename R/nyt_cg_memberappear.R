@@ -1,4 +1,4 @@
-#' Get a list of members who have left the Senate or House or have announced plans to do so.
+#' Get information about a particular member's appearances on the House or Senate floor.
 #' @import RJSONIO RCurl XML
 #' @param memberid_1 The member's unique ID number (alphanumeric). To find a 
 #'    member's ID number, get the list of members for the appropriate House 
@@ -16,22 +16,21 @@
 #' @param ... optional additional curl options (debugging tools mostly)
 #' @param curl If using in a loop, call getCurlHandle() first and pass 
 #'    the returned value in here (avoids unnecessary footprint)
-#' @return List of new members of he current Congress.
+#' @return Get information about a particular member's appearances on the 
+#'    House or Senate floor. 
 #' @export
 #' @examples \dontrun{
-#' nyt_cg_membervotecompare('S001181', 'A000368', 112, 'senate')
+#' nyt_cg_memberappear('S001181')
 #' }
-nyt_cg_membervotecompare <- 
+nyt_cg_memberappear <- 
 
-function(memberid_1 = NA, memberid_2 = NA, congress_no = NA, chamber = NA, 
-    responseformat = 'json',
+function(memberid = NA, responseformat = 'json',
     url = "http://api.nytimes.com/svc/politics/v3/us/legislative/congress/members/",
     key = getOption("NYTCongressKey", stop("need an API key for the NYT Congress API")),
     ...,
     curl = getCurlHandle() ) 
 {
-  url2 <- paste(url, memberid_1, '/votes/', memberid_2, '/',
-                congress_no, '/', chamber, '.', responseformat, sep='')
+  url2 <- paste(url, memberid, '/floor_appearances.', responseformat, sep='')
   args <- list('api-key' = key)
   tt <- getForm(url2, 
     .params = args, 
@@ -39,4 +38,4 @@ function(memberid_1 = NA, memberid_2 = NA, congress_no = NA, chamber = NA,
     curl = curl)
   if(responseformat == 'json') {fromJSON(tt)} else {xmlToList(tt)}
 }
-# http://api.nytimes.com/svc/politics/v3/us/legislative/congress/members/{first-member-id}/votes/{second-member-id}/{congress-number}/{chamber}[.response-format]?api-key={your-API-key}
+# http://api.nytimes.com/svc/politics/v3/us/legislative/congress/members/{member-id}/floor_appearances[.response-format]?api-key={your-API-key}
