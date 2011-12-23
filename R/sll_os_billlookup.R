@@ -1,5 +1,5 @@
 #' Lookup bills on OpenStates.
-#' @import RJSONIO RCurl
+#' @import RJSONIO RCurl stringr
 #' @param state state two-letter abbreviation (character), required
 #' @param session session of congress (integer), e.g., 2009-2010 = 20092010, required
 #' @param billid identification number of bill (character), required

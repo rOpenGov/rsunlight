@@ -13,6 +13,6 @@ sll_os_statemetasearch <-
 function(state, url = "http://openstates.org/api/v1/metadata/",
     key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs"))) 
 {
-  url_ <- paste(url, state, "/?apikey=", key_, sep= "")
+  url_ <- paste(url, state, "/?apikey=", key, sep= "")
   fromJSON(url_)
 }

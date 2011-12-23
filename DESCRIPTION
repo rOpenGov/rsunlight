@@ -6,16 +6,12 @@ Date: 12-18-11
 License: BSD
 Author: Scott Chamberlain
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>
-Depends:
-    RJSONIO,
-    RCurl (>= 1.6),
-    XML,
-    stringr
 Imports:
     RJSONIO,
     RCurl (>= 1.6),
     XML,
-    stringr
+    stringr,
+    plyr
 Collate:
     'sll_cg_getcommittees.R'
     'sll_cg_getcommitteesallleg.R'
@@ -47,3 +43,5 @@ Collate:
     'nyt_cg_membervotepositions.R'
     'nyt_cg_newmembers.R'
     'nyt_cg_rollcallvote.R'
+    'sll_cw_dates.R'
+    'sll_cw_text.R'
