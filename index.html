@@ -43,7 +43,7 @@
     </div>
 
     <h1><a href="https://github.com/SChamberlain/govdat">govdat</a>
-      <span class="small">by <a href="https://github.com/SChamberlain">SChamberlain</a></span></h1>
+      <span class="small">by <a href="https://github.com/SChamberlain">Scott Chamberlain</a></span></h1>
 
     <div class="description">
       Interface to APIs for data on what our elected representatives are up to.
@@ -79,6 +79,60 @@ install_github("govdat", "SChamberlain")
 require(govdat)
       </code></pre></p>
       
+      
+    <h2>Example</h2>
+    <p>
+      <pre lang="R"><code>
+The sll_cw_dates function (sll=Sunlight Labs, cw=capitol words project, dates=AIP method) returns a data frame with number of matching phrases that our representatives said by year, from the starting date (2001) to the end date (2009) - Bush's presidency basically. 
+
+sll_cw_dates(phrase='I would have voted', start_date='2001-01-20',
+   end_date='2009-01-20', granularity='year', party='D', percentages=TRUE,
+   printdf=TRUE)
+   
+ count yearmonth
+1   344      2001
+2   426      2002
+3   723      2003
+4   593      2004
+5   660      2005
+6   511      2006
+7  1117      2007
+8  1168      2008
+9    24      2009
+
+Sweet!!!
+      </code></pre></p>
+
+    <h2>Readme, copied from the GitHub repo</h2>
+<p>
+govdat is a collection of functions to search and acquire data from various APIs for government data, including the Sunlight Labs Project at http://services.sunlightlabs.com/, and the New York Times Congress API at http://developer.nytimes.com/docs/congress_api.  
+
+`govdat` wraps functions in APIs for:
+
+ * Sunlight Labs Congress API (`cg`)
+ * Sunlight Labs Transparency API (`ts`)
+ * Sunlight Labs Open States API (`os`)
+ * Sunlight Labs Real Time Congress API (`rt`) 
+ * Sunlight Labs Capitol Words API (`cw`)
+ * New York Times Congress API (`cg`)
+
+Functions that wrap these sets of APIs will be prefixed by `sll` for Sunlight Labs, `nyt` for New York Times, and `cg`, `ts`, `os`, `rt`, and `cw` for the different methods above:
+
+ * `sll` + `cg` + `fxn` 
+ * `sll` + `ts` + `fxn` 
+ * `sll` + `os` + `fxn` 
+ * `sll` + `rt` + `fxn` 
+ * `sll` + `cw` + `fxn`
+ * `nyt` + `cg` + `fxn`
+
+where `fxn` would be a wrapper function to a specific API method.  Other functions will be written to search across multiple API providers, and will not follow this format. 
+
+Please get your own API keys if you plant to use these functions for Sunlight Labs (http://services.sunlightlabs.com/) and New York Times (http://developer.nytimes.com/apps/register).
+
+I set up the functions so that you can put the key in your .Rprofile file, which will be called on startup of R, and then you don't have to enter your API key for each run of a function. 
+
+This is a work in progress, so please fork and add to, suggest changes, etc. </p>
+
     
       <h2>License</h2>
       <p>BSC</p>
