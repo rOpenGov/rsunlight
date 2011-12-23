@@ -84,24 +84,12 @@ require(govdat)
 
 <p>The sll_cw_dates function (sll=Sunlight Labs, cw=capitol words project, dates=AIP method) returns a data frame with number of matching phrases that our representatives said by year, from the starting date (2001) to the end date (2009) - Bush's presidency basically. </p>
 
-<p>sll_cw_dates(phrase='I would have voted', start_date='2001-01-20',
+<p>
+sll_cw_dates(phrase='I would have voted', start_date='2001-01-20',
    end_date='2009-01-20', granularity='year', party='D', percentages=TRUE,
    printdf=TRUE)</p
 
-<table border="1">
-<tr>
-<th>count</th>
-<th>yearmonth</th>
-</tr>
-<tr>
-<td>344</td>
-<td>2001</td>
-</tr>
-<tr>
-<td>426, 2002</td>
-<td>723, 2003</td>
-</tr>
-</table>
+<p><pre lang="R"><code>
  count yearmonth
 1   344      2001
 2   426      2002
@@ -112,8 +100,7 @@ require(govdat)
 7  1117      2007
 8  1168      2008
 9    24      2009
-
-Sweet!!!
+</code></pre></p>
 
 
     <h2>Readme, copied from the GitHub repo</h2>
