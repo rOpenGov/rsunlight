@@ -105,33 +105,45 @@ Sweet!!!
 
     <h2>Readme, copied from the GitHub repo</h2>
 <p>
-govdat is a collection of functions to search and acquire data from various APIs for government data, including the Sunlight Labs Project at http://services.sunlightlabs.com/, and the New York Times Congress API at http://developer.nytimes.com/docs/congress_api.  
+govdat is a collection of functions to search and acquire data from various APIs for government data, including the <a href="http://services.sunlightlabs.com/"> Sunlight Labs Project</a>, and the <a href="http://developer.nytimes.com/docs/congress_api">New York Times Congress API</a>.  </p>
 
-`govdat` wraps functions in APIs for:
+<p>govdat wraps functions in APIs for:
+<ol>
+<li>Sunlight Labs Congress API (cg)</li>
+<li>Sunlight Labs Transparency API (ts)</li>
+<li>Sunlight Labs Open States API (os)</li>
+<li>Sunlight Labs Real Time Congress API (rt) </li>
+<li>Sunlight Labs Capitol Words API (cw)</li>
+<li>New York Times Congress API (cg)</li>
+</ol></p>
 
- * Sunlight Labs Congress API (`cg`)
- * Sunlight Labs Transparency API (`ts`)
- * Sunlight Labs Open States API (`os`)
- * Sunlight Labs Real Time Congress API (`rt`) 
- * Sunlight Labs Capitol Words API (`cw`)
- * New York Times Congress API (`cg`)
+<p>Functions that wrap these sets of APIs will be prefixed by sll for Sunlight Labs, nyt for New York Times, and cg, ts, os, rt, and cw for the different methods above:</p>
 
-Functions that wrap these sets of APIs will be prefixed by `sll` for Sunlight Labs, `nyt` for New York Times, and `cg`, `ts`, `os`, `rt`, and `cw` for the different methods above:
+<p><ol>
+<li>Sunlight Labs Congress API (cg)</li>
+<li>Sunlight Labs Transparency API (ts)</li>
+<li>Sunlight Labs Open States API (os)</li>
+<li>Sunlight Labs Real Time Congress API (rt) </li>
+<li>Sunlight Labs Capitol Words API (cw)</li>
+<li>New York Times Congress API (cg)</li>
+</ol></p>
 
- * `sll` + `cg` + `fxn` 
- * `sll` + `ts` + `fxn` 
- * `sll` + `os` + `fxn` 
- * `sll` + `rt` + `fxn` 
- * `sll` + `cw` + `fxn`
- * `nyt` + `cg` + `fxn`
+<p><ol>
+<li>sll` + cg + fxn</li>
+<li>sll` + ts + fxn</li>
+<li>sll` + os + fxn</li> 
+<li>sll` + rt + fxn</li>
+<li>sll` + cw + fxn</li>
+<li>nyt` + cg + fxn</li>
+</ol></p>
 
-where `fxn` would be a wrapper function to a specific API method.  Other functions will be written to search across multiple API providers, and will not follow this format. 
+<p>where fxn would be a wrapper function to a specific API method.  Other functions will be written to search across multiple API providers, and will not follow this format. </p>
 
-Please get your own API keys if you plant to use these functions for Sunlight Labs (http://services.sunlightlabs.com/) and New York Times (http://developer.nytimes.com/apps/register).
+<p>Please get your own API keys if you plant to use these functions for <a href="http://services.sunlightlabs.com/">Sunlight Labs</a> and <a href="http://developer.nytimes.com/apps/register">New York Times</a>. </p>
 
-I set up the functions so that you can put the key in your .Rprofile file, which will be called on startup of R, and then you don't have to enter your API key for each run of a function. 
+<p>I set up the functions so that you can put the key in your .Rprofile file, which will be called on startup of R, and then you don't have to enter your API key for each run of a function. </p>
 
-This is a work in progress, so please fork and add to, suggest changes, etc. </p>
+<p>This is a work in progress, so please fork and add to, suggest changes, etc. </p>
 
     
       <h2>License</h2>
