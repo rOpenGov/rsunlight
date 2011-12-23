@@ -81,14 +81,27 @@ require(govdat)
       
       
     <h2>Example</h2>
-    <p>
-      <pre lang="R"><code>
-The sll_cw_dates function (sll=Sunlight Labs, cw=capitol words project, dates=AIP method) returns a data frame with number of matching phrases that our representatives said by year, from the starting date (2001) to the end date (2009) - Bush's presidency basically. 
 
-sll_cw_dates(phrase='I would have voted', start_date='2001-01-20',
+<p>The sll_cw_dates function (sll=Sunlight Labs, cw=capitol words project, dates=AIP method) returns a data frame with number of matching phrases that our representatives said by year, from the starting date (2001) to the end date (2009) - Bush's presidency basically. </p>
+
+<p>sll_cw_dates(phrase='I would have voted', start_date='2001-01-20',
    end_date='2009-01-20', granularity='year', party='D', percentages=TRUE,
-   printdf=TRUE)
-   
+   printdf=TRUE)</p
+
+<table border="1">
+<tr>
+<th>count</th>
+<th>yearmonth</th>
+</tr>
+<tr>
+<td>344</td>
+<td>2001</td>
+</tr>
+<tr>
+<td>426, 2002</td>
+<td>723, 2003</td>
+</tr>
+</table>
  count yearmonth
 1   344      2001
 2   426      2002
@@ -101,7 +114,7 @@ sll_cw_dates(phrase='I would have voted', start_date='2001-01-20',
 9    24      2009
 
 Sweet!!!
-      </code></pre></p>
+</p>
 
     <h2>Readme, copied from the GitHub repo</h2>
 <p>
@@ -147,7 +160,7 @@ govdat is a collection of functions to search and acquire data from various APIs
 
     
       <h2>License</h2>
-      <p>BSC</p>
+      <p>BSD</p>
     
 
     
