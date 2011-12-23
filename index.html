@@ -8,7 +8,7 @@
   <style type="text/css">
     body {
       margin-top: 1.0em;
-      background-color: #9741d6;
+      background-color: #d3d678;
       font-family: Helvetica, Arial, FreeSans, san-serif;
       color: #000000;
     }
@@ -49,27 +49,36 @@
       Interface to APIs for data on what our elected representatives are up to.
     </div>
 
-    
-      <p>govdat is an interface to the Sunlight Labs APIs and the New York Times Congress API.  </p>
+    <h2>Why use govdat?</h2>
+      <p>govdat is an interface to the Sunlight Labs APIs and the New York Times Congress API.  govdat is built in the R language, so that you can easily keep track of what congress is saying and voting on, etc., while leveraging R's extensive statistical and graphical capabilities. </p>
     
 
     
       <h2>Dependencies</h2>
       <p>RJSONIO,
+
 RCurl (>= 1.6),
+
 XML,
+
 stringr,
+
 plyr</p>
     
-
     
-      <h2>Install</h2>
-      <p>install.packages("devtools")
+  <h2>Install</h2>
+      <p>
+      <pre lang="R"><code>
+
+install.packages("devtools")
+
 require(devtools)
-install_github("govdat", "SChamberlain")
-require(govdat)</p>
-    
 
+install_github("govdat", "SChamberlain")
+
+require(govdat)
+      </code></pre></p>
+      
     
       <h2>License</h2>
       <p>BSC</p>
@@ -77,12 +86,14 @@ require(govdat)</p>
 
     
       <h2>Authors</h2>
-      <p>Scott Chamberlain (myrmecocystus@gmail.com)<br/>      </p>
+      <p>Scott Chamberlain (myrmecocystus@gmail.com)
+<br/>      </p>
     
 
     
       <h2>Contact</h2>
-      <p>Scott Chamberlain (myrmecocystus@gmail.com)<br/>      </p>
+      <p>Scott Chamberlain (myrmecocystus@gmail.com)
+<br/>      </p>
     
 
     <h2>Download</h2>
@@ -101,6 +112,18 @@ require(govdat)</p>
     </div>
 
   </div>
-
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '4ef4a28bf5a1f53cd3000001');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
 </body>
 </html>
