@@ -1,8 +1,8 @@
 Package: govdat
 Description: Interface to various APIs for government data.
 Title: Interface to API methods for government data.
-Version: 0.0-1
-Date: 12-18-11
+Version: 0.1
+Date: 2-21-12
 License: BSD
 Author: Scott Chamberlain
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>
