@@ -30,7 +30,7 @@ Data from the New York Times API is provided by The New York Times.
 
 Data from the Sunlight Foundation API is provided by Sunlight Foundation.
 
-<a border="0" href="http://services.sunlightlabs.com/" ><img src="http://blogs.loc.gov/digitalpreservation/files/2011/06/SunlightFoundation.jpg" alt="NYT API" /></a>
+<a border="0" href="http://services.sunlightlabs.com/" ><img src="http://www.altweeklies.com/imager/b/main/5866471/f291/SunlightFoundationLogo_500wide.gif" alt="NYT API" /></a>
 
 I set up the functions so that you can put the key in your .Rprofile file, which will be called on startup of R, and then you don't have to enter your API key for each run of a function. For example, put this in your .Rprofile file:
 
