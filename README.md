@@ -28,6 +28,14 @@ Data from the New York Times API is provided by The New York Times.
 
 <a border="0" href="http://developer.nytimes.com" ><img src="http://graphics8.nytimes.com/packages/images/developer/logos/poweredby_nytimes_200b.png" alt="NYT API" /></a>
 
-I set up the functions so that you can put the key in your .Rprofile file, which will be called on startup of R, and then you don't have to enter your API key for each run of a function. 
+Data from the Sunlight Foundation API is provided by Sunlight Foundation.
+
+<a border="0" href="http://services.sunlightlabs.com/" ><img src="http://blogs.loc.gov/digitalpreservation/files/2011/06/SunlightFoundation.jpg" alt="NYT API" /></a>
+
+I set up the functions so that you can put the key in your .Rprofile file, which will be called on startup of R, and then you don't have to enter your API key for each run of a function. For example, put this in your .Rprofile file:
+
+	# key for API access to the Sunlight Labs API methods
+	options(SunlightLabsKey = "YOURKEYHERE")
+
 
 This is a work in progress, so please fork and add to, suggest changes, etc. 
