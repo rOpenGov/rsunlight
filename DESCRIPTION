@@ -45,3 +45,4 @@ Collate:
     'nyt_cg_rollcallvote.R'
     'sll_cw_dates.R'
     'sll_cw_text.R'
+    'sll_ts_sectors.R'
