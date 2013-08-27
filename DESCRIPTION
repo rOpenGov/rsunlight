@@ -46,3 +46,4 @@ Collate:
     'sll_cw_dates.R'
     'sll_cw_text.R'
     'sll_ts_sectors.R'
+    'sll_cw_timeseries.R'
