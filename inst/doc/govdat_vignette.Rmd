@@ -19,7 +19,6 @@ The following are examples of using the Sunlight Labs API. I will add examples o
 
 ```{r keys, eval=TRUE, echo=FALSE}
 sunlightkey <- "29d9d0c2fed443bfad9ed223f1f64d8d"
-nytkey <- "9c0e4ecb990447ec4dea8069eba64c3b:0:68051422"
 ```
 
 
@@ -38,6 +37,10 @@ install_github("govdat", "schamberlain")
 ```{r load, comment=NA, warning=FALSE, message=FALSE}
 library(govdat)
 ```
+
+********************
+
+### SunlightLabs Data
 
 ********************
 
