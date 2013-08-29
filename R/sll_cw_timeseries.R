@@ -1,7 +1,8 @@
 #' Find the popularity of a phrase over a period of time.
 #'    
-#' @import RJSONIO httr
-#' @importFrom plyr compact
+#' @import httr
+#' @importFrom plyr compact rbind.fill
+#' @importFrom stringr str_sub
 #' @template cw
 #' @return A data.frame with number of times (and percentages of the text result, 
 #' if selected).
@@ -61,5 +62,5 @@ sll_cw_timeseries <- function(phrase=NULL, start_date=NULL, end_date=NULL,
   if(granularity=='day'){ data$day <- as.Date(data$day) } else
     if(granularity=='month'){ data$month <- as.Date(sprintf("%s-01", sapply(data$month, splitt))) } else
       if(granularity=='year'){ data$year <- as.Date(sprintf("%s-01-01", data$year)) }
-  return( data )
+  data
 }

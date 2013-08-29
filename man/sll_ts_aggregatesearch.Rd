@@ -3,27 +3,20 @@
 \title{Search for entities - that is, politicians, individuals, or organizations--
    with the given name.}
 \usage{
-  sll_ts_aggregatesearch(search = NA,
-    url = "http://transparencydata.com/api/1.0/entities.json",
+  sll_ts_aggregatesearch(search = NULL,
     key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-    ..., curl = getCurlHandle())
+    callopts = list())
 }
 \arguments{
-  \item{search}{The query string. Spaces should be
-  URL-encoded or represented as +. There are no logic
-  operators or grouping.}
-
-  \item{url}{the Sunlight Labs API url for the function}
-
   \item{key}{your SunlightLabs API key; loads from
   .Rprofile}
 
-  \item{...}{optional additional curl options (debugging
-  tools mostly)}
+  \item{callopts}{Optional additional curl options
+  (debugging tools mostly)}
 
-  \item{curl}{If using in a loop, call getCurlHandle()
-  first and pass the returned value in here (avoids
-  unnecessary footprint)}
+  \item{search}{The query string. Spaces should be
+  URL-encoded or represented as +. There are no logic
+  operators or grouping.}
 }
 \value{
   Basic information about the the contributions to and from

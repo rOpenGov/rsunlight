@@ -2,14 +2,19 @@
 \alias{sll_os_legislatorsearch}
 \title{Search Legislators on OpenStates.}
 \usage{
-  sll_os_legislatorsearch(state = NA, firstname = NA,
-    lastname = NA, chamber = NA, active = NA, term = NA,
-    district = NA, party = NA,
-    url = "http://openstates.org/api/v1/legislators/",
+  sll_os_legislatorsearch(state = NULL, firstname = NULL,
+    lastname = NULL, chamber = NULL, active = NULL,
+    term = NULL, district = NULL, party = NULL,
     key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-    ..., curl = getCurlHandle())
+    callopts = list())
 }
 \arguments{
+  \item{key}{your SunlightLabs API key; loads from
+  .Rprofile}
+
+  \item{callopts}{Optional additional curl options
+  (debugging tools mostly)}
+
   \item{state}{state two-letter abbreviation (character)}
 
   \item{firstname}{first name of legislator (character)}
@@ -26,19 +31,6 @@
   \item{district}{legislative district (character)}
 
   \item{party}{democratic or republican (character)}
-
-  \item{url}{the PLoS API url for the function (should be
-  left to default)}
-
-  \item{key}{your SunlightLabs API key; loads from
-  .Rprofile}
-
-  \item{...}{optional additional curl options (debugging
-  tools mostly)}
-
-  \item{curl}{If using in a loop, call getCurlHandle()
-  first and pass the returned value in here (avoids
-  unnecessary footprint)}
 }
 \value{
   List of output fields.

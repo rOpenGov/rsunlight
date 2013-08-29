@@ -2,18 +2,17 @@
 \alias{sll_os_statemetasearch}
 \title{Search OpenStates metadata.}
 \usage{
-  sll_os_statemetasearch(state,
-    url = "http://openstates.org/api/v1/metadata/",
+  sll_os_statemetasearch(state = NULL,
     key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")))
 }
 \arguments{
-  \item{state}{state two-letter abbreviation (character)}
-
-  \item{url}{the PLoS API url for the function (should be
-  left to default)}
-
   \item{key}{your SunlightLabs API key; loads from
   .Rprofile}
+
+  \item{callopts}{Optional additional curl options
+  (debugging tools mostly)}
+
+  \item{state}{state two-letter abbreviation (character)}
 }
 \value{
   List of output fields.

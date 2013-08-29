@@ -1,5 +1,8 @@
 #' Search OpenStates bills.
-#' @import RJSONIO RCurl
+#' 
+#' @import httr
+#' @importFrom plyr compact
+#' @template cg
 #' @param terms search terms bill search (character)
 #' @param state state two-letter abbreviation (character)
 #' @param window a string representing what time period to search across. 
@@ -17,41 +20,20 @@
 #' @param subject filter by bills that are about a given subject. If multiple 
 #'    subject parameters are supplied then only bills that match all of 
 #'    them will be returned. See list of subjects
-#' @param url the PLoS API url for the function (should be left to default)
-#' @param key your SunlightLabs API key; loads from .Rprofile
-#' @param ... optional additional curl options (debugging tools mostly)
-#' @param curl If using in a loop, call getCurlHandle() first and pass 
-#'  the returned value in here (avoids unnecessary footprint)
 #' @return List of output fields.
 #' @export
 #' @examples \dontrun{
 #' sll_os_billsearch(terms = 'agriculture', state = 'tx')
 #' sll_os_billsearch(terms = 'agriculture', state = 'tx', chamber = 'upper')
 #' }
-sll_os_billsearch <- 
-
-function(terms, state = NA, window = NA, chamber = 'upper', sponsor_id = NA,
-    updated_since = NA, subject = NA, url = "http://openstates.org/api/v1/bills/",
-    key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-    ...,
-    curl = getCurlHandle() ) 
+sll_os_billsearch <- function(terms = NULL, state = NULL, window = NULL, 
+    chamber = 'upper', sponsor_id = NULL,updated_since = NULL, subject = NULL,
+    key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
+    callopts = list())
 {
-  args <- list(apikey = key)
-  if(!is.na(terms))
-    args$q <- terms
-  if(!is.na(state))
-    args$state <- state
-  if(!is.na(chamber))
-    args$chamber <- chamber
-  if(!is.na(window))
-    args$search_window <- window
-  if(!is.na(sponsor_id))
-    args$sponsor_id <- sponsor_id
-  if(!is.na(updated_since))
-    args$updated_since <- updated_since
-  tt <- getForm(url, 
-    .params = args, 
-     ..., 
-    curl = curl)
-  fromJSON(tt)
+  url = "http://openstates.org/api/v1/bills/"
+  args <- compact(list(apikey = key, q = terms, state = state, window = window, 
+                       chamber = chamber, sponsor_id = sponsor_id, 
+                       updated_since = updated_since, subject = subject))
+  content(GET(url, query=args, callopts))
 }

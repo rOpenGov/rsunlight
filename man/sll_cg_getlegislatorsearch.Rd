@@ -2,13 +2,18 @@
 \alias{sll_cg_getlegislatorsearch}
 \title{Search congress people and senate members.}
 \usage{
-  sll_cg_getlegislatorsearch(name = NA, threshold = NA,
-    all_legislators = NA,
-    url = "http://services.sunlightlabs.com/api/legislators.search.json",
+  sll_cg_getlegislatorsearch(name = NULL, threshold = NULL,
+    all_legislators = NULL,
     key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-    ..., curl = getCurlHandle())
+    callopts = list())
 }
 \arguments{
+  \item{key}{your SunlightLabs API key; loads from
+  .Rprofile}
+
+  \item{callopts}{Optional additional curl options
+  (debugging tools mostly)}
+
   \item{name}{name to search for}
 
   \item{threshold}{optional threshold parameter specifying
@@ -18,19 +23,6 @@
   \item{all_legislators}{optional parameter to search all
   legislators in API, not just those currently in office
   (false by default)}
-
-  \item{url}{the PLoS API url for the function (should be
-  left to default)}
-
-  \item{key}{your SunlightLabs API key; loads from
-  .Rprofile}
-
-  \item{...}{optional additional curl options (debugging
-  tools mostly)}
-
-  \item{curl}{If using in a loop, call getCurlHandle()
-  first and pass the returned value in here (avoids
-  unnecessary footprint)}
 }
 \value{
   List of output fields.

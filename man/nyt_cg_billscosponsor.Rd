@@ -1,14 +1,19 @@
 \name{nyt_cg_billscosponsor}
 \alias{nyt_cg_billscosponsor}
-\title{Get a list of members who have left the Senate or House or have announced plans to do so.}
+\title{Get a list of members who have left the Senate or House or have announced
+plans to do so.}
 \usage{
-  nyt_cg_billscosponsor(memberid = NA, type = NA,
-    responseformat = "json",
-    url = "http://api.nytimes.com/svc/politics/v3/us/legislative/congress/members/",
+  nyt_cg_billscosponsor(memberid = NULL, type = NULL,
     key = getOption("NYTCongressKey", stop("need an API key for the NYT Congress API")),
-    ..., curl = getCurlHandle())
+    callopts = list())
 }
 \arguments{
+  \item{key}{your SunlightLabs API key; loads from
+  .Rprofile}
+
+  \item{callopts}{Optional additional curl options
+  (debugging tools mostly)}
+
   \item{memberid}{The member's unique ID number
   (alphanumeric). To find a member's ID number, get the
   list of members for the appropriate House or Senate. You
@@ -22,21 +27,6 @@
   \item{type}{One of 'cosponsored' (the 20 bills most
   recently cosponsored by member-id) or 'withdrawn' (the 20
   most recently withdrawn cosponsorships for member-id).}
-
-  \item{responseformat}{'xml' or 'json'.}
-
-  \item{url}{the NYT API url for the function (should be
-  left to default).}
-
-  \item{key}{your NYT Congress API key; loads from
-  .Rprofile}
-
-  \item{...}{optional additional curl options (debugging
-  tools mostly)}
-
-  \item{curl}{If using in a loop, call getCurlHandle()
-  first and pass the returned value in here (avoids
-  unnecessary footprint)}
 }
 \value{
   List of new members of he current Congress.
@@ -47,7 +37,7 @@
 }
 \examples{
 \dontrun{
-nyt_cg_billscosponsor('S001181', 'cosponsored')
+nyt_cg_billscosponsor(memberid='S001181', type='cosponsored')
 }
 }
 

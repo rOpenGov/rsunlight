@@ -1,7 +1,7 @@
 \name{sll_cw_text}
 \alias{sll_cw_text}
-\title{Capitol words text.json method. Search the congressional record for
-instances of a word or phrase.}
+\title{Capitol words text.json method. Search the congressional record for instances
+of a word or phrase.}
 \usage{
   sll_cw_text(phrase = NULL, title = NULL,
     start_date = NULL, end_date = NULL, chamber = NULL,
@@ -76,9 +76,9 @@ instances of a word or phrase.}
 \examples{
 \dontrun{
 sll_cw_text(phrase='climate change', start_date='2012-09-16', end_date='2012-09-20')
-sll_cw_text(phrase='I would have voted', startdate='2011-09-05', enddate='2011-09-16', party='D')
-sll_cw_text(phrase='I would have voted', startdate='2011-09-05', enddate='2011-09-16', chamber='House')
-sll_cw_text(title='personal explanation', startdate='2011-09-05', enddate='2011-09-16')
+sll_cw_text(phrase='I would have voted', start_date='2011-09-05', end_date='2011-09-16', party='D')
+sll_cw_text(phrase='I would have voted', start_date='2011-09-05', end_date='2011-09-16', chamber='House')
+sll_cw_text(title='personal explanation', start_date='2011-09-05', end_date='2011-09-16')
 
 out <- sll_cw_text(phrase='climate change', start_date='2010-01-01', end_date='2012-12-01')
 out2 <- ldply(2:13, function(x) sll_cw_text(phrase='climate change', start_date='2010-01-01', end_date='2012-12-01', page=x))

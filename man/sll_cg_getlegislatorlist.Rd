@@ -2,21 +2,27 @@
 \alias{sll_cg_getlegislatorlist}
 \title{Search OpenStates bills.}
 \usage{
-  sll_cg_getlegislatorlist(title = NA, firstname = NA,
-    middlename = NA, lastname = NA, name_suffix = NA,
-    nickname = NA, party = NA, state = NA, district = NA,
-    in_office = NA, gender = NA, phone = NA, fax = NA,
-    website = NA, webform = NA, email = NA,
-    congress_office = NA, bioguide_id = NA,
-    votesmart_id = NA, fec_id = NA, govtrack_id = NA,
-    crp_id = NA, congresspedia_url = NA, twitter_id = NA,
-    youtube_url = NA, facebook_id = NA, senate_class = NA,
-    birthdate = NA,
-    url = "http://services.sunlightlabs.com/api/legislators.getList.json",
+  sll_cg_getlegislatorlist(title = NULL, firstname = NULL,
+    middlename = NULL, lastname = NULL, name_suffix = NULL,
+    nickname = NULL, party = NULL, state = NULL,
+    district = NULL, in_office = NULL, gender = NULL,
+    phone = NULL, fax = NULL, website = NULL,
+    webform = NULL, email = NULL, congress_office = NULL,
+    bioguide_id = NULL, votesmart_id = NULL, fec_id = NULL,
+    govtrack_id = NULL, crp_id = NULL,
+    congresspedia_url = NULL, twitter_id = NULL,
+    youtube_url = NULL, facebook_id = NULL,
+    senate_class = NULL, birthdate = NULL,
     key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-    ..., curl = getCurlHandle())
+    callopts = list())
 }
 \arguments{
+  \item{key}{your SunlightLabs API key; loads from
+  .Rprofile}
+
+  \item{callopts}{Optional additional curl options
+  (debugging tools mostly)}
+
   \item{title}{Title held by this legislator, either Sen or
   Rep}
 
@@ -59,30 +65,30 @@
   Address}
 
   \item{bioguide_id}{Legislator ID assigned by
-  [http://bioguide.congress.gov/biosearch/biosearch.asp
-  Congressional Biographical Directory] (also used by
+  http://bioguide.congress.gov/biosearch/biosearch.asp
+  Congressional Biographical Directory (also used by
   Washington Post/NY Times)}
 
   \item{votesmart_id}{Legislator ID assigned by
-  [http://votesmart.org Project Vote Smart]}
+  http://votesmart.org Project Vote Smart}
 
-  \item{fec_id}{[http://fec.gov Federal Election
-  Commission] ID}
+  \item{fec_id}{http://fec.gov Federal Election Commission
+  ID}
 
-  \item{govtrack_id}{ID assigned by [http://govtrack.us
-  Govtrack.us]}
+  \item{govtrack_id}{ID assigned by http://govtrack.us
+  Govtrack.us}
 
-  \item{crp_id}{ID provided by [http://opensecrets.org
-  Center for Responsive Politics]}
+  \item{crp_id}{ID provided by http://opensecrets.org
+  Center for Responsive Politics}
 
   \item{congresspedia_url}{URL of Legislator's entry on
-  [http://congresspedia.org Congresspedia]}
+  http://congresspedia.org Congresspedia}
 
   \item{twitter_id}{Congressperson's official
-  [http://twitter.com Twitter] account}
+  http://twitter.com Twitter account}
 
   \item{youtube_url}{Congressperson's official
-  [http://youtube.com Youtube] account}
+  http://youtube.com Youtube account}
 
   \item{facebook_id}{Facebook ID, if the legislator has a
   username then http://facebook.com/facebook_id will work,
@@ -95,25 +101,26 @@
   on the Senator's election term}
 
   \item{birthdate}{YYYY-MM-DD formatted birth date}
-
-  \item{url}{the PLoS API url for the function (should be
-  left to default)}
-
-  \item{key}{your SunlightLabs API key; loads from
-  .Rprofile}
-
-  \item{...}{optional additional curl options (debugging
-  tools mostly)}
-
-  \item{curl}{If using in a loop, call getCurlHandle()
-  first and pass the returned value in here (avoids
-  unnecessary footprint)}
 }
 \value{
   List of output fields.
 }
 \description{
   Search OpenStates bills.
+}
+\details{
+  Currently the Sunlight Labs API provides two methods for
+  obtaining information about legislators:
+  sll_cg_getlegislator and sll_cg_getlegislatorlist. Both
+  of these methods operate in essentially the same way, the
+  main difference being that sll_cg_getlegislator returns a
+  single legislator (or an error if the query would have
+  resulted in multiple legislators) and
+  sll_cg_getlegislatorlist returns a list of legislators (a
+  list of size one is allowed). In other words,
+  sll_cg_getlegislator is purely a convenience method to
+  avoid dealing with a list of values when only one value
+  is needed.
 }
 \examples{
 \dontrun{

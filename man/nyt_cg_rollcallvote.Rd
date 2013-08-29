@@ -2,14 +2,18 @@
 \alias{nyt_cg_rollcallvote}
 \title{Get a specific roll-call vote, including a complete list of member positions.}
 \usage{
-  nyt_cg_rollcallvote(congress_no = NA, chamber = NA,
-    session_no = NA, rollcall_no = NA,
-    responseformat = "json",
-    url = "http://api.nytimes.com/svc/politics/v3/us/legislative/congress/",
+  nyt_cg_rollcallvote(congress_no = NULL, chamber = NULL,
+    session_no = NULL, rollcall_no = NULL,
     key = getOption("NYTCongressKey", stop("need an API key for the NYT Congress API")),
-    ..., curl = getCurlHandle())
+    callopts = list())
 }
 \arguments{
+  \item{key}{your SunlightLabs API key; loads from
+  .Rprofile}
+
+  \item{callopts}{Optional additional curl options
+  (debugging tools mostly)}
+
   \item{congress_no}{The number of the Congress during
   which the members served.}
 
@@ -24,21 +28,6 @@
   (http://www.senate.gov/pagelayout/legislative/a_three_sections_with_teasers/votes.htm),
   and US House
   (http://artandhistory.house.gov/house_history/index.aspx).}
-
-  \item{responseformat}{'xml' or 'json'.}
-
-  \item{url}{the NYT API url for the function (should be
-  left to default).}
-
-  \item{key}{your NYT Congress API key; loads from
-  .Rprofile}
-
-  \item{...}{optional additional curl options (debugging
-  tools mostly)}
-
-  \item{curl}{If using in a loop, call getCurlHandle()
-  first and pass the returned value in here (avoids
-  unnecessary footprint)}
 }
 \value{
   Get a specific roll-call vote, including a complete list

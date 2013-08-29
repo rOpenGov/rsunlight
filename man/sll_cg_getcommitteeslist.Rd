@@ -2,26 +2,18 @@
 \alias{sll_cg_getcommitteeslist}
 \title{Get list of all committees for a given chamber along with their subcommittees.}
 \usage{
-  sll_cg_getcommitteeslist(chamber = NA,
-    url = "http://services.sunlightlabs.com/api/committees.getList.json",
+  sll_cg_getcommitteeslist(chamber = NULL,
     key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-    ..., curl = getCurlHandle())
+    callopts = list())
 }
 \arguments{
   \item{chamber}{House, Senate, or Joint}
 
-  \item{url}{the PLoS API url for the function (should be
-  left to default)}
-
   \item{key}{your SunlightLabs API key; loads from
   .Rprofile}
 
-  \item{...}{optional additional curl options (debugging
-  tools mostly)}
-
-  \item{curl}{If using in a loop, call getCurlHandle()
-  first and pass the returned value in here (avoids
-  unnecessary footprint)}
+  \item{callopts}{Optional additional curl options
+  (debugging tools mostly)}
 }
 \value{
   List of all committees in the specified chamber with

@@ -2,28 +2,21 @@
 \alias{sll_cg_getdistrictlatlong}
 \title{Get districts for a latitude/longitude.}
 \usage{
-  sll_cg_getdistrictlatlong(latitude = NA, longitude = NA,
-    url = "http://services.sunlightlabs.com/api/districts.getDistrictFromLatLong.json",
+  sll_cg_getdistrictlatlong(latitude = NULL,
+    longitude = NULL,
     key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-    ..., curl = getCurlHandle())
+    callopts = list())
 }
 \arguments{
-  \item{latitude}{latitude of coordinate}
-
-  \item{longitude}{longitude of coordinate}
-
-  \item{url}{the PLoS API url for the function (should be
-  left to default)}
-
   \item{key}{your SunlightLabs API key; loads from
   .Rprofile}
 
-  \item{...}{optional additional curl options (debugging
-  tools mostly)}
+  \item{callopts}{Optional additional curl options
+  (debugging tools mostly)}
 
-  \item{curl}{If using in a loop, call getCurlHandle()
-  first and pass the returned value in here (avoids
-  unnecessary footprint)}
+  \item{latitude}{latitude of coordinate}
+
+  \item{longitude}{longitude of coordinate}
 }
 \value{
   List of output fields.

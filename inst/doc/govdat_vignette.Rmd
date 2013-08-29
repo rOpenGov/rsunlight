@@ -1,0 +1,171 @@
+<!--
+%\VignetteEngine{knitr}
+%\VignetteIndexEntry{An R Markdown Vignette made with knitr}
+-->
+
+govdat vignette - Interface to various APIs for government data.
+======
+
+### About the package
+
+`govdat` is an R package to search and retrieve data from two sets of APIs, the Sunlight Labs APIs, andn the New York Times congress API. 
+
+
+Returned objects from functions are simple lists. That is, you likely will want to take output objects and make data.frames, vectors, matrices, etc. In future versions of govdat, I will return data.frame's when possible as those are easy to work with in R for beginners, though advanced users probably like lists more (I'm guessing, or just the raw JSON, eh)?
+
+The following are examples of using the Sunlight Labs API. I will add examples of using the New York Times Congress API once their site is up again; I'm doing this on 2013-08-28, just after the takedown of their site due to hackers.
+
+********************
+
+```{r keys, eval=TRUE, echo=FALSE}
+sunlightkey <- "29d9d0c2fed443bfad9ed223f1f64d8d"
+nytkey <- "9c0e4ecb990447ec4dea8069eba64c3b:0:68051422"
+```
+
+
+#### Install govdat
+
+```{r install, eval=FALSE, echo=TRUE}
+install.packages("devtools")
+library(devtools)
+install_github("govdat", "schamberlain")
+```
+
+********************
+
+#### Load govdat and other dependency libraries
+
+```{r load, comment=NA, warning=FALSE, message=FALSE}
+library(govdat)
+```
+
+********************
+
+#### Gets details (subcommittees + membership) for a committee by id.
+
+```{r sll_cg_getcommittees, comment=NA, warning=FALSE, message=FALSE}
+library(govdat)
+key <- getOption("SunlightLabsKey")
+out <- sll_cg_getcommittees(id = 'JSPR', key=sunlightkey)
+out$response$committee$members[[1]]$legislator[1:5]
+```
+
+********************
+
+#### Gets a list of all committees that a member serves on, including subcommittes.
+
+```{r sll_cg_getcommitteesallleg, comment=NA, warning=FALSE}
+out <- sll_cg_getcommitteesallleg(bioguide_id = 'S000148', key=sunlightkey)
+out$response$committees[[1]]
+```
+
+********************
+
+#### Get districts for a latitude/longitude.
+
+```{r sll_cg_getdistrictlatlong, comment=NA, warning=FALSE}
+out <- sll_cg_getdistrictlatlong(latitude = 35.778788, longitude = -78.787805, key=sunlightkey)
+out$response$districts
+```
+
+********************
+
+#### Get districts that overlap for a certain zip code.
+
+```{r sll_cg_getdistrictzip, comment=NA, warning=FALSE}
+out <- sll_cg_getdistrictzip(zip = 27511, key=sunlightkey)
+out$response$districts
+```
+
+********************
+
+#### Search congress people and senate members.
+
+```{r sll_cg_getlegislatorsearch, comment=NA, warning=FALSE}
+out <- sll_cg_getlegislatorsearch(name = 'Reed', key=sunlightkey)
+out$response$results[[1]]$result$legislator[1:5]
+```
+
+********************
+
+#### Search congress people and senate members for a zip code.
+
+```{r sll_cg_legislatorsallforzip, comment=NA, warning=FALSE}
+out <- sll_cg_legislatorsallforzip(zip = 77006, key=sunlightkey)
+library(plyr)
+ldply(out$response$legislators, function(x) data.frame(x$legislator[c('firstname','lastname')]))
+```
+
+********************
+
+#### Find the popularity of a phrase over a period of time.
+
+##### Get a list of how many times the phrase "united states" appears in the Congressional Record in each month between January and June, 2010:
+
+```{r sll_cw_timeseries1, comment=NA, warning=FALSE}
+sll_cw_timeseries(phrase='united states', start_date='2009-01-01', end_date='2009-04-30', granularity='month', key=sunlightkey)
+```
+
+##### Plot data
+
+```{r sll_cw_timeseries2, comment=NA, warning=FALSE}
+library(ggplot2)
+dat <- sll_cw_timeseries(phrase='climate change', key=sunlightkey)
+ggplot(dat, aes(day, count)) + 
+  geom_line() + 
+  theme_grey(base_size=20)
+```
+
+##### Plot more data
+
+```{r sll_cw_timeseries3, comment=NA, warning=FALSE}
+dat_d <- sll_cw_timeseries(phrase='climate change', party="D", key=sunlightkey)
+dat_d$party <- rep("D", nrow(dat_d))
+dat_r <- sll_cw_timeseries(phrase='climate change', party="R", key=sunlightkey)
+dat_r$party <- rep("R", nrow(dat_r))
+dat_both <- rbind(dat_d, dat_r)
+ggplot(dat_both, aes(day, count, colour=party)) + 
+  geom_line() + 
+  theme_grey(base_size=20) + 
+  scale_colour_manual(values=c("blue","red"))
+```
+
+********************
+
+#### Search OpenStates bills.
+
+```{r sll_os_billsearch, comment=NA, warning=FALSE}
+out <- sll_os_billsearch(terms = 'agriculture', state = 'tx', chamber = 'upper', key=sunlightkey)
+lapply(out, "[[", "title")[100:110]
+```
+
+********************
+
+#### Search Legislators on OpenStates. 
+
+```{r sll_os_legislatorsearch, comment=NA, warning=FALSE}
+out <- sll_os_legislatorsearch(state = 'tx', party = 'democratic', active = TRUE, key=sunlightkey)
+out[[1]][1:5]
+```
+
+********************
+
+#### Search for entities - that is, politicians, individuals, or organizations with the given name
+
+```{r sll_ts_aggregatesearch, comment=NA, warning=FALSE, message=FALSE}
+out <- sll_ts_aggregatesearch('Nancy Pelosi', key=sunlightkey)
+out <- lapply(out, function(x){
+    x[sapply(x, is.null)] <- "none"
+    x
+  })
+ldply(out, data.frame)
+```
+
+********************
+
+#### Return the top contributoring organizations, ranked by total dollars given. An organization's giving is broken down into money given directly (by the organization's PAC) versus money given by individuals employed by or associated with the organization.
+
+```{r sll_ts_aggregatetopcontribs, comment=NA, warning=FALSE}
+out <- sll_ts_aggregatetopcontribs(id = '85ab2e74589a414495d18cc7a9233981', key=sunlightkey)
+ldply(out, data.frame)
+```

@@ -1,17 +1,21 @@
 Package: govdat
-Description: Interface to various APIs for government data.
+Description: Interface to various APIs for government data, including Sunlight
+    Foundation, and the NYTimes Congress API.
 Title: Interface to API methods for government data.
-Version: 0.1
-Date: 2-21-12
-License: BSD
+Version: 0.1.5
+Date: 2013-08-28
+License: MIT
 Author: Scott Chamberlain
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>
+VignetteBuilder: knitr
 Imports:
     RJSONIO,
     RCurl (>= 1.6),
-    XML,
-    stringr,
-    plyr
+    httr,
+    plyr,
+    stringr
+Suggests:
+    knitr
 Collate:
     'sll_cg_getcommittees.R'
     'sll_cg_getcommitteesallleg.R'

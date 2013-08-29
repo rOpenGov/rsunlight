@@ -6,7 +6,7 @@
 
 Description
 ------------
-`govdat` is a collection of functions to search and acquire data from various APIs for government data, including the Sunlight Labs Project at http://services.sunlightlabs.com/, and the New York Times Congress API at http://developer.nytimes.com/docs/congress_api.  
+`govdat` is a collection of functions to search and acquire data from various APIs for government data, including the Sunlight Labs Project at http://services.sunlightlabs.com/, and the New York Times Congress API at http://developer.nytimes.com/docs/congress_api.
 
 `govdat` wraps functions in APIs for:
 

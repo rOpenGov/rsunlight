@@ -2,14 +2,19 @@
 \alias{sll_os_billsearch}
 \title{Search OpenStates bills.}
 \usage{
-  sll_os_billsearch(terms, state = NA, window = NA,
-    chamber = "upper", sponsor_id = NA, updated_since = NA,
-    subject = NA,
-    url = "http://openstates.org/api/v1/bills/",
+  sll_os_billsearch(terms = NULL, state = NULL,
+    window = NULL, chamber = "upper", sponsor_id = NULL,
+    updated_since = NULL, subject = NULL,
     key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-    ..., curl = getCurlHandle())
+    callopts = list())
 }
 \arguments{
+  \item{key}{your SunlightLabs API key; loads from
+  .Rprofile}
+
+  \item{callopts}{Optional additional curl options
+  (debugging tools mostly)}
+
   \item{terms}{search terms bill search (character)}
 
   \item{state}{state two-letter abbreviation (character)}
@@ -35,19 +40,6 @@
   subject. If multiple subject parameters are supplied then
   only bills that match all of them will be returned. See
   list of subjects}
-
-  \item{url}{the PLoS API url for the function (should be
-  left to default)}
-
-  \item{key}{your SunlightLabs API key; loads from
-  .Rprofile}
-
-  \item{...}{optional additional curl options (debugging
-  tools mostly)}
-
-  \item{curl}{If using in a loop, call getCurlHandle()
-  first and pass the returned value in here (avoids
-  unnecessary footprint)}
 }
 \value{
   List of output fields.
