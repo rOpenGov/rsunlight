@@ -1,0 +1,3203 @@
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdfetex 2013.5.23)  29 AUG 2013 10:21
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**\nonstopmode \input /Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignet
+te.txt
+(/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt
+Overfull \hbox (16.02263pt too wide) in paragraph at lines 1--7
+[]\tenrm <!DOCTYPE html> <!-- saved from url=(0014)about:internet --> <html> <h
+ead> <style type="text/css"></style>|
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm <
+.\tenrm !
+.\tenrm D
+.\tenrm O
+.etc.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:57: You can't u
+se `macro parameter character #' in horizontal mode.
+l.57    border: 1px solid #
+                           ccc;
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:66: You can't u
+se `macro parameter character #' in horizontal mode.
+l.66    background-color: #
+                           F8F8F8;
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:74: You can't u
+se `macro parameter character #' in horizontal mode.
+l.74    color:#
+               666666;
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:77: You can't u
+se `macro parameter character #' in horizontal mode.
+l.77    border-left: 0.5em #
+                            EEE solid;
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:85: You can't u
+se `macro parameter character #' in horizontal mode.
+l.85    border-top-color: #
+                           999999;
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:157: Misplaced 
+alignment tab character &.
+l.157 ...ions of govdat, I will return data.frame&
+                                                  #39;s when possible as tho...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:157: You can't 
+use `macro parameter character #' in horizontal mode.
+l.157 ...ons of govdat, I will return data.frame&#
+                                                  39;s when possible as thos...
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:157: Misplaced 
+alignment tab character &.
+l.157 ...vanced users probably like lists more (I&
+                                                  #39;m guessing, or just th...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:157: You can't 
+use `macro parameter character #' in horizontal mode.
+l.157 ...anced users probably like lists more (I&#
+                                                  39;m guessing, or just the...
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:159: Misplaced 
+alignment tab character &.
+l.159 ...gress API once their site is up again; I&
+                                                  #39;m doing this on 2013-0...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:159: You can't 
+use `macro parameter character #' in horizontal mode.
+l.159 ...ress API once their site is up again; I&#
+                                                  39;m doing this on 2013-08...
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:166: Misplaced 
+alignment tab character &.
+l.166 install.packages(&
+                        ldquo;devtools&rdquo;)
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:166: Misplaced 
+alignment tab character &.
+l.166 install.packages(&ldquo;devtools&
+                                       rdquo;)
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:168: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.168 install_
+              github(&ldquo;govdat&rdquo;, &ldquo;schamberlain&rdquo;)
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:168: Misplaced 
+alignment tab character &.
+l.168 install_github(&
+                      ldquo;govdat&rdquo;, &ldquo;schamberlain&rdquo;)
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:168: Misplaced 
+alignment tab character &.
+l.168 install_github(&ldquo;govdat&
+                                   rdquo;, &ldquo;schamberlain&rdquo;)
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:168: Misplaced 
+alignment tab character &.
+l.168 install_github(&ldquo;govdat&rdquo;, &
+                                            ldquo;schamberlain&rdquo;)
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:168: Misplaced 
+alignment tab character &.
+l.168 ...ldquo;govdat&rdquo;, &ldquo;schamberlain&
+                                                  rdquo;)
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:170: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.170 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:170: Missing } 
+inserted.
+<inserted text> 
+                }
+<to be read again> 
+                   $
+<to be read again> 
+                   \par 
+l.170 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (79.91257pt too wide) in paragraph at lines 165--170
+[]\tenrm <p>install.packages(ldquo;devtoolsrdquo;) li-brary(devtools) install$[
+]\teni ithub\tenrm (\teni ldquo\tenrm ; \teni govdatrdquo\tenrm ; \teni ; ldquo
+\tenrm ; \teni schamberlainrdquo\tenrm ; )[]$ |
+
+\hbox(7.5+2.86108)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm <
+.\tenrm p
+.\tenrm >
+.\tenrm i
+.etc.
+
+[1{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:189: Misplaced 
+alignment tab character &.
+l.189 key &
+           lt;- getOption(&ldquo;SunlightLabsKey&rdquo;)
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:189: Misplaced 
+alignment tab character &.
+l.189 key &lt;- getOption(&
+                           ldquo;SunlightLabsKey&rdquo;)
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:189: Misplaced 
+alignment tab character &.
+l.189 key &lt;- getOption(&ldquo;SunlightLabsKey&
+                                                 rdquo;)
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:190: Misplaced 
+alignment tab character &.
+l.190 out &
+           lt;- sll_cg_getcommittees(id = &ldquo;JSPR&rdquo;, key = sunlight...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:190: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.190 out &lt;- sll_
+                    cg_getcommittees(id = &ldquo;JSPR&rdquo;, key = sunlight...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:190: Misplaced 
+alignment tab character &.
+l.190 out &lt;- sll_cg_getcommittees(id = &
+                                           ldquo;JSPR&rdquo;, key = sunlight...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:190: Misplaced 
+alignment tab character &.
+l.190 ...;- sll_cg_getcommittees(id = &ldquo;JSPR&
+                                                  rdquo;, key = sunlightkey)
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:193: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.193 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:193: Missing } 
+inserted.
+<inserted text> 
+                }
+<to be read again> 
+                   $
+<to be read again> 
+                   \par 
+l.193 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:196: Misplaced 
+alignment tab character &.
+l.196 [1] &
+           ldquo;<a href="http://www.alexander.senate.gov">http://www.alexan...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:196: Misplaced 
+alignment tab character &.
+l.196 ...gov">http://www.alexander.senate.gov</a>&
+                                                  rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:197: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.197 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Overfull \hbox (29.63715pt too wide) in paragraph at lines 194--197
+[]\tenrm <p>$\teni website\tenrm [1]\teni ldquo\tenrm ; \teni < ahref \tenrm = 
+"\teni http \tenrm : \teni ==www:alexander:senate:gov\tenrm " \teni > http \ten
+rm : \teni ==www:alexander:senate:gov <|
+
+\hbox(7.5+2.5)x469.75499
+.\hbox(0.0+0.0)x20.0
+.\tenrm <
+.\tenrm p
+.\tenrm >
+.\mathon
+.etc.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:199: Misplaced 
+alignment tab character &.
+l.199 [1] &
+           ldquo;202-228-3398&rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:199: Misplaced 
+alignment tab character &.
+l.199 [1] &ldquo;202-228-3398&
+                              rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:200: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.200 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:202: Misplaced 
+alignment tab character &.
+l.202 [1] &
+           ldquo;300002&rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:202: Misplaced 
+alignment tab character &.
+l.202 [1] &ldquo;300002&
+                        rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:203: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.203 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:205: Misplaced 
+alignment tab character &.
+l.205 [1] &
+           ldquo;Lamar&rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:205: Misplaced 
+alignment tab character &.
+l.205 [1] &ldquo;Lamar&
+                       rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:206: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.206 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:208: Misplaced 
+alignment tab character &.
+l.208 [1] &
+           ldquo;senate&rdquo;
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:208: Misplaced 
+alignment tab character &.
+l.208 [1] &ldquo;senate&
+                        rdquo;
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:210: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.210 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:210: Missing } 
+inserted.
+<inserted text> 
+                }
+<to be read again> 
+                   $
+<to be read again> 
+                   \par 
+l.210 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:216: Misplaced 
+alignment tab character &.
+l.216 out &
+           lt;- sll_cg_getcommitteesallleg(bioguide_id = &ldquo;S000148&rdqu...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:216: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.216 out &lt;- sll_
+                    cg_getcommitteesallleg(bioguide_id = &ldquo;S000148&rdqu...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:216: Misplaced 
+alignment tab character &.
+l.216 ...ll_cg_getcommitteesallleg(bioguide_id = &
+                                                  ldquo;S000148&rdquo;, key ...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:216: Misplaced 
+alignment tab character &.
+l.216 ...tteesallleg(bioguide_id = &ldquo;S000148&
+                                                  rdquo;, key = sunlightkey)
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:219: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.219 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:219: Missing } 
+inserted.
+<inserted text> 
+                }
+<to be read again> 
+                   $
+<to be read again> 
+                   \par 
+l.219 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (68.37645pt too wide) in paragraph at lines 215--219
+[]\tenrm <p>out lt;- sll$[]\teni g[]etcommitteesallleg\tenrm (\teni bioguide[]d
+ \tenrm = \teni ldquo\tenrm ; \teni S\tenrm 000148\teni rdquo\tenrm ; \teni ; k
+ey \tenrm = \teni sunlightkey\tenrm )\teni out$\tenrm response$\teni committees
+\tenrm [[1]][]$ |
+
+\hbox(7.5+2.86108)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm <
+.\tenrm p
+.\tenrm >
+.\tenrm o
+.etc.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:223: Misplaced 
+alignment tab character &.
+l.223 [1] &
+           ldquo;Senate&rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:223: Misplaced 
+alignment tab character &.
+l.223 [1] &ldquo;Senate&
+                        rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:224: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.224 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:226: Misplaced 
+alignment tab character &.
+l.226 [1] &
+           ldquo;SSRA&rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:226: Misplaced 
+alignment tab character &.
+l.226 [1] &ldquo;SSRA&
+                      rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:229: Misplaced 
+alignment tab character &.
+l.229 [1] &
+           ldquo;Senate Committee on Rules and Administration&rdquo;
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:229: Misplaced 
+alignment tab character &.
+l.229 ...te Committee on Rules and Administration&
+                                                  rdquo;
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:237: Misplaced 
+alignment tab character &.
+l.237 out &
+           lt;- sll_cg_getdistrictlatlong(latitude = 35.778788, longitude = ...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:237: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.237 out &lt;- sll_
+                    cg_getdistrictlatlong(latitude = 35.778788, longitude = ...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:241: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.241 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:241: Missing } 
+inserted.
+<inserted text> 
+                }
+<to be read again> 
+                   $
+<to be read again> 
+                   \par 
+l.241 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (74.60286pt too wide) in paragraph at lines 236--241
+[]\tenrm <p>out lt;- sll$[]\teni g[]etdistrictlatlong\tenrm (\teni latitude \te
+nrm = 35\teni :\tenrm 778788\teni ; longitude \tenrm = \tensy ^^@\tenrm 78\teni
+ :\tenrm 787805\teni ; key \tenrm = \teni sunlightkey\tenrm )\teni out$\tenrm r
+esponse$\teni districts[]$ |
+
+\hbox(7.5+2.86108)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm <
+.\tenrm p
+.\tenrm >
+.\tenrm o
+.etc.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:246: Misplaced 
+alignment tab character &.
+l.246 [1] &
+           ldquo;NC&rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:246: Misplaced 
+alignment tab character &.
+l.246 [1] &ldquo;NC&
+                    rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:247: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.247 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:249: Misplaced 
+alignment tab character &.
+l.249 [1] &
+           ldquo;2&rdquo;
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:249: Misplaced 
+alignment tab character &.
+l.249 [1] &ldquo;2&
+                   rdquo;
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:257: Misplaced 
+alignment tab character &.
+l.257 out &
+           lt;- sll_cg_getdistrictzip(zip = 27511, key = sunlightkey)
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:257: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.257 out &lt;- sll_
+                    cg_getdistrictzip(zip = 27511, key = sunlightkey)
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:260: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.260 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:260: Missing } 
+inserted.
+<inserted text> 
+                }
+<to be read again> 
+                   $
+<to be read again> 
+                   \par 
+l.260 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:265: Misplaced 
+alignment tab character &.
+l.265 [1] &
+           ldquo;NC&rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:265: Misplaced 
+alignment tab character &.
+l.265 [1] &ldquo;NC&
+                    rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:266: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.266 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:268: Misplaced 
+alignment tab character &.
+l.268 [1] &
+           ldquo;2&rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:268: Misplaced 
+alignment tab character &.
+l.268 [1] &ldquo;2&
+                   rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:273: Misplaced 
+alignment tab character &.
+l.273 [1] &
+           ldquo;NC&rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:273: Misplaced 
+alignment tab character &.
+l.273 [1] &ldquo;NC&
+                    rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:274: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.274 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:276: Misplaced 
+alignment tab character &.
+l.276 [1] &
+           ldquo;4&rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:276: Misplaced 
+alignment tab character &.
+l.276 [1] &ldquo;4&
+                   rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:281: Misplaced 
+alignment tab character &.
+l.281 [1] &
+           ldquo;NC&rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:281: Misplaced 
+alignment tab character &.
+l.281 [1] &ldquo;NC&
+                    rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:282: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.282 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:284: Misplaced 
+alignment tab character &.
+l.284 [1] &
+           ldquo;13&rdquo;
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:284: Misplaced 
+alignment tab character &.
+l.284 [1] &ldquo;13&
+                    rdquo;
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:292: Misplaced 
+alignment tab character &.
+l.292 out &
+           lt;- sll_cg_getlegislatorsearch(name = &ldquo;Reed&rdquo;, key = ...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:292: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.292 out &lt;- sll_
+                    cg_getlegislatorsearch(name = &ldquo;Reed&rdquo;, key = ...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:292: Misplaced 
+alignment tab character &.
+l.292 ...&lt;- sll_cg_getlegislatorsearch(name = &
+                                                  ldquo;Reed&rdquo;, key = s...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:292: Misplaced 
+alignment tab character &.
+l.292 ...g_getlegislatorsearch(name = &ldquo;Reed&
+                                                  rdquo;, key = sunlightkey)
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:295: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.295 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:295: Missing } 
+inserted.
+<inserted text> 
+                }
+<to be read again> 
+                   $
+<to be read again> 
+                   \par 
+l.295 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (90.21591pt too wide) in paragraph at lines 291--295
+[]\tenrm <p>out lt;- sll$[]\teni g[]etlegislatorsearch\tenrm (\teni name \tenrm
+ = \teni ldquo\tenrm ; \teni Reedrdquo\tenrm ; \teni ; key \tenrm = \teni sunli
+ghtkey\tenrm )\teni out$\tenrm response$\teni results\tenrm [[1]]$result$\teni 
+legislator\tenrm [1 :|
+
+\hbox(7.5+2.86108)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm <
+.\tenrm p
+.\tenrm >
+.\tenrm o
+.etc.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:298: Misplaced 
+alignment tab character &.
+l.298 [1] &
+           ldquo;<a href="http://www.reed.senate.gov">http://www.reed.senate...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:298: Misplaced 
+alignment tab character &.
+l.298 ...nate.gov">http://www.reed.senate.gov</a>&
+                                                  rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:299: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.299 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:301: Misplaced 
+alignment tab character &.
+l.301 [1] &
+           ldquo;202-224-4680&rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:301: Misplaced 
+alignment tab character &.
+l.301 [1] &ldquo;202-224-4680&
+                              rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:302: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.302 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:304: Misplaced 
+alignment tab character &.
+l.304 [1] &
+           ldquo;300081&rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:304: Misplaced 
+alignment tab character &.
+l.304 [1] &ldquo;300081&
+                        rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:305: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.305 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:307: Misplaced 
+alignment tab character &.
+l.307 [1] &
+           ldquo;John&rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:307: Misplaced 
+alignment tab character &.
+l.307 [1] &ldquo;John&
+                      rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:308: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.308 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:310: Misplaced 
+alignment tab character &.
+l.310 [1] &
+           ldquo;senate&rdquo;
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:310: Misplaced 
+alignment tab character &.
+l.310 [1] &ldquo;senate&
+                        rdquo;
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:312: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.312 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:312: Missing } 
+inserted.
+<inserted text> 
+                }
+<to be read again> 
+                   $
+<to be read again> 
+                   \par 
+l.312 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:318: Misplaced 
+alignment tab character &.
+l.318 out &
+           lt;- sll_cg_legislatorsallforzip(zip = 77006, key = sunlightkey)
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:318: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.318 out &lt;- sll_
+                    cg_legislatorsallforzip(zip = 77006, key = sunlightkey)
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:320: Misplaced 
+alignment tab character &.
+l.320 ..., function(x) data.frame(x$legislator[c(&
+                                                  ldquo;firstname&rdquo;,
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:320: Misplaced 
+alignment tab character &.
+l.320 ...ta.frame(x$legislator[c(&ldquo;firstname&
+                                                  rdquo;,
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:321: Misplaced 
+alignment tab character &.
+l.321     &
+           ldquo;lastname&rdquo;)]))
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:321: Misplaced 
+alignment tab character &.
+l.321     &ldquo;lastname&
+                          rdquo;)]))
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+
+Overfull \hbox (297.20114pt too wide) in paragraph at lines 317--323
+[]\tenrm <p>out lt;- sll$[]\teni g[]egislatorsallforzip\tenrm (\teni zip \tenrm
+ = 77006\teni ; key \tenrm = \teni sunlightkey\tenrm )\teni library\tenrm (\ten
+i plyr\tenrm )\teni ldply\tenrm (\teni out$\tenrm response$\teni legislators; f
+unction\tenrm (\teni x\tenrm )\teni data:frame\tenrm (\teni x$\tenrm legislator
+[c(ldquo;firstnamerdquo;,|
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm <
+.\tenrm p
+.\tenrm >
+.\tenrm o
+.etc.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:336: Misplaced 
+alignment tab character &.
+l.336 ...Get a list of how many times the phrase &
+                                                  ldquo;united states&rdquo;...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:336: Misplaced 
+alignment tab character &.
+l.336 ...ny times the phrase &ldquo;united states&
+                                                  rdquo; appears in the Cong...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:339: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.339 sll_
+          cw_timeseries(phrase = &ldquo;united states&rdquo;, start_date = &...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:339: Misplaced 
+alignment tab character &.
+l.339 sll_cw_timeseries(phrase = &
+                                  ldquo;united states&rdquo;, start_date = &...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:339: Misplaced 
+alignment tab character &.
+l.339 ...timeseries(phrase = &ldquo;united states&
+                                                  rdquo;, start_date = &ldqu...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:339: Misplaced 
+alignment tab character &.
+l.339 ...dquo;united states&rdquo;, start_date = &
+                                                  ldquo;2009-01-01&rdquo;, e...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:339: Misplaced 
+alignment tab character &.
+l.339 ...s&rdquo;, start_date = &ldquo;2009-01-01&
+                                                  rdquo;, end_date = &ldquo;...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:339: Misplaced 
+alignment tab character &.
+l.339 ... = &ldquo;2009-01-01&rdquo;, end_date = &
+                                                  ldquo;2009-04-30&rdquo;,
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:339: Misplaced 
+alignment tab character &.
+l.339 ...-01&rdquo;, end_date = &ldquo;2009-04-30&
+                                                  rdquo;,
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:340: Misplaced 
+alignment tab character &.
+l.340     granularity = &
+                         ldquo;month&rdquo;, key = sunlightkey)
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:340: Misplaced 
+alignment tab character &.
+l.340     granularity = &ldquo;month&
+                                     rdquo;, key = sunlightkey)
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:342: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.342 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:342: Missing } 
+inserted.
+<inserted text> 
+                }
+<to be read again> 
+                   $
+<to be read again> 
+                   \par 
+l.342 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (12.70546pt too wide) in paragraph at lines 338--342
+[]\tenrm <p>sll$[]\teni w[]imeseries\tenrm (\teni phrase \tenrm = \teni ldquo\t
+enrm ; \teni unitedstatesrdquo\tenrm ; \teni ; start[]ate \tenrm = \teni ldquo\
+tenrm ; 2009 \tensy ^^@ \tenrm 01 \tensy ^^@ \tenrm 01\teni rdquo\tenrm ; \teni
+ ; end[]ate \tenrm =|
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm <
+.\tenrm p
+.\tenrm >
+.\tenrm s
+.etc.
+
+[2]
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:359: Misplaced 
+alignment tab character &.
+l.359 dat &
+           lt;- sll_cw_timeseries(phrase = &ldquo;climate change&rdquo;, key...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:359: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.359 dat &lt;- sll_
+                    cw_timeseries(phrase = &ldquo;climate change&rdquo;, key...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:359: Misplaced 
+alignment tab character &.
+l.359 dat &lt;- sll_cw_timeseries(phrase = &
+                                            ldquo;climate change&rdquo;, key...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:359: Misplaced 
+alignment tab character &.
+l.359 ...imeseries(phrase = &ldquo;climate change&
+                                                  rdquo;, key = sunlightkey)
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:361: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.361 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:361: Missing } 
+inserted.
+<inserted text> 
+                }
+<to be read again> 
+                   $
+<to be read again> 
+                   \par 
+l.361 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:367: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.367 ggplot(dat, aes(day, count)) + geom_
+                                          line() + theme_grey(base_size = 20)
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:369: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.369 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:369: Missing } 
+inserted.
+<inserted text> 
+                }
+<to be read again> 
+                   $
+<to be read again> 
+                   \par 
+l.369 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:370: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.370 ...src="/img/2013-08-28-govdat-vignette/sll_
+                                                  cw_timeseries2.png" alt="c...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:371: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.371 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:375: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.375 dat_
+          d &lt;- sll_cw_timeseries(phrase = &ldquo;climate change&rdquo;, p...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:375: Misplaced 
+alignment tab character &.
+l.375 dat_d &
+             lt;- sll_cw_timeseries(phrase = &ldquo;climate change&rdquo;, p...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:375: Misplaced 
+alignment tab character &.
+l.375 dat_d &lt;- sll_cw_timeseries(phrase = &
+                                              ldquo;climate change&rdquo;, p...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:375: Misplaced 
+alignment tab character &.
+l.375 ...imeseries(phrase = &ldquo;climate change&
+                                                  rdquo;, party = &ldquo;D&r...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:375: Misplaced 
+alignment tab character &.
+l.375 ...= &ldquo;climate change&rdquo;, party = &
+                                                  ldquo;D&rdquo;, key = sunl...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:375: Misplaced 
+alignment tab character &.
+l.375 ...;climate change&rdquo;, party = &ldquo;D&
+                                                  rdquo;, key = sunlightkey)
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:377: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.377 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:377: Missing } 
+inserted.
+<inserted text> 
+                }
+<to be read again> 
+                   $
+<to be read again> 
+                   \par 
+l.377 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (39.22867pt too wide) in paragraph at lines 374--377
+[]\tenrm <p>dat$[]\teni lt\tenrm ; \tensy ^^@\teni sll[]w[]imeseries\tenrm (\te
+ni phrase \tenrm = \teni ldquo\tenrm ; \teni climatechangerdquo\tenrm ; \teni ;
+ party \tenrm = \teni ldquo\tenrm ; \teni Drdquo\tenrm ; \teni ; key \tenrm = \
+teni sunlightkey\tenrm )[]$ |
+
+\hbox(7.5+2.5)x469.75499
+.\hbox(0.0+0.0)x20.0
+.\tenrm <
+.\tenrm p
+.\tenrm >
+.\tenrm d
+.etc.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:383: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.383 dat_
+          d$party &lt;- rep(&ldquo;D&rdquo;, nrow(dat_d))
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:383: Misplaced 
+alignment tab character &.
+l.383 dat_d$party &
+                   lt;- rep(&ldquo;D&rdquo;, nrow(dat_d))
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:383: Misplaced 
+alignment tab character &.
+l.383 dat_d$party &lt;- rep(&
+                             ldquo;D&rdquo;, nrow(dat_d))
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:383: Misplaced 
+alignment tab character &.
+l.383 dat_d$party &lt;- rep(&ldquo;D&
+                                     rdquo;, nrow(dat_d))
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:383: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.383 ...arty &lt;- rep(&ldquo;D&rdquo;, nrow(dat_
+                                                  d))
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:384: Misplaced 
+alignment tab character &.
+l.384 dat_r &
+             lt;- sll_cw_timeseries(phrase = &ldquo;climate change&rdquo;, p...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:384: Misplaced 
+alignment tab character &.
+l.384 dat_r &lt;- sll_cw_timeseries(phrase = &
+                                              ldquo;climate change&rdquo;, p...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:384: Misplaced 
+alignment tab character &.
+l.384 ...imeseries(phrase = &ldquo;climate change&
+                                                  rdquo;, party = &ldquo;R&r...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:384: Misplaced 
+alignment tab character &.
+l.384 ...= &ldquo;climate change&rdquo;, party = &
+                                                  ldquo;R&rdquo;, key = sunl...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:384: Misplaced 
+alignment tab character &.
+l.384 ...;climate change&rdquo;, party = &ldquo;R&
+                                                  rdquo;, key = sunlightkey)
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:386: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.386 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:386: Missing } 
+inserted.
+<inserted text> 
+                }
+<to be read again> 
+                   $
+<to be read again> 
+                   \par 
+l.386 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (76.74979pt too wide) in paragraph at lines 382--386
+[]\tenrm <p>dat$[]$party lt;- rep(ldquo;Drdquo;, nrow(dat$[]))\teni dat[]lt\ten
+rm ; \tensy ^^@\teni sll[]w[]imeseries\tenrm (\teni phrase \tenrm = \teni ldquo
+\tenrm ; \teni climatechangerdquo\tenrm ; \teni ; party \tenrm =|
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm <
+.\tenrm p
+.\tenrm >
+.\tenrm d
+.etc.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:392: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.392 dat_
+          r$party &lt;- rep(&ldquo;R&rdquo;, nrow(dat_r))
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:392: Misplaced 
+alignment tab character &.
+l.392 dat_r$party &
+                   lt;- rep(&ldquo;R&rdquo;, nrow(dat_r))
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:392: Misplaced 
+alignment tab character &.
+l.392 dat_r$party &lt;- rep(&
+                             ldquo;R&rdquo;, nrow(dat_r))
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:392: Misplaced 
+alignment tab character &.
+l.392 dat_r$party &lt;- rep(&ldquo;R&
+                                     rdquo;, nrow(dat_r))
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:392: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.392 ...arty &lt;- rep(&ldquo;R&rdquo;, nrow(dat_
+                                                  r))
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:393: Misplaced 
+alignment tab character &.
+l.393 dat_both &
+                lt;- rbind(dat_d, dat_r)
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:395: Misplaced 
+alignment tab character &.
+l.395     scale_colour_manual(values = c(&
+                                          ldquo;blue&rdquo;, &ldquo;red&rdqu...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:395: Misplaced 
+alignment tab character &.
+l.395 ...ale_colour_manual(values = c(&ldquo;blue&
+                                                  rdquo;, &ldquo;red&rdquo;))
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:395: Misplaced 
+alignment tab character &.
+l.395 ...r_manual(values = c(&ldquo;blue&rdquo;, &
+                                                  ldquo;red&rdquo;))
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:395: Misplaced 
+alignment tab character &.
+l.395 ...alues = c(&ldquo;blue&rdquo;, &ldquo;red&
+                                                  rdquo;))
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:397: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.397 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:397: Missing } 
+inserted.
+<inserted text> 
+                }
+<to be read again> 
+                   $
+<to be read again> 
+                   \par 
+l.397 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (58.27602pt too wide) in paragraph at lines 391--397
+[]\tenrm <p>dat$[]$party lt;- rep(ldquo;Rrdquo;, nrow(dat$[]))\teni dat[]othlt\
+tenrm ; \tensy ^^@\teni rbind\tenrm (\teni dat[]; dat[]\tenrm )\teni ggplot\ten
+rm (\teni dat[]oth; aes\tenrm (\teni day; count; colour \tenrm =|
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm <
+.\tenrm p
+.\tenrm >
+.\tenrm d
+.etc.
+
+
+Overfull \hbox (45.4411pt too wide) in paragraph at lines 391--397
+\teni party\tenrm )) + \teni geom[]ine\tenrm () + \teni theme[]rey\tenrm (\teni
+ base[]ize \tenrm = 20) + \teni scale[]olour[]anual\tenrm (\teni values \tenrm 
+= \teni c\tenrm (\teni ldquo\tenrm ; \teni bluerdquo\tenrm ; \teni ; ldquo\tenr
+m ; \teni redrdquo\tenrm ; ))[]$ |
+
+\hbox(7.5+2.86108)x469.75499, glue set - 1.0
+.\teni p
+.\teni a
+.\teni r
+.\kern0.27779
+.\teni t
+.etc.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:398: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.398 ...src="/img/2013-08-28-govdat-vignette/sll_
+                                                  cw_timeseries3.png" alt="c...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:399: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.399 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:405: Misplaced 
+alignment tab character &.
+l.405 out &
+           lt;- sll_os_billsearch(terms = &ldquo;agriculture&rdquo;, state =...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:405: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.405 out &lt;- sll_
+                    os_billsearch(terms = &ldquo;agriculture&rdquo;, state =...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:405: Misplaced 
+alignment tab character &.
+l.405 out &lt;- sll_os_billsearch(terms = &
+                                           ldquo;agriculture&rdquo;, state =...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:405: Misplaced 
+alignment tab character &.
+l.405 ...os_billsearch(terms = &ldquo;agriculture&
+                                                  rdquo;, state = &ldquo;tx&...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:405: Misplaced 
+alignment tab character &.
+l.405 ...ms = &ldquo;agriculture&rdquo;, state = &
+                                                  ldquo;tx&rdquo;, chamber =...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:405: Misplaced 
+alignment tab character &.
+l.405 ...uo;agriculture&rdquo;, state = &ldquo;tx&
+                                                  rdquo;, chamber = &ldquo;u...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:405: Misplaced 
+alignment tab character &.
+l.405 ...o;, state = &ldquo;tx&rdquo;, chamber = &
+                                                  ldquo;upper&rdquo;,
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:405: Misplaced 
+alignment tab character &.
+l.405 ...&ldquo;tx&rdquo;, chamber = &ldquo;upper&
+                                                  rdquo;,
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:407: Misplaced 
+alignment tab character &.
+l.407 lapply(out, &
+                   ldquo;[[&rdquo;, &ldquo;title&rdquo;)[100:110]
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:407: Misplaced 
+alignment tab character &.
+l.407 lapply(out, &ldquo;[[&
+                            rdquo;, &ldquo;title&rdquo;)[100:110]
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:407: Misplaced 
+alignment tab character &.
+l.407 lapply(out, &ldquo;[[&rdquo;, &
+                                     ldquo;title&rdquo;)[100:110]
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:407: Misplaced 
+alignment tab character &.
+l.407 lapply(out, &ldquo;[[&rdquo;, &ldquo;title&
+                                                 rdquo;)[100:110]
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:409: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.409 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:409: Missing } 
+inserted.
+<inserted text> 
+                }
+<to be read again> 
+                   $
+<to be read again> 
+                   \par 
+l.409 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (85.81364pt too wide) in paragraph at lines 404--409
+[]\tenrm <p>out lt;- sll$[]\teni s[]illsearch\tenrm (\teni terms \tenrm = \teni
+ ldquo\tenrm ; \teni agriculturerdquo\tenrm ; \teni ; state \tenrm = \teni ldqu
+o\tenrm ; \teni txrdquo\tenrm ; \teni ; chamber \tenrm = \teni ldquo\tenrm ; \t
+eni upperrdquo\tenrm ; \teni ; key \tenrm =|
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm <
+.\tenrm p
+.\tenrm >
+.\tenrm o
+.etc.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:412: Misplaced 
+alignment tab character &.
+l.412 [1] &
+           ldquo;Relating to the sale by the Brazos River Authority of certa...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:412: Misplaced 
+alignment tab character &.
+l.412 ...certain property at Possum Kingdom Lake.&
+                                                  rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:415: Misplaced 
+alignment tab character &.
+l.415 [1] &
+           ldquo;Proposing a constitutional amendment providing immediate ad...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:415: Misplaced 
+alignment tab character &.
+l.415 ...sed operators and certain Indian tribes.&
+                                                  rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:418: Misplaced 
+alignment tab character &.
+l.418 [1] &
+           ldquo;Relating to production requirements for holders of winery p...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:418: Misplaced 
+alignment tab character &.
+l.418 ...uirements for holders of winery permits.&
+                                                  rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:421: Misplaced 
+alignment tab character &.
+l.421 [1] &
+           ldquo;Relating to the use of human remains in the training of sea...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:421: Misplaced 
+alignment tab character &.
+l.421 ...e training of search and rescue animals.&
+                                                  rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:424: Misplaced 
+alignment tab character &.
+l.424 [1] &
+           ldquo;Relating to end-of-course assessment instruments administer...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:424: Misplaced 
+alignment tab character &.
+l.424 ...measures of secondary-level performance.&
+                                                  rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:427: Misplaced 
+alignment tab character &.
+l.427 [1] &
+           ldquo;Relating to public high school graduation, including curric...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:427: Misplaced 
+alignment tab character &.
+l.427 ...in curriculum authorized for graduation.&
+                                                  rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:430: Misplaced 
+alignment tab character &.
+l.430 [1] &
+           ldquo;Relating to certain residential and other structures and mi...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:430: Misplaced 
+alignment tab character &.
+l.430 ...astrophes; providing a criminal penalty.&
+                                                  rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:433: Misplaced 
+alignment tab character &.
+l.433 [1] &
+           ldquo;Recognizing March 28, 2013, as Texas Water Conservation Day...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:433: Misplaced 
+alignment tab character &.
+l.433 ...r Conservation Day at the State Capitol.&
+                                                  rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:436: Misplaced 
+alignment tab character &.
+l.436 [1] &
+           ldquo;Recognizing March 26, 2013, as Lubbock Day at the State Cap...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:436: Misplaced 
+alignment tab character &.
+l.436 ...13, as Lubbock Day at the State Capitol.&
+                                                  rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:439: Misplaced 
+alignment tab character &.
+l.439 [1] &
+           ldquo;In memory of Steve Jones.&rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:439: Misplaced 
+alignment tab character &.
+l.439 [1] &ldquo;In memory of Steve Jones.&
+                                           rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:442: Misplaced 
+alignment tab character &.
+l.442 [1] &
+           ldquo;Relating to the regulation of dangerous wild animals.&rdquo;
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:442: Misplaced 
+alignment tab character &.
+l.442 ...he regulation of dangerous wild animals.&
+                                                  rdquo;
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:450: Misplaced 
+alignment tab character &.
+l.450 out &
+           lt;- sll_os_legislatorsearch(state = &ldquo;tx&rdquo;, party = &l...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:450: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.450 out &lt;- sll_
+                    os_legislatorsearch(state = &ldquo;tx&rdquo;, party = &l...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:450: Misplaced 
+alignment tab character &.
+l.450 out &lt;- sll_os_legislatorsearch(state = &
+                                                 ldquo;tx&rdquo;, party = &l...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:450: Misplaced 
+alignment tab character &.
+l.450 ...ll_os_legislatorsearch(state = &ldquo;tx&
+                                                  rdquo;, party = &ldquo;dem...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:450: Misplaced 
+alignment tab character &.
+l.450 ...earch(state = &ldquo;tx&rdquo;, party = &
+                                                  ldquo;democratic&rdquo;, a...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:450: Misplaced 
+alignment tab character &.
+l.450 ...quo;tx&rdquo;, party = &ldquo;democratic&
+                                                  rdquo;, active = TRUE,
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:454: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.454 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:454: Missing } 
+inserted.
+<inserted text> 
+                }
+<to be read again> 
+                   $
+<to be read again> 
+                   \par 
+l.454 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:457: Misplaced 
+alignment tab character &.
+l.457 [1] &
+           ldquo;Naishtat&rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:457: Misplaced 
+alignment tab character &.
+l.457 [1] &ldquo;Naishtat&
+                          rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:458: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.458 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:460: Misplaced 
+alignment tab character &.
+l.460 [1] &
+           ldquo;2013-08-29 03:03:22&rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:460: Misplaced 
+alignment tab character &.
+l.460 [1] &ldquo;2013-08-29 03:03:22&
+                                     rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:461: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.461 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:463: Misplaced 
+alignment tab character &.
+l.463 [1] &
+           ldquo;112047&rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:463: Misplaced 
+alignment tab character &.
+l.463 [1] &ldquo;112047&
+                        rdquo;</p>
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:464: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.464 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:466: Misplaced 
+alignment tab character &.
+l.466 [1] &
+           ldquo;Elliott Naishtat&rdquo;
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:466: Misplaced 
+alignment tab character &.
+l.466 [1] &ldquo;Elliott Naishtat&
+                                  rdquo;
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:468: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.468 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:468: Missing } 
+inserted.
+<inserted text> 
+                }
+<to be read again> 
+                   $
+<to be read again> 
+                   \par 
+l.468 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:474: Misplaced 
+alignment tab character &.
+l.474 out &
+           lt;- sll_ts_aggregatesearch(&ldquo;Nancy Pelosi&rdquo;, key = sun...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:474: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.474 out &lt;- sll_
+                    ts_aggregatesearch(&ldquo;Nancy Pelosi&rdquo;, key = sun...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:474: Misplaced 
+alignment tab character &.
+l.474 out &lt;- sll_ts_aggregatesearch(&
+                                        ldquo;Nancy Pelosi&rdquo;, key = sun...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:474: Misplaced 
+alignment tab character &.
+l.474 ...l_ts_aggregatesearch(&ldquo;Nancy Pelosi&
+                                                  rdquo;, key = sunlightkey)
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:475: Misplaced 
+alignment tab character &.
+l.475 out &
+           lt;- lapply(out, function(x) {
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:476: Misplaced 
+alignment tab character &.
+l.476     x[sapply(x, is.null)] &
+                                 lt;- &ldquo;none&rdquo;
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:476: Misplaced 
+alignment tab character &.
+l.476     x[sapply(x, is.null)] &lt;- &
+                                       ldquo;none&rdquo;
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:476: Misplaced 
+alignment tab character &.
+l.476     x[sapply(x, is.null)] &lt;- &ldquo;none&
+                                                  rdquo;
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:481: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.481 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:481: Missing } 
+inserted.
+<inserted text> 
+                }
+<to be read again> 
+                   $
+<to be read again> 
+                   \par 
+l.481 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (326.95828pt too wide) in paragraph at lines 473--481
+[]\tenrm <p>out lt;- sll$[]\teni s[]ggregatesearch\tenrm (\teni ldquo\tenrm ; \
+teni NancyPelosirdquo\tenrm ; \teni ; key \tenrm = \teni sunlightkey\tenrm )\te
+ni outlt\tenrm ; \tensy ^^@\teni lapply\tenrm (\teni out; function\tenrm (\teni
+ x\tenrm )[])\teni ldply\tenrm (\teni out; data:frame\tenrm )[]$ |
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm <
+.\tenrm p
+.\tenrm >
+.\tenrm o
+.etc.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:483: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.483                        name count_
+                                        given firm_income count_lobbied
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:496: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.496 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:496: Missing } 
+inserted.
+<inserted text> 
+                }
+<to be read again> 
+                   $
+<to be read again> 
+                   \par 
+l.496 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (262.76967pt too wide) in paragraph at lines 482--496
+[]\tenrm <p>name count$[]\teni ivenfirm[]ncomecount[]obbied\tenrm 1\teni NancyP
+elosi\tenrm (\teni D\tenrm )0002\teni NancyPelosiforCongress\tenrm 700\teni sea
+ttotal[]eceivedstatelobbying[]irmcount[]eceivedparty\tenrm 1\teni federal \tenr
+m :|
+
+\hbox(7.5+2.86108)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm <
+.\tenrm p
+.\tenrm >
+.\tenrm n
+.etc.
+
+
+Overfull \hbox (490.89546pt too wide) in paragraph at lines 482--496
+\teni house\tenrm 14173534\teni CAnone\tenrm 10054\teni D\tenrm 2\teni none\ten
+rm 0\teni none < NA > \tenrm 0\teni nonetotal[]iventypeid\tenrm 10\teni politic
+ian\tenrm 85\teni ab\tenrm 2\teni e\tenrm 74589\teni a\tenrm 414495\teni d\tenr
+m 18\teni cc\tenrm 7\teni a\tenrm 923398127250\teni organizationafb\tenrm 432\t
+eni ec\tenrm 90454\teni c\tenrm 8\teni a\tenrm 83\teni a\tenrm 3113061\teni e\t
+enrm 7\teni be\tenrm 27\teni non[]irm[]pendingis[]uperpac\tenrm 10\teni none\te
+nrm 20 \teni <|
+
+\hbox(6.94444+2.86108)x469.75499
+.\teni h
+.\teni o
+.\teni u
+.\teni s
+.\teni e
+.etc.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:499: Misplaced 
+alignment tab character &.
+l.499 ... by total dollars given. An organization&
+                                                  #39;s giving is broken dow...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:499: You can't 
+use `macro parameter character #' in horizontal mode.
+l.499 ...by total dollars given. An organization&#
+                                                  39;s giving is broken down...
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:499: Misplaced 
+alignment tab character &.
+l.499 ...oney given directly (by the organization&
+                                                  #39;s PAC) versus money gi...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:499: You can't 
+use `macro parameter character #' in horizontal mode.
+l.499 ...ney given directly (by the organization&#
+                                                  39;s PAC) versus money giv...
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+[3]
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:502: Misplaced 
+alignment tab character &.
+l.502 out &
+           lt;- sll_ts_aggregatetopcontribs(id = &ldquo;85ab2e74589a414495d1...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:502: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.502 out &lt;- sll_
+                    ts_aggregatetopcontribs(id = &ldquo;85ab2e74589a414495d1...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:502: Misplaced 
+alignment tab character &.
+l.502 out &lt;- sll_ts_aggregatetopcontribs(id = &
+                                                  ldquo;85ab2e74589a414495d1...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:502: Misplaced 
+alignment tab character &.
+l.502 ... &ldquo;85ab2e74589a414495d18cc7a9233981&
+                                                  rdquo;,
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:506: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.506 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:506: Missing } 
+inserted.
+<inserted text> 
+                }
+<to be read again> 
+                   $
+<to be read again> 
+                   \par 
+l.506 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (137.98378pt too wide) in paragraph at lines 501--506
+[]\tenrm <p>out lt;- sll$[]\teni s[]ggregatetopcontribs\tenrm (\teni id \tenrm 
+= \teni ldquo\tenrm ; 85\teni ab\tenrm 2\teni e\tenrm 74589\teni a\tenrm 414495
+\teni d\tenrm 18\teni cc\tenrm 7\teni a\tenrm 9233981\teni rdquo\tenrm ; \teni 
+; key \tenrm = \teni sunlightkey\tenrm )\teni ldply\tenrm (\teni out; data:fram
+e\tenrm )[]$ |
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm <
+.\tenrm p
+.\tenrm >
+.\tenrm o
+.etc.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:508: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.508    employee_
+                  amount total_amount total_count
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:542: Missing $ 
+inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.542 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/scottmac2/github/sac/govdat/inst/doc/govdat_vignette.txt:542: Missing } 
+inserted.
+<inserted text> 
+                }
+<to be read again> 
+                   $
+<to be read again> 
+                   \par 
+l.542 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (4007.54419pt too wide) in paragraph at lines 507--542
+[]\tenrm <p>employee$[]\teni mounttotal[]mounttotal[]ount\tenrm 164000\teni :\t
+enrm 00101300\teni :\tenrm 007923500\teni :\tenrm 0090000\teni :\tenrm 00293086
+600\teni :\tenrm 00484085000\teni :\tenrm 00325082500\teni :\tenrm 00376077000\
+teni :\tenrm 00197076000\teni :\tenrm 00368072500\teni :\tenrm 00189072500\teni
+ :\tenrm 0021108000\teni :\tenrm 0072000\teni :\tenrm 0031\teni namedirect[]oun
+temployee[]ount\tenrm 1\teni Akin; Gumpetal\tenrm 16632\teni AmericanFednofSt=C
+nty=MunicEmployees\tenrm 2543\teni NationalAssnofRealtors\tenrm 4804\teni Unite
+dAutoWorkers\tenrm 3205\teni NationalEducationAssn\tenrm 3706\teni TeamstersUni
+on\tenrm 1907\teni NationalAssnofLetterCarriers\tenrm 3608\teni IntlBrotherhood
+ofElectricalWorkers\tenrm 1809\teni SheetMetalWorkersUnion\tenrm 21010\teni Wel
+lsFargo\tenrm 2011\teni iddirect[]mount\tenrm 1105\teni dcfc\tenrm 8\teni c\ten
+rm 9384875\teni a\tenrm 099\teni af\tenrm 230\teni dad\tenrm 991737300\teni :\t
+enrm 002\teni fb\tenrm 702029157\teni e\tenrm 4\teni c\tenrm 7\teni c\tenrm 887
+172\teni eba\tenrm 71\teni c\tenrm 66\teni c\tenrm 586500\teni :\tenrm 003\teni
+ bb\tenrm 98402\teni bd\tenrm 4\teni d\tenrm 3471\teni cad\tenrm 392\teni a\ten
+rm 671\teni ecd\tenrm 733\teni a\tenrm 86600\teni :\tenrm 0044\teni d\tenrm 316
+7\teni b\tenrm 97\teni c\tenrm 9\teni f\tenrm 48\teni deb\tenrm 433\teni aad\te
+nrm 57\teni bb\tenrm 0\teni ee\tenrm 4485000\teni :\tenrm 0051\teni b\tenrm 8\t
+eni fea\tenrm 7\teni e\tenrm 453\teni d\tenrm 4\teni e\tenrm 75841\teni eac\ten
+rm 48\teni ff\tenrm 9\teni df\tenrm 55082500\teni :\tenrm 006\teni f\tenrm 89\t
+eni c\tenrm 8\teni e\tenrm 3\teni ab\tenrm 2\teni b\tenrm 44\teni f\tenrm 72971
+\teni f\tenrm 91\teni b\tenrm 76486823177000\teni :\tenrm 007390767\teni dc\ten
+rm 6\teni b\tenrm 4\teni b\tenrm 491\teni ca\tenrm 775\teni b\tenrm 1\teni bdf\
+tenrm 8\teni a\tenrm 36\teni eea\tenrm 76000\teni :\tenrm 008\teni b\tenrm 53\t
+eni b\tenrm 4\teni ad\tenrm 137\teni d\tenrm 743\teni a\tenrm 996\teni f\tenrm 
+4\teni d\tenrm 7467700\teni fc\tenrm 8872500\teni :\tenrm 009425\teni be\tenrm 
+85642\teni b\tenrm 24\teni cc\tenrm 2\teni bc\tenrm 3\teni d\tenrm 8\teni a\ten
+rm 0\teni bb\tenrm 3\teni c\tenrm 7\teni bc\tenrm 9272500\teni :\tenrm 00107930
+70\teni ae\tenrm 7\teni f\tenrm 5\teni e\tenrm 42\teni c\tenrm 2\teni a\tenrm 7
+6\teni a\tenrm 58663\teni a\tenrm 588\teni f\tenrm 3\teni d\tenrm 64000\teni :\
+tenrm 00[]$ |
+
+\hbox(7.5+2.5)x469.75499
+.\hbox(0.0+0.0)x20.0
+.\tenrm <
+.\tenrm p
+.\tenrm >
+.\tenrm e
+.etc.
+
+)
+! Emergency stop.
+<*> ...hub/sac/govdat/inst/doc/govdat_vignette.txt
+                                                  
+*** (job aborted, no legal \end found)
+
+!  ==> Fatal error occurred, no output PDF file produced!

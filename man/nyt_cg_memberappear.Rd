@@ -1,6 +1,7 @@
 \name{nyt_cg_memberappear}
 \alias{nyt_cg_memberappear}
-\title{Get information about a particular member's appearances on the House or Senate floor.}
+\title{Get information about a particular member's appearances on the House or
+Senate floor.}
 \usage{
   nyt_cg_memberappear(memberid = NULL,
     key = getOption("NYTCongressKey", stop("need an API key for the NYT Congress API")),

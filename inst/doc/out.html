@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>govdat vignette - Interface to various APIs for government data.</title>
+
+
+
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<!--
+%\VignetteEngine{knitr}
+%\VignetteIndexEntry{An R Markdown Vignette made with knitr}
+-->
+
+<h1>govdat vignette - Interface to various APIs for government data.</h1>
+
+<h3>About the package</h3>
+
+<p><code>govdat</code> is an R package to search and retrieve data from two sets of APIs, the Sunlight Labs APIs, andn the New York Times congress API. </p>
+
+<p>Returned objects from functions are simple lists. That is, you likely will want to take output objects and make data.frames, vectors, matrices, etc. In future versions of govdat, I will return data.frame&#39;s when possible as those are easy to work with in R for beginners, though advanced users probably like lists more (I&#39;m guessing, or just the raw JSON, eh)?</p>
+
+<p>The following are examples of using the Sunlight Labs API. I will add examples of using the New York Times Congress API once their site is up again; I&#39;m doing this on 2013-08-28, just after the takedown of their site due to hackers.</p>
+
+<hr>
+
+<h4>Install govdat</h4>
+
+<p>{% highlight r %}
+install.packages(&quot;devtools&quot;)
+library(devtools)
+install_github(&quot;govdat&quot;, &quot;schamberlain&quot;)
+{% endhighlight %}</p>
+
+<hr>
+
+<h4>Load govdat and other dependency libraries</h4>
+
+<p>{% highlight r %}
+library(govdat)
+{% endhighlight %}</p>
+
+<hr>
+
+<h3>SunlightLabs Data</h3>
+
+<hr>
+
+<h4>Gets details (subcommittees + membership) for a committee by id.</h4>
+
+<p>{% highlight r %}
+library(govdat)
+key &lt;- getOption(&quot;SunlightLabsKey&quot;)
+out &lt;- sll_cg_getcommittees(id = &quot;JSPR&quot;, key = sunlightkey)
+out$response$committee$members[[1]]$legislator[1:5]
+{% endhighlight %}</p>
+
+<p>{% highlight text %}
+$website
+[1] &quot;<a href="http://www.alexander.senate.gov">http://www.alexander.senate.gov</a>&quot;</p>
+
+<p>$fax
+[1] &quot;202-228-3398&quot;</p>
+
+<p>$govtrack_id
+[1] &quot;300002&quot;</p>
+
+<p>$firstname
+[1] &quot;Lamar&quot;</p>
+
+<p>$chamber
+[1] &quot;senate&quot;
+{% endhighlight %}</p>
+
+<hr>
+
+<h4>Gets a list of all committees that a member serves on, including subcommittes.</h4>
+
+<p>{% highlight r %}
+out &lt;- sll_cg_getcommitteesallleg(bioguide_id = &quot;S000148&quot;, key = sunlightkey)
+out$response$committees[[1]]
+{% endhighlight %}</p>
+
+<p>{% highlight text %}
+$committee
+$committee$chamber
+[1] &quot;Senate&quot;</p>
+
+<p>$committee$id
+[1] &quot;SSRA&quot;</p>
+
+<p>$committee$name
+[1] &quot;Senate Committee on Rules and Administration&quot;
+{% endhighlight %}</p>
+
+<hr>
+
+<h4>Get districts for a latitude/longitude.</h4>
+
+<p>{% highlight r %}
+out &lt;- sll_cg_getdistrictlatlong(latitude = 35.778788, longitude = -78.787805, 
+    key = sunlightkey)
+out$response$districts
+{% endhighlight %}</p>
+
+<p>{% highlight text %}
+[[1]]
+[[1]]$district
+[[1]]$district$state
+[1] &quot;NC&quot;</p>
+
+<p>[[1]]$district$number
+[1] &quot;2&quot;
+{% endhighlight %}</p>
+
+<hr>
+
+<h4>Get districts that overlap for a certain zip code.</h4>
+
+<p>{% highlight r %}
+out &lt;- sll_cg_getdistrictzip(zip = 27511, key = sunlightkey)
+out$response$districts
+{% endhighlight %}</p>
+
+<p>{% highlight text %}
+[[1]]
+[[1]]$district
+[[1]]$district$state
+[1] &quot;NC&quot;</p>
+
+<p>[[1]]$district$number
+[1] &quot;2&quot;</p>
+
+<p>[[2]]
+[[2]]$district
+[[2]]$district$state
+[1] &quot;NC&quot;</p>
+
+<p>[[2]]$district$number
+[1] &quot;4&quot;</p>
+
+<p>[[3]]
+[[3]]$district
+[[3]]$district$state
+[1] &quot;NC&quot;</p>
+
+<p>[[3]]$district$number
+[1] &quot;13&quot;
+{% endhighlight %}</p>
+
+<hr>
+
+<h4>Search congress people and senate members.</h4>
+
+<p>{% highlight r %}
+out &lt;- sll_cg_getlegislatorsearch(name = &quot;Reed&quot;, key = sunlightkey)
+out$response$results[[1]]$result$legislator[1:5]
+{% endhighlight %}</p>
+
+<p>{% highlight text %}
+$website
+[1] &quot;<a href="http://www.reed.senate.gov">http://www.reed.senate.gov</a>&quot;</p>
+
+<p>$fax
+[1] &quot;202-224-4680&quot;</p>
+
+<p>$govtrack_id
+[1] &quot;300081&quot;</p>
+
+<p>$firstname
+[1] &quot;John&quot;</p>
+
+<p>$chamber
+[1] &quot;senate&quot;
+{% endhighlight %}</p>
+
+<hr>
+
+<h4>Search congress people and senate members for a zip code.</h4>
+
+<p>{% highlight r %}
+out &lt;- sll_cg_legislatorsallforzip(zip = 77006, key = sunlightkey)
+library(plyr)
+ldply(out$response$legislators, function(x) data.frame(x$legislator[c(&quot;firstname&quot;, 
+    &quot;lastname&quot;)]))
+{% endhighlight %}</p>
+
+<p>{% highlight text %}
+  firstname    lastname
+1    Sheila Jackson Lee
+2       Ted        Cruz
+3      John      Cornyn
+4       Ted         Poe
+{% endhighlight %}</p>
+
+<hr>
+
+<h4>Find the popularity of a phrase over a period of time.</h4>
+
+<h5>Get a list of how many times the phrase &quot;united states&quot; appears in the Congressional Record in each month between January and June, 2010:</h5>
+
+<p>{% highlight r %}
+sll_cw_timeseries(phrase = &quot;united states&quot;, start_date = &quot;2009-01-01&quot;, end_date = &quot;2009-04-30&quot;, 
+    granularity = &quot;month&quot;, key = sunlightkey)
+{% endhighlight %}</p>
+
+<p>{% highlight text %}
+4 records returned
+{% endhighlight %}</p>
+
+<p>{% highlight text %}
+  count      month
+1  3805 2009-01-01
+2  3512 2009-02-01
+3  6018 2009-03-01
+4  2967 2009-04-01
+{% endhighlight %}</p>
+
+<h5>Plot data</h5>
+
+<p>{% highlight r %}
+library(ggplot2)
+dat &lt;- sll_cw_timeseries(phrase = &quot;climate change&quot;, key = sunlightkey)
+{% endhighlight %}</p>
+
+<p>{% highlight text %}
+1354 records returned
+{% endhighlight %}</p>
+
+<p>{% highlight r %}
+ggplot(dat, aes(day, count)) + geom_line() + theme_grey(base_size = 20)
+{% endhighlight %}</p>
+
+<p><img src="sll_cw_timeseries2.png" alt="center"> </p>
+
+<h5>Plot more data</h5>
+
+<p>{% highlight r %}
+dat_d &lt;- sll_cw_timeseries(phrase = &quot;climate change&quot;, party = &quot;D&quot;, key = sunlightkey)
+{% endhighlight %}</p>
+
+<p>{% highlight text %}
+908 records returned
+{% endhighlight %}</p>
+
+<p>{% highlight r %}
+dat_d$party &lt;- rep(&quot;D&quot;, nrow(dat_d))
+dat_r &lt;- sll_cw_timeseries(phrase = &quot;climate change&quot;, party = &quot;R&quot;, key = sunlightkey)
+{% endhighlight %}</p>
+
+<p>{% highlight text %}
+623 records returned
+{% endhighlight %}</p>
+
+<p>{% highlight r %}
+dat_r$party &lt;- rep(&quot;R&quot;, nrow(dat_r))
+dat_both &lt;- rbind(dat_d, dat_r)
+ggplot(dat_both, aes(day, count, colour = party)) + geom_line() + theme_grey(base_size = 20) + 
+    scale_colour_manual(values = c(&quot;blue&quot;, &quot;red&quot;))
+{% endhighlight %}</p>
+
+<p><img src="sll_cw_timeseries3.png" alt="center"> </p>
+
+<hr>
+
+<h4>Search OpenStates bills.</h4>
+
+<p>{% highlight r %}
+out &lt;- sll_os_billsearch(terms = &quot;agriculture&quot;, state = &quot;tx&quot;, chamber = &quot;upper&quot;, 
+    key = sunlightkey)
+lapply(out, &quot;[[&quot;, &quot;title&quot;)[100:110]
+{% endhighlight %}</p>
+
+<p>{% highlight text %}
+[[1]]
+[1] &quot;Relating to the sale by the Brazos River Authority of certain property at Possum Kingdom Lake.&quot;</p>
+
+<p>[[2]]
+[1] &quot;Proposing a constitutional amendment providing immediate additional revenue for the state budget by creating the Texas Gaming Commission, and authorizing and regulating the operation of casino games and slot machines by a limited number of licensed operators and certain Indian tribes.&quot;</p>
+
+<p>[[3]]
+[1] &quot;Relating to production requirements for holders of winery permits.&quot;</p>
+
+<p>[[4]]
+[1] &quot;Relating to the use of human remains in the training of search and rescue animals.&quot;</p>
+
+<p>[[5]]
+[1] &quot;Relating to end-of-course assessment instruments administered to public high school students and other measures of secondary-level performance.&quot;</p>
+
+<p>[[6]]
+[1] &quot;Relating to public high school graduation, including curriculum and assessment requirements for graduation and funding in support of certain curriculum authorized for graduation.&quot;</p>
+
+<p>[[7]]
+[1] &quot;Relating to certain residential and other structures and mitigation of loss to those structures resulting from natural catastrophes; providing a criminal penalty.&quot;</p>
+
+<p>[[8]]
+[1] &quot;Recognizing March 28, 2013, as Texas Water Conservation Day at the State Capitol.&quot;</p>
+
+<p>[[9]]
+[1] &quot;Recognizing March 26, 2013, as Lubbock Day at the State Capitol.&quot;</p>
+
+<p>[[10]]
+[1] &quot;In memory of Steve Jones.&quot;</p>
+
+<p>[[11]]
+[1] &quot;Relating to the regulation of dangerous wild animals.&quot;
+{% endhighlight %}</p>
+
+<hr>
+
+<h4>Search Legislators on OpenStates.</h4>
+
+<p>{% highlight r %}
+out &lt;- sll_os_legislatorsearch(state = &quot;tx&quot;, party = &quot;democratic&quot;, active = TRUE, 
+    key = sunlightkey)
+out[[1]][1:4]
+{% endhighlight %}</p>
+
+<p>{% highlight text %}
+$last_name
+[1] &quot;Naishtat&quot;</p>
+
+<p>$updated_at
+[1] &quot;2013-08-29 03:03:22&quot;</p>
+
+<p>$nimsp_candidate_id
+[1] &quot;112047&quot;</p>
+
+<p>$full_name
+[1] &quot;Elliott Naishtat&quot;
+{% endhighlight %}</p>
+
+<hr>
+
+<h4>Search for entities - that is, politicians, individuals, or organizations with the given name</h4>
+
+<p>{% highlight r %}
+out &lt;- sll_ts_aggregatesearch(&quot;Nancy Pelosi&quot;, key = sunlightkey)
+out &lt;- lapply(out, function(x) {
+    x[sapply(x, is.null)] &lt;- &quot;none&quot;
+    x
+})
+ldply(out, data.frame)
+{% endhighlight %}</p>
+
+<p>{% highlight text %}
+                       name count_given firm_income count_lobbied
+1          Nancy Pelosi (D)           0           0             0
+2 Nancy Pelosi for Congress           7           0             0
+           seat total_received state lobbying_firm count_received party
+1 federal:house       14173534    CA          none          10054     D
+2          none              0  none          <NA>              0  none
+  total_given         type                               id
+1           0   politician 85ab2e74589a414495d18cc7a9233981
+2        7250 organization afb432ec90454c8a83a3113061e7be27
+  non_firm_spending is_superpac
+1                 0        none
+2                 0        <NA>
+{% endhighlight %}</p>
+
+<hr>
+
+<h4>Return the top contributoring organizations, ranked by total dollars given. An organization&#39;s giving is broken down into money given directly (by the organization&#39;s PAC) versus money given by individuals employed by or associated with the organization.</h4>
+
+<p>{% highlight r %}
+out &lt;- sll_ts_aggregatetopcontribs(id = &quot;85ab2e74589a414495d18cc7a9233981&quot;, 
+    key = sunlightkey)
+ldply(out, data.frame)
+{% endhighlight %}</p>
+
+<p>{% highlight text %}
+   employee_amount total_amount total_count
+1         64000.00    101300.00          79
+2          3500.00     90000.00          29
+3                0     86600.00          48
+4                0     85000.00          32
+5                0     82500.00          37
+6                0     77000.00          19
+7                0     76000.00          36
+8                0     72500.00          18
+9                0     72500.00          21
+10         8000.00     72000.00          31
+                                       name direct_count employee_count
+1                          Akin, Gump et al           16             63
+2  American Fedn of St/Cnty/Munic Employees           25              4
+3                 National Assn of Realtors           48              0
+4                       United Auto Workers           32              0
+5                   National Education Assn           37              0
+6                           Teamsters Union           19              0
+7          National Assn of Letter Carriers           36              0
+8    Intl Brotherhood of Electrical Workers           18              0
+9                 Sheet Metal Workers Union           21              0
+10                              Wells Fargo           20             11
+                                 id direct_amount
+1  105dcfc8c9384875a099af230dad9917      37300.00
+2  fb702029157e4c7c887172eba71c66c5      86500.00
+3  bb98402bd4d3471cad392a671ecd733a      86600.00
+4  4d3167b97c9f48deb433aad57bb0ee44      85000.00
+5  1b8fea7e453d4e75841eac48ff9df550      82500.00
+6  f89c8e3ab2b44f72971f91b764868231      77000.00
+7  390767dc6b4b491ca775b1bdf8a36eea      76000.00
+8  b53b4ad137d743a996f4d7467700fc88      72500.00
+9  425be85642b24cc2bc3d8a0bb3c7bc92      72500.00
+10 793070ae7f5e42c2a76a58663a588f3d      64000.00
+{% endhighlight %}</p>
+
+</body>
+
+</html>

@@ -1,4 +1,5 @@
-#' Get information about a particular member's appearances on the House or Senate floor.
+#' Get information about a particular member's appearances on the House or 
+#' Senate floor.
 #' 
 #' @import httr
 #' @importFrom plyr compact

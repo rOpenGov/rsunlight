@@ -1,5 +1,4 @@
-#' Get a list of members who have left the Senate or House or have announced 
-#' plans to do so.
+#' Get bill cosponsorship data for a particular member.
 #' 
 #' @import httr
 #' @importFrom plyr compact

@@ -1,7 +1,6 @@
 \name{nyt_cg_billscosponsor}
 \alias{nyt_cg_billscosponsor}
-\title{Get a list of members who have left the Senate or House or have announced
-plans to do so.}
+\title{Get bill cosponsorship data for a particular member.}
 \usage{
   nyt_cg_billscosponsor(memberid = NULL, type = NULL,
     key = getOption("NYTCongressKey", stop("need an API key for the NYT Congress API")),
@@ -32,8 +31,7 @@ plans to do so.}
   List of new members of he current Congress.
 }
 \description{
-  Get a list of members who have left the Senate or House
-  or have announced plans to do so.
+  Get bill cosponsorship data for a particular member.
 }
 \examples{
 \dontrun{
