@@ -1,4 +1,7 @@
-# `govdat` #
+govdat
+======
+
+[![Build Status](https://api.travis-ci.org/rOpenGov/govdat.png)](https://travis-ci.org/rOpenGov/govdat)
 
 + Maintainer: Scott Chamberlain
 + License: [CC0](http://creativecommons.org/publicdomain/zero/1.0/)
