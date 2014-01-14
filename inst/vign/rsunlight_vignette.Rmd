@@ -1,0 +1,183 @@
+<!--
+%\VignetteEngine{knitr}
+%\VignetteIndexEntry{rsunlight vignette}
+-->
+
+rsunlight vignette - Interface to Sunlight Labs APIs.
+======
+
+### About the package
+
+`rsunlight` is an R package to search and retrieve data from the Sunlight Labs APIs. 
+
+
+Returned objects from functions are simple lists. That is, you likely will want to take output objects and make data.frames, vectors, matrices, etc. In future versions of rsunlight, I will return data.frame's when possible as those are easy to work with in R for beginners, though advanced users probably like lists more (I'm guessing, or just the raw JSON, eh)?
+
+********************
+
+```{r keys, eval=TRUE, echo=FALSE}
+sunlightkey <- getOption("SunlightLabsKey")
+```
+
+#### Install rsunlight
+
+```{r install, eval=FALSE, echo=TRUE}
+install.packages("devtools")
+library(devtools)
+install_github("rsunlight", "ropengov")
+```
+
+********************
+
+#### Load rsunlight and other dependency libraries
+
+```{r load, warning=FALSE, message=FALSE}
+library(rsunlight)
+```
+
+********************
+
+#### Gets details (subcommittees + membership) for a committee by id.
+
+```{r sll_cg_getcommittees, warning=FALSE, message=FALSE, cache=FALSE}
+out <- sll_cg_getcommittees(id = 'JSPR')
+out$response$committee$members[[1]]$legislator[1:5]
+```
+
+********************
+
+#### Gets a list of all committees that a member serves on, including subcommittes.
+
+```{r sll_cg_getcommitteesallleg, warning=FALSE, cache=FALSE}
+out <- sll_cg_getcommitteesallleg(bioguide_id = 'S000148')
+out$response$committees[[1]]
+```
+
+********************
+
+#### Get districts for a latitude/longitude.
+
+```{r sll_cg_getdistrictlatlong, warning=FALSE, cache=FALSE}
+out <- sll_cg_getdistrictlatlong(latitude = 35.778788, longitude = -78.787805)
+out$response$districts
+```
+
+********************
+
+#### Get districts that overlap for a certain zip code.
+
+```{r sll_cg_getdistrictzip, warning=FALSE, cache=FALSE}
+out <- sll_cg_getdistrictzip(zip = 27511)
+out$response$districts
+```
+
+********************
+
+#### Search congress people and senate members.
+
+```{r sll_cg_getlegislatorsearch, warning=FALSE, cache=FALSE}
+out <- sll_cg_getlegislatorsearch(name = 'Reed')
+out$response$results[[1]]$result$legislator[1:5]
+```
+
+********************
+
+#### Search congress people and senate members for a zip code.
+
+```{r sll_cg_legislatorsallforzip, warning=FALSE, cache=FALSE}
+out <- sll_cg_legislatorsallforzip(zip = 77006)
+library(plyr)
+ldply(out$response$legislators, function(x) data.frame(x$legislator[c('firstname','lastname')]))
+```
+
+********************
+
+#### Find the popularity of a phrase over a period of time.
+
+##### Get a list of how many times the phrase "united states" appears in the Congressional Record in each month between January and June, 2010:
+
+```{r sll_cw_timeseries1, warning=FALSE, cache=FALSE}
+sll_cw_timeseries(phrase='united states', start_date='2009-01-01', end_date='2009-04-30', granularity='month')
+```
+
+##### Plot data
+
+```{r sll_cw_timeseries2, warning=FALSE, cache=FALSE}
+library(ggplot2)
+dat <- sll_cw_timeseries(phrase='climate change')
+ggplot(dat, aes(day, count)) + 
+  geom_line() + 
+  theme_grey(base_size=20)
+```
+
+##### Plot more data
+
+```{r sll_cw_timeseries3, warning=FALSE, cache=FALSE}
+dat_d <- sll_cw_timeseries(phrase='climate change', party="D")
+dat_d$party <- rep("D", nrow(dat_d))
+dat_r <- sll_cw_timeseries(phrase='climate change', party="R")
+dat_r$party <- rep("R", nrow(dat_r))
+dat_both <- rbind(dat_d, dat_r)
+ggplot(dat_both, aes(day, count, colour=party)) + 
+  geom_line() + 
+  theme_grey(base_size=20) + 
+  scale_colour_manual(values=c("blue","red"))
+```
+
+#### Interactive charts using rCharts
+
+Note that the resulting chart opens in a browser, so is not shown in this vignette, but you will see it open in a browser when you run the code.
+
+```{r sll_cw_timeseries_rcharts, warning=FALSE, message=FALSE, cache=FALSE, eval=FALSE}
+dream <- lapply(c('D','R'), function(x) sll_cw_timeseries(phrase='i have a dream', party=x, start_date='1996-01-01', end_date='2013-01-01', granularity='month'))
+df <- merge(dream[[1]], dream[[2]], by='month', all=TRUE)
+df[is.na(df)] <- 0
+names(df) <- c('date','D','R')
+df$date <- as.character(df$date)
+# df <- ldply(dream, data.frame)
+
+library(rCharts)
+m1 <- mPlot(x = "date", y = c("D", "R"), type = "Line", data = df)
+m1$set(pointSize = 0, lineWidth = 1)
+m1
+```
+
+********************
+
+#### Search OpenStates bills.
+
+```{r sll_os_billsearch, warning=FALSE, cache=FALSE}
+out <- sll_os_billsearch(terms = 'agriculture', state = 'tx', chamber = 'upper')
+lapply(out, "[[", "title")[100:110]
+```
+
+********************
+
+#### Search Legislators on OpenStates. 
+
+```{r sll_os_legislatorsearch, warning=FALSE, cache=FALSE}
+out <- sll_os_legislatorsearch(state = 'tx', party = 'democratic', active = TRUE)
+out[[1]][1:4]
+```
+
+********************
+
+#### Search for entities - that is, politicians, individuals, or organizations with the given name
+
+```{r sll_ts_aggregatesearch, warning=FALSE, message=FALSE, cache=FALSE}
+out <- sll_ts_aggregatesearch('Nancy Pelosi')
+out <- lapply(out, function(x){
+    x[sapply(x, is.null)] <- "none"
+    x
+  })
+ldply(out, data.frame)
+```
+
+********************
+
+#### Return the top contributoring organizations, ranked by total dollars given. An organization's giving is broken down into money given directly (by the organization's PAC) versus money given by individuals employed by or associated with the organization.
+
+```{r sll_ts_aggregatetopcontribs, warning=FALSE, cache=FALSE}
+out <- sll_ts_aggregatetopcontribs(id = '85ab2e74589a414495d18cc7a9233981')
+ldply(out, data.frame)
+```

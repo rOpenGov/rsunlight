@@ -1,0 +1,5 @@
+Makefile
+vignettes/margins.sty
+inst/vign
+.travis.yml
+.gitignore
