@@ -3,13 +3,11 @@
 \title{Capitol words text.json method. Search the congressional record for instances
 of a word or phrase.}
 \usage{
-  sll_cw_text(phrase = NULL, title = NULL,
-    start_date = NULL, end_date = NULL, chamber = NULL,
-    state = NULL, party = NULL, bioguide_id = NULL,
-    congress = NULL, session = NULL, cr_pages = NULL,
-    volume = NULL, page = NULL,
-    key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-    callopts = list())
+sll_cw_text(phrase = NULL, title = NULL, start_date = NULL,
+  end_date = NULL, chamber = NULL, state = NULL, party = NULL,
+  bioguide_id = NULL, congress = NULL, session = NULL, cr_pages = NULL,
+  volume = NULL, page = NULL, key = getOption("SunlightLabsKey",
+  stop("need an API key for Sunlight Labs")), callopts = list())
 }
 \arguments{
   \item{phrase}{Phrase to search.}
@@ -67,11 +65,11 @@ of a word or phrase.}
   month: 201111; state: NY; legislator (bioguide): L000551}
 }
 \value{
-  Phrases matched.
+Phrases matched.
 }
 \description{
-  Capitol words text.json method. Search the congressional
-  record for instances of a word or phrase.
+Capitol words text.json method. Search the congressional
+record for instances of a word or phrase.
 }
 \examples{
 \dontrun{

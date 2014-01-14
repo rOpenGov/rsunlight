@@ -2,10 +2,9 @@
 \alias{sll_os_billlookup}
 \title{Lookup bills on OpenStates.}
 \usage{
-  sll_os_billlookup(state = NULL, session = NULL,
-    billid = NULL,
-    key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-    callopts = list())
+sll_os_billlookup(state = NULL, session = NULL, billid = NULL,
+  key = getOption("SunlightLabsKey",
+  stop("need an API key for Sunlight Labs")), callopts = list())
 }
 \arguments{
   \item{key}{your SunlightLabs API key; loads from
@@ -24,10 +23,10 @@
   required}
 }
 \value{
-  List of output fields.
+List of output fields.
 }
 \description{
-  Lookup bills on OpenStates.
+Lookup bills on OpenStates.
 }
 \examples{
 \dontrun{

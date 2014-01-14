@@ -2,9 +2,8 @@
 \alias{sll_cg_getcommitteeslist}
 \title{Get list of all committees for a given chamber along with their subcommittees.}
 \usage{
-  sll_cg_getcommitteeslist(chamber = NULL,
-    key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-    callopts = list())
+sll_cg_getcommitteeslist(chamber = NULL, key = getOption("SunlightLabsKey",
+  stop("need an API key for Sunlight Labs")), callopts = list())
 }
 \arguments{
   \item{chamber}{House, Senate, or Joint}
@@ -16,13 +15,13 @@
   (debugging tools mostly)}
 }
 \value{
-  List of all committees in the specified chamber with
-  their subcommittees (but not memberships due to size of
-  response).
+List of all committees in the specified chamber with their
+subcommittees (but not memberships due to size of
+response).
 }
 \description{
-  Get list of all committees for a given chamber along with
-  their subcommittees.
+Get list of all committees for a given chamber along with
+their subcommittees.
 }
 \examples{
 \dontrun{

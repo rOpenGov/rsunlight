@@ -2,11 +2,10 @@
 \alias{sll_os_legislatorsearch}
 \title{Search Legislators on OpenStates.}
 \usage{
-  sll_os_legislatorsearch(state = NULL, firstname = NULL,
-    lastname = NULL, chamber = NULL, active = NULL,
-    term = NULL, district = NULL, party = NULL,
-    key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-    callopts = list())
+sll_os_legislatorsearch(state = NULL, firstname = NULL, lastname = NULL,
+  chamber = NULL, active = NULL, term = NULL, district = NULL,
+  party = NULL, key = getOption("SunlightLabsKey",
+  stop("need an API key for Sunlight Labs")), callopts = list())
 }
 \arguments{
   \item{key}{your SunlightLabs API key; loads from
@@ -33,10 +32,10 @@
   \item{party}{democratic or republican (character)}
 }
 \value{
-  List of output fields.
+List of output fields.
 }
 \description{
-  Search Legislators on OpenStates.
+Search Legislators on OpenStates.
 }
 \examples{
 \dontrun{

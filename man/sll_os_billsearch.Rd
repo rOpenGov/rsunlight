@@ -2,11 +2,10 @@
 \alias{sll_os_billsearch}
 \title{Search OpenStates bills.}
 \usage{
-  sll_os_billsearch(terms = NULL, state = NULL,
-    window = NULL, chamber = "upper", sponsor_id = NULL,
-    updated_since = NULL, subject = NULL,
-    key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-    callopts = list())
+sll_os_billsearch(terms = NULL, state = NULL, window = NULL,
+  chamber = "upper", sponsor_id = NULL, updated_since = NULL,
+  subject = NULL, key = getOption("SunlightLabsKey",
+  stop("need an API key for Sunlight Labs")), callopts = list())
 }
 \arguments{
   \item{key}{your SunlightLabs API key; loads from
@@ -42,10 +41,10 @@
   list of subjects}
 }
 \value{
-  List of output fields.
+List of output fields.
 }
 \description{
-  Search OpenStates bills.
+Search OpenStates bills.
 }
 \examples{
 \dontrun{

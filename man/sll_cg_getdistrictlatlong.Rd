@@ -2,10 +2,9 @@
 \alias{sll_cg_getdistrictlatlong}
 \title{Get districts for a latitude/longitude.}
 \usage{
-  sll_cg_getdistrictlatlong(latitude = NULL,
-    longitude = NULL,
-    key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-    callopts = list())
+sll_cg_getdistrictlatlong(latitude = NULL, longitude = NULL,
+  key = getOption("SunlightLabsKey",
+  stop("need an API key for Sunlight Labs")), callopts = list())
 }
 \arguments{
   \item{key}{your SunlightLabs API key; loads from
@@ -19,10 +18,10 @@
   \item{longitude}{longitude of coordinate}
 }
 \value{
-  List of output fields.
+List of output fields.
 }
 \description{
-  Get districts for a latitude/longitude.
+Get districts for a latitude/longitude.
 }
 \examples{
 \dontrun{

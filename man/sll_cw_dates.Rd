@@ -3,14 +3,12 @@
 \title{Capitol words dates.json method. Search the congressional record for
 instances of a word or phrase over time.}
 \usage{
-  sll_cw_dates(phrase = NULL, title = NULL,
-    start_date = NULL, end_date = NULL, chamber = NULL,
-    state = NULL, party = NULL, bioguide_id = NULL,
-    congress = NULL, session = NULL, cr_pages = NULL,
-    volume = NULL, page_id = NULL, n = NULL,
-    granularity = NULL, percentages = "true",
-    key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-    callopts = list())
+sll_cw_dates(phrase = NULL, title = NULL, start_date = NULL,
+  end_date = NULL, chamber = NULL, state = NULL, party = NULL,
+  bioguide_id = NULL, congress = NULL, session = NULL, cr_pages = NULL,
+  volume = NULL, page_id = NULL, n = NULL, granularity = NULL,
+  percentages = "true", key = getOption("SunlightLabsKey",
+  stop("need an API key for Sunlight Labs")), callopts = list())
 }
 \arguments{
   \item{phrase}{Phrase to search.}
@@ -68,11 +66,11 @@ instances of a word or phrase over time.}
   month: 201111; state: NY; legislator (bioguide): L000551}
 }
 \value{
-  Data frame or JSON object of observations by date.
+Data frame or JSON object of observations by date.
 }
 \description{
-  Capitol words dates.json method. Search the congressional
-  record for instances of a word or phrase over time.
+Capitol words dates.json method. Search the congressional
+record for instances of a word or phrase over time.
 }
 \examples{
 \dontrun{

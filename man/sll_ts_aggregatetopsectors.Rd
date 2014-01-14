@@ -5,9 +5,8 @@
    the organization's PAC) versus money given by individuals employed by
    or associated with the organization.}
 \usage{
-  sll_ts_aggregatetopsectors(id = NULL,
-    key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-    callopts = list())
+sll_ts_aggregatetopsectors(id = NULL, key = getOption("SunlightLabsKey",
+  stop("need an API key for Sunlight Labs")), callopts = list())
 }
 \arguments{
   \item{key}{your SunlightLabs API key; loads from
@@ -19,15 +18,15 @@
   \item{id}{The ID of the entity in the given namespace.}
 }
 \value{
-  The top contributoring organizations, ranked by total
-  dollars given.
+The top contributoring organizations, ranked by total
+dollars given.
 }
 \description{
-  Return the top contributoring organizations, ranked by
-  total dollars given.  An organization's giving is broken
-  down into money given directly (by the organization's
-  PAC) versus money given by individuals employed by or
-  associated with the organization.
+Return the top contributoring organizations, ranked by
+total dollars given.  An organization's giving is broken
+down into money given directly (by the organization's PAC)
+versus money given by individuals employed by or associated
+with the organization.
 }
 \examples{
 \dontrun{

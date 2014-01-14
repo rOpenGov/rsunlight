@@ -2,13 +2,12 @@
 \alias{sll_cw_timeseries}
 \title{Find the popularity of a phrase over a period of time.}
 \usage{
-  sll_cw_timeseries(phrase = NULL, start_date = NULL,
-    end_date = NULL, chamber = NULL, state = NULL,
-    party = NULL, bioguide_id = NULL, mincount = NULL,
-    percentages = NULL, granularity = "day",
-    entity_type = NULL, entity_value = NULL,
-    key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-    callopts = list())
+sll_cw_timeseries(phrase = NULL, start_date = NULL, end_date = NULL,
+  chamber = NULL, state = NULL, party = NULL, bioguide_id = NULL,
+  mincount = NULL, percentages = NULL, granularity = "day",
+  entity_type = NULL, entity_value = NULL,
+  key = getOption("SunlightLabsKey",
+  stop("need an API key for Sunlight Labs")), callopts = list())
 }
 \arguments{
   \item{phrase}{Phrase to search.}
@@ -66,11 +65,11 @@
   month: 201111; state: NY; legislator (bioguide): L000551}
 }
 \value{
-  A data.frame with number of times (and percentages of the
-  text result, if selected).
+A data.frame with number of times (and percentages of the
+text result, if selected).
 }
 \description{
-  Find the popularity of a phrase over a period of time.
+Find the popularity of a phrase over a period of time.
 }
 \examples{
 \dontrun{

@@ -2,10 +2,9 @@
 \alias{sll_cg_legislatorsallForLatLong}
 \title{Search congress people and senate members for a latitude/longitude.}
 \usage{
-  sll_cg_legislatorsallForLatLong(latitude = NULL,
-    longitude = NULL,
-    key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-    callopts = list())
+sll_cg_legislatorsallForLatLong(latitude = NULL, longitude = NULL,
+  key = getOption("SunlightLabsKey",
+  stop("need an API key for Sunlight Labs")), callopts = list())
 }
 \arguments{
   \item{key}{your SunlightLabs API key; loads from
@@ -19,11 +18,11 @@
   \item{longitude}{longitude of coordinate}
 }
 \value{
-  List of output fields.
+List of output fields.
 }
 \description{
-  Search congress people and senate members for a
-  latitude/longitude.
+Search congress people and senate members for a
+latitude/longitude.
 }
 \examples{
 \dontrun{

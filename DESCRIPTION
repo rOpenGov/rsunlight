@@ -1,9 +1,9 @@
-Package: govdat
-Description: Interface to various APIs for government data, including Sunlight
-    Foundation, and the NYTimes Congress API.
-Title: Interface to API methods for government data.
-Version: 0.1.5
-Date: 2013-08-28
+Package: rsunlight
+Description: Interface to the various Sunlight Labs APIs
+    for government data.
+Title: Interface to Sunlight Labs APIs.
+Version: 0.2.0
+Date: 2014-01-14
 License: MIT
 Author: Scott Chamberlain
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>
@@ -15,39 +15,6 @@ Imports:
     plyr,
     stringr
 Suggests:
-    knitr
-Collate:
-    'sll_cg_getcommittees.R'
-    'sll_cg_getcommitteesallleg.R'
-    'sll_cg_getcommitteeslist.R'
-    'sll_cg_getdistrictlatlong.R'
-    'sll_cg_getdistrictzip.R'
-    'sll_cg_getlegislator.R'
-    'sll_cg_getlegislatorlist.R'
-    'sll_cg_getlegislatorsearch.R'
-    'sll_cg_legislatorsallforlatlong.R'
-    'sll_cg_legislatorsallforzip.R'
-    'sll_os_billlookup.R'
-    'sll_os_billsearch.R'
-    'sll_os_legislatorsearch.R'
-    'sll_os_statemetasearch.R'
-    'sll_ts_aggregateentityview.R'
-    'sll_ts_aggregatelookupid.R'
-    'sll_ts_aggregatesearch.R'
-    'sll_ts_aggregatetopcontribs.R'
-    'sll_ts_aggregatetopsectors.R'
-    'nyt_cg_billscosponsor.R'
-    'nyt_cg_memberappear.R'
-    'nyt_cg_memberbioroles.R'
-    'nyt_cg_memberbystatedistrict.R'
-    'nyt_cg_memberlist.R'
-    'nyt_cg_membersleaving.R'
-    'nyt_cg_membersponsorcompare.R'
-    'nyt_cg_membervotecompare.R'
-    'nyt_cg_membervotepositions.R'
-    'nyt_cg_newmembers.R'
-    'nyt_cg_rollcallvote.R'
-    'sll_cw_dates.R'
-    'sll_cw_text.R'
-    'sll_ts_sectors.R'
-    'sll_cw_timeseries.R'
+    knitr,
+    testthat,
+    rCharts

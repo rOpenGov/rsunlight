@@ -4,9 +4,9 @@
    they provide a mapping from the ID schemes used by Center for Reponsive
    Politics (CRP) and the National Institute for Money in State Politics (NIMSP).}
 \usage{
-  sll_ts_aggregateentityview(id = NULL, cycle = NULL,
-    key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-    callopts = list())
+sll_ts_aggregateentityview(id = NULL, cycle = NULL,
+  key = getOption("SunlightLabsKey",
+  stop("need an API key for Sunlight Labs")), callopts = list())
 }
 \arguments{
   \item{key}{your SunlightLabs API key; loads from
@@ -21,15 +21,14 @@
   cycle. When not given, returns totals for all cycles.}
 }
 \value{
-  a JSON object listing the TransparencyData IDs matching
-  the given external ID.
+a JSON object listing the TransparencyData IDs matching the
+given external ID.
 }
 \description{
-  Look up the entity ID based on an ID from a different
-  data set. Currently they provide a mapping from the ID
-  schemes used by Center for Reponsive Politics (CRP) and
-  the National Institute for Money in State Politics
-  (NIMSP).
+Look up the entity ID based on an ID from a different data
+set. Currently they provide a mapping from the ID schemes
+used by Center for Reponsive Politics (CRP) and the
+National Institute for Money in State Politics (NIMSP).
 }
 \examples{
 \dontrun{

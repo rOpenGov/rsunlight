@@ -1,4 +1,12 @@
-govdat 0.1
+rsunlight 0.2
+===============
+
+NEW FEATURES 
+
+* Changed package name to rsunlight, only holds functions to interact with Sunlight Labs APIs. NYtimes congress API functions moved to a new pacakge rtimes.
+
+
+rsunlight 0.1
 ===============
 
 NEW FEATURES 
