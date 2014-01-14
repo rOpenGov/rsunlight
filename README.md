@@ -4,7 +4,7 @@ rsunlight
 [![Build Status](https://api.travis-ci.org/rOpenGov/rsunlight.png)](https://travis-ci.org/rOpenGov/rsunlight)
 
 + Maintainer: Scott Chamberlain
-+ License: [CC0](http://creativecommons.org/publicdomain/zero/1.0/)
++ License: [MIT](http://creativecommons.org/publicdomain/zero/1.0/)
 + Report any problems in the [Issues Tracker](https://github.com/SChamberlain/rsunlight/issues), or just fork and submit changes, etc.
 
 ## Description

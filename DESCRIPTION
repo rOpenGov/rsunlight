@@ -4,9 +4,9 @@ Description: Interface to the various Sunlight Labs APIs
 Title: Interface to Sunlight Labs APIs.
 Version: 0.2.0
 Date: 2014-01-14
-License: MIT
-Author: Scott Chamberlain
-Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>
+License: MIT + file LICENSE
+Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
+    email = "myrmecocystus@gmail.com")
 VignetteBuilder: knitr
 Imports:
     RJSONIO,
