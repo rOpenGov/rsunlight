@@ -19,5 +19,7 @@ ts_aggregatesearch <- function(search = NULL,
 {
   url = "http://transparencydata.com/api/1.0/entities.json"
   args <- list(apikey = key, search = search)
-  content(GET(url, query=args, callopts))
+  tt <- GET(url, query=args, callopts)
+  stop_for_status(tt)
+  content(tt)
 }

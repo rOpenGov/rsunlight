@@ -16,5 +16,7 @@ os_statemetasearch <- function(state = NULL,
     stop("state must specify a two letter state abbreviation")
   url = "http://openstates.org/api/v1/metadata/"
   url_ <- paste(url, state, "/?apikey=", key, sep= "")
-  content(GET(url_))
+  tt <- GET(url_)
+  stop_for_status(tt)
+  content(tt)
 }

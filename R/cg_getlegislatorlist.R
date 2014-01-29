@@ -46,5 +46,7 @@ cg_getlegislatorlist <- function(title=NULL, firstname=NULL, middlename=NULL,
                     mm(fec_id),mm(govtrack_id),mm(crp_id),mm(congresspedia_url),
                     mm(twitter_id),mm(youtube_url),mm(facebook_id),
                     mm(senate_class),mm(birthdate)))
-  content(GET(url, query=args, callopts))
+  tt <- GET(url, query=args, callopts)
+  stop_for_status(tt)
+  content(tt)
 }

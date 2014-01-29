@@ -30,7 +30,9 @@ cw_text <- function(phrase=NULL, title=NULL, start_date=NULL, end_date=NULL,
                        party=party, bioguide_id=bioguide_id, congress=congress, 
                        session=session, cr_pages=cr_pages, volume=volume, 
                        page=page))  
-  tt <- content(GET(url, query=args, callopts))
+  out <- GET(url, query=args, callopts)
+  stop_for_status(out)
+  tt <- content(out)
   message(sprintf('%s records found, %s returned', tt$num_found, length(tt[[2]])))
   data <- lapply(tt[[2]], function(x){
      x[sapply(x, is.null)] <- "none"

@@ -15,5 +15,7 @@ cg_getcommittees <-  function(id = NULL,
 {
   url = "http://services.sunlightlabs.com/api/committees.get.json"
   args <- compact(list(apikey = key, id = id))
-  content(GET(url, query=args, callopts))
+  tt <- GET(url, query=args, callopts)
+  stop_for_status(tt)
+  content(tt)
 }

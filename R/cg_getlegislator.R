@@ -32,5 +32,7 @@ cg_getlegislator <- function(title=NULL, firstname=NULL, middlename=NULL,
                        congresspedia_url=congresspedia_url,twitter_id=twitter_id,
                        youtube_url=youtube_url,facebook_id=facebook_id,
                        senate_class=senate_class,birthdate=birthdate))
-  content(GET(url, query=args, callopts))
+  tt <- GET(url, query=args, callopts)
+  stop_for_status(tt)
+  content(tt)
 }

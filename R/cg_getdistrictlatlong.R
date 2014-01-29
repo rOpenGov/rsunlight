@@ -16,5 +16,7 @@ cg_getdistrictlatlong <- function(latitude = NULL, longitude = NULL,
 {
   url = "http://services.sunlightlabs.com/api/districts.getDistrictFromLatLong.json"
   args <- compact(list(apikey = key, latitude = latitude, longitude = longitude))
-  content(GET(url, query=args, callopts))
+  tt <- GET(url, query=args, callopts)
+  stop_for_status(tt)
+  content(tt)
 }

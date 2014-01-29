@@ -21,5 +21,7 @@ cg_getlegislatorsearch <- function(name=NULL, threshold=NULL,
   url = "http://services.sunlightlabs.com/api/legislators.search.json"
   args <- compact(list(apikey = key, name=name, threshold=threshold, 
                        all_legislators=all_legislators))
-  content(GET(url, query=args, callopts))
+  tt <- GET(url, query=args, callopts)
+  stop_for_status(tt)
+  content(tt)
 }

@@ -27,5 +27,7 @@ os_legislatorsearch <- function(state = NULL, firstname = NULL,
   args <- compact(list(apikey = key, state = state, firstname = firstname, 
                        lastname = lastname, chamber = chamber, active = active, 
                        term = term, district = district, party = party))
-  content(GET(url, query=args, callopts))
+  tt <- GET(url, query=args, callopts)
+  stop_for_status(tt)
+  content(tt)
 }

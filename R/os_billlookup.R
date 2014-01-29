@@ -21,5 +21,7 @@ os_billlookup <- function(state = NULL, session = NULL, billid = NULL,
       '%20', str_extract(billid, '[0-9]+'), sep = "")
   urlget <- paste(url, state, '/', session, '/', billid_, sep='')
   args <- list(apikey=key)
-  content(GET(urlget, query=args, callopts))
+  tt <- GET(url, query=args, callopts)
+  stop_for_status(tt)
+  content(tt)
 }

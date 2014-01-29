@@ -63,7 +63,7 @@ library(rsunlight)
 ### Get districts for a latitude/longitude.
 
 ```coffee
-out <- sll_cg_getdistrictlatlong(latitude = 35.778788, longitude = -78.787805)
+out <- cg_getdistrictlatlong(latitude = 35.778788, longitude = -78.787805)
 out$response$districts
 ```
 
@@ -80,7 +80,7 @@ out$response$districts
 ### Search congress people and senate members.
 
 ```coffee
-out <- sll_cg_getlegislatorsearch(name = 'Reed')
+out <- cg_getlegislatorsearch(name = 'Reed')
 out$response$results[[1]]$result$legislator[1:5]
 ```
 
@@ -106,7 +106,7 @@ $chamber
 Get a list of how many times the phrase "united states" appears in the Congressional Record in each month between January and June, 2010:
 
 ```coffee
-sll_cw_timeseries(phrase='united states', start_date='2009-01-01', end_date='2009-04-30', granularity='month')
+cw_timeseries(phrase='united states', start_date='2009-01-01', end_date='2009-04-30', granularity='month')
 ```
 
 ```coffee
@@ -121,9 +121,9 @@ sll_cw_timeseries(phrase='united states', start_date='2009-01-01', end_date='200
 
 ```coffee
 library(ggplot2)
-dat_d <- sll_cw_timeseries(phrase='climate change', party="D")
+dat_d <- cw_timeseries(phrase='climate change', party="D")
 dat_d$party <- rep("D", nrow(dat_d))
-dat_r <- sll_cw_timeseries(phrase='climate change', party="R")
+dat_r <- cw_timeseries(phrase='climate change', party="R")
 dat_r$party <- rep("R", nrow(dat_r))
 dat_both <- rbind(dat_d, dat_r)
 ggplot(dat_both, aes(day, count, colour=party)) + 
@@ -139,7 +139,7 @@ ggplot(dat_both, aes(day, count, colour=party)) +
 Note that the resulting chart opens in a browser, so is not shown in this vignette, but you will see it open in a browser when you run the code.
 
 ```coffee
-dream <- lapply(c('D','R'), function(x) sll_cw_timeseries(phrase='i have a dream', party=x, start_date='1996-01-01', end_date='2013-01-01', granularity='month'))
+dream <- lapply(c('D','R'), function(x) cw_timeseries(phrase='i have a dream', party=x, start_date='1996-01-01', end_date='2013-01-01', granularity='month'))
 df <- merge(dream[[1]], dream[[2]], by='month', all=TRUE)
 df[is.na(df)] <- 0
 names(df) <- c('date','D','R')
@@ -162,7 +162,7 @@ _note: as you can see this is not actually interactive, but when you make it, it
 Ranked by total dollars given. An organization's giving is broken down into money given directly (by the organization's PAC) versus money given by individuals employed by or associated with the organization.
 
 ```coffee
-out <- sll_ts_aggregatetopcontribs(id = '85ab2e74589a414495d18cc7a9233981')
+out <- ts_aggregatetopcontribs(id = '85ab2e74589a414495d18cc7a9233981')
 ldply(out, data.frame)
 ```
 

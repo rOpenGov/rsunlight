@@ -55,8 +55,10 @@ cw_timeseries <- function(phrase=NULL, start_date=NULL, end_date=NULL,
                        end_date=end_date, chamber=chamber, state=state, 
                        party=party, bioguide_id=bioguide_id, mincount=mincount,
                        percentages=percentages, granularity=granularity, 
-                       entity_type=entity_type, entity_value=entity_value))  
-  tt <- content(GET(url, query=args, callopts))
+                       entity_type=entity_type, entity_value=entity_value)) 
+  out <- GET(url, query=args, callopts)
+  stop_for_status(out)
+  tt <- content(out)
   message(sprintf('%s records returned', length(tt[[1]])))
   data <- do.call(rbind.fill, lapply(tt[[1]], function(x) data.frame(x)))
   if(granularity=='day'){ data$day <- as.Date(data$day) } else

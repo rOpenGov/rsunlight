@@ -44,7 +44,7 @@ library(rsunlight)
 
 
 ```r
-out <- sll_cg_getcommittees(id = "JSPR")
+out <- cg_getcommittees(id = "JSPR")
 out$response$committee$members[[1]]$legislator[1:5]
 ```
 
@@ -72,7 +72,7 @@ out$response$committee$members[[1]]$legislator[1:5]
 
 
 ```r
-out <- sll_cg_getcommitteesallleg(bioguide_id = "S000148")
+out <- cg_getcommitteesallleg(bioguide_id = "S000148")
 out$response$committees[[1]]
 ```
 
@@ -95,7 +95,7 @@ out$response$committees[[1]]
 
 
 ```r
-out <- sll_cg_getdistrictlatlong(latitude = 35.778788, longitude = -78.787805)
+out <- cg_getdistrictlatlong(latitude = 35.778788, longitude = -78.787805)
 out$response$districts
 ```
 
@@ -116,7 +116,7 @@ out$response$districts
 
 
 ```r
-out <- sll_cg_getdistrictzip(zip = 27511)
+out <- cg_getdistrictzip(zip = 27511)
 out$response$districts
 ```
 
@@ -157,25 +157,25 @@ out$response$districts
 
 
 ```r
-out <- sll_cg_getlegislatorsearch(name = "Reed")
+out <- cg_getlegislatorsearch(name = "Reed")
 out$response$results[[1]]$result$legislator[1:5]
 ```
 
 ```
 ## $website
-## [1] "http://www.reed.senate.gov"
+## [1] "http://reed.house.gov"
 ## 
 ## $fax
-## [1] "202-224-4680"
+## [1] "202-226-6599"
 ## 
 ## $govtrack_id
-## [1] "300081"
+## [1] "412393"
 ## 
 ## $firstname
-## [1] "John"
+## [1] "Tom"
 ## 
 ## $chamber
-## [1] "senate"
+## [1] "house"
 ```
 
 
@@ -185,7 +185,7 @@ out$response$results[[1]]$result$legislator[1:5]
 
 
 ```r
-out <- sll_cg_legislatorsallforzip(zip = 77006)
+out <- cg_legislatorsallforzip(zip = 77006)
 library(plyr)
 ldply(out$response$legislators, function(x) data.frame(x$legislator[c("firstname", 
     "lastname")]))
@@ -208,7 +208,7 @@ ldply(out$response$legislators, function(x) data.frame(x$legislator[c("firstname
 
 
 ```r
-sll_cw_timeseries(phrase = "united states", start_date = "2009-01-01", end_date = "2009-04-30", 
+cw_timeseries(phrase = "united states", start_date = "2009-01-01", end_date = "2009-04-30", 
     granularity = "month")
 ```
 
@@ -230,45 +230,38 @@ sll_cw_timeseries(phrase = "united states", start_date = "2009-01-01", end_date 
 
 ```r
 library(ggplot2)
+dat <- cw_timeseries(phrase = "climate change")
 ```
 
 ```
-## Need help? Try the ggplot2 mailing list: http://groups.google.com/group/ggplot2.
-```
-
-```r
-dat <- sll_cw_timeseries(phrase = "climate change")
-```
-
-```
-## 1403 records returned
+## 1407 records returned
 ```
 
 ```r
 ggplot(dat, aes(day, count)) + geom_line() + theme_grey(base_size = 20)
 ```
 
-![plot of chunk sll_cw_timeseries2](figure/sll_cw_timeseries2.png) 
+![plot of chunk cw_timeseries2](figure/cw_timeseries2.png) 
 
 
 ##### Plot more data
 
 
 ```r
-dat_d <- sll_cw_timeseries(phrase = "climate change", party = "D")
+dat_d <- cw_timeseries(phrase = "climate change", party = "D")
 ```
 
 ```
-## 953 records returned
+## 957 records returned
 ```
 
 ```r
 dat_d$party <- rep("D", nrow(dat_d))
-dat_r <- sll_cw_timeseries(phrase = "climate change", party = "R")
+dat_r <- cw_timeseries(phrase = "climate change", party = "R")
 ```
 
 ```
-## 631 records returned
+## 632 records returned
 ```
 
 ```r
@@ -278,7 +271,7 @@ ggplot(dat_both, aes(day, count, colour = party)) + geom_line() + theme_grey(bas
     scale_colour_manual(values = c("blue", "red"))
 ```
 
-![plot of chunk sll_cw_timeseries3](figure/sll_cw_timeseries3.png) 
+![plot of chunk cw_timeseries3](figure/cw_timeseries3.png) 
 
 
 #### Interactive charts using rCharts
@@ -287,7 +280,7 @@ Note that the resulting chart opens in a browser, so is not shown in this vignet
 
 
 ```r
-dream <- lapply(c("D", "R"), function(x) sll_cw_timeseries(phrase = "i have a dream", 
+dream <- lapply(c("D", "R"), function(x) cw_timeseries(phrase = "i have a dream", 
     party = x, start_date = "1996-01-01", end_date = "2013-01-01", granularity = "month"))
 df <- merge(dream[[1]], dream[[2]], by = "month", all = TRUE)
 df[is.na(df)] <- 0
@@ -308,7 +301,7 @@ m1
 
 
 ```r
-out <- sll_os_billsearch(terms = "agriculture", state = "tx", chamber = "upper")
+out <- os_billsearch(terms = "agriculture", state = "tx", chamber = "upper")
 lapply(out, "[[", "title")[100:110]
 ```
 
@@ -354,22 +347,22 @@ lapply(out, "[[", "title")[100:110]
 
 
 ```r
-out <- sll_os_legislatorsearch(state = "tx", party = "democratic", active = TRUE)
+out <- os_legislatorsearch(state = "tx", party = "democratic", active = TRUE)
 out[[1]][1:4]
 ```
 
 ```
 ## $last_name
-## [1] "Naishtat"
+## [1] "Allen"
 ## 
 ## $updated_at
-## [1] "2014-01-14 00:42:31"
+## [1] "2014-01-29 00:41:39"
 ## 
 ## $nimsp_candidate_id
-## [1] "112047"
+## [1] "111820"
 ## 
 ## $full_name
-## [1] "Elliott Naishtat"
+## [1] "Alma Allen"
 ```
 
 
@@ -379,7 +372,7 @@ out[[1]][1:4]
 
 
 ```r
-out <- sll_ts_aggregatesearch("Nancy Pelosi")
+out <- ts_aggregatesearch("Nancy Pelosi")
 out <- lapply(out, function(x) {
     x[sapply(x, is.null)] <- "none"
     x
@@ -409,7 +402,7 @@ ldply(out, data.frame)
 
 
 ```r
-out <- sll_ts_aggregatetopcontribs(id = "85ab2e74589a414495d18cc7a9233981")
+out <- ts_aggregatetopcontribs(id = "85ab2e74589a414495d18cc7a9233981")
 ldply(out, data.frame)
 ```
 

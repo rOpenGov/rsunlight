@@ -25,7 +25,9 @@ cw_dates <- function(phrase = NULL, title = NULL, start_date = NULL,
                        session = session, cr_pages = cr_pages, volume = volume, 
                        page_id = page_id, n = n, granularity = granularity, 
                        percentages = percentages))
-  out <- content(GET(url, query=args, callopts))
+  tt <- GET(url, query=args, callopts)
+  stop_for_status(tt)
+  out <- content(tt)
   df <- rbind.fill(lapply(out[[1]], data.frame))
   df
 }

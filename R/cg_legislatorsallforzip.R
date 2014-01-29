@@ -15,5 +15,7 @@ cg_legislatorsallforzip <- function(zip = NULL,
 {
   url = "http://services.sunlightlabs.com/api/legislators.allForZip.json"
   args <- compact(list(apikey = key, zip = zip))
-  content(GET(url, query=args, callopts))
+  tt <- GET(url, query=args, callopts)
+  stop_for_status(tt)
+  content(tt)
 }

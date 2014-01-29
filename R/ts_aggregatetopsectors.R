@@ -19,6 +19,8 @@ ts_aggregatetopsectors <- function(id = NULL,
   url = "http://transparencydata.com/api/1.0/aggregates/pol/"
   url2 <- paste(url, id, '/contributors/sectors.json', sep='')
   args <- list(apikey = key)
-  content(GET(url2, query=args, callopts))
+  tt <- GET(url2, query=args, callopts)
+  stop_for_status(tt)
+  content(tt)
 }
 # http://transparencydata.com/api/1.0/aggregates/pol/ff96aa62d48f48e5a1e284efe74a0ba8/contributors/sectors.json?apikey=<your-key>

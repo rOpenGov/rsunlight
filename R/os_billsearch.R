@@ -35,5 +35,7 @@ os_billsearch <- function(terms = NULL, state = NULL, window = NULL,
   args <- compact(list(apikey = key, q = terms, state = state, window = window, 
                        chamber = chamber, sponsor_id = sponsor_id, 
                        updated_since = updated_since, subject = subject))
-  content(GET(url, query=args, callopts))
+  tt <- GET(url, query=args, callopts)
+  stop_for_status(tt)
+  content(tt)
 }

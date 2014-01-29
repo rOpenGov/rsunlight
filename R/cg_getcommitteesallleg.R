@@ -15,5 +15,7 @@ cg_getcommitteesallleg <- function(bioguide_id = NULL,
 {
   url = "http://services.sunlightlabs.com/api/committees.allForLegislator.json"
   args <- compact(list(apikey = key, bioguide_id = bioguide_id))
-  content(GET(url, query=args, callopts))
+  tt <- GET(url, query=args, callopts)
+  stop_for_status(tt)
+  content(tt)
 }

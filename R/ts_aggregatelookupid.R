@@ -24,5 +24,7 @@ ts_aggregatelookupid <- function(namespace = NULL, id = NULL,
 {
   url = "http://transparencydata.com/api/1.0/entities/id_lookup.json"
   args <- list(apikey = key, id = id, namespace = namespace)
-  content(GET(url, query=args, callopts))[[1]]
+  tt <- GET(url, query=args, callopts)
+  stop_for_status(tt)
+  content(tt)[[1]]
 }

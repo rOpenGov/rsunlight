@@ -23,6 +23,8 @@ ts_aggregateentityview <- function(id = NULL, cycle = NULL,
   url = "http://transparencydata.com/api/1.0/entities/"
   url2 <- paste(url, id, '.json', sep='')
   args <- list(apikey = key, cycle = cycle)
-  content(GET(url2, query=args, callopts))
+  tt <- GET(url2, query=args, callopts)
+  stop_for_status(tt)
+  content(tt)
 }
 # http://transparencydata.com/api/1.0/entities/ff96aa62d48f48e5a1e284efe74a0ba8.json?apikey=<your-key>
