@@ -4,6 +4,8 @@
 #' @import httr
 #' @importFrom plyr compact
 #' @template cw
+#' @template cw_dates_text
+#' @param page No definition.
 #' @return Phrases matched.
 #' @export
 #' @examples \dontrun{

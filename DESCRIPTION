@@ -9,8 +9,6 @@ Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com")
 VignetteBuilder: knitr
 Imports:
-    RJSONIO,
-    RCurl (>= 1.6),
     httr,
     plyr,
     stringr

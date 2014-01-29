@@ -4,6 +4,7 @@
 #' @importFrom plyr compact rbind.fill
 #' @importFrom stringr str_sub
 #' @template cw
+#' @template cw_timeseries
 #' @return A data.frame with number of times (and percentages of the text result, 
 #' if selected).
 #' @export

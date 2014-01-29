@@ -2,8 +2,8 @@
 #' 
 #' @import httr
 #' @importFrom plyr compact
-#' @template cg
 #' @param state state two-letter abbreviation (character)
+#' @param key your SunlightLabs API key; loads from .Rprofile
 #' @return List of output fields.
 #' @export
 #' @examples \dontrun{

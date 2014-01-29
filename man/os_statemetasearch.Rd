@@ -6,13 +6,10 @@ os_statemetasearch(state = NULL, key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")))
 }
 \arguments{
+  \item{state}{state two-letter abbreviation (character)}
+
   \item{key}{your SunlightLabs API key; loads from
   .Rprofile}
-
-  \item{callopts}{Optional additional curl options
-  (debugging tools mostly)}
-
-  \item{state}{state two-letter abbreviation (character)}
 }
 \value{
 List of output fields.

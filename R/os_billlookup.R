@@ -1,7 +1,7 @@
 #' Lookup bills on OpenStates.
 #' 
 #' @import httr 
-#' @importFrom stringr str_extract
+#' @importFrom stringr str_extract ignore.case
 #' @template cg
 #' @param state state two-letter abbreviation (character), required
 #' @param session session of congress (integer), e.g., 2009-2010 = 20092010, 

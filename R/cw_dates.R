@@ -4,6 +4,13 @@
 #' @import httr
 #' @importFrom plyr compact
 #' @template cw
+#' @template cw_dates_text
+#' @param page_id Page id.
+#' @param n Size, not sure what this is.
+#' @param percentages Include the percentage of mentions versus total words in 
+#'    the result objects. Valid values: 'true', 'false' (default) (character)
+#' @param granularity The length of time covered by each result. Valid values: 
+#'    'year', 'month', 'day' (default)
 #' @return Data frame or JSON object of observations by date.
 #' @export
 #' @examples \dontrun{

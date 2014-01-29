@@ -13,8 +13,6 @@ cw_dates(phrase = NULL, title = NULL, start_date = NULL,
 \arguments{
   \item{phrase}{Phrase to search.}
 
-  \item{title}{Title of page to search.}
-
   \item{start_date}{Start date to search on.}
 
   \item{end_date}{End date to search on.}
@@ -29,6 +27,14 @@ cw_dates(phrase = NULL, title = NULL, start_date = NULL,
   \item{bioguide_id}{Bioguide ID for politician (e.g.,
   B000243)}
 
+  \item{key}{Your SunlightLabs API key; loads from
+  .Rprofile.}
+
+  \item{callopts}{Further curl options (debugging tools
+  mostly)}
+
+  \item{title}{Title of page to search.}
+
   \item{congress}{Congressional session (e.g.,
   110,111,112)}
 
@@ -39,10 +45,9 @@ cw_dates(phrase = NULL, title = NULL, start_date = NULL,
 
   \item{volume}{No definition.}
 
-  \item{page}{No definition.}
+  \item{page_id}{Page id.}
 
-  \item{mincount}{Only return results where mentions are at
-  or above the supplied threshold.}
+  \item{n}{Size, not sure what this is.}
 
   \item{percentages}{Include the percentage of mentions
   versus total words in the result objects. Valid values:
@@ -50,20 +55,6 @@ cw_dates(phrase = NULL, title = NULL, start_date = NULL,
 
   \item{granularity}{The length of time covered by each
   result. Valid values: 'year', 'month', 'day' (default)}
-
-  \item{key}{Your SunlightLabs API key; loads from
-  .Rprofile.}
-
-  \item{callopts}{Further curl options (debugging tools
-  mostly)}
-
-  \item{entity_type}{The entity type to get top phrases
-  for. Valid values: 'date', 'month', 'state',
-  'legislator'}
-
-  \item{entity_value}{The value of the entity given in
-  entity_type. Formats are as follows: date: 2011-11-09;
-  month: 201111; state: NY; legislator (bioguide): L000551}
 }
 \value{
 Data frame or JSON object of observations by date.
