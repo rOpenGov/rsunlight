@@ -1,8 +1,4 @@
-all:
-		make move
-		make pandoc
-		make rmd2md
-		make cleanup
+all: move pandoc rmd2md cleanup
 
 vignettes: 
 		cd inst/vign;\
