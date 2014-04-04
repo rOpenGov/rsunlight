@@ -1,7 +1,6 @@
 #' Search congress people and senate members for a zip code.
 #' 
 #' @import httr
-#' @importFrom plyr compact
 #' @param zip zip code to search
 #' @template cg
 #' @return List of output fields.
@@ -14,8 +13,9 @@ cg_legislatorsallforzip <- function(zip = NULL,
   callopts = list())
 {
   url = "http://services.sunlightlabs.com/api/legislators.allForZip.json"
-  args <- compact(list(apikey = key, zip = zip))
+  args <- suncompact(list(apikey = key, zip = zip))
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
-  content(tt)
+  out <- content(tt, as = "text")
+  fromJSON(out, simplifyVector = FALSE)$response
 }

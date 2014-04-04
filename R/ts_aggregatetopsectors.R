@@ -4,7 +4,6 @@
 #'    or associated with the organization.
 #'    
 #' @import httr
-#' @importFrom plyr compact
 #' @template cg
 #' @param id The ID of the entity in the given namespace.
 #' @return The top contributoring organizations, ranked by total dollars given.
@@ -21,6 +20,6 @@ ts_aggregatetopsectors <- function(id = NULL,
   args <- list(apikey = key)
   tt <- GET(url2, query=args, callopts)
   stop_for_status(tt)
-  content(tt)
+  out <- content(tt, as = "text")
+  fromJSON(out, simplifyVector = FALSE)
 }
-# http://transparencydata.com/api/1.0/aggregates/pol/ff96aa62d48f48e5a1e284efe74a0ba8/contributors/sectors.json?apikey=<your-key>

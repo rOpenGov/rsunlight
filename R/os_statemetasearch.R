@@ -18,5 +18,6 @@ os_statemetasearch <- function(state = NULL,
   url_ <- paste(url, state, "/?apikey=", key, sep= "")
   tt <- GET(url_)
   stop_for_status(tt)
-  content(tt)
+  out <- content(tt, as = "text")
+  fromJSON(out, simplifyVector = FALSE)
 }

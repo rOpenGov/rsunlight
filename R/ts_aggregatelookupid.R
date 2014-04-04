@@ -3,7 +3,6 @@
 #'    Politics (CRP) and the National Institute for Money in State Politics (NIMSP).
 #'
 #' @import httr
-#' @importFrom plyr compact
 #' @template cg
 #' @param namespace The dataset and data type of the ID. Currently allowed values are:
 #'    urn:crp:individual (A CRP ID for an individual contributor or lobbyist. Begins with U or C.)
@@ -26,5 +25,7 @@ ts_aggregatelookupid <- function(namespace = NULL, id = NULL,
   args <- list(apikey = key, id = id, namespace = namespace)
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
-  content(tt)[[1]]
+  out <- content(tt, as = "text")
+  fromJSON(out, simplifyVector = FALSE)[[1]]
+#   content(tt)[[1]]
 }

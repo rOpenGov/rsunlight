@@ -2,7 +2,6 @@
 #'    with the given name.
 #'    
 #' @import httr
-#' @importFrom plyr compact
 #' @template cg
 #' @param search The query string. Spaces should be URL-encoded or represented 
 #'    as +. There are no logic operators or grouping.
@@ -21,5 +20,6 @@ ts_aggregatesearch <- function(search = NULL,
   args <- list(apikey = key, search = search)
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
-  content(tt)
+  out <- content(tt, as = "text")
+  fromJSON(out, simplifyVector = FALSE)
 }

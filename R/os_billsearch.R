@@ -1,7 +1,6 @@
 #' Search OpenStates bills.
 #' 
 #' @import httr
-#' @importFrom plyr compact
 #' @template cg
 #' @param terms search terms bill search (character)
 #' @param state state two-letter abbreviation (character)
@@ -32,10 +31,11 @@ os_billsearch <- function(terms = NULL, state = NULL, window = NULL,
     callopts = list())
 {
   url = "http://openstates.org/api/v1/bills/"
-  args <- compact(list(apikey = key, q = terms, state = state, window = window, 
+  args <- suncompact(list(apikey = key, q = terms, state = state, window = window, 
                        chamber = chamber, sponsor_id = sponsor_id, 
                        updated_since = updated_since, subject = subject))
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
-  content(tt)
+  out <- content(tt, as = "text")
+  fromJSON(out, simplifyVector = FALSE)
 }

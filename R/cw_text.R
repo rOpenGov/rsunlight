@@ -1,7 +1,8 @@
 #' Capitol words text.json method. Search the congressional record for instances 
 #' of a word or phrase.
 #'    
-#' @import httr
+#' @import httr 
+#' @importFrom jsonlite fromJSON
 #' @importFrom plyr compact
 #' @template cw
 #' @template cw_dates_text
@@ -27,16 +28,17 @@ cw_text <- function(phrase=NULL, title=NULL, start_date=NULL, end_date=NULL,
   callopts=list()) 
 {
   url = "http://capitolwords.org/api/text.json"
-  args <- compact(list(apikey=key, phrase=phrase, start_date=start_date,
+  args <- suncompact(list(apikey=key, phrase=phrase, start_date=start_date,
                        end_date=end_date, chamber=chamber, state=state, 
                        party=party, bioguide_id=bioguide_id, congress=congress, 
                        session=session, cr_pages=cr_pages, volume=volume, 
                        page=page))  
   out <- GET(url, query=args, callopts)
   stop_for_status(out)
-  tt <- content(out)
-  message(sprintf('%s records found, %s returned', tt$num_found, length(tt[[2]])))
-  data <- lapply(tt[[2]], function(x){
+  tt <- content(out, as = "text")
+  output <- fromJSON(tt, simplifyVector = FALSE)
+  message(sprintf('%s records found, %s returned', output$num_found, length(output[[2]])))
+  data <- lapply(output[[2]], function(x){
      x[sapply(x, is.null)] <- "none"
      x <- lapply(x, function(x){
        if(length(x)>1){

@@ -2,7 +2,6 @@
 #' instances of a word or phrase over time.
 #'    
 #' @import httr
-#' @importFrom plyr compact
 #' @template cw
 #' @template cw_dates_text
 #' @param page_id Page id.
@@ -25,7 +24,7 @@ cw_dates <- function(phrase = NULL, title = NULL, start_date = NULL,
   callopts = list())
 {
   url = "http://capitolwords.org/api/dates.json"
-  args <- compact(list(apikey = key, phrase = phrase, title = title, 
+  args <- suncompact(list(apikey = key, phrase = phrase, title = title, 
                        start_date = start_date, end_date = end_date, 
                        chamber = chamber, state = state, party = party, 
                        bioguide_id = bioguide_id, congress = congress, 
@@ -34,7 +33,8 @@ cw_dates <- function(phrase = NULL, title = NULL, start_date = NULL,
                        percentages = percentages))
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
-  out <- content(tt)
-  df <- rbind.fill(lapply(out[[1]], data.frame))
+  out <- content(tt, as = "text")
+  output <- fromJSON(out, simplifyVector = FALSE)
+  df <- rbind.fill(lapply(output[[1]], data.frame))
   df
 }

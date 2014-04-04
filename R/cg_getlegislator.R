@@ -1,7 +1,6 @@
 #' Search OpenStates bills.
 #' 
 #' @import httr
-#' @importFrom plyr compact
 #' @template cg
 #' @template getleg
 #' @return List of output fields.
@@ -20,7 +19,7 @@ cg_getlegislator <- function(title=NULL, firstname=NULL, middlename=NULL,
     callopts = list())
 {
   url <- "http://services.sunlightlabs.com/api/legislators.get.json"
-  args <- compact(list(apikey=key,title=title,firstname=firstname,
+  args <- suncompact(list(apikey=key,title=title,firstname=firstname,
                        middlename=middlename,lastname=lastname,
                        name_suffix=name_suffix,nickname=nickname,party=party,
                        state=state,district=district,in_office=in_office,
@@ -34,5 +33,6 @@ cg_getlegislator <- function(title=NULL, firstname=NULL, middlename=NULL,
                        senate_class=senate_class,birthdate=birthdate))
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
-  content(tt)
+  out <- content(tt, as = "text")
+  fromJSON(out, simplifyVector = FALSE)$response
 }

@@ -1,7 +1,6 @@
 #' Get districts for a latitude/longitude.
 #' 
 #' @import httr
-#' @importFrom plyr compact
 #' @template cg
 #' @param latitude latitude of coordinate
 #' @param longitude longitude of coordinate
@@ -15,8 +14,9 @@ cg_getdistrictlatlong <- function(latitude = NULL, longitude = NULL,
   callopts = list())
 {
   url = "http://services.sunlightlabs.com/api/districts.getDistrictFromLatLong.json"
-  args <- compact(list(apikey = key, latitude = latitude, longitude = longitude))
+  args <- suncompact(list(apikey = key, latitude = latitude, longitude = longitude))
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
-  content(tt)
+  out <- content(tt, as = "text")
+  fromJSON(out, simplifyVector = FALSE)$response
 }

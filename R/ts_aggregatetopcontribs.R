@@ -4,7 +4,6 @@
 #'    or associated with the organization.
 #'    
 #' @import httr
-#' @importFrom plyr compact
 #' @template cg
 #' @param id The ID of the entity in the given namespace.
 #' @param limit Limit to 'limit' number of records.
@@ -20,9 +19,9 @@ ts_aggregatetopcontribs <- function(id = NULL, limit = NULL,
 {
   url = "http://transparencydata.com/api/1.0/aggregates/pol/"
   url2 <- paste(url, id, '/contributors.json', sep='')
-  args <- compact(list(apikey = key, limit = limit))
+  args <- suncompact(list(apikey = key, limit = limit))
   tt <- GET(url2, query=args, callopts)
   stop_for_status(tt)
-  content(tt)
+  out <- content(tt, as = "text")
+  fromJSON(out, simplifyVector = FALSE)
 }
-# http://transparencydata.com/api/1.0/aggregates/pol/ff96aa62d48f48e5a1e284efe74a0ba8/contributors.json?apikey=<you-key>&limit=3

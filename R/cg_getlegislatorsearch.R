@@ -1,7 +1,6 @@
 #' Search congress people and senate members.
 #' 
 #' @import httr
-#' @importFrom plyr compact
 #' @template cg
 #' @param name name to search for
 #' @param threshold optional threshold parameter specifying minimum score to 
@@ -19,9 +18,10 @@ cg_getlegislatorsearch <- function(name=NULL, threshold=NULL,
   callopts = list())
 {
   url = "http://services.sunlightlabs.com/api/legislators.search.json"
-  args <- compact(list(apikey = key, name=name, threshold=threshold, 
+  args <- suncompact(list(apikey = key, name=name, threshold=threshold, 
                        all_legislators=all_legislators))
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
-  content(tt)
+  out <- content(tt, as = "text")
+  fromJSON(out, simplifyVector = FALSE)$response
 }

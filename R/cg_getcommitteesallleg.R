@@ -1,7 +1,6 @@
 #' Gets a list of all committees that a member serves on, including subcommittes.
 #' 
 #' @import httr
-#' @importFrom plyr compact
 #' @template cg
 #' @param bioguide_id legislator's bioguide_id
 #' @return Committee details for all committees that the given member serves on.
@@ -14,8 +13,9 @@ cg_getcommitteesallleg <- function(bioguide_id = NULL,
     callopts = list()) 
 {
   url = "http://services.sunlightlabs.com/api/committees.allForLegislator.json"
-  args <- compact(list(apikey = key, bioguide_id = bioguide_id))
+  args <- suncompact(list(apikey = key, bioguide_id = bioguide_id))
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
-  content(tt)
+  out <- content(tt, as = "text")
+  fromJSON(out, simplifyVector = FALSE)$response
 }

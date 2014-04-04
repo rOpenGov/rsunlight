@@ -1,7 +1,6 @@
 #' Get list of all committees for a given chamber along with their subcommittees.
 #' 
 #' @import httr
-#' @importFrom plyr compact
 #' @param chamber House, Senate, or Joint
 #' @template cg
 #' @return List of all committees in the specified chamber with their
@@ -15,8 +14,9 @@ cg_getcommitteeslist <- function(chamber = NULL,
   callopts = list())
 {
   url = "http://services.sunlightlabs.com/api/committees.getList.json"
-  args <- compact(list(apikey = key, chamber = chamber))
+  args <- suncompact(list(apikey = key, chamber = chamber))
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
-  content(tt)
+  out <- content(tt, as = "text")
+  fromJSON(out, simplifyVector = FALSE)$response
 }

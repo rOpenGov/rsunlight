@@ -1,7 +1,6 @@
 #' Search Legislators on OpenStates. 
 #' 
 #' @import httr
-#' @importFrom plyr compact
 #' @template cg
 #' @param state state two-letter abbreviation (character)
 #' @param firstname first name of legislator (character)
@@ -24,10 +23,11 @@ os_legislatorsearch <- function(state = NULL, firstname = NULL,
     callopts = list())
 {
   url = "http://openstates.org/api/v1/legislators/"
-  args <- compact(list(apikey = key, state = state, firstname = firstname, 
+  args <- suncompact(list(apikey = key, state = state, firstname = firstname, 
                        lastname = lastname, chamber = chamber, active = active, 
                        term = term, district = district, party = party))
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
-  content(tt)
+  out <- content(tt, as = "text")
+  fromJSON(out, simplifyVector = FALSE)
 }
