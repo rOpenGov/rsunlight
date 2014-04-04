@@ -4,3 +4,4 @@ inst/vign
 .travis.yml
 .gitignore
 tests/test-all.R
+man-roxygen/
