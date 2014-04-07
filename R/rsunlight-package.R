@@ -17,6 +17,8 @@
 #'  \item Sunlight Labs Capitol Words API (`cw`)
 #' }
 #' 
+#' Note that Puerto Rico is not included in Sunlight Foundation data.
+#' 
 #' @name rsunlight-package
 #' @aliases rsunlight
 #' @docType package

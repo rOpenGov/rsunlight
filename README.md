@@ -42,6 +42,8 @@ We set up the functions so that you can put the key in your .Rprofile file, whic
 options(SunlightLabsKey = "YOURKEYHERE")
 ```
 
+**Note** that Puerto Rico is not included in Sunlight Foundation data.
+
 ## Quickstart
 
 If you store your key in your `.Rprofile` file it will be read inside of each function call. Or you can pass your key into each function call manually by `key=yourkey`. 
