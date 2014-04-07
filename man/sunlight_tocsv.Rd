@@ -16,10 +16,12 @@ sunlight_tocsv(x, file = "~/", ...)
 Write data to a csv file on your machine.
 }
 \examples{
+\dontrun{
 out <- cg_getcommittees(id = 'JSPR')
 sunlight_tocsv.cg_getcommittees(out, "~/myfile.csv")
 
 out <- cg_getcommitteesallleg(bioguide_id = 'S000148')
 sunlight_tocsv.cg_getcommitteesallleg(out, "~/myfile.csv")
+}
 }
 
