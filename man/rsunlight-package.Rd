@@ -24,6 +24,8 @@ functions for each API are prefixed with a two letter code indicating the servic
  \item Sunlight Labs Real Time Congress API (`rt`)
  \item Sunlight Labs Capitol Words API (`cw`)
 }
+
+Note that Puerto Rico is not included in Sunlight Foundation data.
 }
 \author{
 Scott Chamberlain \email{myrmecocystus@gmail.com}

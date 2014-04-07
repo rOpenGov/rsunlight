@@ -17,5 +17,7 @@ cg_getcommittees <-  function(id = NULL,
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
   out <- content(tt, as = "text")
-  fromJSON(out, simplifyVector = FALSE)$response
+  res <- fromJSON(out, simplifyVector = FALSE)$response
+  class(res) <- "cg_getcommittees"
+  return( res )
 }

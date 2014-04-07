@@ -17,5 +17,7 @@ cg_getcommitteesallleg <- function(bioguide_id = NULL,
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
   out <- content(tt, as = "text")
-  fromJSON(out, simplifyVector = FALSE)$response
+  res <- fromJSON(out, simplifyVector = FALSE)$response
+  class(res) <- "cg_getcommitteesallleg"
+  return( res )
 }

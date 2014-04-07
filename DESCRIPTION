@@ -13,7 +13,8 @@ Imports:
     httr,
     plyr,
     jsonlite,
-    stringr
+    stringr,
+    assertthat
 Suggests:
     knitr,
     testthat,
