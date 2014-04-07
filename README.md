@@ -63,17 +63,17 @@ library("rsunlight")
 ### Get districts for a latitude/longitude.
 
 ```coffee
-out <- cg_getdistrictlatlong(latitude = 35.778788, longitude = -78.787805)
-out$response$districts
+(out <- cg_getdistrictlatlong(latitude = 35.778788, longitude = -78.787805))
 ```
 
 ```coffee
-[[1]]
-[[1]]$district
-[[1]]$district$state
+$districts
+$districts[[1]]
+$districts[[1]]$district
+$districts[[1]]$district$state
 [1] "NC"
 
-[[1]]$district$number
+$districts[[1]]$district$number
 [1] "2"
 ```
 
@@ -81,24 +81,24 @@ out$response$districts
 
 ```coffee
 out <- cg_getlegislatorsearch(name = 'Reed')
-out$response$results[[1]]$result$legislator[1:5]
+out$results[[1]]$result$legislator[1:5]
 ```
 
 ```coffee
 $website
-[1] "http://www.reed.senate.gov"
+[1] "http://reed.house.gov"
 
 $fax
-[1] "202-224-4680"
+[1] "202-226-6599"
 
 $govtrack_id
-[1] "300081"
+[1] "412393"
 
 $firstname
-[1] "John"
+[1] "Tom"
 
 $chamber
-[1] "senate"
+[1] "house"
 ```
 
 ### Find the popularity of a phrase over a period of time.
@@ -163,6 +163,7 @@ Ranked by total dollars given. An organization's giving is broken down into mone
 
 ```coffee
 out <- ts_aggregatetopcontribs(id = '85ab2e74589a414495d18cc7a9233981')
+library(plyr)
 ldply(out, data.frame)
 ```
 
