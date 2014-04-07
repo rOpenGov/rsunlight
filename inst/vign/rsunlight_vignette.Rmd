@@ -41,7 +41,7 @@ library(rsunlight)
 
 ```{r cg_getcommittees, warning=FALSE, message=FALSE, cache=FALSE}
 out <- cg_getcommittees(id = 'JSPR')
-out$response$committee$members[[1]]$legislator[1:5]
+out$committee$members[[1]]$legislator[1:5]
 ```
 
 ********************
@@ -50,7 +50,7 @@ out$response$committee$members[[1]]$legislator[1:5]
 
 ```{r cg_getcommitteesallleg, warning=FALSE, cache=FALSE}
 out <- cg_getcommitteesallleg(bioguide_id = 'S000148')
-out$response$committees[[1]]
+out$committees[[1]]
 ```
 
 ********************
@@ -59,7 +59,7 @@ out$response$committees[[1]]
 
 ```{r cg_getdistrictlatlong, warning=FALSE, cache=FALSE}
 out <- cg_getdistrictlatlong(latitude = 35.778788, longitude = -78.787805)
-out$response$districts
+out$districts
 ```
 
 ********************
@@ -68,7 +68,7 @@ out$response$districts
 
 ```{r cg_getdistrictzip, warning=FALSE, cache=FALSE}
 out <- cg_getdistrictzip(zip = 27511)
-out$response$districts
+out$districts
 ```
 
 ********************
@@ -77,7 +77,7 @@ out$response$districts
 
 ```{r cg_getlegislatorsearch, warning=FALSE, cache=FALSE}
 out <- cg_getlegislatorsearch(name = 'Reed')
-out$response$results[[1]]$result$legislator[1:5]
+out$results[[1]]$result$legislator[1:5]
 ```
 
 ********************
@@ -87,7 +87,7 @@ out$response$results[[1]]$result$legislator[1:5]
 ```{r cg_legislatorsallforzip, warning=FALSE, cache=FALSE}
 out <- cg_legislatorsallforzip(zip = 77006)
 library(plyr)
-ldply(out$response$legislators, function(x) data.frame(x$legislator[c('firstname','lastname')]))
+ldply(out$legislators, function(x) data.frame(x$legislator[c('firstname','lastname')]))
 ```
 
 ********************

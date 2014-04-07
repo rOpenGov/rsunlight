@@ -48,7 +48,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <hr />
 <h4 id="gets-details-subcommittees-membership-for-a-committee-by-id.">Gets details (subcommittees + membership) for a committee by id.</h4>
 <pre class="sourceCode r"><code class="sourceCode r">out &lt;-<span class="st"> </span><span class="kw">cg_getcommittees</span>(<span class="dt">id =</span> <span class="st">&quot;JSPR&quot;</span>)
-out$response$committee$members[[<span class="dv">1</span>]]$legislator[<span class="dv">1</span>:<span class="dv">5</span>]</code></pre>
+out$committee$members[[<span class="dv">1</span>]]$legislator[<span class="dv">1</span>:<span class="dv">5</span>]</code></pre>
 <pre><code>## $website
 ## [1] &quot;http://www.alexander.senate.gov&quot;
 ## 
@@ -66,7 +66,7 @@ out$response$committee$members[[<span class="dv">1</span>]]$legislator[<span cla
 <hr />
 <h4 id="gets-a-list-of-all-committees-that-a-member-serves-on-including-subcommittes.">Gets a list of all committees that a member serves on, including subcommittes.</h4>
 <pre class="sourceCode r"><code class="sourceCode r">out &lt;-<span class="st"> </span><span class="kw">cg_getcommitteesallleg</span>(<span class="dt">bioguide_id =</span> <span class="st">&quot;S000148&quot;</span>)
-out$response$committees[[<span class="dv">1</span>]]</code></pre>
+out$committees[[<span class="dv">1</span>]]</code></pre>
 <pre><code>## $committee
 ## $committee$chamber
 ## [1] &quot;Senate&quot;
@@ -79,7 +79,7 @@ out$response$committees[[<span class="dv">1</span>]]</code></pre>
 <hr />
 <h4 id="get-districts-for-a-latitudelongitude.">Get districts for a latitude/longitude.</h4>
 <pre class="sourceCode r"><code class="sourceCode r">out &lt;-<span class="st"> </span><span class="kw">cg_getdistrictlatlong</span>(<span class="dt">latitude =</span> <span class="fl">35.778788</span>, <span class="dt">longitude =</span> -<span class="fl">78.787805</span>)
-out$response$districts</code></pre>
+out$districts</code></pre>
 <pre><code>## [[1]]
 ## [[1]]$district
 ## [[1]]$district$state
@@ -90,7 +90,7 @@ out$response$districts</code></pre>
 <hr />
 <h4 id="get-districts-that-overlap-for-a-certain-zip-code.">Get districts that overlap for a certain zip code.</h4>
 <pre class="sourceCode r"><code class="sourceCode r">out &lt;-<span class="st"> </span><span class="kw">cg_getdistrictzip</span>(<span class="dt">zip =</span> <span class="dv">27511</span>)
-out$response$districts</code></pre>
+out$districts</code></pre>
 <pre><code>## [[1]]
 ## [[1]]$district
 ## [[1]]$district$state
@@ -121,7 +121,7 @@ out$response$districts</code></pre>
 <hr />
 <h4 id="search-congress-people-and-senate-members.">Search congress people and senate members.</h4>
 <pre class="sourceCode r"><code class="sourceCode r">out &lt;-<span class="st"> </span><span class="kw">cg_getlegislatorsearch</span>(<span class="dt">name =</span> <span class="st">&quot;Reed&quot;</span>)
-out$response$results[[<span class="dv">1</span>]]$result$legislator[<span class="dv">1</span>:<span class="dv">5</span>]</code></pre>
+out$results[[<span class="dv">1</span>]]$result$legislator[<span class="dv">1</span>:<span class="dv">5</span>]</code></pre>
 <pre><code>## $website
 ## [1] &quot;http://reed.house.gov&quot;
 ## 
@@ -140,8 +140,7 @@ out$response$results[[<span class="dv">1</span>]]$result$legislator[<span class=
 <h4 id="search-congress-people-and-senate-members-for-a-zip-code.">Search congress people and senate members for a zip code.</h4>
 <pre class="sourceCode r"><code class="sourceCode r">out &lt;-<span class="st"> </span><span class="kw">cg_legislatorsallforzip</span>(<span class="dt">zip =</span> <span class="dv">77006</span>)
 <span class="kw">library</span>(plyr)
-<span class="kw">ldply</span>(out$response$legislators, function(x) <span class="kw">data.frame</span>(x$legislator[<span class="kw">c</span>(<span class="st">&quot;firstname&quot;</span>, 
-    <span class="st">&quot;lastname&quot;</span>)]))</code></pre>
+<span class="kw">ldply</span>(out$legislators, function(x) <span class="kw">data.frame</span>(x$legislator[<span class="kw">c</span>(<span class="st">&quot;firstname&quot;</span>, <span class="st">&quot;lastname&quot;</span>)]))</code></pre>
 <pre><code>##   firstname    lastname
 ## 1    Sheila Jackson Lee
 ## 2       Ted        Cruz
@@ -161,17 +160,17 @@ out$response$results[[<span class="dv">1</span>]]$result$legislator[<span class=
 <h5 id="plot-data">Plot data</h5>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
 dat &lt;-<span class="st"> </span><span class="kw">cw_timeseries</span>(<span class="dt">phrase =</span> <span class="st">&quot;climate change&quot;</span>)</code></pre>
-<pre><code>## 1407 records returned</code></pre>
+<pre><code>## 1430 records returned</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(day, count)) +<span class="st"> </span><span class="kw">geom_line</span>() +<span class="st"> </span><span class="kw">theme_grey</span>(<span class="dt">base_size =</span> <span class="dv">20</span>)</code></pre>
 <div class="figure">
 <img src="figure/cw_timeseries2.png" alt="plot of chunk cw_timeseries2" /><p class="caption">plot of chunk cw_timeseries2</p>
 </div>
 <h5 id="plot-more-data">Plot more data</h5>
 <pre class="sourceCode r"><code class="sourceCode r">dat_d &lt;-<span class="st"> </span><span class="kw">cw_timeseries</span>(<span class="dt">phrase =</span> <span class="st">&quot;climate change&quot;</span>, <span class="dt">party =</span> <span class="st">&quot;D&quot;</span>)</code></pre>
-<pre><code>## 957 records returned</code></pre>
+<pre><code>## 978 records returned</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">dat_d$party &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="st">&quot;D&quot;</span>, <span class="kw">nrow</span>(dat_d))
 dat_r &lt;-<span class="st"> </span><span class="kw">cw_timeseries</span>(<span class="dt">phrase =</span> <span class="st">&quot;climate change&quot;</span>, <span class="dt">party =</span> <span class="st">&quot;R&quot;</span>)</code></pre>
-<pre><code>## 632 records returned</code></pre>
+<pre><code>## 643 records returned</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">dat_r$party &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="st">&quot;R&quot;</span>, <span class="kw">nrow</span>(dat_r))
 dat_both &lt;-<span class="st"> </span><span class="kw">rbind</span>(dat_d, dat_r)
 <span class="kw">ggplot</span>(dat_both, <span class="kw">aes</span>(day, count, <span class="dt">colour =</span> party)) +<span class="st"> </span><span class="kw">geom_line</span>() +<span class="st"> </span><span class="kw">theme_grey</span>(<span class="dt">base_size =</span> <span class="dv">20</span>) +<span class="st"> </span>
@@ -234,16 +233,18 @@ m1</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">out &lt;-<span class="st"> </span><span class="kw">os_legislatorsearch</span>(<span class="dt">state =</span> <span class="st">&quot;tx&quot;</span>, <span class="dt">party =</span> <span class="st">&quot;democratic&quot;</span>, <span class="dt">active =</span> <span class="ot">TRUE</span>)
 out[[<span class="dv">1</span>]][<span class="dv">1</span>:<span class="dv">4</span>]</code></pre>
 <pre><code>## $last_name
-## [1] &quot;Allen&quot;
+## [1] &quot;Israel&quot;
 ## 
-## $updated_at
-## [1] &quot;2014-01-29 00:41:39&quot;
+## $all_ids
+## $all_ids[[1]]
+## [1] &quot;TXL000475&quot;
 ## 
-## $nimsp_candidate_id
-## [1] &quot;111820&quot;
 ## 
 ## $full_name
-## [1] &quot;Alma Allen&quot;</code></pre>
+## [1] &quot;Celia Israel&quot;
+## 
+## $id
+## [1] &quot;TXL000475&quot;</code></pre>
 <hr />
 <h4 id="search-for-entities---that-is-politicians-individuals-or-organizations-with-the-given-name">Search for entities - that is, politicians, individuals, or organizations with the given name</h4>
 <pre class="sourceCode r"><code class="sourceCode r">out &lt;-<span class="st"> </span><span class="kw">ts_aggregatesearch</span>(<span class="st">&quot;Nancy Pelosi&quot;</span>)
@@ -257,13 +258,13 @@ out &lt;-<span class="st"> </span><span class="kw">lapply</span>(out, function(x
 ## 2 Nancy Pelosi for Congress           7           0             0
 ##            seat total_received state lobbying_firm count_received party
 ## 1 federal:house       14731364    CA          none          10321     D
-## 2          none              0  none          &lt;NA&gt;              0  none
+## 2          none              0  none         FALSE              0  none
 ##   total_given         type                               id
 ## 1           0   politician 85ab2e74589a414495d18cc7a9233981
 ## 2        7250 organization afb432ec90454c8a83a3113061e7be27
 ##   non_firm_spending is_superpac
 ## 1                 0        none
-## 2                 0        &lt;NA&gt;</code></pre>
+## 2                 0        none</code></pre>
 <hr />
 <h4 id="return-the-top-contributoring-organizations-ranked-by-total-dollars-given.-an-organizations-giving-is-broken-down-into-money-given-directly-by-the-organizations-pac-versus-money-given-by-individuals-employed-by-or-associated-with-the-organization.">Return the top contributoring organizations, ranked by total dollars given. An organization's giving is broken down into money given directly (by the organization's PAC) versus money given by individuals employed by or associated with the organization.</h4>
 <pre class="sourceCode r"><code class="sourceCode r">out &lt;-<span class="st"> </span><span class="kw">ts_aggregatetopcontribs</span>(<span class="dt">id =</span> <span class="st">&quot;85ab2e74589a414495d18cc7a9233981&quot;</span>)

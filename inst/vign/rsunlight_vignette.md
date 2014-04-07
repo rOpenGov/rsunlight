@@ -45,7 +45,7 @@ library(rsunlight)
 
 ```r
 out <- cg_getcommittees(id = "JSPR")
-out$response$committee$members[[1]]$legislator[1:5]
+out$committee$members[[1]]$legislator[1:5]
 ```
 
 ```
@@ -73,7 +73,7 @@ out$response$committee$members[[1]]$legislator[1:5]
 
 ```r
 out <- cg_getcommitteesallleg(bioguide_id = "S000148")
-out$response$committees[[1]]
+out$committees[[1]]
 ```
 
 ```
@@ -96,7 +96,7 @@ out$response$committees[[1]]
 
 ```r
 out <- cg_getdistrictlatlong(latitude = 35.778788, longitude = -78.787805)
-out$response$districts
+out$districts
 ```
 
 ```
@@ -117,7 +117,7 @@ out$response$districts
 
 ```r
 out <- cg_getdistrictzip(zip = 27511)
-out$response$districts
+out$districts
 ```
 
 ```
@@ -158,7 +158,7 @@ out$response$districts
 
 ```r
 out <- cg_getlegislatorsearch(name = "Reed")
-out$response$results[[1]]$result$legislator[1:5]
+out$results[[1]]$result$legislator[1:5]
 ```
 
 ```
@@ -187,8 +187,7 @@ out$response$results[[1]]$result$legislator[1:5]
 ```r
 out <- cg_legislatorsallforzip(zip = 77006)
 library(plyr)
-ldply(out$response$legislators, function(x) data.frame(x$legislator[c("firstname", 
-    "lastname")]))
+ldply(out$legislators, function(x) data.frame(x$legislator[c("firstname", "lastname")]))
 ```
 
 ```
@@ -234,7 +233,7 @@ dat <- cw_timeseries(phrase = "climate change")
 ```
 
 ```
-## 1407 records returned
+## 1430 records returned
 ```
 
 ```r
@@ -252,7 +251,7 @@ dat_d <- cw_timeseries(phrase = "climate change", party = "D")
 ```
 
 ```
-## 957 records returned
+## 978 records returned
 ```
 
 ```r
@@ -261,7 +260,7 @@ dat_r <- cw_timeseries(phrase = "climate change", party = "R")
 ```
 
 ```
-## 632 records returned
+## 643 records returned
 ```
 
 ```r
@@ -353,16 +352,18 @@ out[[1]][1:4]
 
 ```
 ## $last_name
-## [1] "Allen"
+## [1] "Israel"
 ## 
-## $updated_at
-## [1] "2014-01-29 00:41:39"
+## $all_ids
+## $all_ids[[1]]
+## [1] "TXL000475"
 ## 
-## $nimsp_candidate_id
-## [1] "111820"
 ## 
 ## $full_name
-## [1] "Alma Allen"
+## [1] "Celia Israel"
+## 
+## $id
+## [1] "TXL000475"
 ```
 
 
@@ -386,13 +387,13 @@ ldply(out, data.frame)
 ## 2 Nancy Pelosi for Congress           7           0             0
 ##            seat total_received state lobbying_firm count_received party
 ## 1 federal:house       14731364    CA          none          10321     D
-## 2          none              0  none          <NA>              0  none
+## 2          none              0  none         FALSE              0  none
 ##   total_given         type                               id
 ## 1           0   politician 85ab2e74589a414495d18cc7a9233981
 ## 2        7250 organization afb432ec90454c8a83a3113061e7be27
 ##   non_firm_spending is_superpac
 ## 1                 0        none
-## 2                 0        <NA>
+## 2                 0        none
 ```
 
 
