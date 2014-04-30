@@ -3,14 +3,17 @@
 \alias{cg_getlegislator}
 \title{Search OpenStates bills.}
 \usage{
-cg_getlegislator(title = NULL, firstname = NULL, middlename = NULL,
-  lastname = NULL, name_suffix = NULL, nickname = NULL, party = NULL,
-  state = NULL, district = NULL, in_office = NULL, gender = NULL,
-  phone = NULL, fax = NULL, website = NULL, webform = NULL,
+cg_getlegislator(title = NULL, first_name = NULL, middle_name = NULL,
+  last_name = NULL, name_suffix = NULL, nickname = NULL, party = NULL,
+  state = NULL, state_name = NULL, state_rank = NULL, district = NULL,
+  in_office = NULL, chamber = NULL, gender = NULL, phone = NULL,
+  fax = NULL, office = NULL, website = NULL, contact_form = NULL,
   email = NULL, congress_office = NULL, bioguide_id = NULL,
-  votesmart_id = NULL, fec_id = NULL, govtrack_id = NULL, crp_id = NULL,
-  congresspedia_url = NULL, twitter_id = NULL, youtube_url = NULL,
-  facebook_id = NULL, senate_class = NULL, birthdate = NULL,
+  ocd_id = NULL, thomas_id = NULL, lis_id = NULL, crp_id = NULL,
+  icpsr_id = NULL, votesmart_id = NULL, fec_ids = NULL,
+  govtrack_id = NULL, congresspedia_url = NULL, twitter_id = NULL,
+  youtube_id = NULL, facebook_id = NULL, senate_class = NULL,
+  term_start = NULL, term_end = NULL, birthday = NULL,
   key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")), callopts = list())
 }
@@ -21,11 +24,11 @@ cg_getlegislator(title = NULL, firstname = NULL, middlename = NULL,
 
 \item{title}{Title held by this legislator, either Sen or Rep}
 
-\item{firstname}{Legislator's first name}
+\item{first_name}{Legislator's first name}
 
-\item{middlename}{Legislator's middle name or initial}
+\item{middle_name}{Legislator's middle name or initial}
 
-\item{lastname}{Legislator's last name}
+\item{last_name}{Legislator's last name}
 
 \item{name_suffix}{Legislator's suffix (Jr., III, etc.)}
 
@@ -35,11 +38,17 @@ cg_getlegislator(title = NULL, firstname = NULL, middlename = NULL,
 
 \item{state}{two letter abbreviation of legislator's state}
 
+\item{state_name}{The full state name of the state this member represents.}
+
+\item{state_rank}{(Senate only) The seniority of that Senator for that state. “junior” or “senior”.}
+
 \item{district}{If legislator is a representative, their district. 0 is used
 for At-Large districts}
 
 \item{in_office}{1 if legislator is currently serving, 0 if legislator is no
 longer in office due to defeat/resignation/death/etc.}
+
+\item{chamber}{Chamber the member is in. “senate” or “house”.}
 
 \item{gender}{M or F}
 
@@ -47,9 +56,11 @@ longer in office due to defeat/resignation/death/etc.}
 
 \item{fax}{Congressional office fax number}
 
+\item{office}{Office number for the member’s DC office.}
+
 \item{website}{URL of Congressional website}
 
-\item{webform}{URL of web contact form}
+\item{contact_form}{URL of web contact form}
 
 \item{email}{Legislator's email address (if known)}
 
@@ -59,35 +70,41 @@ longer in office due to defeat/resignation/death/etc.}
 http://bioguide.congress.gov/biosearch/biosearch.asp Congressional
 Biographical Directory (also used by Washington Post/NY Times)}
 
+\item{ocd_id}{Identifier for this member across all countries and levels of government, as defined by the Open Civic Data project.}
+
+\item{thomas_id}{Identifier for this member as it appears on THOMAS.gov and Congress.gov.}
+
+\item{lis_id}{Identifier for this member as it appears on some of Congress’ data systems (namely Senate votes).}
+
+\item{crp_id}{Identifier for this member as it appears on Center for Responsive
+Politics OpenSecrets (http://opensecrets.org)}
+
+\item{icpsr_id}{Identifier for this member as it is maintained by the Inter-university Consortium for Political and Social Research.}
+
 \item{votesmart_id}{Legislator ID assigned by http://votesmart.org Project
 Vote Smart}
 
-\item{fec_id}{http://fec.gov Federal Election Commission ID}
+\item{fec_ids}{http://fec.gov Federal Election Commission ID}
 
 \item{govtrack_id}{ID assigned by http://govtrack.us Govtrack.us}
-
-\item{crp_id}{ID provided by http://opensecrets.org Center for Responsive
-Politics}
 
 \item{congresspedia_url}{URL of Legislator's entry on http://congresspedia.org
 Congresspedia}
 
-\item{twitter_id}{Congressperson's official http://twitter.com Twitter
-account}
+\item{twitter_id}{The Twitter username for a member’s official legislative account. This field does not contain the handles of campaign accounts.}
 
-\item{youtube_url}{Congressperson's official http://youtube.com Youtube
-account}
+\item{youtube_id}{The YouTube username or channel for a member’s official legislative account. This field does not contain the handles of campaign accounts. A few legislators use YouTube “channels” instead of regular accounts. These channels will be of the form channel/[id].}
 
-\item{facebook_id}{Facebook ID, if the legislator has a username then
-http://facebook.com/facebook_id will work, some users only have numeric
-ids in which case to get their URL you'll need to visit
-http://graph.facebook.com/facebook_id to get the URL (this graph url
-should work for all users)}
+\item{facebook_id}{The Facebook username or ID for a member’s official legislative Facebook presence. ID numbers and usernames can be used interchangeably in Facebook’s URLs and APIs. The referenced account may be either a Facebook Page or a user account.}
 
 \item{senate_class}{for senators I, II, or III depending on the Senator's
 election term}
 
-\item{birthdate}{YYYY-MM-DD formatted birth date}
+\item{term_start}{The date a member’s current term started.}
+
+\item{term_end}{The date a member’s current term will end.}
+
+\item{birthday}{YYYY-MM-DD formatted birth date}
 }
 \value{
 List of output fields.
@@ -105,10 +122,20 @@ Currently the Sunlight Labs API provides two methods for obtaining
    legislators (a list of size one is allowed). In other words,
    sll_cg_getlegislator is purely a convenience method to avoid dealing with
    a list of values when only one value is needed.
+
+All social media account values can be turned into URLs by preceding them with the domain name of the service in question:
+\itemize{
+ \item http://twitter.com/[username]
+ \item http://youtube.com/[username or channel ID]
+ \item http://facebook.com/[username or ID]
+}
 }
 \examples{
 \dontrun{
-cg_getlegislator(lastname = 'Pelosi')
+cg_getlegislator(last_name = 'Pelosi')
+cg_getlegislator(party = 'D')
+cg_getlegislator(twitter_id = 'SenRandPaul')
+cg_getlegislator(facebook_id = 'mitchmcconnell')
 }
 }
 

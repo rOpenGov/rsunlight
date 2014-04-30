@@ -24,7 +24,9 @@
 #' out <- cg_getdistrictzip(zip = 27511)
 #' sunlight_tocsv(out, "~/myfile.csv")
 #' 
-#' out <- cg_getlegislator(lastname = 'Pelosi')
+#' out <- cg_getlegislator(last_name = 'Pelosi')
+#' sunlight_tocsv(out, "~/myfile.csv")
+#' out <- cg_getlegislator(party = 'D')
 #' sunlight_tocsv(out, "~/myfile.csv")
 #' }
 sunlight_tocsv <- function(x, file="~/", ...){
@@ -91,6 +93,22 @@ sunlight_tocsv.cg_getdistrictzip <- function(x, file="~/", ...){
   assert_that(is(x, "cg_getdistrictzip"))
   iter <- x$districts
   df <- do.call(rbind.fill, lapply(iter, data.frame, stringsAsFactors = FALSE))
+  write.csv(df, file=file, ..., row.names=FALSE) 
+}
+
+#' @method sunlight_tocsv cg_getlegislator
+#' @export
+#' @rdname sunlight_tocsv
+sunlight_tocsv.cg_getlegislator <- function(x, file="~/", ...){
+  assert_that(is(x, "cg_getlegislator"))
+  if(x$found == 1){
+    iter <- x$data
+    df <- data.frame(iter, stringsAsFactors = FALSE)
+  } else {
+    iter <- x$data
+    iter <- lapply(iter, replacemissing)
+    df <- do.call(rbind.fill, lapply(iter, data.frame, stringsAsFactors = FALSE))
+  }
   write.csv(df, file=file, ..., row.names=FALSE) 
 }
 

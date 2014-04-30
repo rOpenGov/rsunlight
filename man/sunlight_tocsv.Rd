@@ -5,6 +5,8 @@
 \alias{sunlight_tocsv.cg_getcommittees}
 \alias{sunlight_tocsv.cg_getcommitteesallleg}
 \alias{sunlight_tocsv.cg_getdistrictlatlong}
+\alias{sunlight_tocsv.cg_getdistrictzip}
+\alias{sunlight_tocsv.cg_getlegislator}
 \title{Write data from any rsunlight function output to a csv file on your machine.}
 \usage{
 sunlight_tocsv(x, file = "~/", ...)
@@ -16,6 +18,10 @@ sunlight_tocsv(x, file = "~/", ...)
 \method{sunlight_tocsv}{cg_getcommitteelist}(x, file = "~/", ...)
 
 \method{sunlight_tocsv}{cg_getdistrictlatlong}(x, file = "~/", ...)
+
+\method{sunlight_tocsv}{cg_getdistrictzip}(x, file = "~/", ...)
+
+\method{sunlight_tocsv}{cg_getlegislator}(x, file = "~/", ...)
 }
 \arguments{
 \item{x}{Output from any of the rsunlight functions.}
@@ -46,7 +52,12 @@ sunlight_tocsv(out, "~/myfile.csv")
 out <- cg_getdistrictlatlong(latitude = 35.778788, longitude = -78.787805)
 sunlight_tocsv(out, "~/myfile.csv")
 
-out <- cg_getdistrictlatlong(latitude = 35.778788, longitude = -78.787805)
+out <- cg_getdistrictzip(zip = 27511)
+sunlight_tocsv(out, "~/myfile.csv")
+
+out <- cg_getlegislator(last_name = 'Pelosi')
+sunlight_tocsv(out, "~/myfile.csv")
+out <- cg_getlegislator(party = 'D')
 sunlight_tocsv(out, "~/myfile.csv")
 }
 }
