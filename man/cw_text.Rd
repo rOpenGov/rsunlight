@@ -42,7 +42,7 @@ cw_text(phrase = NULL, title = NULL, start_date = NULL, end_date = NULL,
 \item{page}{No definition.}
 }
 \value{
-Phrases matched.
+Phrases matched in a data.frame.
 }
 \description{
 Capitol words text.json method. Search the congressional record for instances

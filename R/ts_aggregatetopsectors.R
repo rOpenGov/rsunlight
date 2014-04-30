@@ -1,8 +1,8 @@
-#' Return the top contributoring organizations, ranked by total dollars given. 
-#'    An organization's giving is broken down into money given directly (by 
-#'    the organization's PAC) versus money given by individuals employed by 
+#' Return the top contributoring organizations, ranked by total dollars given.
+#'    An organization's giving is broken down into money given directly (by
+#'    the organization's PAC) versus money given by individuals employed by
 #'    or associated with the organization.
-#'    
+#'
 #' @import httr
 #' @template cg
 #' @param id The ID of the entity in the given namespace.
@@ -21,5 +21,7 @@ ts_aggregatetopsectors <- function(id = NULL,
   tt <- GET(url2, query=args, callopts)
   stop_for_status(tt)
   out <- content(tt, as = "text")
-  fromJSON(out, simplifyVector = FALSE)
+  res <- fromJSON(out, simplifyVector = FALSE)
+  class(res) <- "ts_aggregatetopsectors"
+  return( res )
 }

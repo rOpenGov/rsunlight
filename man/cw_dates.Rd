@@ -51,7 +51,7 @@ the result objects. Valid values: 'true', 'false' (default) (character)}
 'year', 'month', 'day' (default)}
 }
 \value{
-Data frame or JSON object of observations by date.
+Data frame of observations by date.
 }
 \description{
 Capitol words dates.json method. Search the congressional record for

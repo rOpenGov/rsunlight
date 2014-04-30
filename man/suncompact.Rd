@@ -11,4 +11,5 @@ suncompact(x)
 \description{
 Remove null elements from a list
 }
+\keyword{internal}
 

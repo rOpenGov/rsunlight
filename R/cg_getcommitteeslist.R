@@ -1,5 +1,5 @@
 #' Get list of all committees for a given chamber along with their subcommittees.
-#' 
+#'
 #' @import httr
 #' @param chamber House, Senate, or Joint
 #' @template cg
@@ -18,5 +18,7 @@ cg_getcommitteeslist <- function(chamber = NULL,
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
   out <- content(tt, as = "text")
-  fromJSON(out, simplifyVector = FALSE)$response
+  res <- fromJSON(out, simplifyVector = FALSE)$response
+  class(res) <- "cg_getcommitteelist"
+  return( res )
 }

@@ -1,5 +1,5 @@
-#' Search Legislators on OpenStates. 
-#' 
+#' Search Legislators on OpenStates.
+#'
 #' @import httr
 #' @template cg
 #' @param state state two-letter abbreviation (character)
@@ -16,18 +16,20 @@
 #' os_legislatorsearch(state = 'ca', party = 'democratic')
 #' os_legislatorsearch(state = 'tx', party = 'democratic', active = TRUE)
 #' }
-os_legislatorsearch <- function(state = NULL, firstname = NULL, 
-    lastname = NULL, chamber = NULL, active = NULL, term = NULL, district = NULL, 
+os_legislatorsearch <- function(state = NULL, firstname = NULL,
+    lastname = NULL, chamber = NULL, active = NULL, term = NULL, district = NULL,
     party = NULL,
     key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
     callopts = list())
 {
   url = "http://openstates.org/api/v1/legislators/"
-  args <- suncompact(list(apikey = key, state = state, firstname = firstname, 
-                       lastname = lastname, chamber = chamber, active = active, 
+  args <- suncompact(list(apikey = key, state = state, firstname = firstname,
+                       lastname = lastname, chamber = chamber, active = active,
                        term = term, district = district, party = party))
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
   out <- content(tt, as = "text")
-  fromJSON(out, simplifyVector = FALSE)
+  res <- fromJSON(out, simplifyVector = FALSE)
+  class(res) <- "os_legislatorsearch"
+  return( res )
 }

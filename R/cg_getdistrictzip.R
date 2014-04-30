@@ -1,5 +1,5 @@
 #' Get districts that overlap for a certain zip code.
-#' 
+#'
 #' @import httr
 #' @param zip zip code to search
 #' @template cg
@@ -17,5 +17,7 @@ cg_getdistrictzip <- function(zip = NULL,
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
   out <- content(tt, as = "text")
-  fromJSON(out, simplifyVector = FALSE)$response
+  res <- fromJSON(out, simplifyVector = FALSE)$response
+  class(res) <- "cg_getdistrictzip"
+  return( res )
 }

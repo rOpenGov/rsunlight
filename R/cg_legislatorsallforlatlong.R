@@ -1,5 +1,5 @@
 #' Search congress people and senate members for a latitude/longitude.
-#' 
+#'
 #' @import httr
 #' @template cg
 #' @param latitude latitude of coordinate
@@ -18,5 +18,7 @@ cg_legislatorsallForLatLong <- function(latitude = NULL, longitude = NULL,
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
   out <- content(tt, as = "text")
-  fromJSON(out, simplifyVector = FALSE)$response
+  res <- fromJSON(out, simplifyVector = FALSE)$response
+  class(res) <- "cg_legislatorsallForLatLong"
+  return( res )
 }

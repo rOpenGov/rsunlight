@@ -1,5 +1,5 @@
 #' Search OpenStates bills.
-#' 
+#'
 #' @import httr
 #' @template cg
 #' @template getleg
@@ -8,12 +8,12 @@
 #' @examples \dontrun{
 #' cg_getlegislator(lastname = 'Pelosi')
 #' }
-cg_getlegislator <- function(title=NULL, firstname=NULL, middlename=NULL, 
-    lastname=NULL, name_suffix=NULL, nickname=NULL, party=NULL, state=NULL, 
-    district=NULL, in_office=NULL, gender=NULL, phone=NULL, fax=NULL, 
-    website=NULL, webform=NULL, email=NULL, congress_office=NULL, 
-    bioguide_id=NULL, votesmart_id=NULL, fec_id=NULL, govtrack_id=NULL, 
-    crp_id=NULL, congresspedia_url=NULL, twitter_id=NULL, youtube_url=NULL, 
+cg_getlegislator <- function(title=NULL, firstname=NULL, middlename=NULL,
+    lastname=NULL, name_suffix=NULL, nickname=NULL, party=NULL, state=NULL,
+    district=NULL, in_office=NULL, gender=NULL, phone=NULL, fax=NULL,
+    website=NULL, webform=NULL, email=NULL, congress_office=NULL,
+    bioguide_id=NULL, votesmart_id=NULL, fec_id=NULL, govtrack_id=NULL,
+    crp_id=NULL, congresspedia_url=NULL, twitter_id=NULL, youtube_url=NULL,
     facebook_id=NULL, senate_class=NULL, birthdate=NULL,
     key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
     callopts = list())
@@ -34,5 +34,7 @@ cg_getlegislator <- function(title=NULL, firstname=NULL, middlename=NULL,
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
   out <- content(tt, as = "text")
-  fromJSON(out, simplifyVector = FALSE)$response
+  res <- fromJSON(out, simplifyVector = FALSE)$response
+  class(res) <- "cg_getlegislator"
+  return( res )
 }

@@ -1,13 +1,13 @@
-#' Look up the entity ID based on an ID from a different data set. Currently 
-#'    they provide a mapping from the ID schemes used by Center for Reponsive 
+#' Look up the entity ID based on an ID from a different data set. Currently
+#'    they provide a mapping from the ID schemes used by Center for Reponsive
 #'    Politics (CRP) and the National Institute for Money in State Politics (NIMSP).
-#'    
+#'
 #' @import httr
 #' @template cg
 #' @param id The ID of the entity in the given namespace.
-#' @param cycle Return contribution totals for the given cycle. When not given, 
+#' @param cycle Return contribution totals for the given cycle. When not given,
 #'    returns totals for all cycles.
-#' @return a JSON object listing the TransparencyData IDs matching the 
+#' @return a JSON object listing the TransparencyData IDs matching the
 #'    given external ID.
 #' @export
 #' @examples \dontrun{
@@ -25,5 +25,7 @@ ts_aggregateentityview <- function(id = NULL, cycle = NULL,
   tt <- GET(url2, query=args, callopts)
   stop_for_status(tt)
   out <- content(tt, as = "text")
-  fromJSON(out, simplifyVector = FALSE)
+  res <- fromJSON(out, simplifyVector = FALSE)
+  class(res) <- "ts_aggregateentityview"
+  return( res )
 }

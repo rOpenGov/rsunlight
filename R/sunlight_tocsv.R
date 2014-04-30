@@ -1,29 +1,48 @@
-#' Write data to a csv file on your machine.
+#' Write data from any rsunlight function output to a csv file on your machine.
 #' 
 #' @import assertthat
+#' @export
 #' @param x Output from any of the rsunlight functions.
 #' @param file File name, with path.
 #' @param ... Further args passed to read.csv
+#' @details This function attemps to coerce the raw output from each rsunlight function to a 
+#' data.frame to write to csv, but it may fail in some cases. You can always make your own 
+#' data.frame. 
 #' @examples \dontrun{
 #' out <- cg_getcommittees(id = 'JSPR')
-#' sunlight_tocsv.cg_getcommittees(out, "~/myfile.csv")
+#' sunlight_tocsv(out, "~/myfile.csv")
 #' 
 #' out <- cg_getcommitteesallleg(bioguide_id = 'S000148')
-#' sunlight_tocsv.cg_getcommitteesallleg(out, "~/myfile.csv")
+#' sunlight_tocsv(out, "~/myfile.csv")
+#' 
+#' out <- cg_getcommitteeslist(chamber = 'Joint')
+#' sunlight_tocsv(out, "~/myfile.csv")
+#' 
+#' out <- cg_getdistrictlatlong(latitude = 35.778788, longitude = -78.787805)
+#' sunlight_tocsv(out, "~/myfile.csv")
+#' 
+#' out <- cg_getdistrictlatlong(latitude = 35.778788, longitude = -78.787805)
+#' sunlight_tocsv(out, "~/myfile.csv")
 #' }
 sunlight_tocsv <- function(x, file="~/", ...){
   UseMethod("sunlight_tocsv")
 }
 
+#' @method sunlight_tocsv cg_getcommittees
+#' @export
+#' @rdname sunlight_tocsv
 sunlight_tocsv.cg_getcommittees <- function(x, file="~/", ...){
   assert_that(is(x, "cg_getcommittees"))
   notmembers <- x$committee[!names(x$committee) %in% "members"]
   notmembers <- replacemissing(notmembers)
   members <- do.call(rbind.fill, lapply(x$committee$members, data.frame, stringsAsFactors = FALSE))
   dat <- cbind(notmembers, members)
-  write.csv(dat, file=file, ...) 
+  write.csv(dat, file=file, ..., row.names=FALSE) 
 }
 
+#' @method sunlight_tocsv cg_getcommitteesallleg
+#' @export
+#' @rdname sunlight_tocsv
 sunlight_tocsv.cg_getcommitteesallleg <- function(x, file="~/", ...){
   assert_that(is(x, "cg_getcommitteesallleg"))
   dat <- lapply(x$committees, function(b){
@@ -38,7 +57,28 @@ sunlight_tocsv.cg_getcommitteesallleg <- function(x, file="~/", ...){
     } else{ tmp }
   })
   dat2 <- do.call(rbind.fill, dat)
-  write.csv(dat2, file=file, ...) 
+  write.csv(dat2, file=file, ..., row.names=FALSE) 
+}
+
+#' @method sunlight_tocsv cg_getcommitteelist
+#' @export
+#' @rdname sunlight_tocsv
+sunlight_tocsv.cg_getcommitteelist <- function(x, file="~/", ...){
+  assert_that(is(x, "cg_getcommitteelist"))
+  iter <- x$committees
+  iter <- replacemissing(iter)
+  df <- do.call(rbind.fill, lapply(iter, data.frame, stringsAsFactors = FALSE))
+  write.csv(df, file=file, ..., row.names=FALSE) 
+}
+
+#' @method sunlight_tocsv cg_getdistrictlatlong
+#' @export
+#' @rdname sunlight_tocsv
+sunlight_tocsv.cg_getdistrictlatlong <- function(x, file="~/", ...){
+  assert_that(is(x, "cg_getdistrictlatlong"))
+  iter <- x$districts[[1]]
+  df <- do.call(rbind.fill, lapply(iter, data.frame, stringsAsFactors = FALSE))
+  write.csv(df, file=file, ..., row.names=FALSE) 
 }
 
 replacemissing <- function(x){

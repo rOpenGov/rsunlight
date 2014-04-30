@@ -1,5 +1,5 @@
 #' Search OpenStates metadata.
-#' 
+#'
 #' @import httr
 #' @importFrom plyr compact
 #' @param state state two-letter abbreviation (character)
@@ -10,7 +10,7 @@
 #' os_statemetasearch('ca')
 #' }
 os_statemetasearch <- function(state = NULL,
-    key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs"))) 
+    key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")))
 {
   if(is.null(state))
     stop("state must specify a two letter state abbreviation")
@@ -19,5 +19,7 @@ os_statemetasearch <- function(state = NULL,
   tt <- GET(url_)
   stop_for_status(tt)
   out <- content(tt, as = "text")
-  fromJSON(out, simplifyVector = FALSE)
+  res <- fromJSON(out, simplifyVector = FALSE)
+  class(res) <- "os_statemetasearch"
+  return( res )
 }
