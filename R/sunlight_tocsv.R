@@ -21,7 +21,10 @@
 #' out <- cg_getdistrictlatlong(latitude = 35.778788, longitude = -78.787805)
 #' sunlight_tocsv(out, "~/myfile.csv")
 #' 
-#' out <- cg_getdistrictlatlong(latitude = 35.778788, longitude = -78.787805)
+#' out <- cg_getdistrictzip(zip = 27511)
+#' sunlight_tocsv(out, "~/myfile.csv")
+#' 
+#' out <- cg_getlegislator(lastname = 'Pelosi')
 #' sunlight_tocsv(out, "~/myfile.csv")
 #' }
 sunlight_tocsv <- function(x, file="~/", ...){
@@ -76,7 +79,17 @@ sunlight_tocsv.cg_getcommitteelist <- function(x, file="~/", ...){
 #' @rdname sunlight_tocsv
 sunlight_tocsv.cg_getdistrictlatlong <- function(x, file="~/", ...){
   assert_that(is(x, "cg_getdistrictlatlong"))
-  iter <- x$districts[[1]]
+  iter <- x$districts
+  df <- do.call(rbind.fill, lapply(iter, data.frame, stringsAsFactors = FALSE))
+  write.csv(df, file=file, ..., row.names=FALSE) 
+}
+
+#' @method sunlight_tocsv cg_getdistrictzip
+#' @export
+#' @rdname sunlight_tocsv
+sunlight_tocsv.cg_getdistrictzip <- function(x, file="~/", ...){
+  assert_that(is(x, "cg_getdistrictzip"))
+  iter <- x$districts
   df <- do.call(rbind.fill, lapply(iter, data.frame, stringsAsFactors = FALSE))
   write.csv(df, file=file, ..., row.names=FALSE) 
 }
