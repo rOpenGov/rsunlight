@@ -13,10 +13,11 @@
 #' @param recipient_state Two-letter abbreviation of state in which the candidate receiving the contribution is running.
 #' @param seat Type of office being sought: \dQuote{federal:senate}, \dQuote{federal:house}, \dQuote{federal:president}, \dQuote{state:upper}, \dQuote{state:lower}, or \dQuote{state:governor}. Use a pipe to separate multiple offices for an OR logic.
 #' @param transaction_namespace Filters on federal or state contributions: \dQuote{urn:fec:transaction} (federal) or \dQuote{urn:nimsp:transaction} (state).
-#' @return Details on 
+#' @return Details on campaign contributions.
 #' @export
 #' @examples \dontrun{
-#' ie_getcontributions()
+#' ie_getcontributions(amount='<|100')
+#' ie_getcontributions(recipient_state='al', for_against='for', amount='<|20')
 #' }
 ie_getcontributions <-  function(
     amount = NULL,
@@ -36,11 +37,15 @@ ie_getcontributions <-  function(
     callopts = list()) 
 {
   url <- "http://transparencydata.com/api/1.0/contributions.json"
-  args <- suncompact(list(apikey = key, id = id))
+  args <- suncompact(list(apikey = key, amount = NULL,
+    contributor_ft = NULL, contributor_state = NULL, cycle = NULL,
+    date = NULL, for_against = NULL, organization_ft = NULL,
+    recipient_ft = NULL, recipient_state = NULL, seat = NULL,
+    transaction_namespace = NULL, page = NULL, per_page = NULL))
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
   out <- content(tt, as = "text")
-  res <- fromJSON(out, simplifyVector = FALSE)$response
+  res <- fromJSON(out, simplifyVector = FALSE)
   class(res) <- "ie_getcontributions"
   return( res )
 }

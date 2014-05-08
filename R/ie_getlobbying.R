@@ -11,10 +11,10 @@
 #' @param transaction_id Report ID given by the Senate Office of Public Records.
 #' @param transaction_type The type of filing as reported by the Senate Office of Public Records. See \url{http://assets.transparencydata.org.s3.amazonaws.com/docs/transaction_types-20100402.csv}.
 #' @param year A YYYY formatted year (1990 - 2010) as a single year or YYYY|YYYY for an OR logic.
-#' @return Details on 
+#' @return Details on lobbying.
 #' @export
 #' @examples \dontrun{
-#' ie_getlobbying()
+#' ie_getlobbying(amount='<|50', year='2010')
 #' }
 ie_getlobbying <-  function(
     amount = NULL,
@@ -32,11 +32,14 @@ ie_getlobbying <-  function(
     callopts = list()) 
 {
   url <- "http://transparencydata.com/api/1.0/lobbying.json"
-  args <- suncompact(list(apikey = key, id = id))
+  args <- suncompact(list(apikey = key, amount = NULL,
+    client_ft = NULL, client_parent_ft = NULL, filing_type = NULL,
+    lobbyist_ft = NULL, registrant_ft = NULL, transaction_id = NULL,
+    transaction_type = NULL, year = NULL, page = NULL, per_page = NULL))
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
   out <- content(tt, as = "text")
-  res <- fromJSON(out, simplifyVector = FALSE)$response
+  res <- fromJSON(out, simplifyVector = FALSE)
   class(res) <- "ie_getlobbying"
   return( res )
 }

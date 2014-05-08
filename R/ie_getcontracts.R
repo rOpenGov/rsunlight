@@ -21,12 +21,13 @@
 #' @param vendor_parent_duns The Dun and Bradstreet number assigned to the corporate parent of the contractor.
 #' @param vendor_state The primary state in which the contractor does business.
 #' @param vendor_zipcode The primary zipcode in which the contractor does business.
-#' @return Details on 
+#' @return Details on federal government contracts.
 #' @export
 #' @examples \dontrun{
-#' ie_getcontracts()
+#' ie_getcontracts(vendor_city='indianapolis')
+#' ie_getcontracts(fiscal_year='2012', vendor_state='nevada')
 #' }
-ie_getcontributions <-  function(
+ie_getcontracts <-  function(
     agency_id = NULL,
     agency_name = NULL,
     contracting_agency_id = NULL,
@@ -34,8 +35,8 @@ ie_getcontributions <-  function(
     current_amount = NULL,
     fiscal_year = NULL,
     maximum_amount = NULL,
-    palce_district = NULL,
-    palce_state_code = NULL,
+    place_district = NULL,
+    place_state_code = NULL,
     requesting_agency_id = NULL,
     requesting_agency_name = NULL,
     obligated_amount = NULL,
@@ -52,11 +53,19 @@ ie_getcontributions <-  function(
     callopts = list()) 
 {
   url <- "http://transparencydata.com/api/1.0/contracts.json"
-  args <- suncompact(list(apikey = key, id = id))
+  args <- suncompact(list(apikey = key, agency_id = agency_id,
+    agency_name = agency_name, contracting_agency_id = NULL, 
+    contracting_agency_name = NULL, current_amount = NULL,
+    fiscal_year = NULL, maximum_amount = NULL, place_district = NULL,
+    place_state_code = NULL, requesting_agency_id = NULL,
+    requesting_agency_name = NULL, obligated_amount = NULL,
+    vendor_city = NULL, vendor_district = NULL, vendor_duns = NULL,
+    vendor_name = NULL, vendor_parent_duns = NULL, vendor_state = NULL,
+    vendor_zipcode = NULL, page = NULL, per_page = NULL))
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
   out <- content(tt, as = "text")
-  res <- fromJSON(out, simplifyVector = FALSE)$response
+  res <- fromJSON(out, simplifyVector = FALSE)
   class(res) <- "ie_getcontracts"
   return( res )
 }

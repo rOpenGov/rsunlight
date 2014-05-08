@@ -9,10 +9,10 @@
 #' @param recipient_ft Full-text search on the reported name of the grant recipient.
 #' @param recipient_state Two-letter abbreviation of the state in which the grant was awarded.
 #' @param recipient_type The type of entity that received the grant: \dQuote{00} (State government), \dQuote{01} (County government), \dQuote{02} (City or township government), \dQuote{04} (Special district government), \dQuote{05} (Independent school district), \dQuote{06} (State controlled institution of higher education), \dQuote{11} (Indian tribe), \dQuote{12} (Other nonprofit), \dQuote{20} (Private higher education), \dQuote{21} (Individual), \dQuote{22} (Profit organization), \dQuote{23} (Small business), or \dQuote{25} (Other).
-#' @return Details on 
+#' @return Details on federal grants.
 #' @export
 #' @examples \dontrun{
-#' ie_getgrants()
+#' ie_getgrants(fiscal_year='2006')
 #' }
 ie_getgrants <-  function(
     agency_ft = NULL,
@@ -28,11 +28,14 @@ ie_getgrants <-  function(
     callopts = list()) 
 {
   url <- "http://transparencydata.com/api/1.0/grants.json"
-  args <- suncompact(list(apikey = key, id = id))
+  args <- suncompact(list(apikey = key, agency_ft = NULL,
+    amount_total = NULL, assistance_type = NULL, fiscal_year = NULL,
+    recipient_ft = NULL, recipient_state = NULL, recipient_type = NULL,
+    page = NULL, per_page = NULL))
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
   out <- content(tt, as = "text")
-  res <- fromJSON(out, simplifyVector = FALSE)$response
+  res <- fromJSON(out, simplifyVector = FALSE)
   class(res) <- "ie_getlobbying"
   return( res )
 }
