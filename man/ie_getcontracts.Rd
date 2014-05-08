@@ -31,11 +31,14 @@ ie_getcontracts(agency_id = NULL, agency_name = NULL,
 
 \item{contracting_agency_name}{Full-text search on the name of the contracting agency.}
 
-\item{current_amount}{Current value of the contract in US dollars in one of the following formats: 500 (exactly 500 dollars), >|500 (greater than or equal to 500 dollars), <|500 (less than or equal to 500 dollars)}
+\item{current_amount}{Current value of the contract in US dollars in one of the following
+formats: 500 (exactly 500 dollars), >|500 (greater than or equal to 500 dollars),
+<|500 (less than or equal to 500 dollars)}
 
 \item{fiscal_year}{The year in which the grant was awarded. A YYYY formatted year (2006 - 2010)}
 
-\item{maximum_amount}{Maximum possible value of the contract in US dollars (see \code{current_amount}).}
+\item{maximum_amount}{Maximum possible value of the contract in US dollars
+(see \code{current_amount}).}
 
 \item{place_district}{The congressional district in which the contract action will be performed.}
 
@@ -45,9 +48,11 @@ ie_getcontracts(agency_id = NULL, agency_name = NULL,
 
 \item{requesting_agency_name}{Full-text search on the name of the contracting agency.}
 
-\item{obligated_amount}{The amount obligated or de-obligated by the transaction in US dollars (see \code{current_amount}).}
+\item{obligated_amount}{The amount obligated or de-obligated by the transaction in US dollars
+(see \code{current_amount}).}
 
-\item{vendor_city}{Full-text search on the name of the primary city in which the contractor does business.}
+\item{vendor_city}{Full-text search on the name of the primary city in which the contractor does
+business.}
 
 \item{vendor_district}{The primary congressional district in which the contractor does business.}
 
@@ -55,14 +60,15 @@ ie_getcontracts(agency_id = NULL, agency_name = NULL,
 
 \item{vendor_name}{Full-text search on the name of the contractor.}
 
-\item{vendor_parent_duns}{The Dun and Bradstreet number assigned to the corporate parent of the contractor.}
+\item{vendor_parent_duns}{The Dun and Bradstreet number assigned to the corporate parent of the
+contractor.}
 
 \item{vendor_state}{The primary state in which the contractor does business.}
 
 \item{vendor_zipcode}{The primary zipcode in which the contractor does business.}
 }
 \value{
-Details on federal government contracts.
+Details on federal government contracts in a list.
 }
 \description{
 Get federal contract details
@@ -70,7 +76,11 @@ Get federal contract details
 \examples{
 \dontrun{
 ie_getcontracts(vendor_city='indianapolis')
+ie_getcontracts(vendor_city='indianapolis', page=1, per_page=1)
 ie_getcontracts(fiscal_year='2012', vendor_state='nevada')
+
+library('httr')
+ie_getcontracts(vendor_city='indianapolis', page=1, per_page=1, callopts=verbose())
 }
 }
 

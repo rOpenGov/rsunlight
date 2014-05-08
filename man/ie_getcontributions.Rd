@@ -50,6 +50,7 @@ Get campaign contribution details
 \examples{
 \dontrun{
 ie_getcontributions(amount='<|100')
+ie_getcontributions(amount='<|100', page=1, per_page=3)
 ie_getcontributions(recipient_state='al', for_against='for', amount='<|20')
 }
 }

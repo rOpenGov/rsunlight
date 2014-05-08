@@ -17,6 +17,7 @@
 #' @export
 #' @examples \dontrun{
 #' ie_getcontributions(amount='<|100')
+#' ie_getcontributions(amount='<|100', page=1, per_page=3)
 #' ie_getcontributions(recipient_state='al', for_against='for', amount='<|20')
 #' }
 ie_getcontributions <-  function(
@@ -37,11 +38,11 @@ ie_getcontributions <-  function(
     callopts = list()) 
 {
   url <- "http://transparencydata.com/api/1.0/contributions.json"
-  args <- suncompact(list(apikey = key, amount = NULL,
-    contributor_ft = NULL, contributor_state = NULL, cycle = NULL,
-    date = NULL, for_against = NULL, organization_ft = NULL,
-    recipient_ft = NULL, recipient_state = NULL, seat = NULL,
-    transaction_namespace = NULL, page = NULL, per_page = NULL))
+  args <- suncompact(list(apikey = key, amount = amount,
+    contributor_ft = contributor_ft, contributor_state = contributor_state, cycle = cycle,
+    date = date, for_against = for_against, organization_ft = organization_ft,
+    recipient_ft = recipient_ft, recipient_state = recipient_state, seat = seat,
+    transaction_namespace = transaction_namespace, page = page, per_page = per_page))
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
   out <- content(tt, as = "text")

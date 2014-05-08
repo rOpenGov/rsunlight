@@ -28,14 +28,14 @@ ie_getgrants <-  function(
     callopts = list()) 
 {
   url <- "http://transparencydata.com/api/1.0/grants.json"
-  args <- suncompact(list(apikey = key, agency_ft = NULL,
-    amount_total = NULL, assistance_type = NULL, fiscal_year = NULL,
-    recipient_ft = NULL, recipient_state = NULL, recipient_type = NULL,
-    page = NULL, per_page = NULL))
+  args <- suncompact(list(apikey = key, agency_ft = agency_ft,
+    amount_total = amount_total, assistance_type = assistance_type, fiscal_year = fiscal_year,
+    recipient_ft = recipient_ft, recipient_state = recipient_state, recipient_type = recipient_type,
+    page = page, per_page = per_page))
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
   out <- content(tt, as = "text")
   res <- fromJSON(out, simplifyVector = FALSE)
-  class(res) <- "ie_getlobbying"
+  class(res) <- "ie_getgrants"
   return( res )
 }

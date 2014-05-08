@@ -32,10 +32,10 @@ ie_getlobbying <-  function(
     callopts = list()) 
 {
   url <- "http://transparencydata.com/api/1.0/lobbying.json"
-  args <- suncompact(list(apikey = key, amount = NULL,
-    client_ft = NULL, client_parent_ft = NULL, filing_type = NULL,
-    lobbyist_ft = NULL, registrant_ft = NULL, transaction_id = NULL,
-    transaction_type = NULL, year = NULL, page = NULL, per_page = NULL))
+  args <- suncompact(list(apikey = key, amount = amount,
+    client_ft = client_ft, client_parent_ft = client_parent_ft, filing_type = filing_type,
+    lobbyist_ft = lobbyist_ft, registrant_ft = registrant_ft, transaction_id = transaction_id,
+    transaction_type = transaction_type, year = year, page = page, per_page = per_page))
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
   out <- content(tt, as = "text")
