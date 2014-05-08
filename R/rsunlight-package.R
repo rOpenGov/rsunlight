@@ -15,7 +15,7 @@
 #'  \item Sunlight Labs Open States API (`os`)
 #'  \item Sunlight Labs Real Time Congress API (`rt`)
 #'  \item Sunlight Labs Capitol Words API (`cw`)
-#'  \itme Sunlight Labs Influence Explorer API (`ie`)
+#'  \item Sunlight Labs Influence Explorer API (`ie`)
 #' }
 #'
 #' Note that Puerto Rico is not included in Sunlight Foundation data.
