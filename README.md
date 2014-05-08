@@ -5,7 +5,7 @@ rsunlight
 
 + Maintainer: Scott Chamberlain
 + License: [MIT](http://creativecommons.org/publicdomain/zero/1.0/)
-+ Report any problems in the [Issues Tracker](https://github.com/SChamberlain/rsunlight/issues), or just fork and submit changes, etc.
++ Report any problems in the [Issues Tracker](https://github.com/SChamberlain/rOpenGov/issues), or just fork and submit changes, etc.
 
 ## Description
 
@@ -18,14 +18,16 @@ rsunlight
  * Sunlight Labs Open States API (`os`)
  * Sunlight Labs Real Time Congress API (`rt`) 
  * Sunlight Labs Capitol Words API (`cw`)
+ * Sunlight Labs Influence Explorer API (`ie`)
 
-Functions that wrap these sets of APIs will be prefixed by `cg`, `ts`, `os`, `rt`, or `cw` for the different methods listed above:
+Functions that wrap these sets of APIs will be prefixed by `cg`, `ts`, `os`, `rt`, `cw`, or `ie` for the different methods listed above:
 
  * `cg` + `fxn` 
  * `ts` + `fxn` 
  * `os` + `fxn` 
  * `rt` + `fxn` 
  * `cw` + `fxn`
+ * `ie` + `fxn`
 
 where `fxn` would be a function to a interface with a specific Sunlight Foundation API. 
 
