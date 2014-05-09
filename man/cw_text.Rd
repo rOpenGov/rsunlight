@@ -4,14 +4,17 @@
 \title{Capitol words text.json method. Search the congressional record for instances
 of a word or phrase.}
 \usage{
-cw_text(phrase = NULL, title = NULL, start_date = NULL, end_date = NULL,
-  chamber = NULL, state = NULL, party = NULL, bioguide_id = NULL,
-  congress = NULL, session = NULL, cr_pages = NULL, volume = NULL,
-  page = NULL, key = getOption("SunlightLabsKey",
+cw_text(phrase = NULL, title = NULL, date = NULL, start_date = NULL,
+  end_date = NULL, chamber = NULL, state = NULL, party = NULL,
+  bioguide_id = NULL, congress = NULL, session = NULL, cr_pages = NULL,
+  volume = NULL, page = NULL, sort = NULL,
+  key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")), callopts = list())
 }
 \arguments{
 \item{phrase}{Phrase to search.}
+
+\item{date}{Show results for only the given date.}
 
 \item{start_date}{Start date to search on.}
 
@@ -39,7 +42,11 @@ cw_text(phrase = NULL, title = NULL, start_date = NULL, end_date = NULL,
 
 \item{volume}{No definition.}
 
-\item{page}{No definition.}
+\item{page}{The page of results to show, 50 results are shown at a time.}
+
+\item{sort}{The value on which to sort the results. You have to specify ascending or descending
+(see details), but if you forget, we make it ascending by default (prevents 500 error :)).
+See Details.}
 }
 \value{
 Phrases matched in a data.frame.
@@ -47,6 +54,26 @@ Phrases matched in a data.frame.
 \description{
 Capitol words text.json method. Search the congressional record for instances
 of a word or phrase.
+}
+\details{
+Options for the \code{sort} parameter are:
+\itemize{
+ \item speaker_state
+ \item congress
+ \item title
+ \item number
+ \item volume
+ \item chamber
+ \item session
+ \item id
+ \item speaker_party
+ \item date
+ \item bioguide_id
+ \item pages
+}
+
+Coupled with a direction, \code{asc} or \code{desc}. An example to sort by true chronological
+order and chamber (id works for this purpose) would be \code{id desc}.
 }
 \examples{
 \dontrun{
@@ -59,6 +86,8 @@ out <- cw_text(phrase='climate change', start_date='2010-01-01', end_date='2012-
 out2 <- ldply(2:13, function(x) cw_text(phrase='climate change', start_date='2010-01-01', end_date='2012-12-01', page=x))
 alldat <- rbind(out, out2)
 str(alldat)
+
+cw_text(phrase='climate change', start_date='2012-09-16', end_date='2012-09-20', sort='title')
 }
 }
 

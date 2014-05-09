@@ -3,15 +3,17 @@
 \alias{cw_timeseries}
 \title{Find the popularity of a phrase over a period of time.}
 \usage{
-cw_timeseries(phrase = NULL, start_date = NULL, end_date = NULL,
-  chamber = NULL, state = NULL, party = NULL, bioguide_id = NULL,
-  mincount = NULL, percentages = NULL, granularity = "day",
-  entity_type = NULL, entity_value = NULL,
+cw_timeseries(phrase = NULL, date = NULL, start_date = NULL,
+  end_date = NULL, chamber = NULL, state = NULL, party = NULL,
+  bioguide_id = NULL, mincount = NULL, percentages = NULL,
+  granularity = "day", entity_type = NULL, entity_value = NULL,
   key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")), callopts = list())
 }
 \arguments{
 \item{phrase}{Phrase to search.}
+
+\item{date}{Show results for only the given date.}
 
 \item{start_date}{Start date to search on.}
 

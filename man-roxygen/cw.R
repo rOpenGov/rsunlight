@@ -1,4 +1,5 @@
 #' @param phrase Phrase to search.
+#' @param date Show results for only the given date.
 #' @param start_date Start date to search on.
 #' @param end_date End date to search on.
 #' @param chamber Chamber of congress, House or Senate.
