@@ -53,8 +53,10 @@ cw_text <- function(phrase=NULL, title=NULL, date = NULL, start_date=NULL, end_d
   callopts=list())
 {
   url = "http://capitolwords.org/api/text.json"
-  if(!grepl('asc|desc', sort))
-    sort <- paste(sort, 'asc')
+  if(!is.null(sort)){
+    if(!grepl('asc|desc', sort))
+      sort <- paste(sort, 'asc')
+  }
   args <- suncompact(list(apikey=key, phrase=phrase, start_date=start_date,
                        date = date, end_date=end_date, chamber=chamber, state=state,
                        party=party, bioguide_id=bioguide_id, congress=congress,
