@@ -4,22 +4,30 @@
 \title{Search OpenStates metadata.}
 \usage{
 os_statemetasearch(state = NULL, key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")))
+  stop("need an API key for Sunlight Labs")), callopts = list())
 }
 \arguments{
-\item{state}{state two-letter abbreviation (character)}
+\item{state}{One or more two-letter state abbreviations (character)}
 
-\item{key}{your SunlightLabs API key; loads from .Rprofile}
+\item{key}{your SunlightLabs API key; or loads from .Rprofile}
+
+\item{callopts}{Curl options passed on to \link[httr]{\code{GET}}}
 }
 \value{
-List of output fields.
+A list with metadata for each state.
 }
 \description{
 Search OpenStates metadata.
 }
 \examples{
 \dontrun{
+os_statemetasearch()
 os_statemetasearch('ca')
+os_statemetasearch('tx')
+out <- os_statemetasearch(c('tx','nv'))
+out$tx
+out$nv
+os_statemetasearch('tx', verbose())
 }
 }
 
