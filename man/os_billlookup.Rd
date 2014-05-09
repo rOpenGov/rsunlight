@@ -29,9 +29,7 @@ Lookup bills on OpenStates.
 \dontrun{
 os_billlookup(state='ca', session=20092010, bill_id='AB 667')
 os_billlookup(state='ca', session=20092010, bill_id='SB 425')
-tmp <- os_billlookup(state='ca', session=20092010, bill_id=c('AB 667','SB 425'))
-tmp['AB 667']
-tmp['SB 425']
+os_billlookup(state='ca', session=20092010, bill_id=c('AB 667','SB 425'))
 }
 }
 

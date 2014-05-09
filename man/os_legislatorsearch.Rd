@@ -3,7 +3,7 @@
 \alias{os_legislatorsearch}
 \title{Search Legislators on OpenStates.}
 \usage{
-os_legislatorsearch(state = NULL, firstname = NULL, lastname = NULL,
+os_legislatorsearch(state = NULL, first_name = NULL, last_name = NULL,
   chamber = NULL, active = NULL, term = NULL, district = NULL,
   party = NULL, key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")), callopts = list())
@@ -15,9 +15,9 @@ os_legislatorsearch(state = NULL, firstname = NULL, lastname = NULL,
 
 \item{state}{state two-letter abbreviation (character)}
 
-\item{firstname}{first name of legislator (character)}
+\item{first_name}{first name of legislator (character)}
 
-\item{lastname}{last name of legislator (character)}
+\item{last_name}{last name of legislator (character)}
 
 \item{chamber}{one of 'upper' or 'lower' (character)}
 
@@ -39,6 +39,8 @@ Search Legislators on OpenStates.
 \dontrun{
 os_legislatorsearch(state = 'ca', party = 'democratic')
 os_legislatorsearch(state = 'tx', party = 'democratic', active = TRUE)
+os_legislatorsearch(state = 'nv', party = 'republican')
+os_legislatorsearch(state = 'dc', chamber = 'upper')
 }
 }
 
