@@ -17,7 +17,7 @@ os_billlookup(state = NULL, session = NULL, bill_id = NULL,
 \item{session}{session of congress (integer), e.g., 2009-2010 = 20092010,
 required}
 
-\item{bill_id}{identification number of bill (character), required}
+\item{bill_id}{One or more identification numbers of bills (character), required}
 }
 \value{
 List of output fields.
@@ -28,6 +28,10 @@ Lookup bills on OpenStates.
 \examples{
 \dontrun{
 os_billlookup(state='ca', session=20092010, bill_id='AB 667')
+os_billlookup(state='ca', session=20092010, bill_id='SB 425')
+tmp <- os_billlookup(state='ca', session=20092010, bill_id=c('AB 667','SB 425'))
+tmp['AB 667']
+tmp['SB 425']
 }
 }
 

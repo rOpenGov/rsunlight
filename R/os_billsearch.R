@@ -24,9 +24,10 @@
 #' @examples \dontrun{
 #' os_billsearch(terms = 'agriculture', state = 'tx')
 #' os_billsearch(terms = 'agriculture', state = 'tx', chamber = 'upper')
+#' os_billsearch(terms = 'taxi', state = 'dc')
 #' }
 os_billsearch <- function(terms = NULL, state = NULL, window = NULL,
-    chamber = 'upper', sponsor_id = NULL,updated_since = NULL, subject = NULL,
+    chamber = 'upper', sponsor_id = NULL, updated_since = NULL, subject = NULL,
     key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
     callopts = list())
 {

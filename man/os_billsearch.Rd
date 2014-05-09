@@ -47,6 +47,7 @@ Search OpenStates bills.
 \dontrun{
 os_billsearch(terms = 'agriculture', state = 'tx')
 os_billsearch(terms = 'agriculture', state = 'tx', chamber = 'upper')
+os_billsearch(terms = 'taxi', state = 'dc')
 }
 }
 
