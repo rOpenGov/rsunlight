@@ -7,16 +7,16 @@
 #' @param party Legislator's political party (D, I, or R)
 #' @param state two letter abbreviation of legislator's state
 #' @param state_name The full state name of the state this member represents.
-#' @param state_rank (Senate only) The seniority of that Senator for that state. “junior” or “senior”.
+#' @param state_rank (Senate only) The seniority of that Senator for that state. "junior" or "senior".
 #' @param district If legislator is a representative, their district. 0 is used
 #'    for At-Large districts
 #' @param in_office 1 if legislator is currently serving, 0 if legislator is no
 #'    longer in office due to defeat/resignation/death/etc.
-#' @param chamber Chamber the member is in. “senate” or “house”.
-#' @param gender M or F
+#' @param chamber Chamber the member is in. One of "senate" or "house".
+#' @param gender M or F  
 #' @param phone Congressional office phone number
 #' @param fax Congressional office fax number
-#' @param office Office number for the member’s DC office.
+#' @param office Office number for the member's DC office.
 #' @param website URL of Congressional website
 #' @param contact_form URL of web contact form
 #' @param email Legislator's email address (if known)
@@ -26,7 +26,7 @@
 #'    Biographical Directory (also used by Washington Post/NY Times)
 #' @param ocd_id Identifier for this member across all countries and levels of government, as defined by the Open Civic Data project.
 #' @param thomas_id Identifier for this member as it appears on THOMAS.gov and Congress.gov.
-#' @param lis_id Identifier for this member as it appears on some of Congress’ data systems (namely Senate votes).
+#' @param lis_id Identifier for this member as it appears on some of Congress' data systems (namely Senate votes).
 #' @param crp_id Identifier for this member as it appears on Center for Responsive
 #'    Politics OpenSecrets (http://opensecrets.org)
 #' @param icpsr_id Identifier for this member as it is maintained by the Inter-university Consortium for Political and Social Research.
@@ -36,13 +36,13 @@
 #' @param govtrack_id ID assigned by http://govtrack.us Govtrack.us
 #' @param congresspedia_url URL of Legislator's entry on http://congresspedia.org
 #'    Congresspedia
-#' @param twitter_id The Twitter username for a member’s official legislative account. This field does not contain the handles of campaign accounts.
-#' @param youtube_id The YouTube username or channel for a member’s official legislative account. This field does not contain the handles of campaign accounts. A few legislators use YouTube “channels” instead of regular accounts. These channels will be of the form channel/[id].
-#' @param facebook_id The Facebook username or ID for a member’s official legislative Facebook presence. ID numbers and usernames can be used interchangeably in Facebook’s URLs and APIs. The referenced account may be either a Facebook Page or a user account.
+#' @param twitter_id The Twitter username for a member's official legislative account. This field does not contain the handles of campaign accounts.
+#' @param youtube_id The YouTube username or channel for a member's official legislative account. This field does not contain the handles of campaign accounts. A few legislators use YouTube "channels" instead of regular accounts. These channels will be of the form channel/[id].
+#' @param facebook_id The Facebook username or ID for a member's official legislative Facebook presence. ID numbers and usernames can be used interchangeably in Facebook's URLs and APIs. The referenced account may be either a Facebook Page or a user account.
 #' @param senate_class for senators I, II, or III depending on the Senator's
 #'    election term
-#' @param term_start The date a member’s current term started.
-#' @param term_end The date a member’s current term will end.
+#' @param term_start The date a member's current term started.
+#' @param term_end The date a member's current term will end.
 #' @param birthday YYYY-MM-DD formatted birth date
 #'
 #' @details Currently the Sunlight Labs API provides two methods for obtaining
