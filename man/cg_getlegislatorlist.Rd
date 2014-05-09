@@ -37,7 +37,7 @@ cg_getlegislatorlist(title = NULL, firstname = NULL, middlename = NULL,
 
 \item{state_name}{The full state name of the state this member represents.}
 
-\item{state_rank}{(Senate only) The seniority of that Senator for that state. “junior” or “senior”.}
+\item{state_rank}{(Senate only) The seniority of that Senator for that state. "junior" or "senior".}
 
 \item{district}{If legislator is a representative, their district. 0 is used
 for At-Large districts}
@@ -45,7 +45,7 @@ for At-Large districts}
 \item{in_office}{1 if legislator is currently serving, 0 if legislator is no
 longer in office due to defeat/resignation/death/etc.}
 
-\item{chamber}{Chamber the member is in. “senate” or “house”.}
+\item{chamber}{Chamber the member is in. One of "senate" or "house".}
 
 \item{gender}{M or F}
 
@@ -53,7 +53,7 @@ longer in office due to defeat/resignation/death/etc.}
 
 \item{fax}{Congressional office fax number}
 
-\item{office}{Office number for the member’s DC office.}
+\item{office}{Office number for the member's DC office.}
 
 \item{website}{URL of Congressional website}
 
@@ -71,7 +71,7 @@ Biographical Directory (also used by Washington Post/NY Times)}
 
 \item{thomas_id}{Identifier for this member as it appears on THOMAS.gov and Congress.gov.}
 
-\item{lis_id}{Identifier for this member as it appears on some of Congress’ data systems (namely Senate votes).}
+\item{lis_id}{Identifier for this member as it appears on some of Congress' data systems (namely Senate votes).}
 
 \item{crp_id}{Identifier for this member as it appears on Center for Responsive
 Politics OpenSecrets (http://opensecrets.org)}
@@ -88,18 +88,18 @@ Vote Smart}
 \item{congresspedia_url}{URL of Legislator's entry on http://congresspedia.org
 Congresspedia}
 
-\item{twitter_id}{The Twitter username for a member’s official legislative account. This field does not contain the handles of campaign accounts.}
+\item{twitter_id}{The Twitter username for a member's official legislative account. This field does not contain the handles of campaign accounts.}
 
-\item{youtube_id}{The YouTube username or channel for a member’s official legislative account. This field does not contain the handles of campaign accounts. A few legislators use YouTube “channels” instead of regular accounts. These channels will be of the form channel/[id].}
+\item{youtube_id}{The YouTube username or channel for a member's official legislative account. This field does not contain the handles of campaign accounts. A few legislators use YouTube "channels" instead of regular accounts. These channels will be of the form channel/[id].}
 
-\item{facebook_id}{The Facebook username or ID for a member’s official legislative Facebook presence. ID numbers and usernames can be used interchangeably in Facebook’s URLs and APIs. The referenced account may be either a Facebook Page or a user account.}
+\item{facebook_id}{The Facebook username or ID for a member's official legislative Facebook presence. ID numbers and usernames can be used interchangeably in Facebook's URLs and APIs. The referenced account may be either a Facebook Page or a user account.}
 
 \item{senate_class}{for senators I, II, or III depending on the Senator's
 election term}
 
-\item{term_start}{The date a member’s current term started.}
+\item{term_start}{The date a member's current term started.}
 
-\item{term_end}{The date a member’s current term will end.}
+\item{term_end}{The date a member's current term will end.}
 
 \item{birthday}{YYYY-MM-DD formatted birth date}
 }
