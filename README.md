@@ -5,37 +5,37 @@ rsunlight
 
 + Maintainer: Scott Chamberlain
 + License: [MIT](http://creativecommons.org/publicdomain/zero/1.0/)
-+ Report any problems in the [Issues Tracker](https://github.com/SChamberlain/rOpenGov/issues), or just fork and submit changes, etc.
++ Report any problems in the [Issues Tracker](https://github.com/ropengov/rsunlight/issues), or just fork and submit changes, etc.
 
 ## Description
 
-`rsunlight` is a collection of functions to search and acquire data from the various Sunlight Labs APIs for government data, at http://services.sunlightlabs.com/.
+`rsunlight` is a collection of functions to search and acquire data from the various Sunlight Labs APIs for government data, at http://sunlightfoundation.com/api/.
 
 `rsunlight` wraps functions in APIs for:
 
  * Sunlight Labs Congress API (`cg`)
  * Sunlight Labs Transparency API (`ts`)
  * Sunlight Labs Open States API (`os`)
- * Sunlight Labs Real Time Congress API (`rt`) 
+ * Sunlight Labs Real Time Congress API (`rt`)
  * Sunlight Labs Capitol Words API (`cw`)
  * Sunlight Labs Influence Explorer API (`ie`)
 
 Functions that wrap these sets of APIs will be prefixed by `cg`, `ts`, `os`, `rt`, `cw`, or `ie` for the different methods listed above:
 
- * `cg` + `fxn` 
- * `ts` + `fxn` 
- * `os` + `fxn` 
- * `rt` + `fxn` 
+ * `cg` + `fxn`
+ * `ts` + `fxn`
+ * `os` + `fxn`
+ * `rt` + `fxn`
  * `cw` + `fxn`
  * `ie` + `fxn`
 
-where `fxn` would be a function to a interface with a specific Sunlight Foundation API. 
+where `fxn` would be a function to a interface with a specific Sunlight Foundation API.
 
-Please get your own API keys if you plant to use these functions for Sunlight Labs (http://services.sunlightlabs.com/).
+Please get your own API keys if you plant to use these functions for Sunlight Labs (http://sunlightfoundation.com/api/).
 
 Data from the Sunlight Foundation API is provided by Sunlight Foundation.
 
-<a border="0" href="http://services.sunlightlabs.com/" ><img src="http://www.altweeklies.com/imager/b/main/5866471/f291/SunlightFoundationLogo_500wide.gif" alt="NYT API" /></a>
+<a border="0" href="http://sunlightfoundation.com/api/" ><img src="http://www.altweeklies.com/imager/b/main/5866471/f291/SunlightFoundationLogo_500wide.gif" alt="NYT API" /></a>
 
 We set up the functions so that you can put the key in your .Rprofile file, which will be called on startup of R, and then you don't have to enter your API key for each run of a function. For example, put this in your `.Rprofile` file:
 
@@ -48,7 +48,7 @@ options(SunlightLabsKey = "YOURKEYHERE")
 
 ## Quickstart
 
-If you store your key in your `.Rprofile` file it will be read inside of each function call. Or you can pass your key into each function call manually by `key=yourkey`. 
+If you store your key in your `.Rprofile` file it will be read inside of each function call. Or you can pass your key into each function call manually by `key=yourkey`.
 
 ### Install rsunlight
 
@@ -130,9 +130,9 @@ dat_d$party <- rep("D", nrow(dat_d))
 dat_r <- cw_timeseries(phrase='climate change', party="R")
 dat_r$party <- rep("R", nrow(dat_r))
 dat_both <- rbind(dat_d, dat_r)
-ggplot(dat_both, aes(day, count, colour=party)) + 
-  geom_line() + 
-  theme_grey(base_size=20) + 
+ggplot(dat_both, aes(day, count, colour=party)) +
+  geom_line() +
+  theme_grey(base_size=20) +
   scale_colour_manual(values=c("blue","red"))
 ```
 
