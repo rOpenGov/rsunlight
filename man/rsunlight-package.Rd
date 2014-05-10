@@ -19,9 +19,7 @@ functions for each API are prefixed with a two letter code indicating the servic
 
 \itemize{
  \item Sunlight Labs Congress API (`cg`)
- \item Sunlight Labs Transparency API (`ts`)
  \item Sunlight Labs Open States API (`os`)
- \item Sunlight Labs Real Time Congress API (`rt`)
  \item Sunlight Labs Capitol Words API (`cw`)
  \item Sunlight Labs Influence Explorer API (`ie`)
 }
