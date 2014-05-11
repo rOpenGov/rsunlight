@@ -120,7 +120,7 @@ cw_timeseries(phrase='united states', start_date='2009-01-01', end_date='2009-04
 #### Plot data
 
 ```coffee
-library(ggplot2)
+library("ggplot2")
 dat_d <- cw_timeseries(phrase='climate change', party="D")
 dat_d$party <- rep("D", nrow(dat_d))
 dat_r <- cw_timeseries(phrase='climate change', party="R")
