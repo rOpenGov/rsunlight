@@ -50,6 +50,8 @@ cw_dates(phrase = NULL, title = NULL, date = NULL, start_date = NULL,
 \item{percentages}{Include the percentage of mentions versus total words in
 the result objects. Valid values: 'true', 'false' (default) (character)}
 
+\item{mincount}{Only return results where mentions are at or above the supplied threshold}
+
 \item{granularity}{The length of time covered by each result. Valid values:
 'year', 'month', 'day' (default)}
 

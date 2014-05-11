@@ -22,7 +22,7 @@ the case in ISO format.}
 \item{last_date}{(character) End of a date range of the most recent date of significance to the
 case in ISO format.}
 
-\item{location_adresses}{(character) Full-text search on all addresses associated with the case.}
+\item{location_addresses}{(character) Full-text search on all addresses associated with the case.}
 
 \item{penalty}{(integer) Total penalties, in US dollars.}
 

@@ -8,6 +8,7 @@
 #' @param n Size, not sure what this is.
 #' @param percentages Include the percentage of mentions versus total words in
 #'    the result objects. Valid values: 'true', 'false' (default) (character)
+#' @param mincount Only return results where mentions are at or above the supplied threshold
 #' @param granularity The length of time covered by each result. Valid values:
 #'    'year', 'month', 'day' (default)
 #' @param entity_type The entity type to get top phrases for. One of 'date', 'month', 'state', or 

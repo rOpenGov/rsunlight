@@ -8,7 +8,7 @@
 #' the case in ISO format.
 #' @param last_date (character) End of a date range of the most recent date of significance to the 
 #' case in ISO format.
-#' @param location_adresses (character) Full-text search on all addresses associated with the case.
+#' @param location_addresses (character) Full-text search on all addresses associated with the case.
 #' @param penalty (integer) Total penalties, in US dollars.
 #' @template ie
 #' @return A list, as class ie_epa.
