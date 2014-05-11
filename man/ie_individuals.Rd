@@ -8,8 +8,8 @@ ie_individuals(method = NULL, entity_id = NULL, cycle = NULL,
   stop("need an API key for Sunlight Labs")), callopts = list())
 }
 \arguments{
-\item{method}{(character) The query string. Spaces should be URL-encoded or represented
-as +. There are no logic operators or grouping.}
+\item{method}{(character) The query string. One of top_ind, top_recorg, top_recpol,
+party_breakdown, lobb_reg, lobb_cli, or lobb_iss.}
 
 \item{entity_id}{(character) The transparencydata ID to look up.}
 

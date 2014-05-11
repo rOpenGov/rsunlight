@@ -8,8 +8,7 @@ ie_entities(search = NULL, type = NULL, namespace = NULL, id = NULL,
   stop("need an API key for Sunlight Labs")), callopts = list())
 }
 \arguments{
-\item{search}{(character) The query string. Spaces should be URL-encoded or represented
-as +. There are no logic operators or grouping.}
+\item{search}{(character) The query string. There are no logic operators or grouping.}
 
 \item{type}{(character) Filter results to a particular type of entity. One of politician,
 organization, individual or industry.}

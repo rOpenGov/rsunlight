@@ -45,6 +45,7 @@ ie_getcontributions <-  function(
     transaction_namespace = transaction_namespace, page = page, per_page = per_page))
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
+  assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
   out <- content(tt, as = "text")
   res <- fromJSON(out, simplifyVector = FALSE)
   class(res) <- "ie_getcontributions"

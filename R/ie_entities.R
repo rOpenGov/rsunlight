@@ -4,8 +4,7 @@
 #'
 #' @import httr
 #' @export
-#' @param search (character) The query string. Spaces should be URL-encoded or represented
-#'    as +. There are no logic operators or grouping.
+#' @param search (character) The query string. There are no logic operators or grouping.
 #' @param type (character) Filter results to a particular type of entity. One of politician, 
 #'    organization, individual or industry.
 #' @param namespace (character) The dataset and data type of the ID. Currently allowed values are:
@@ -65,6 +64,7 @@ ie_entities <- function(search = NULL, type = NULL, namespace = NULL, id = NULL,
                           namespace = namespace, bioguide_id = bioguide_id))
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
+  assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
   out <- content(tt, as = "text")
   res <- fromJSON(out, simplifyVector = FALSE)
   class(res) <- "ie_entities"

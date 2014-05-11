@@ -2,8 +2,8 @@
 #'
 #' @import httr
 #' @export
-#' @param method (character) The query string. Spaces should be URL-encoded or represented
-#'    as +. There are no logic operators or grouping.
+#' @param method (character) The query string. One of top_ind, top_recorg, top_recpol, 
+#' party_breakdown, lobb_reg, lobb_cli, or lobb_iss.
 #' @param entity_id (character) The transparencydata ID to look up.
 #' @param cycle (character) Filter results to a particular type of entity. One of politician, 
 #'    organization, individual or industry.
@@ -45,13 +45,14 @@ ie_individuals <- function(method = NULL, entity_id = NULL, cycle = NULL, limit 
   callopts = list())
 {
   urlsuffix <- switch(method, 
-                      top_ind = sprintf('indivs/top_%s.json', limit),
-                      top_recorg = sprintf('indiv/%s/recipient_orgs.json', entity_id),
-                      top_recpol = sprintf('indiv/%s/recipient_pols.json', entity_id),
-                      party_breakdown = sprintf('indiv/%s/recipients/party_breakdown.json', entity_id),
-                      lobb_reg = sprintf('indiv/%s/registrants.json', entity_id),
-                      lobb_cli = sprintf('indiv/%s/clients.json', entity_id),
-                      lobb_iss = sprintf('indiv/%s/issues.json', entity_id))
+    top_ind = sprintf('indivs/top_%s.json', limit),
+    top_recorg = sprintf('indiv/%s/recipient_orgs.json', entity_id),
+    top_recpol = sprintf('indiv/%s/recipient_pols.json', entity_id),
+    party_breakdown = sprintf('indiv/%s/recipients/party_breakdown.json', entity_id),
+    lobb_reg = sprintf('indiv/%s/registrants.json', entity_id),
+    lobb_cli = sprintf('indiv/%s/clients.json', entity_id),
+    lobb_iss = sprintf('indiv/%s/issues.json', entity_id)
+  )
    
   url <- sprintf('http://transparencydata.com/api/1.0/aggregates/%s', urlsuffix)
   if(method=="top_ind") limit <- NULL
@@ -59,6 +60,7 @@ ie_individuals <- function(method = NULL, entity_id = NULL, cycle = NULL, limit 
   
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
+  assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
   res <- content(tt, as = "text")
   out <- fromJSON(res, simplifyVector = FALSE)
   class(res) <- "ie_individuals"

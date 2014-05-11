@@ -8,8 +8,8 @@ ie_politicians(method = NULL, entity_id = NULL, cycle = NULL,
   stop("need an API key for Sunlight Labs")), callopts = list())
 }
 \arguments{
-\item{method}{(character) The query string. Spaces should be URL-encoded or represented
-as +. There are no logic operators or grouping.}
+\item{method}{(character) The query string. One of top_pol, top_con, unk_ind, top_ind, top_sec,
+local_breakdown, type_breakdown, fec_summary, fec_indexp}
 
 \item{entity_id}{(character) The transparencydata ID to look up.}
 
@@ -37,11 +37,13 @@ ie_politicians(method='top_pol', limit=3)
 
 # Top contributors
 ie_politicians(method='top_con', entity_id='4148b26f6f1c437cb50ea9ca4699417a')
-ie_politicians(method='top_con', entity_id='4148b26f6f1c437cb50ea9ca4699417a', cycle=2012)
+ie_politicians(method='top_con', entity_id='4148b26f6f1c437cb50ea9ca4699417a',
+   cycle=2012)
 
 # Top industries
 ie_politicians(method='top_ind', entity_id='4148b26f6f1c437cb50ea9ca4699417a')
-ie_politicians(method='top_ind', entity_id='4148b26f6f1c437cb50ea9ca4699417a', cycle=2012, limit=1)
+ie_politicians(method='top_ind', entity_id='4148b26f6f1c437cb50ea9ca4699417a',
+   cycle=2012, limit=1)
 
 # Unkown industries
 ie_politicians(method='unk_ind', entity_id='4148b26f6f1c437cb50ea9ca4699417a')
@@ -50,7 +52,8 @@ ie_politicians(method='unk_ind', entity_id='4148b26f6f1c437cb50ea9ca4699417a')
 ie_politicians(method='top_sec', entity_id='4148b26f6f1c437cb50ea9ca4699417a')
 
 # Local breakdown
-ie_politicians(method='local_breakdown', entity_id='97737bb56b6a4211bcc57a837368b1a4', cycle=2002)
+ie_politicians(method='local_breakdown', entity_id='97737bb56b6a4211bcc57a837368b1a4',
+   cycle=2002)
 
 # Type breakdown
 ie_politicians(method='type_breakdown', entity_id='4148b26f6f1c437cb50ea9ca4699417a')
