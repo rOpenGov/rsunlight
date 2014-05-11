@@ -8,10 +8,6 @@ ie_entities(search = NULL, type = NULL, namespace = NULL, id = NULL,
   stop("need an API key for Sunlight Labs")), callopts = list())
 }
 \arguments{
-\item{key}{your SunlightLabs API key; loads from .Rprofile}
-
-\item{callopts}{Optional additional curl options (debugging tools mostly)}
-
 \item{search}{(character) The query string. Spaces should be URL-encoded or represented
 as +. There are no logic operators or grouping.}
 
@@ -32,6 +28,10 @@ urn:nimsp:recipient (A NIMSP ID for a politician. Integer-valued.)}
 id/namespace parameters. Required, if namespace and id are omitted.}
 
 \item{entity_id}{(character) The transparencydata ID to look up.}
+
+\item{key}{your SunlightLabs API key; loads from .Rprofile}
+
+\item{callopts}{Optional additional curl options (debugging tools mostly)}
 }
 \value{
 A list. Depends on parameters used. Ranges from a single ID returned to basic

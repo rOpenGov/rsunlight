@@ -4,7 +4,6 @@
 #'
 #' @import httr
 #' @export
-#' @template cg
 #' @param search (character) The query string. Spaces should be URL-encoded or represented
 #'    as +. There are no logic operators or grouping.
 #' @param type (character) Filter results to a particular type of entity. One of politician, 
@@ -20,6 +19,7 @@
 #'    (\url{http://bioguide.congress.gov/biosearch/biosearch.asp}). Mutually exclusive to the 
 #'    id/namespace parameters. Required, if namespace and id are omitted.
 #' @param entity_id (character) The transparencydata ID to look up.
+#' @template cg
 #' @return A list. Depends on parameters used. Ranges from a single ID returned to basic 
 #'    information about the the contributions to and from each entity.
 #'

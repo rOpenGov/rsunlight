@@ -26,8 +26,8 @@
 #' @keywords package
 NULL
 
-#' Sunlight Labs Transparency API sector code and names to use for searching/retreiving data.
-#' @name ts_sectors
+#' Sunlight Labs Influence Explorer API sector code and names to use for searching/retreiving data.
+#' @name ie_sectors
 #' @docType data
 #' @keywords datasets
 NULL
