@@ -15,11 +15,12 @@ ie_getcontracts(agency_id = NULL, agency_name = NULL,
   stop("need an API key for Sunlight Labs")), callopts = list())
 }
 \arguments{
-\item{key}{your SunlightLabs API key; loads from .Rprofile}
-
 \item{page}{The page of results to return; defaults to 1.}
 
-\item{per_page}{The number of results to return per page, defaults to 1,000. The maximum number of records per page is 100,000.}
+\item{per_page}{The number of results to return per page, defaults to 1,000.
+The maximum number of records per page is 100,000.}
+
+\item{key}{your SunlightLabs API key; loads from .Rprofile}
 
 \item{callopts}{Optional additional curl options (debugging tools mostly)}
 
