@@ -1,4 +1,4 @@
-#' Get campaign contribution details
+#' Search for itemized bundlers.
 #' 
 #' @import httr
 #' @export

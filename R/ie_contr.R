@@ -1,7 +1,8 @@
-#' Get campaign contribution details
+#' Search for itemized campaign contributions
+#' 
+#' Search for itemized campaign contributions at the federal (FEC) or state (NIMSP) level.
 #' 
 #' @import httr
-#' @template ie
 #' @param amount The amount of the contribution in US dollars in one of the following formats: 
 #' 500 (exactly 500 dollars), >|500 (greater than or equal to 500 dollars), <|500 (less than or 
 #' equal to 500 dollars)
@@ -23,15 +24,16 @@
 #' \dQuote{state:governor}. Use a pipe to separate multiple offices for an OR logic.
 #' @param transaction_namespace Filters on federal or state contributions: 
 #' \dQuote{urn:fec:transaction} (federal) or \dQuote{urn:nimsp:transaction} (state).
+#' @template ie
 #' @return Details on campaign contributions.
 #' @export
 #' @examples \dontrun{
-#' ie_contributions(amount='<|100')
-#' ie_contributions(amount='<|100', page=1, per_page=3)
-#' ie_contributions(recipient_state='al', for_against='for', amount='<|20')
+#' ie_contr(amount='<|100')
+#' ie_contr(amount='<|100', page=1, per_page=3)
+#' ie_contr(recipient_state='al', for_against='for', amount='<|20')
 #' }
 
-ie_contributions <-  function(
+ie_contr <-  function(
     amount = NULL,
     contributor_ft = NULL,
     contributor_state = NULL,
