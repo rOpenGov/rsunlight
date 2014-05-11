@@ -14,9 +14,9 @@
 #' @return Details on lobbying.
 #' @export
 #' @examples \dontrun{
-#' ie_getlobbying(amount='<|50', year='2010')
+#' ie_lobbying(amount='<|50', year='2010')
 #' }
-ie_getlobbying <-  function(
+ie_lobbying <-  function(
     amount = NULL,
     client_ft = NULL,
     client_parent_ft = NULL,
@@ -41,6 +41,6 @@ ie_getlobbying <-  function(
   assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
   out <- content(tt, as = "text")
   res <- fromJSON(out, simplifyVector = FALSE)
-  class(res) <- "ie_getlobbying"
+  class(res) <- "ie_lobbying"
   return( res )
 }

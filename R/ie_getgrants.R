@@ -12,9 +12,9 @@
 #' @return Details on federal grants.
 #' @export
 #' @examples \dontrun{
-#' ie_getgrants(fiscal_year='2006')
+#' ie_grants(fiscal_year='2006')
 #' }
-ie_getgrants <-  function(
+ie_grants <-  function(
     agency_ft = NULL,
     amount_total = NULL,
     assistance_type = NULL,
@@ -37,6 +37,6 @@ ie_getgrants <-  function(
   assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
   out <- content(tt, as = "text")
   res <- fromJSON(out, simplifyVector = FALSE)
-  class(res) <- "ie_getgrants"
+  class(res) <- "ie_grants"
   return( res )
 }

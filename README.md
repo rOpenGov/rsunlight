@@ -9,25 +9,21 @@ rsunlight
 
 ## Description
 
-`rsunlight` is a collection of functions to search and acquire data from the various Sunlight Labs APIs for government data, at http://sunlightfoundation.com/api/.
+`rsunlight` is a collection of functions to search and acquire data from the various Sunlight Labs APIs for government data, at [http://sunlightfoundation.com/api/](http://sunlightfoundation.com/api/).
 
 `rsunlight` wraps functions in APIs for:
 
- * Sunlight Labs Congress API (`cg`)
- * Sunlight Labs Transparency API (`ts`)
- * Sunlight Labs Open States API (`os`)
- * Sunlight Labs Real Time Congress API (`rt`)
- * Sunlight Labs Capitol Words API (`cw`)
- * Sunlight Labs Influence Explorer API (`ie`)
+* Sunlight Labs Congress API (`cg`)
+* Sunlight Labs Open States API (`os`)
+* Sunlight Labs Capitol Words API (`cw`)
+* Sunlight Labs Influence Explorer API (`ie`)
 
-Functions that wrap these sets of APIs will be prefixed by `cg`, `ts`, `os`, `rt`, `cw`, or `ie` for the different methods listed above:
+Functions that wrap these sets of APIs will be prefixed by `cg`, `os`, `cw`, or `ie` for the different methods listed above:
 
- * `cg` + `fxn`
- * `ts` + `fxn`
- * `os` + `fxn`
- * `rt` + `fxn`
- * `cw` + `fxn`
- * `ie` + `fxn`
+* `cg` + `fxn`
+* `os` + `fxn`
+* `cw` + `fxn`
+* `ie` + `fxn`
 
 where `fxn` would be a function to a interface with a specific Sunlight Foundation API.
 

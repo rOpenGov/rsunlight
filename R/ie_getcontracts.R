@@ -30,14 +30,14 @@
 #' @return Details on federal government contracts in a list.
 #' @export
 #' @examples \dontrun{
-#' ie_getcontracts(vendor_city='indianapolis')
-#' ie_getcontracts(vendor_city='indianapolis', page=1, per_page=1)
-#' ie_getcontracts(fiscal_year='2012', vendor_state='nevada')
+#' ie_contracts(vendor_city='indianapolis')
+#' ie_contracts(vendor_city='indianapolis', page=1, per_page=1)
+#' ie_contracts(fiscal_year='2012', vendor_state='nevada')
 #' 
 #' library('httr')
-#' ie_getcontracts(vendor_city='indianapolis', page=1, per_page=1, callopts=verbose())
+#' ie_contracts(vendor_city='indianapolis', page=1, per_page=1, callopts=verbose())
 #' }
-ie_getcontracts <-  function(
+ie_contracts <-  function(
     agency_id = NULL,
     agency_name = NULL,
     contracting_agency_id = NULL,
@@ -77,6 +77,6 @@ ie_getcontracts <-  function(
   assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
   out <- content(tt, as = "text")
   res <- fromJSON(out, simplifyVector = FALSE)
-  class(res) <- "ie_getcontracts"
+  class(res) <- "ie_contracts"
   return( res )
 }
