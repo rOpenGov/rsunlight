@@ -58,10 +58,9 @@ cw_text <- function(phrase=NULL, title=NULL, date = NULL, start_date=NULL, end_d
       sort <- paste(sort, 'asc')
   }
   args <- suncompact(list(apikey=key, phrase=phrase, start_date=start_date,
-                       date = date, end_date=end_date, chamber=chamber, state=state,
-                       party=party, bioguide_id=bioguide_id, congress=congress,
-                       session=session, cr_pages=cr_pages, volume=volume,
-                       page=page, sort=sort))
+      date = date, end_date=end_date, chamber=chamber, state=state, party=party, 
+      bioguide_id=bioguide_id, congress=congress, session=session, cr_pages=cr_pages, volume=volume,
+      page=page, sort=sort))
   out <- GET(url, query=args, callopts)
   stop_for_status(out)
   tt <- content(out, as = "text")
@@ -69,12 +68,12 @@ cw_text <- function(phrase=NULL, title=NULL, date = NULL, start_date=NULL, end_d
   message(sprintf('%s records found, %s returned', output$num_found, length(output[[2]])))
   data <- lapply(output[[2]], function(x){
      x[sapply(x, is.null)] <- "none"
-     x <- lapply(x, function(x){
+     lapply(x, function(x){
        if(length(x)>1){
          paste0(x, collapse=" - ")
        } else { x }
       })
-     data.frame(x)
+#      data.frame(x)
   })
-  do.call(rbind.fill, data)
+#   do.call(rbind.fill, data)
 }

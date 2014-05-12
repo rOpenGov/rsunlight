@@ -61,6 +61,6 @@ ie_contr <-  function(
   assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
   out <- content(tt, as = "text")
   res <- fromJSON(out, simplifyVector = FALSE)
-  class(res) <- "ie_contributions"
+  class(res) <- "ie_contr"
   return( res )
 }
