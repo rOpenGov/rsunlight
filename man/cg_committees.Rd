@@ -27,15 +27,16 @@ historic data on committee names, IDs, and contact info, refer to the bulk data.
 }
 \examples{
 \dontrun{
-cg_committees(member_ids='L000551')
-cg_committees(committee_id='SSAP')
-cg_committees(committee_id='SSAP', fields='members')
-cg_committees(chamber='joint', subcommittee=FALSE)
-cg_committees(chamber='joint', subcommittee=TRUE)
-cg_committees(parent_committee_id='HSWM')
+out <- cg_committees(member_ids='L000551')
+out <- cg_committees(committee_id='SSAP')
+out <- cg_committees(committee_id='SSAP', fields='members')
+out <- cg_committees(chamber='joint', subcommittee=FALSE)
+out <- cg_committees(parent_committee_id='HSWM')
+sun_df(out)
 
 # Disable pagination
-cg_committees(per_page='all')
+out <- cg_committees(per_page='all')
+sun_df(out)
 }
 }
 

@@ -161,7 +161,7 @@ out <- cg_legislators(party = 'D')
 out <- cg_legislators(twitter_id = 'SenRandPaul')
 out <- cg_legislators(facebook_id = 'mitchmcconnell')
 out <- cg_legislators(latitude = 35.778788, longitude = -78.787805)
-sunlight_list(out)
+sun_df(out)
 out <- cg_legislators(zip = 77006)
 }
 }

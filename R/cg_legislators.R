@@ -17,7 +17,7 @@
 #' out <- cg_legislators(twitter_id = 'SenRandPaul')
 #' out <- cg_legislators(facebook_id = 'mitchmcconnell')
 #' out <- cg_legislators(latitude = 35.778788, longitude = -78.787805)
-#' sunlight_list(out)
+#' sun_df(out)
 #' out <- cg_legislators(zip = 77006)
 #' }
 cg_legislators <- function(title=NULL, first_name=NULL, middle_name=NULL,
@@ -67,69 +67,11 @@ cg_legislators <- function(title=NULL, first_name=NULL, middle_name=NULL,
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
   assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
-#   out <- content(tt, as = "text")
-#   res <- fromJSON(out, simplifyVector = FALSE)
+  out <- content(tt, as = "text")
+  res <- fromJSON(out, simplifyVector = FALSE)
 #   res <- list(found = res$count, meta = res$page,
 #               data = if(length(res$results) == 1){ res$results[[1]] } else { res$results } )
-  message(sprintf("Found %s records", res$found))
-  class(tt) <- c("response","cg_legislators")
-  return( tt )
-}
-
-sunlight_list <- function(x){
-  assert_that(is(x, "response"))
-  out <- content(x, as = "text")
-  res <- fromJSON(out, simplifyVector = FALSE)
-  resout <- list(found = res$count, meta = res$page,
-       data = if(length(res$results) == 1){ res$results[[1]] } else { res$results } )
-  class(resout) <- class(x)[ !class(x) %in% "response" ]
-  return( resout )
-}
-
-#' Write data from any rsunlight function output to a csv file on your machine.
-#' 
-#' @import assertthat
-#' @export
-#' @param x Output from any of the rsunlight functions.
-#' @param ... Further args passed to read.csv
-#' @details This function attemps to coerce the raw output from each rsunlight function to a 
-#' data.frame to write to csv, but it may fail in some cases. You can always make your own 
-#' data.frame. 
-#' @examples \dontrun{
-#' out <- cg_legislators(latitude = 35.778788, longitude = -78.787805)
-#' sunlight_df(sunlight_list(out))
-#' sunlight_df(out)
-#' 
-#' out <- cg_committees(member_ids='L000551')
-#' sunlight_df(sunlight_list(out))
-#' }
-sunlight_df <- function(x, ...){
-  UseMethod("sunlight_df")
-}
-
-sunlight_df.cg_legislators <- function(x){
-  assert_that(typeof(x) == "list")
-  if(x$found == 1){
-    iter <- x$data
-    df <- data.frame(iter, stringsAsFactors = FALSE)
-  } else {
-    iter <- x$data
-    iter <- lapply(iter, replacemissing)
-    df <- do.call(rbind.fill, lapply(iter, data.frame, stringsAsFactors = FALSE))
-  }
-  return( df )
-}
-
-sunlight_df.cg_committees <- function(x){
-  assert_that(is(x, "cg_committees"))
-  notmembers <- x$committee[!names(x$committee) %in% "members"]
-  notmembers <- replacemissing(notmembers)
-  members <- do.call(rbind.fill, lapply(x$committee$members, data.frame, stringsAsFactors = FALSE))
-  cbind(notmembers, members)
-}
-
-replacemissing <- function(x){
-  lapply(x, function(y){
-    ifelse(length(y)==0, "", y)
-  })
+  class(res) <- "cg_legislators"
+#   class(tt) <- c("response","cg_legislators")
+  return( res )
 }
