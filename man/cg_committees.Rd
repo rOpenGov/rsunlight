@@ -9,6 +9,21 @@ cg_committees(member_ids = NULL, committee_id = NULL, chamber = NULL,
   stop("need an API key for Sunlight Labs")), return = "table", ...)
 }
 \arguments{
+\item{member_ids}{An array of bioguide IDs of legislators that are assigned to this committee.}
+
+\item{committee_id}{Official ID of the committee, as it appears in various official sources (Senate, House, and Library of Congress).}
+
+\item{chamber}{The chamber this committee is part of. “house”, “senate”, or “joint”.}
+
+\item{subcommittee}{Whether or not the committee is a subcommittee.}
+
+\item{parent_committee_id}{If the committee is a subcommittee, the ID of its parent committee.}
+
+\item{fields}{You can request specific fields by supplying a vector of fields names. Many fields
+are not returned unless requested. If you don’t supply a fields parameter, you will get the
+most commonly used subset of fields only. To save on bandwidth, parsing time, and confusion,
+it’s recommended to always specify which fields you will be using.}
+
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
 \item{return}{(character) One of table (default), list, or response (httr response object)}
@@ -19,8 +34,6 @@ cg_committees(member_ids = NULL, committee_id = NULL, chamber = NULL,
 per_page parameter to get more than the default or max number of results per page.}
 
 \item{per_page}{Number of records to return. Default: 20. Max: 50.}
-
-\item{id}{committee id (eg. JSPR)}
 }
 \value{
 Committee details including subcommittees and all members.

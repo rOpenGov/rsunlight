@@ -22,22 +22,11 @@ cg_bills(query = NULL, bill_id = NULL, bill_type = NULL, number = NULL,
   history.enacted_at = NULL, sponsor.party = NULL, order = NULL,
   enacted_as.law_type = NULL, bill_type__in = NULL,
   history.house_passage_result__exists = NULL,
-  history.senate_passage_result__exists = NULL, page = 1, per_page = 20,
-  key = getOption("SunlightLabsKey",
+  history.senate_passage_result__exists = NULL, fields = NULL, page = 1,
+  per_page = 20, key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")), return = "table", ...)
 }
 \arguments{
-\item{key}{your SunlightLabs API key; loads from .Rprofile}
-
-\item{return}{(character) One of table (default), list, or response (httr response object)}
-
-\item{...}{Optional additional curl options (debugging tools mostly). See examples.}
-
-\item{page}{Page to return. Default: 1. You can use this in combination with the
-per_page parameter to get more than the default or max number of results per page.}
-
-\item{per_page}{Number of records to return. Default: 20. Max: 50.}
-
 \item{query}{Allows wildcards, quoting for phrases, and nearby word operators (full reference).
 You can also retrieve highlighted excerpts, and all normal operators and filters.}
 
@@ -266,6 +255,22 @@ laws; private laws affect individual citizens. “public” or “private”.}
 \item{page}{Page to return.}
 
 \item{per_page}{Numbere of results to return per page.}
+
+\item{fields}{You can request specific fields by supplying a vector of fields names. Many fields
+are not returned unless requested. If you don’t supply a fields parameter, you will get the
+most commonly used subset of fields only. To save on bandwidth, parsing time, and confusion,
+it’s recommended to always specify which fields you will be using.}
+
+\item{key}{your SunlightLabs API key; loads from .Rprofile}
+
+\item{return}{(character) One of table (default), list, or response (httr response object)}
+
+\item{...}{Optional additional curl options (debugging tools mostly). See examples.}
+
+\item{page}{Page to return. Default: 1. You can use this in combination with the
+per_page parameter to get more than the default or max number of results per page.}
+
+\item{per_page}{Number of records to return. Default: 20. Max: 50.}
 }
 \value{
 Committee details including subcommittees and all members.

@@ -14,8 +14,8 @@ cg_legislators(title = NULL, first_name = NULL, middle_name = NULL,
   govtrack_id = NULL, congresspedia_url = NULL, twitter_id = NULL,
   youtube_id = NULL, facebook_id = NULL, senate_class = NULL,
   term_start = NULL, term_end = NULL, birthday = NULL, latitude = NULL,
-  longitude = NULL, zip = NULL, page = 1, per_page = 20,
-  key = getOption("SunlightLabsKey",
+  longitude = NULL, zip = NULL, fields = NULL, page = 1,
+  per_page = 20, key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")), return = "table", ...)
 }
 \arguments{
@@ -117,6 +117,11 @@ election term}
 \item{longitude}{longitude of coordinate}
 
 \item{zip}{zip code to search}
+
+\item{fields}{You can request specific fields by supplying a vector of fields names. Many fields
+are not returned unless requested. If you don’t supply a fields parameter, you will get the
+most commonly used subset of fields only. To save on bandwidth, parsing time, and confusion,
+it’s recommended to always specify which fields you will be using.}
 
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 

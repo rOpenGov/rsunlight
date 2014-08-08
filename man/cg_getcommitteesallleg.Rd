@@ -8,6 +8,11 @@ cg_getcommitteesallleg(bioguide_id = NULL,
   stop("need an API key for Sunlight Labs")), callopts = list())
 }
 \arguments{
+\item{fields}{You can request specific fields by supplying a vector of fields names. Many fields
+are not returned unless requested. If you don’t supply a fields parameter, you will get the
+most commonly used subset of fields only. To save on bandwidth, parsing time, and confusion,
+it’s recommended to always specify which fields you will be using.}
+
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
 \item{return}{(character) One of table (default), list, or response (httr response object)}

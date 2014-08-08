@@ -8,6 +8,17 @@ cg_districts(latitude = NULL, longitude = NULL, zip = NULL,
   stop("need an API key for Sunlight Labs")), return = "table", ...)
 }
 \arguments{
+\item{latitude}{(numeric) latitude of coordinate}
+
+\item{longitude}{(numeric) longitude of coordinate}
+
+\item{zip}{(integer) A 5 digit zip code}
+
+\item{fields}{You can request specific fields by supplying a vector of fields names. Many fields
+are not returned unless requested. If you don’t supply a fields parameter, you will get the
+most commonly used subset of fields only. To save on bandwidth, parsing time, and confusion,
+it’s recommended to always specify which fields you will be using.}
+
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
 \item{return}{(character) One of table (default), list, or response (httr response object)}
@@ -18,12 +29,6 @@ cg_districts(latitude = NULL, longitude = NULL, zip = NULL,
 per_page parameter to get more than the default or max number of results per page.}
 
 \item{per_page}{Number of records to return. Default: 20. Max: 50.}
-
-\item{latitude}{(numeric) latitude of coordinate}
-
-\item{longitude}{(numeric) longitude of coordinate}
-
-\item{zip}{(integer) A 5 digit zip code}
 }
 \value{
 List including data.frame and metadata about results, list, or httr
@@ -31,6 +36,13 @@ response object.
 }
 \description{
 Get districts for a latitude/longitude or zips
+}
+\details{
+A zip code may intersect multiple Congressional districts, so it is not as precise as
+using a latitude and longitude. In general, we recommend against using zip codes to look up
+members of Congress. For one, it’s imprecise: a zip code can intersect multiple congressional
+districts. More importantly, zip codes are not shapes. They are lines (delivery routes), and
+treating them as shapes leads to inaccuracies.
 }
 \examples{
 \dontrun{
