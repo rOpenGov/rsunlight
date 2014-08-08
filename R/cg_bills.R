@@ -181,11 +181,9 @@
 #' cg_bills(query='freedom of information')
 #' cg_bills(query='"freedom of information" accountab*')
 #' cg_bills(query='transparency accountability'~5, highlight=TRUE)
-#' sun_df(out)
 #'
 #' # Disable pagination
-#' out <- cg_bills(per_page='all')
-#' sun_df(out)
+#' cg_bills(per_page='all')
 #' }
 
 cg_bills <- function(query = NULL, bill_id = NULL, bill_type = NULL, number = NULL,
@@ -203,7 +201,7 @@ cg_bills <- function(query = NULL, bill_id = NULL, bill_type = NULL, number = NU
   history.house_passage_result__exists = NULL, history.senate_passage_result__exists = NULL,
   page = NULL, per_page = NULL,
   key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-  callopts = list())
+  return='table', callopts = list())
 {
   if(is.null(query)){
     url <- 'https://congress.api.sunlightfoundation.com/bills'
@@ -237,10 +235,14 @@ cg_bills <- function(query = NULL, bill_id = NULL, bill_type = NULL, number = NU
   tt <- GET(url, query=args, callopts)
   warn_for_status(tt)
   assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
-  out <- content(tt, as = "text")
-  res <- fromJSON(out, simplifyVector = FALSE)
-  class(res) <- "cg_bills"
-  return( res )
+  
+  return <- match.arg(return, c('response','list','table','data.frame'))
+  if(return=='response'){ tt } else {
+    out <- content(tt, as = "text")
+    res <- fromJSON(out, simplifyVector = FALSE)
+    class(res) <- "cg_bills"
+    if(return=='list') res else fromJSON(out)
+  }
 }
 
 ll <- function(x) if(!is.null(x)){ if(x) tolower(x) else x }

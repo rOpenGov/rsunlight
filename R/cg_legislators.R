@@ -12,13 +12,17 @@
 #' @return List of output fields.
 #' @export
 #' @examples \dontrun{
-#' out <- cg_legislators(last_name = 'Pelosi')
-#' out <- cg_legislators(party = 'D')
-#' out <- cg_legislators(twitter_id = 'SenRandPaul')
-#' out <- cg_legislators(facebook_id = 'mitchmcconnell')
-#' out <- cg_legislators(latitude = 35.778788, longitude = -78.787805)
-#' sun_df(out)
-#' out <- cg_legislators(zip = 77006)
+#' cg_legislators(last_name = 'Pelosi')
+#' cg_legislators(party = 'D')
+#' cg_legislators(twitter_id = 'SenRandPaul')
+#' cg_legislators(facebook_id = 'mitchmcconnell')
+#' cg_legislators(latitude = 35.778788, longitude = -78.787805)
+#' cg_legislators(zip = 77006)
+#' 
+#' # Output a list
+#' cg_legislators(last_name = 'Pelosi', return='list')
+#' # Output an httr response object, for debugging purposes
+#' cg_legislators(last_name = 'Pelosi', return='response')
 #' }
 
 cg_legislators <- function(title=NULL, first_name=NULL, middle_name=NULL,
@@ -74,6 +78,6 @@ cg_legislators <- function(title=NULL, first_name=NULL, middle_name=NULL,
     out <- content(tt, as = "text")
     res <- fromJSON(out, simplifyVector = FALSE)
     class(res) <- "cg_legislators"
-    if(return=='list') res else sun_df(res)
+    if(return=='list') res else fromJSON(out)
   } 
 }
