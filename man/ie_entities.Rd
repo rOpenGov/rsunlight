@@ -30,6 +30,8 @@ id/namespace parameters. Required, if namespace and id are omitted.}
 
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
+\item{return}{(character) One of table (default), list, or response (httr response object)}
+
 \item{callopts}{Optional additional curl options (debugging tools mostly)}
 }
 \value{

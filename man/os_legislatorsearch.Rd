@@ -11,6 +11,8 @@ os_legislatorsearch(state = NULL, first_name = NULL, last_name = NULL,
 \arguments{
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
+\item{return}{(character) One of table (default), list, or response (httr response object)}
+
 \item{callopts}{Optional additional curl options (debugging tools mostly)}
 
 \item{state}{state two-letter abbreviation (character)}

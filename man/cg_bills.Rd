@@ -24,10 +24,13 @@ cg_bills(query = NULL, bill_id = NULL, bill_type = NULL, number = NULL,
   history.house_passage_result__exists = NULL,
   history.senate_passage_result__exists = NULL, page = NULL,
   per_page = NULL, key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), callopts = list())
+  stop("need an API key for Sunlight Labs")), return = "table",
+  callopts = list())
 }
 \arguments{
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
+
+\item{return}{(character) One of table (default), list, or response (httr response object)}
 
 \item{callopts}{Optional additional curl options (debugging tools mostly)}
 
@@ -294,11 +297,9 @@ cg_bills(query='health care', history.enacted=TRUE)
 cg_bills(query='freedom of information')
 cg_bills(query='"freedom of information" accountab*')
 cg_bills(query='transparency accountability'~5, highlight=TRUE)
-sun_df(out)
 
 # Disable pagination
-out <- cg_bills(per_page='all')
-sun_df(out)
+cg_bills(per_page='all')
 }
 }
 

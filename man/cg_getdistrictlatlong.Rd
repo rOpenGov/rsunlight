@@ -10,6 +10,8 @@ cg_getdistrictlatlong(latitude = NULL, longitude = NULL,
 \arguments{
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
+\item{return}{(character) One of table (default), list, or response (httr response object)}
+
 \item{callopts}{Optional additional curl options (debugging tools mostly)}
 
 \item{latitude}{latitude of coordinate}

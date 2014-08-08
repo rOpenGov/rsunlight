@@ -21,6 +21,8 @@ cg_legislators(title = NULL, first_name = NULL, middle_name = NULL,
 \arguments{
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
+\item{return}{(character) One of table (default), list, or response (httr response object)}
+
 \item{callopts}{Optional additional curl options (debugging tools mostly)}
 
 \item{title}{Title held by this legislator, either Sen or Rep}
@@ -157,13 +159,17 @@ as shapes leads to inaccuracies."
 }
 \examples{
 \dontrun{
-out <- cg_legislators(last_name = 'Pelosi')
-out <- cg_legislators(party = 'D')
-out <- cg_legislators(twitter_id = 'SenRandPaul')
-out <- cg_legislators(facebook_id = 'mitchmcconnell')
-out <- cg_legislators(latitude = 35.778788, longitude = -78.787805)
-sun_df(out)
-out <- cg_legislators(zip = 77006)
+cg_legislators(last_name = 'Pelosi')
+cg_legislators(party = 'D')
+cg_legislators(twitter_id = 'SenRandPaul')
+cg_legislators(facebook_id = 'mitchmcconnell')
+cg_legislators(latitude = 35.778788, longitude = -78.787805)
+cg_legislators(zip = 77006)
+
+# Output a list
+cg_legislators(last_name = 'Pelosi', return='list')
+# Output an httr response object, for debugging purposes
+cg_legislators(last_name = 'Pelosi', return='response')
 }
 }
 

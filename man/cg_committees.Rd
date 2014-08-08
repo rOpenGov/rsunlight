@@ -6,10 +6,13 @@
 cg_committees(member_ids = NULL, committee_id = NULL, chamber = NULL,
   subcommittee = NULL, parent_committee_id = NULL, fields = NULL,
   page = NULL, per_page = NULL, key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), callopts = list())
+  stop("need an API key for Sunlight Labs")), return = "table",
+  callopts = list())
 }
 \arguments{
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
+
+\item{return}{(character) One of table (default), list, or response (httr response object)}
 
 \item{callopts}{Optional additional curl options (debugging tools mostly)}
 
@@ -27,16 +30,19 @@ historic data on committee names, IDs, and contact info, refer to the bulk data.
 }
 \examples{
 \dontrun{
-out <- cg_committees(member_ids='L000551')
-out <- cg_committees(committee_id='SSAP')
-out <- cg_committees(committee_id='SSAP', fields='members')
-out <- cg_committees(chamber='joint', subcommittee=FALSE)
-out <- cg_committees(parent_committee_id='HSWM')
-sun_df(out)
+cg_committees(member_ids='L000551')
+cg_committees(committee_id='SSAP')
+cg_committees(committee_id='SSAP', fields='members')
+cg_committees(chamber='joint', subcommittee=FALSE)
+cg_committees(parent_committee_id='HSWM')
 
 # Disable pagination
-out <- cg_committees(per_page='all')
-sun_df(out)
+cg_committees(per_page='all')
+
+# Output a list
+cg_committees(member_ids='L000551', return='list')
+# Output an httr response object, for debugging purposes
+cg_committees(member_ids='L000551', return='response')
 }
 }
 
