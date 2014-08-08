@@ -1,4 +1,4 @@
-#' Search .
+#' Search for legislators.
 #'
 #' @import httr
 #' @template cg
@@ -20,6 +20,7 @@
 #' sun_df(out)
 #' out <- cg_legislators(zip = 77006)
 #' }
+
 cg_legislators <- function(title=NULL, first_name=NULL, middle_name=NULL,
     last_name=NULL, name_suffix=NULL, nickname=NULL, party=NULL, state=NULL,
     state_name=NULL, state_rank=NULL, district=NULL, in_office=NULL, chamber=NULL, 
@@ -29,7 +30,7 @@ cg_legislators <- function(title=NULL, first_name=NULL, middle_name=NULL,
     govtrack_id=NULL, congresspedia_url=NULL, twitter_id=NULL, youtube_id=NULL,
     facebook_id=NULL, senate_class=NULL, term_start=NULL, term_end=NULL, birthday=NULL,
     latitude = NULL, longitude = NULL, zip = NULL,
-    key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
+    key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), return='table',
     callopts = list())
 {
   if(!is.null(latitude) | !is.null(latitude) | !is.null(zip)){
@@ -67,11 +68,12 @@ cg_legislators <- function(title=NULL, first_name=NULL, middle_name=NULL,
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
   assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
-  out <- content(tt, as = "text")
-  res <- fromJSON(out, simplifyVector = FALSE)
-#   res <- list(found = res$count, meta = res$page,
-#               data = if(length(res$results) == 1){ res$results[[1]] } else { res$results } )
-  class(res) <- "cg_legislators"
-#   class(tt) <- c("response","cg_legislators")
-  return( res )
+  
+  return <- match.arg(return, c('response','list','table','data.frame'))
+  if(return=='response'){ tt } else {
+    out <- content(tt, as = "text")
+    res <- fromJSON(out, simplifyVector = FALSE)
+    class(res) <- "cg_legislators"
+    if(return=='list') res else sun_df(res)
+  } 
 }
