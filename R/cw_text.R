@@ -2,14 +2,13 @@
 #' of a word or phrase.
 #'
 #' @import httr
-#' @importFrom jsonlite fromJSON
 #' @importFrom plyr compact
 #' @template cw
 #' @template cw_dates_text
 #' @param page The page of results to show, 50 results are shown at a time.
-#' @param sort The value on which to sort the results. You have to specify ascending or descending 
-#' (see details), but if you forget, we make it ascending by default (prevents 500 error :)). 
-#' See Details. 
+#' @param sort The value on which to sort the results. You have to specify ascending or descending
+#' (see details), but if you forget, we make it ascending by default (prevents 500 error :)).
+#' See Details.
 #' @return Phrases matched in a data.frame.
 #' @export
 #' @details
@@ -28,10 +27,10 @@
 #'  \item bioguide_id
 #'  \item pages
 #' }
-#' 
-#' Coupled with a direction, \code{asc} or \code{desc}. An example to sort by true chronological 
+#'
+#' Coupled with a direction, \code{asc} or \code{desc}. An example to sort by true chronological
 #' order and chamber (id works for this purpose) would be \code{id desc}.
-#' 
+#'
 #' @examples \dontrun{
 #' cw_text(phrase='climate change', start_date='2012-09-16', end_date='2012-09-20')
 #' cw_text(phrase='I would have voted', start_date='2011-09-05', end_date='2011-09-16', party='D')
@@ -42,7 +41,7 @@
 #' out2 <- ldply(2:13, function(x) cw_text(phrase='climate change', start_date='2010-01-01', end_date='2012-12-01', page=x))
 #' alldat <- rbind(out, out2)
 #' str(alldat)
-#' 
+#'
 #' cw_text(phrase='climate change', start_date='2012-09-16', end_date='2012-09-20', sort='title')
 #' }
 
@@ -58,7 +57,7 @@ cw_text <- function(phrase=NULL, title=NULL, date = NULL, start_date=NULL, end_d
       sort <- paste(sort, 'asc')
   }
   args <- suncompact(list(apikey=key, phrase=phrase, start_date=start_date,
-      date = date, end_date=end_date, chamber=chamber, state=state, party=party, 
+      date = date, end_date=end_date, chamber=chamber, state=state, party=party,
       bioguide_id=bioguide_id, congress=congress, session=session, cr_pages=cr_pages, volume=volume,
       page=page, sort=sort))
   out <- GET(url, query=args, callopts)
