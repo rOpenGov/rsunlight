@@ -5,16 +5,20 @@
 \usage{
 cg_committees(member_ids = NULL, committee_id = NULL, chamber = NULL,
   subcommittee = NULL, parent_committee_id = NULL, fields = NULL,
-  page = NULL, per_page = NULL, key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), return = "table",
-  callopts = list())
+  page = 1, per_page = 20, key = getOption("SunlightLabsKey",
+  stop("need an API key for Sunlight Labs")), return = "table", ...)
 }
 \arguments{
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
 \item{return}{(character) One of table (default), list, or response (httr response object)}
 
-\item{callopts}{Optional additional curl options (debugging tools mostly)}
+\item{...}{Optional additional curl options (debugging tools mostly). See examples.}
+
+\item{page}{Page to return. Default: 1. You can use this in combination with the
+per_page parameter to get more than the default or max number of results per page.}
+
+\item{per_page}{Number of records to return. Default: 20. Max: 50.}
 
 \item{id}{committee id (eg. JSPR)}
 }

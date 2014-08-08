@@ -11,7 +11,12 @@ cg_getcommittees(id = NULL, key = getOption("SunlightLabsKey",
 
 \item{return}{(character) One of table (default), list, or response (httr response object)}
 
-\item{callopts}{Optional additional curl options (debugging tools mostly)}
+\item{...}{Optional additional curl options (debugging tools mostly). See examples.}
+
+\item{page}{Page to return. Default: 1. You can use this in combination with the
+per_page parameter to get more than the default or max number of results per page.}
+
+\item{per_page}{Number of records to return. Default: 20. Max: 50.}
 
 \item{id}{committee id (eg. JSPR)}
 }

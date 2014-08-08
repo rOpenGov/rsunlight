@@ -22,17 +22,21 @@ cg_bills(query = NULL, bill_id = NULL, bill_type = NULL, number = NULL,
   history.enacted_at = NULL, sponsor.party = NULL, order = NULL,
   enacted_as.law_type = NULL, bill_type__in = NULL,
   history.house_passage_result__exists = NULL,
-  history.senate_passage_result__exists = NULL, page = NULL,
-  per_page = NULL, key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), return = "table",
-  callopts = list())
+  history.senate_passage_result__exists = NULL, page = 1, per_page = 20,
+  key = getOption("SunlightLabsKey",
+  stop("need an API key for Sunlight Labs")), return = "table", ...)
 }
 \arguments{
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
 \item{return}{(character) One of table (default), list, or response (httr response object)}
 
-\item{callopts}{Optional additional curl options (debugging tools mostly)}
+\item{...}{Optional additional curl options (debugging tools mostly). See examples.}
+
+\item{page}{Page to return. Default: 1. You can use this in combination with the
+per_page parameter to get more than the default or max number of results per page.}
+
+\item{per_page}{Number of records to return. Default: 20. Max: 50.}
 
 \item{query}{Allows wildcards, quoting for phrases, and nearby word operators (full reference).
 You can also retrieve highlighted excerpts, and all normal operators and filters.}

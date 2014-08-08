@@ -14,16 +14,21 @@ cg_legislators(title = NULL, first_name = NULL, middle_name = NULL,
   govtrack_id = NULL, congresspedia_url = NULL, twitter_id = NULL,
   youtube_id = NULL, facebook_id = NULL, senate_class = NULL,
   term_start = NULL, term_end = NULL, birthday = NULL, latitude = NULL,
-  longitude = NULL, zip = NULL, key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), return = "table",
-  callopts = list())
+  longitude = NULL, zip = NULL, page = 1, per_page = 20,
+  key = getOption("SunlightLabsKey",
+  stop("need an API key for Sunlight Labs")), return = "table", ...)
 }
 \arguments{
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
 \item{return}{(character) One of table (default), list, or response (httr response object)}
 
-\item{callopts}{Optional additional curl options (debugging tools mostly)}
+\item{...}{Optional additional curl options (debugging tools mostly). See examples.}
+
+\item{page}{Page to return. Default: 1. You can use this in combination with the
+per_page parameter to get more than the default or max number of results per page.}
+
+\item{per_page}{Number of records to return. Default: 20. Max: 50.}
 
 \item{title}{Title held by this legislator, either Sen or Rep}
 
@@ -170,6 +175,9 @@ cg_legislators(zip = 77006)
 cg_legislators(last_name = 'Pelosi', return='list')
 # Output an httr response object, for debugging purposes
 cg_legislators(last_name = 'Pelosi', return='response')
+
+# Pagination
+cg_legislators(party = 'D', per_page=2)
 }
 }
 

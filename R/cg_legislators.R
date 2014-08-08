@@ -23,6 +23,9 @@
 #' cg_legislators(last_name = 'Pelosi', return='list')
 #' # Output an httr response object, for debugging purposes
 #' cg_legislators(last_name = 'Pelosi', return='response')
+#' 
+#' # Pagination
+#' cg_legislators(party = 'D', per_page=2)
 #' }
 
 cg_legislators <- function(title=NULL, first_name=NULL, middle_name=NULL,
@@ -33,9 +36,9 @@ cg_legislators <- function(title=NULL, first_name=NULL, middle_name=NULL,
     lis_id=NULL, crp_id=NULL, icpsr_id=NULL, votesmart_id=NULL, fec_ids=NULL, 
     govtrack_id=NULL, congresspedia_url=NULL, twitter_id=NULL, youtube_id=NULL,
     facebook_id=NULL, senate_class=NULL, term_start=NULL, term_end=NULL, birthday=NULL,
-    latitude = NULL, longitude = NULL, zip = NULL,
+    latitude = NULL, longitude = NULL, zip = NULL, page=1, per_page=20,
     key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), return='table',
-    callopts = list())
+    ...)
 {
   if(!is.null(latitude) | !is.null(latitude) | !is.null(zip)){
     url <- 'https://congress.api.sunlightfoundation.com/legislators/locate'
@@ -50,10 +53,10 @@ cg_legislators <- function(title=NULL, first_name=NULL, middle_name=NULL,
         is.null(term_end),is.null(birthday))
     if(!is.null(latitude) & !is.null(latitude) & is.null(zip)){
       assert_that(is.null(zip))
-      args <- suncompact(list(apikey=key,latitude=latitude,longitude=longitude))
+      args <- suncompact(list(apikey=key,latitude=latitude,longitude=longitude,per_page=per_page,page=page))
     } else if(!is.null(zip)){
       assert_that(is.null(latitude),is.null(longitude))
-      args <- suncompact(list(apikey=key,zip=zip))
+      args <- suncompact(list(apikey=key,zip=zip,per_page=per_page,page=page))
     }
   } else {  
     url <- 'https://congress.api.sunlightfoundation.com/legislators'
@@ -66,10 +69,10 @@ cg_legislators <- function(title=NULL, first_name=NULL, middle_name=NULL,
         icpsr_id=icpsr_id,votesmart_id=votesmart_id,fec_ids=fec_ids,govtrack_id=govtrack_id,
         congresspedia_url=congresspedia_url,twitter_id=twitter_id,youtube_id=youtube_id,
         facebook_id=facebook_id,senate_class=senate_class,term_start=term_start,term_end=term_end,
-        birthday=birthday))
+        birthday=birthday,per_page=per_page,page=page))
   }
   
-  tt <- GET(url, query=args, callopts)
+  tt <- GET(url, query=args, ...)
   stop_for_status(tt)
   assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
   

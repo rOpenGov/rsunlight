@@ -199,9 +199,9 @@ cg_bills <- function(query = NULL, bill_id = NULL, bill_type = NULL, number = NU
   history.enacted = NULL, history.enacted_at = NULL,
   sponsor.party = NULL, order = NULL, enacted_as.law_type = NULL, bill_type__in = NULL,
   history.house_passage_result__exists = NULL, history.senate_passage_result__exists = NULL,
-  page = NULL, per_page = NULL,
+  page = 1, per_page = 20,
   key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-  return='table', callopts = list())
+  return='table', ...)
 {
   if(is.null(query)){
     url <- 'https://congress.api.sunlightfoundation.com/bills'
@@ -232,7 +232,7 @@ cg_bills <- function(query = NULL, bill_id = NULL, bill_type = NULL, number = NU
       history.senate_passage_result__exists=history.senate_passage_result__exists,
       page=page,per_page=per_page))
 
-  tt <- GET(url, query=args, callopts)
+  tt <- GET(url, query=args, ...)
   warn_for_status(tt)
   assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
   
