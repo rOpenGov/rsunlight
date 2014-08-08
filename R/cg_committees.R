@@ -7,8 +7,13 @@
 #' historic data on committee names, IDs, and contact info, refer to the bulk data.
 #' 
 #' @import httr assertthat
+#' @param member_ids An array of bioguide IDs of legislators that are assigned to this committee.
+#' @param committee_id Official ID of the committee, as it appears in various official sources (Senate, House, and Library of Congress).
+#' @param chamber The chamber this committee is part of. “house”, “senate”, or “joint”.
+#' @param subcommittee Whether or not the committee is a subcommittee.
+#' @param parent_committee_id If the committee is a subcommittee, the ID of its parent committee.
+#' 
 #' @template cg
-#' @param id committee id (eg. JSPR)
 #' @return Committee details including subcommittees and all members.
 #' @export
 #' @examples \dontrun{

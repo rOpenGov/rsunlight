@@ -11,7 +11,7 @@
 #'
 #' @import httr assertthat jsonlite
 #' @export
-#' @template cg
+#' 
 #' @param query Allows wildcards, quoting for phrases, and nearby word operators (full reference).
 #' You can also retrieve highlighted excerpts, and all normal operators and filters.
 #' @param bill_id The unique ID for this bill. Formed from the bill_type, number, and congress.
@@ -158,6 +158,8 @@
 #' @param enacted_as.number The number the law was assigned.
 #' @param page Page to return.
 #' @param per_page Numbere of results to return per page.
+#' 
+#' @template cg
 #'
 #' @details
 #' History: The history field includes useful flags and dates/times in a bill’s life. The above is
@@ -199,7 +201,7 @@ cg_bills <- function(query = NULL, bill_id = NULL, bill_type = NULL, number = NU
   history.enacted = NULL, history.enacted_at = NULL,
   sponsor.party = NULL, order = NULL, enacted_as.law_type = NULL, bill_type__in = NULL,
   history.house_passage_result__exists = NULL, history.senate_passage_result__exists = NULL,
-  page = 1, per_page = 20,
+  fields=NULL, page = 1, per_page = 20,
   key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
   return='table', ...)
 {
@@ -230,7 +232,7 @@ cg_bills <- function(query = NULL, bill_id = NULL, bill_type = NULL, number = NU
       bill_type__in=bill_type__in,
       history.house_passage_result__exists=history.house_passage_result__exists,
       history.senate_passage_result__exists=history.senate_passage_result__exists,
-      page=page,per_page=per_page))
+      page=page,per_page=per_page,fields=fields))
 
   tt <- GET(url, query=args, ...)
   warn_for_status(tt)
