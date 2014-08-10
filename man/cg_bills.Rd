@@ -22,13 +22,20 @@ cg_bills(query = NULL, bill_id = NULL, bill_type = NULL, number = NULL,
   history.enacted_at = NULL, sponsor.party = NULL,
   enacted_as.law_type = NULL, bill_type__in = NULL,
   history.house_passage_result__exists = NULL,
-  history.senate_passage_result__exists = NULL, fields = NULL, page = 1,
-  per_page = 20, order = NULL, key = getOption("SunlightLabsKey",
+  history.senate_passage_result__exists = NULL, nicknames = NULL,
+  keywords = NULL, sponsor_id = NULL, cosponsor_ids = NULL,
+  cosponsors_count = NULL, withdrawn_cosponsors_count = NULL,
+  committee_ids = NULL, related_bill_ids = NULL,
+  enacted_as.congress = NULL, enacted_as.number = NULL, fields = NULL,
+  page = 1, per_page = 20, order = NULL,
+  key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")), return = "table", ...)
 }
 \arguments{
 \item{query}{Allows wildcards, quoting for phrases, and nearby word operators (full reference).
 You can also retrieve highlighted excerpts, and all normal operators and filters.}
+
+\item{highlight}{(logical) If TRUE, looks for words in query param close to each other.}
 
 \item{bill_id}{The unique ID for this bill. Formed from the bill_type, number, and congress.}
 
@@ -52,80 +59,6 @@ there are no official actions, this field will be set to the value of introduced
 \item{last_version_on}{The date the last version of this bill was published. This will be set to
 the introduced_on date until an official version of the bill's text is published.}
 
-\item{highlight}{(logical) If TRUE, looks for words in query param close to each other.}
-
-\item{history_active}{Whether this bill has had any action beyond the standard action all bills
-get (introduction, referral to committee, sponsors' introductory remarks). Only a small
-percentage of bills get this additional activity.}
-
-\item{history_active_at}{If this bill got any action beyond initial introduction, the date or
-time of the first such action. This field will stay constant even as further action occurs. For
-the time of the most recent action, look to the last_action_at field.}
-
-\item{history_house_passage_result}{The result of the last time the House voted on passage. Only
-present if this vote occurred. 'pass' or 'fail'.}
-
-\item{history_house_passage_result_at}{The date or time the House last voted on passage. Only
-present if this vote occurred.}
-
-\item{history_senate_cloture_result}{The result of the last time the Senate voted on cloture.
-Only present if this vote occurred. 'pass' or 'fail'.}
-
-\item{history_senate_cloture_result_at}{The date or time the Senate last voted on cloture. Only
-present if this vote occurred.}
-
-\item{history_senate_passage_result}{The result of the last time the Senate voted on passage.
-Only present if this vote occurred. 'pass' or 'fail'.}
-
-\item{history_senate_passage_result_at}{The date or time the Senate last voted on passage. Only
-present if this vote occurred.}
-
-\item{history_vetoed}{Whether the bill has been vetoed by the President. Always present.}
-
-\item{history_vetoed_at}{The date or time the bill was vetoed by the President. Only present if
-this happened.}
-
-\item{history_house_override_result}{The result of the last time the House voted to override a
-veto. Only present if this vote occurred. 'pass' or 'fail'.}
-
-\item{history_house_override_result_at}{The date or time the House last voted to override a veto.
-Only present if this vote occurred.}
-
-\item{history_senate_override_result}{The result of the last time the Senate voted to override a
-veto. Only present if this vote occurred. 'pass' or 'fail'.}
-
-\item{history_senate_override_result_at}{The date or time the Senate last voted to override a
-veto. Only present if this vote occurred.}
-
-\item{history_awaiting_signature}{Whether the bill is currently awaiting the President's
-signature. Always present.}
-
-\item{history_awaiting_signature_since}{The date or time the bill began awaiting the President's
-signature. Only present if this happened.}
-
-\item{history_enacted}{Whether the bill has been enacted into law. Always present.}
-
-\item{history_enacted_at}{The date or time the bill was enacted into law. Only present if this
-happened.}
-
-\item{official_title}{The current official title of a bill. Official titles are sentences.
-Always present. Assigned at introduction, and can be revised any time.}
-
-\item{short_title}{The current shorter, catchier title of a bill. About half of bills get these,
-and they can be assigned any time.}
-
-\item{popular_title}{The current popular handle of a bill, as denoted by the Library of Congress.
-They are rare, and are assigned by the LOC for particularly ubiquitous bills. They are
-non-capitalized descriptive phrases. They can be assigned any time.}
-
-\item{titles}{A list of all titles ever assigned to this bill, with accompanying data.}
-
-\item{titles.as}{The state the bill was in when assigned this title.}
-
-\item{titles.title}{The title given to the bill.}
-
-\item{titles.type}{The type of title this is. 'official', 'short', or 'popular'.}
-
 \item{nicknames}{An array of common nicknames for a bill that don't appear in official data.
 These nicknames are sourced from a public dataset at unitedstates/bill-nicknames, and will only
 appear for a tiny fraction of bills. In the future, we plan to auto-generate acronyms from bill
@@ -136,114 +69,23 @@ These keywords can be used to group bills into tags or topics, but there are man
 unique keywords since 2009, as of late 2012), and they are not grouped into a hierarchy. They
 can be assigned or revised at any time after introduction.}
 
-\item{summary}{An official summary written and assigned at some point after introduction by the
-Library of Congress. These summaries are generally more accessible than the text of the bill,
-but can still be technical. The LOC does not write summaries for all bills, and when they do
-can assign and revise them at any time.}
-
-\item{summary_short}{The official summary, but capped to 1,000 characters (and an ellipse).
-Useful when you want to show only the first part of a bill's summary, but don't want to download
-a potentially large amount of text.}
-
-\item{urls}{An object with URLs for this bill's landing page on Congress.gov, GovTrack.us, and
-OpenCongress.org.}
-
-\item{actions.type}{The type of action. Always present. Can be 'action' (generic), 'vote'
-(passage vote), 'vote-aux' (cloture vote), 'vetoed', 'topresident', and 'enacted'. There can be
-other values, but these are the only ones we support.}
-
-\item{actions.acted_at}{The date or time the action occurred. Always present.}
-
-\item{actions.text}{The official text that describes this action. Always present.}
-
-\item{actions.committees}{A list of subobjects containing committee_id and name fields for any
-committees referenced in an action. Will be missing if no committees are mentioned.}
-
-\item{actions.references}{A list of references to the Congressional Record that this action
-links to.}
-
-\item{actions.chamber}{If the action is a vote, which chamber this vote occured in. 'house' or
-'senate'.}
-
-\item{actions.vote_type}{If the action is a vote, this is the type of vote. 'vote', 'vote2',
-'cloture', or 'pingpong'.}
-
-\item{actions.how}{If the action is a vote, how the vote was taken. Can be 'roll', 'voice', or
-'Unanimous Consent'.}
-
-\item{actions.result}{If the action is a vote, the result. 'pass' or 'fail'.}
-
-\item{actions.roll_id}{If the action is a roll call vote, the ID of the roll call.}
-
-\item{last_action}{The most recent action.}
-
 \item{sponsor_id}{The bioguide ID of the bill's sponsoring legislator, if there is one. It is
 possible, but rare, to have bills with no sponsor.}
-
-\item{sponsor}{An object with most simple legislator fields for the bill's sponsor, if there is
-one.}
 
 \item{cosponsor_ids}{An array of bioguide IDs for each cosponsor of the bill. Bills do not
 always have cosponsors.}
 
 \item{cosponsors_count}{The number of active cosponsors of the bill.}
 
-\item{cosponsors.sponsored_on}{When a legislator signed on as a cosponsor of the legislation.}
-
-\item{cosponsors.legislator}{An object with most simple legislator fields for that cosponsor.}
-
 \item{withdrawn_cosponsor_ids}{An array of bioguide IDs for each legislator who has withdrawn
 their cosponsorship of the bill.}
 
 \item{withdrawn_cosponsors_count}{The number of withdrawn cosponsors of the bill.}
 
-\item{withdrawn_cosponsors.withdrawn_on}{The date the legislator withdrew their cosponsorship of
-the bill.}
-
-\item{withdrawn_cosponsors.sponsored_on}{The date the legislator originally cosponsored the bill.}
-
-\item{withdrawn_cosponsors.legislator}{An object with most simple legislator fields for that
-withdrawn cosponsor.}
-
 \item{committee_ids}{A list of IDs of committees related to this bill.}
-
-\item{committees.activity}{A list of relationships that the committee has to the bill, as they
-appear on THOMAS.gov. The most common is 'referral', which means a committee has jurisdiction
-over this bill.}
 
 \item{related_bill_ids}{A list of IDs of bills that the Library of Congress has declared
 'related'. Relations can be pretty loose, use this field with caution.}
-
-\item{versions.bill_version_id}{The unique ID for this bill version. It's the bill's bill_id plus
-the version's version_code.}
-
-\item{versions.version_code}{The short-code for what stage the version of the bill is at.}
-
-\item{versions.version_name}{The full name for the stage the version of the bill is at.}
-
-\item{versions.urls}{A set of HTML, PDF, and XML links (when available) for the official
-permanent URL of a bill version's text. Our full text search uses the text from the HTML version
-of a bill.}
-
-\item{last_version}{Information for only the most recent version of a bill. Useful to limit the
-size of a request with partial responses.}
-
-\item{upcoming.source_type}{Where this information is coming from. Currently, the only values
-are 'senate_daily' or 'house_daily'.}
-
-\item{upcoming.range}{How precise this information is. 'day', 'week', or null. See more details
-on this field in the /upcoming_bills documentation.}
-
-\item{upcoming.url}{An official reference URL for this information.}
-
-\item{upcoming.chamber}{What chamber the bill is scheduled for debate in.}
-
-\item{upcoming.congress}{What Congress this is occurring in.}
-
-\item{upcoming.legislative_day}{The date the bill is scheduled for floor debate.}
-
-\item{upcoming.context}{Some surrounding context of why the bill is scheduled. This is only
-present for Senate updates right now.}
 
 \item{enacted_as.congress}{The Congress in which this bill was enacted into law.}
 
@@ -251,6 +93,68 @@ present for Senate updates right now.}
 laws; private laws affect individual citizens. 'public' or 'private'.}
 
 \item{enacted_as.number}{The number the law was assigned.}
+
+\item{history.active}{Whether this bill has had any action beyond the standard action all bills
+get (introduction, referral to committee, sponsors' introductory remarks). Only a small
+percentage of bills get this additional activity.}
+
+\item{history.active_at}{If this bill got any action beyond initial introduction, the date or
+time of the first such action. This field will stay constant even as further action occurs. For
+the time of the most recent action, look to the last_action_at field.}
+
+\item{history.house_passage_result}{The result of the last time the House voted on passage. Only
+present if this vote occurred. 'pass' or 'fail'.}
+
+\item{history.house_passage_result_at}{The date or time the House last voted on passage. Only
+present if this vote occurred.}
+
+\item{history.senate_cloture_result}{The result of the last time the Senate voted on cloture.
+Only present if this vote occurred. 'pass' or 'fail'.}
+
+\item{history.senate_cloture_result_at}{The date or time the Senate last voted on cloture. Only
+present if this vote occurred.}
+
+\item{history.senate_passage_result}{The result of the last time the Senate voted on passage.
+Only present if this vote occurred. 'pass' or 'fail'.}
+
+\item{history.senate_passage_result_at}{The date or time the Senate last voted on passage. Only
+present if this vote occurred.}
+
+\item{history.vetoed}{Whether the bill has been vetoed by the President. Always present.}
+
+\item{history.vetoed_at}{The date or time the bill was vetoed by the President. Only present if
+this happened.}
+
+\item{history.house_override_result}{The result of the last time the House voted to override a
+veto. Only present if this vote occurred. 'pass' or 'fail'.}
+
+\item{history.house_override_result_at}{The date or time the House last voted to override a veto.
+Only present if this vote occurred.}
+
+\item{history.senate_override_result}{The result of the last time the Senate voted to override
+a veto. Only present if this vote occurred. 'pass' or 'fail'.}
+
+\item{history.senate_override_result_at}{The date or time the Senate last voted to override a
+veto. Only present if this vote occurred.}
+
+\item{history.awaiting_signature}{Whether the bill is currently awaiting the President's
+signature. Always present.}
+
+\item{history.awaiting_signature_since}{The date or time the bill began awaiting the President's
+signature. Only present if this happened.}
+
+\item{history.enacted}{Whether the bill has been enacted into law. Always present.}
+
+\item{history.enacted_at}{The date or time the bill was enacted into law. Only present if this
+happened.}
+
+\item{sponsor.party}{XXX}
+
+\item{bill_type__in}{XXX}
+
+\item{history.house_passage_result__exists}{XXX}
+
+\item{history.senate_passage_result__exists}{XXX}
 
 \item{fields}{You can request specific fields by supplying a vector of fields names. Many fields
 are not returned unless requested. If you don't supply a fields parameter, you will get the
