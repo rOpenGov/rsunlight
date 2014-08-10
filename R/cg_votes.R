@@ -21,8 +21,8 @@
 #' @param result The official result of the vote. This is not completely standardized (both
 #' 'Passed' and 'Bill Passed' may appear). In the case of a vote for Speaker of the House, the
 #' result field contains the name of the victor.
-#' @param bill_id If a vote is related to a bill, the bill’s ID.
-#' @param nomination_id If a vote is related to a nomination, the nomination’s ID.
+#' @param bill_id If a vote is related to a bill, the bill's ID.
+#' @param nomination_id If a vote is related to a nomination, the nomination's ID.
 #' @param breakdown.total.[vote] The number of members who cast [vote], where [vote] is a valid
 #' vote as defined above.
 #' @param breakdown.party.[party].[vote] The number of members of [party] who cast [vote],
@@ -43,7 +43,7 @@
 cg_votes <- function(roll_id=NULL, chamber=NULL, number=NULL, year=NULL, congress=NULL,
   voted_at=NULL, vote_type=NULL, roll_type=NULL, required=NULL, result=NULL, bill_id=NULL,
   nomination_id=NULL, breakdown.total=NULL, breadkdown.party=NULL,
-  fields=NULL, page=1, per_page=20,
+  fields=NULL, page=1, per_page=20, order=NULL,
   key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), return='table',
    ...)
 {
@@ -52,7 +52,7 @@ cg_votes <- function(roll_id=NULL, chamber=NULL, number=NULL, year=NULL, congres
       congress=congress, voted_at=voted_at, vote_type=vote_type, roll_type=roll_type, 
       required=required, result=result, bill_id=bill_id, nomination_id=nomination_id, 
       breakdown.total=breakdown.total, breadkdown.party=breadkdown.party,
-      per_page=per_page, page=page, fields=fields))
+      per_page=per_page, page=page, fields=fields, order=order))
 
   tt <- GET(url, query=args, ...)
   stop_for_status(tt)

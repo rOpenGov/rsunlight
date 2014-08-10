@@ -16,13 +16,13 @@ cg_amendments(amendment_id = NULL, amendment_type = NULL, number = NULL,
 \item{amendment_id}{The unique ID for this amendment. Formed from the amendment_type, number,
 and congress.}
 
-\item{amendment_type}{The type for this amendment. For the amendment “H.Amdt. 10”, the
-amendment_type represents the “H.Amdt.” part. Amendment types can be either hamdt or samdt.}
+\item{amendment_type}{The type for this amendment. For the amendment 'H.Amdt. 10', the
+amendment_type represents the 'H.Amdt.' part. Amendment types can be either hamdt or samdt.}
 
-\item{number}{The number for this amendment. For the amendment “H.Amdt. 10”, the number is 10.}
+\item{number}{The number for this amendment. For the amendment 'H.Amdt. 10', the number is 10.}
 
 \item{congress}{The Congress in which this amendment was introduced. For example, amendments
-introduced in the “113th Congress” have a congress of 113.}
+introduced in the '113th Congress' have a congress of 113.}
 
 \item{chamber}{The chamber in which the amendment was introduced.}
 
@@ -30,7 +30,7 @@ introduced in the “113th Congress” have a congress of 113.}
 number, scoped to the bill or treaty the House it relates to. How this number gets assigned is
 complicated and involves multiple institutions within the House and the Library of Congress.
 You can read the gory details if you want, but this number will usually do the job of connecting
-to data from the House Clerk’s Electronic Voting System.}
+to data from the House Clerk's Electronic Voting System.}
 
 \item{introduced_on}{The date this amendment was introduced.}
 
@@ -42,21 +42,21 @@ introduced_on.}
 related bill.}
 
 \item{amends_treaty_id}{If this amendment relates to a treaty, this field is the ID of the
-related treaty. Treaty IDs are of the form treatyX-Y, where X is the treaty’s number, and Y
+related treaty. Treaty IDs are of the form treatyX-Y, where X is the treaty's number, and Y
 is the Congress the treaty is being considered in.}
 
 \item{amends_amendment_id}{If this amendment amends an amendment, this field is the ID of the
 amended amendment.}
 
-\item{sponsor_type}{Whether the amendment is sponsored by a “person” or a “committee”.}
+\item{sponsor_type}{Whether the amendment is sponsored by a 'person' or a 'committee'.}
 
-\item{sponsor_id}{If the sponsor_type is “person”, this will be that legislator’s bioguide ID.
-If the sponsor_type is “committee”, this will be that committee’s ID.}
+\item{sponsor_id}{If the sponsor_type is 'person', this will be that legislator's bioguide ID.
+If the sponsor_type is 'committee', this will be that committee's ID.}
 
 \item{fields}{You can request specific fields by supplying a vector of fields names. Many fields
-are not returned unless requested. If you don’t supply a fields parameter, you will get the
+are not returned unless requested. If you don't supply a fields parameter, you will get the
 most commonly used subset of fields only. To save on bandwidth, parsing time, and confusion,
-it’s recommended to always specify which fields you will be using.}
+it's recommended to always specify which fields you will be using.}
 
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
@@ -68,6 +68,13 @@ it’s recommended to always specify which fields you will be using.}
 per_page parameter to get more than the default or max number of results per page.}
 
 \item{per_page}{Number of records to return. Default: 20. Max: 50.}
+
+\item{order}{Sort results by one or more fields with the order parameter. order is
+optional, but if no order is provided, the order of results is not guaranteed to be predictable.
+Append \code{__asc} or \code{__desc} to the field names to control sort direction. The default
+direction is \code{desc}, because it is expected most queries will sort by a date. Any field
+which can be used for filtering may be used for sorting. On full-text search endpoints (URLs
+ending in \code{/search}), you may sort by score to order by relevancy.}
 
 \item{query}{(character) Return results the API thinks best match your query. Queries are
 interpreted as phrases.}

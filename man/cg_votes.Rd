@@ -7,7 +7,8 @@ cg_votes(roll_id = NULL, chamber = NULL, number = NULL, year = NULL,
   congress = NULL, voted_at = NULL, vote_type = NULL, roll_type = NULL,
   required = NULL, result = NULL, bill_id = NULL, nomination_id = NULL,
   breakdown.total = NULL, breadkdown.party = NULL, fields = NULL,
-  page = 1, per_page = 20, key = getOption("SunlightLabsKey",
+  page = 1, per_page = 20, order = NULL,
+  key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")), return = "table", ...)
 }
 \arguments{
@@ -40,9 +41,9 @@ casts a tie-breaker vote), and in the House, a tie vote means the vote does not 
 'Passed' and 'Bill Passed' may appear). In the case of a vote for Speaker of the House, the
 result field contains the name of the victor.}
 
-\item{bill_id}{If a vote is related to a bill, the bill’s ID.}
+\item{bill_id}{If a vote is related to a bill, the bill's ID.}
 
-\item{nomination_id}{If a vote is related to a nomination, the nomination’s ID.}
+\item{nomination_id}{If a vote is related to a nomination, the nomination's ID.}
 
 \item{breakdown.total.[vote]}{The number of members who cast [vote], where [vote] is a valid
 vote as defined above.}
@@ -51,9 +52,9 @@ vote as defined above.}
 where [party] is one of 'D', 'R', or 'I', and [vote] is a valid vote as defined above.}
 
 \item{fields}{You can request specific fields by supplying a vector of fields names. Many fields
-are not returned unless requested. If you don’t supply a fields parameter, you will get the
+are not returned unless requested. If you don't supply a fields parameter, you will get the
 most commonly used subset of fields only. To save on bandwidth, parsing time, and confusion,
-it’s recommended to always specify which fields you will be using.}
+it's recommended to always specify which fields you will be using.}
 
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
@@ -65,6 +66,13 @@ it’s recommended to always specify which fields you will be using.}
 per_page parameter to get more than the default or max number of results per page.}
 
 \item{per_page}{Number of records to return. Default: 20. Max: 50.}
+
+\item{order}{Sort results by one or more fields with the order parameter. order is
+optional, but if no order is provided, the order of results is not guaranteed to be predictable.
+Append \code{__asc} or \code{__desc} to the field names to control sort direction. The default
+direction is \code{desc}, because it is expected most queries will sort by a date. Any field
+which can be used for filtering may be used for sorting. On full-text search endpoints (URLs
+ending in \code{/search}), you may sort by score to order by relevancy.}
 
 \item{query}{(character) Return results the API thinks best match your query. Queries are
 interpreted as phrases.}

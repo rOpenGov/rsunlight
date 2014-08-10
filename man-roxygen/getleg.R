@@ -76,6 +76,6 @@
 #' multiple Congressional districts, so locating by 
 #' zip may return multiple representatives, and possibly more than 2 senators if the zip code 
 #' crosses state borders. In general, we recommend against using zip codes to look up members of 
-#' Congress. For one, it’s imprecise: a zip code can intersect multiple congressional districts. 
+#' Congress. For one, it's imprecise: a zip code can intersect multiple congressional districts. 
 #' More importantly, zip codes are not shapes. They are lines (delivery routes), and treating them 
 #' as shapes leads to inaccuracies."

@@ -3,10 +3,10 @@
 #' @export
 #'
 #' @param nomination_id The unique identifier for this nomination, taken from the Library of
-#' Congress. Of the form “PN[number]-[congress]”.
+#' Congress. Of the form 'PN[number]-[congress]'.
 #' @param congress The Congress in which this nomination was presented.
 #' @param number The number of this nomination, taken from the Library of Congress. Can
-#' occasionally contain hyphens, e.g. “PN64-01”.
+#' occasionally contain hyphens, e.g. 'PN64-01'.
 #' @param received_on The date this nomination was received in the Senate.
 #' @param last_action_at The date this nomination last received action. If there are no official
 #' actions, then this field will fall back to the value of received_on.
@@ -31,14 +31,15 @@
 
 cg_nominations <- function(nomination_id=NULL, congress=NULL, received_on=NULL, last_action_at=NULL,
   organization=NULL, committee_ids=NULL, nominees=NULL, nominees.position=NULL, nominees.state=NULL,
-  query=NULL, fields=NULL, page=1, per_page=20,
+  query=NULL, fields=NULL, page=1, per_page=20, order=NULL,
   key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), return='table', ...)
 {
   url <- 'https://congress.api.sunlightfoundation.com/nominations'
   args <- suncompact(list(apikey=key,nomination_id=nomination_id, congress=congress, 
     received_on=received_on, last_action_at=last_action_at, organization=organization, 
     committee_ids=committee_ids, nominees=nominees, nominees.position=nominees.position, 
-    nominees.state=nominees.state, query=query, per_page=per_page, page=page, fields=fields))
+    nominees.state=nominees.state, query=query, per_page=per_page, page=page, fields=fields, 
+    order=order))
 
   tt <- GET(url, query=args, ...)
   stop_for_status(tt)

@@ -19,11 +19,11 @@ cg_bills(query = NULL, bill_id = NULL, bill_type = NULL, number = NULL,
   history.senate_override_result_at = NULL,
   history.awaiting_signature = NULL,
   history.awaiting_signature_since = NULL, history.enacted = NULL,
-  history.enacted_at = NULL, sponsor.party = NULL, order = NULL,
+  history.enacted_at = NULL, sponsor.party = NULL,
   enacted_as.law_type = NULL, bill_type__in = NULL,
   history.house_passage_result__exists = NULL,
   history.senate_passage_result__exists = NULL, fields = NULL, page = 1,
-  per_page = 20, key = getOption("SunlightLabsKey",
+  per_page = 20, order = NULL, key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")), return = "table", ...)
 }
 \arguments{
@@ -32,13 +32,13 @@ You can also retrieve highlighted excerpts, and all normal operators and filters
 
 \item{bill_id}{The unique ID for this bill. Formed from the bill_type, number, and congress.}
 
-\item{bill_type}{The type for this bill. For the bill “H.R. 4921”, the bill_type represents the
-“H.R.” part. Bill types can be: hr, hres, hjres, hconres, s, sres, sjres, sconres.}
+\item{bill_type}{The type for this bill. For the bill 'H.R. 4921', the bill_type represents the
+'H.R.' part. Bill types can be: hr, hres, hjres, hconres, s, sres, sjres, sconres.}
 
-\item{number}{The number for this bill. For the bill “H.R. 4921”, the number is 4921.}
+\item{number}{The number for this bill. For the bill 'H.R. 4921', the number is 4921.}
 
 \item{congress}{The Congress in which this bill was introduced. For example, bills introduced in
-the “111th Congress” have a congress of 111.}
+the '111th Congress' have a congress of 111.}
 
 \item{chamber}{The chamber in which the bill originated.}
 
@@ -50,12 +50,12 @@ there are no official actions, this field will be set to the value of introduced
 \item{last_vote_at}{The date or time of the most recent vote on this bill.}
 
 \item{last_version_on}{The date the last version of this bill was published. This will be set to
-the introduced_on date until an official version of the bill’s text is published.}
+the introduced_on date until an official version of the bill's text is published.}
 
 \item{highlight}{(logical) If TRUE, looks for words in query param close to each other.}
 
 \item{history_active}{Whether this bill has had any action beyond the standard action all bills
-get (introduction, referral to committee, sponsors’ introductory remarks). Only a small
+get (introduction, referral to committee, sponsors' introductory remarks). Only a small
 percentage of bills get this additional activity.}
 
 \item{history_active_at}{If this bill got any action beyond initial introduction, the date or
@@ -63,19 +63,19 @@ time of the first such action. This field will stay constant even as further act
 the time of the most recent action, look to the last_action_at field.}
 
 \item{history_house_passage_result}{The result of the last time the House voted on passage. Only
-present if this vote occurred. “pass” or “fail”.}
+present if this vote occurred. 'pass' or 'fail'.}
 
 \item{history_house_passage_result_at}{The date or time the House last voted on passage. Only
 present if this vote occurred.}
 
 \item{history_senate_cloture_result}{The result of the last time the Senate voted on cloture.
-Only present if this vote occurred. “pass” or “fail”.}
+Only present if this vote occurred. 'pass' or 'fail'.}
 
 \item{history_senate_cloture_result_at}{The date or time the Senate last voted on cloture. Only
 present if this vote occurred.}
 
 \item{history_senate_passage_result}{The result of the last time the Senate voted on passage.
-Only present if this vote occurred. “pass” or “fail”.}
+Only present if this vote occurred. 'pass' or 'fail'.}
 
 \item{history_senate_passage_result_at}{The date or time the Senate last voted on passage. Only
 present if this vote occurred.}
@@ -86,21 +86,21 @@ present if this vote occurred.}
 this happened.}
 
 \item{history_house_override_result}{The result of the last time the House voted to override a
-veto. Only present if this vote occurred. “pass” or “fail”.}
+veto. Only present if this vote occurred. 'pass' or 'fail'.}
 
 \item{history_house_override_result_at}{The date or time the House last voted to override a veto.
 Only present if this vote occurred.}
 
 \item{history_senate_override_result}{The result of the last time the Senate voted to override a
-veto. Only present if this vote occurred. “pass” or “fail”.}
+veto. Only present if this vote occurred. 'pass' or 'fail'.}
 
 \item{history_senate_override_result_at}{The date or time the Senate last voted to override a
 veto. Only present if this vote occurred.}
 
-\item{history_awaiting_signature}{Whether the bill is currently awaiting the President’s
+\item{history_awaiting_signature}{Whether the bill is currently awaiting the President's
 signature. Always present.}
 
-\item{history_awaiting_signature_since}{The date or time the bill began awaiting the President’s
+\item{history_awaiting_signature_since}{The date or time the bill began awaiting the President's
 signature. Only present if this happened.}
 
 \item{history_enacted}{Whether the bill has been enacted into law. Always present.}
@@ -124,9 +124,9 @@ non-capitalized descriptive phrases. They can be assigned any time.}
 
 \item{titles.title}{The title given to the bill.}
 
-\item{titles.type}{The type of title this is. “official”, “short”, or “popular”.}
+\item{titles.type}{The type of title this is. 'official', 'short', or 'popular'.}
 
-\item{nicknames}{An array of common nicknames for a bill that don’t appear in official data.
+\item{nicknames}{An array of common nicknames for a bill that don't appear in official data.
 These nicknames are sourced from a public dataset at unitedstates/bill-nicknames, and will only
 appear for a tiny fraction of bills. In the future, we plan to auto-generate acronyms from bill
 titles and add them to this array.}
@@ -142,14 +142,14 @@ but can still be technical. The LOC does not write summaries for all bills, and 
 can assign and revise them at any time.}
 
 \item{summary_short}{The official summary, but capped to 1,000 characters (and an ellipse).
-Useful when you want to show only the first part of a bill’s summary, but don’t want to download
+Useful when you want to show only the first part of a bill's summary, but don't want to download
 a potentially large amount of text.}
 
-\item{urls}{An object with URLs for this bill’s landing page on Congress.gov, GovTrack.us, and
+\item{urls}{An object with URLs for this bill's landing page on Congress.gov, GovTrack.us, and
 OpenCongress.org.}
 
-\item{actions.type}{The type of action. Always present. Can be “action” (generic), “vote”
-(passage vote), “vote-aux” (cloture vote), “vetoed”, “topresident”, and “enacted”. There can be
+\item{actions.type}{The type of action. Always present. Can be 'action' (generic), 'vote'
+(passage vote), 'vote-aux' (cloture vote), 'vetoed', 'topresident', and 'enacted'. There can be
 other values, but these are the only ones we support.}
 
 \item{actions.acted_at}{The date or time the action occurred. Always present.}
@@ -162,25 +162,25 @@ committees referenced in an action. Will be missing if no committees are mention
 \item{actions.references}{A list of references to the Congressional Record that this action
 links to.}
 
-\item{actions.chamber}{If the action is a vote, which chamber this vote occured in. “house” or
-“senate”.}
+\item{actions.chamber}{If the action is a vote, which chamber this vote occured in. 'house' or
+'senate'.}
 
-\item{actions.vote_type}{If the action is a vote, this is the type of vote. “vote”, “vote2”,
-“cloture”, or “pingpong”.}
+\item{actions.vote_type}{If the action is a vote, this is the type of vote. 'vote', 'vote2',
+'cloture', or 'pingpong'.}
 
-\item{actions.how}{If the action is a vote, how the vote was taken. Can be “roll”, “voice”, or
-“Unanimous Consent”.}
+\item{actions.how}{If the action is a vote, how the vote was taken. Can be 'roll', 'voice', or
+'Unanimous Consent'.}
 
-\item{actions.result}{If the action is a vote, the result. “pass” or “fail”.}
+\item{actions.result}{If the action is a vote, the result. 'pass' or 'fail'.}
 
 \item{actions.roll_id}{If the action is a roll call vote, the ID of the roll call.}
 
 \item{last_action}{The most recent action.}
 
-\item{sponsor_id}{The bioguide ID of the bill’s sponsoring legislator, if there is one. It is
+\item{sponsor_id}{The bioguide ID of the bill's sponsoring legislator, if there is one. It is
 possible, but rare, to have bills with no sponsor.}
 
-\item{sponsor}{An object with most simple legislator fields for the bill’s sponsor, if there is
+\item{sponsor}{An object with most simple legislator fields for the bill's sponsor, if there is
 one.}
 
 \item{cosponsor_ids}{An array of bioguide IDs for each cosponsor of the bill. Bills do not
@@ -208,30 +208,30 @@ withdrawn cosponsor.}
 \item{committee_ids}{A list of IDs of committees related to this bill.}
 
 \item{committees.activity}{A list of relationships that the committee has to the bill, as they
-appear on THOMAS.gov. The most common is “referral”, which means a committee has jurisdiction
+appear on THOMAS.gov. The most common is 'referral', which means a committee has jurisdiction
 over this bill.}
 
 \item{related_bill_ids}{A list of IDs of bills that the Library of Congress has declared
-“related”. Relations can be pretty loose, use this field with caution.}
+'related'. Relations can be pretty loose, use this field with caution.}
 
-\item{versions.bill_version_id}{The unique ID for this bill version. It’s the bill’s bill_id plus
-the version’s version_code.}
+\item{versions.bill_version_id}{The unique ID for this bill version. It's the bill's bill_id plus
+the version's version_code.}
 
 \item{versions.version_code}{The short-code for what stage the version of the bill is at.}
 
 \item{versions.version_name}{The full name for the stage the version of the bill is at.}
 
 \item{versions.urls}{A set of HTML, PDF, and XML links (when available) for the official
-permanent URL of a bill version’s text. Our full text search uses the text from the HTML version
+permanent URL of a bill version's text. Our full text search uses the text from the HTML version
 of a bill.}
 
 \item{last_version}{Information for only the most recent version of a bill. Useful to limit the
 size of a request with partial responses.}
 
 \item{upcoming.source_type}{Where this information is coming from. Currently, the only values
-are “senate_daily” or “house_daily”.}
+are 'senate_daily' or 'house_daily'.}
 
-\item{upcoming.range}{How precise this information is. “day”, “week”, or null. See more details
+\item{upcoming.range}{How precise this information is. 'day', 'week', or null. See more details
 on this field in the /upcoming_bills documentation.}
 
 \item{upcoming.url}{An official reference URL for this information.}
@@ -248,14 +248,14 @@ present for Senate updates right now.}
 \item{enacted_as.congress}{The Congress in which this bill was enacted into law.}
 
 \item{enacted_as.law_type}{Whether the law is a public or private law. Most laws are public
-laws; private laws affect individual citizens. “public” or “private”.}
+laws; private laws affect individual citizens. 'public' or 'private'.}
 
 \item{enacted_as.number}{The number the law was assigned.}
 
 \item{fields}{You can request specific fields by supplying a vector of fields names. Many fields
-are not returned unless requested. If you don’t supply a fields parameter, you will get the
+are not returned unless requested. If you don't supply a fields parameter, you will get the
 most commonly used subset of fields only. To save on bandwidth, parsing time, and confusion,
-it’s recommended to always specify which fields you will be using.}
+it's recommended to always specify which fields you will be using.}
 
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
@@ -267,6 +267,13 @@ it’s recommended to always specify which fields you will be using.}
 per_page parameter to get more than the default or max number of results per page.}
 
 \item{per_page}{Number of records to return. Default: 20. Max: 50.}
+
+\item{order}{Sort results by one or more fields with the order parameter. order is
+optional, but if no order is provided, the order of results is not guaranteed to be predictable.
+Append \code{__asc} or \code{__desc} to the field names to control sort direction. The default
+direction is \code{desc}, because it is expected most queries will sort by a date. Any field
+which can be used for filtering may be used for sorting. On full-text search endpoints (URLs
+ending in \code{/search}), you may sort by score to order by relevancy.}
 }
 \value{
 Committee details including subcommittees and all members.
@@ -276,13 +283,13 @@ Data on bills in Congress goes back to 2009, and comes from a mix of sources:
 \itemize{
  \item Scrapers at github.com/unitedstates for most data, including core status and history
  information.
- \item Bulk data at GPO’s FDSys for version information, and full text.
- \item The House’ MajorityLeader.gov and Senate Democrats’ official site for notices of upcoming
+ \item Bulk data at GPO's FDSys for version information, and full text.
+ \item The House' MajorityLeader.gov and Senate Democrats' official site for notices of upcoming
  debate.
 }
 }
 \details{
-History: The history field includes useful flags and dates/times in a bill’s life. The above is
+History: The history field includes useful flags and dates/times in a bill's life. The above is
 a real-life example of H.R. 3590 - not all fields will be present for every bill. Time fields
 can hold either dates or times - Congress is inconsistent about providing specific timestamps.
 }

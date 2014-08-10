@@ -79,11 +79,13 @@ order and chamber (id works for this purpose) would be \code{id desc}.
 \dontrun{
 cw_text(phrase='climate change', start_date='2012-09-16', end_date='2012-09-20')
 cw_text(phrase='I would have voted', start_date='2011-09-05', end_date='2011-09-16', party='D')
-cw_text(phrase='I would have voted', start_date='2011-09-05', end_date='2011-09-16', chamber='House')
+cw_text(phrase='I would have voted', start_date='2011-09-05', end_date='2011-09-16',
+   chamber='House')
 cw_text(title='personal explanation', start_date='2011-09-05', end_date='2011-09-16')
 
 out <- cw_text(phrase='climate change', start_date='2010-01-01', end_date='2012-12-01')
-out2 <- ldply(2:13, function(x) cw_text(phrase='climate change', start_date='2010-01-01', end_date='2012-12-01', page=x))
+out2 <- ldply(2:13, function(x) cw_text(phrase='climate change', start_date='2010-01-01',
+   end_date='2012-12-01', page=x))
 alldat <- rbind(out, out2)
 str(alldat)
 

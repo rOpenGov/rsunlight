@@ -11,7 +11,7 @@
 #' response object.
 #' @details A zip code may intersect multiple Congressional districts, so it is not as precise as
 #' using a latitude and longitude. In general, we recommend against using zip codes to look up 
-#' members of Congress. For one, it’s imprecise: a zip code can intersect multiple congressional 
+#' members of Congress. For one, it's imprecise: a zip code can intersect multiple congressional 
 #' districts. More importantly, zip codes are not shapes. They are lines (delivery routes), and 
 #' treating them as shapes leads to inaccuracies.
 #' @examples \dontrun{
@@ -20,12 +20,12 @@
 #' }
 
 cg_districts <- function(latitude = NULL, longitude = NULL, zip = NULL, query=NULL, per_page=20, 
-  page=1, key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
+  page=1, order = NULL, key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
   return='table', ...)
 {
   url = "https://congress.api.sunlightfoundation.com/districts/locate"
   args <- suncompact(list(apikey = key, latitude = latitude, longitude = longitude, zip = zip, 
-                          query=query, per_page=per_page, page=page))
+                          query=query, per_page=per_page, page=page, order=order))
   tt <- GET(url, query=args, ...)
   warn_for_status(tt)
   assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')

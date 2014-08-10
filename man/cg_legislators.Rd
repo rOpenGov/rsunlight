@@ -14,8 +14,8 @@ cg_legislators(title = NULL, first_name = NULL, middle_name = NULL,
   govtrack_id = NULL, congresspedia_url = NULL, twitter_id = NULL,
   youtube_id = NULL, facebook_id = NULL, senate_class = NULL,
   term_start = NULL, term_end = NULL, birthday = NULL, latitude = NULL,
-  longitude = NULL, zip = NULL, query = query, fields = NULL,
-  page = 1, per_page = 20, key = getOption("SunlightLabsKey",
+  longitude = NULL, zip = NULL, query = NULL, fields = NULL, page = 1,
+  per_page = 20, order = NULL, key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")), return = "table", ...)
 }
 \arguments{
@@ -119,9 +119,9 @@ election term}
 \item{zip}{zip code to search}
 
 \item{fields}{You can request specific fields by supplying a vector of fields names. Many fields
-are not returned unless requested. If you don’t supply a fields parameter, you will get the
+are not returned unless requested. If you don't supply a fields parameter, you will get the
 most commonly used subset of fields only. To save on bandwidth, parsing time, and confusion,
-it’s recommended to always specify which fields you will be using.}
+it's recommended to always specify which fields you will be using.}
 
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
@@ -133,6 +133,13 @@ it’s recommended to always specify which fields you will be using.}
 per_page parameter to get more than the default or max number of results per page.}
 
 \item{per_page}{Number of records to return. Default: 20. Max: 50.}
+
+\item{order}{Sort results by one or more fields with the order parameter. order is
+optional, but if no order is provided, the order of results is not guaranteed to be predictable.
+Append \code{__asc} or \code{__desc} to the field names to control sort direction. The default
+direction is \code{desc}, because it is expected most queries will sort by a date. Any field
+which can be used for filtering may be used for sorting. On full-text search endpoints (URLs
+ending in \code{/search}), you may sort by score to order by relevancy.}
 
 \item{query}{(character) Return results the API thinks best match your query. Queries are
 interpreted as phrases.}
@@ -166,7 +173,7 @@ of the service in question:
 multiple Congressional districts, so locating by
 zip may return multiple representatives, and possibly more than 2 senators if the zip code
 crosses state borders. In general, we recommend against using zip codes to look up members of
-Congress. For one, it’s imprecise: a zip code can intersect multiple congressional districts.
+Congress. For one, it's imprecise: a zip code can intersect multiple congressional districts.
 More importantly, zip codes are not shapes. They are lines (delivery routes), and treating them
 as shapes leads to inaccuracies."
 }

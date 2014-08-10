@@ -4,17 +4,17 @@
 #'
 #' @param amendment_id The unique ID for this amendment. Formed from the amendment_type, number,
 #' and congress.
-#' @param amendment_type The type for this amendment. For the amendment “H.Amdt. 10”, the
-#' amendment_type represents the “H.Amdt.” part. Amendment types can be either hamdt or samdt.
-#' @param number The number for this amendment. For the amendment “H.Amdt. 10”, the number is 10.
+#' @param amendment_type The type for this amendment. For the amendment 'H.Amdt. 10', the
+#' amendment_type represents the 'H.Amdt.' part. Amendment types can be either hamdt or samdt.
+#' @param number The number for this amendment. For the amendment 'H.Amdt. 10', the number is 10.
 #' @param congress The Congress in which this amendment was introduced. For example, amendments
-#' introduced in the “113th Congress” have a congress of 113.
+#' introduced in the '113th Congress' have a congress of 113.
 #' @param chamber The chamber in which the amendment was introduced.
 #' @param house_number If the amendment was introduced in the House, this is a relative amendment
 #' number, scoped to the bill or treaty the House it relates to. How this number gets assigned is
 #' complicated and involves multiple institutions within the House and the Library of Congress.
 #' You can read the gory details if you want, but this number will usually do the job of connecting
-#' to data from the House Clerk’s Electronic Voting System.
+#' to data from the House Clerk's Electronic Voting System.
 #' @param introduced_on The date this amendment was introduced.
 #' @param last_action_at The date or time of the most recent official action on the amendment.
 #' Often, there are no official actions, in which case this field will be set to the value of
@@ -22,13 +22,13 @@
 #' @param amends_bill_id If this amendment relates to a bill, this field is the ID of the
 #' related bill.
 #' @param amends_treaty_id If this amendment relates to a treaty, this field is the ID of the
-#' related treaty. Treaty IDs are of the form treatyX-Y, where X is the treaty’s number, and Y
+#' related treaty. Treaty IDs are of the form treatyX-Y, where X is the treaty's number, and Y
 #' is the Congress the treaty is being considered in.
 #' @param amends_amendment_id If this amendment amends an amendment, this field is the ID of the
 #' amended amendment.
-#' @param sponsor_type Whether the amendment is sponsored by a “person” or a “committee”.
-#' @param sponsor_id If the sponsor_type is “person”, this will be that legislator’s bioguide ID.
-#' If the sponsor_type is “committee”, this will be that committee’s ID.
+#' @param sponsor_type Whether the amendment is sponsored by a 'person' or a 'committee'.
+#' @param sponsor_id If the sponsor_type is 'person', this will be that legislator's bioguide ID.
+#' If the sponsor_type is 'committee', this will be that committee's ID.
 #'
 #' @template cg
 #' @template cg_query

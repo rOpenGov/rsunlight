@@ -9,7 +9,7 @@
 #' @import httr assertthat
 #' @param member_ids An array of bioguide IDs of legislators that are assigned to this committee.
 #' @param committee_id Official ID of the committee, as it appears in various official sources (Senate, House, and Library of Congress).
-#' @param chamber The chamber this committee is part of. “house”, “senate”, or “joint”.
+#' @param chamber The chamber this committee is part of. 'house', 'senate', or 'joint'.
 #' @param subcommittee Whether or not the committee is a subcommittee.
 #' @param parent_committee_id If the committee is a subcommittee, the ID of its parent committee.
 #' 
@@ -33,8 +33,8 @@
 #' cg_committees(member_ids='L000551', return='response')
 #' }
 
-cg_committees <-  function(member_ids = NULL, committee_id = NULL, chamber = NULL, 
-  subcommittee = NULL, parent_committee_id = NULL, query=NULL, fields = NULL, page = 1, per_page = 20,
+cg_committees <-  function(member_ids = NULL, committee_id = NULL, chamber = NULL, subcommittee = NULL, 
+  parent_committee_id = NULL, query=NULL, fields = NULL, page = 1, per_page = 20, order = NULL,
   key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), return='table',
   ...) 
 {
@@ -45,7 +45,7 @@ cg_committees <-  function(member_ids = NULL, committee_id = NULL, chamber = NUL
   args <- suncompact(list(apikey = key, member_ids = member_ids, committee_id = committee_id, 
               chamber = chamber, subcommittee = subcommittee, fields = fields,
               parent_committee_id = parent_committee_id, page = page, per_page=per_page, 
-              query=query))
+              query=query, order=order))
   tt <- GET(url, query=args, ...)
   stop_for_status(tt)
   assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')

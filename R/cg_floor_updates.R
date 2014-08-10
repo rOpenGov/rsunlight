@@ -2,19 +2,19 @@
 #'
 #' @export
 #'
-#' @param chamber The chamber this update took place in. “house” or “senate”.
+#' @param chamber The chamber this update took place in. 'house' or 'senate'.
 #' @param timestamp The time this update took place. For Senate updates, this actually means the
 #' time our system first observed the update, and is susceptible to error; the Senate does not
 #' offer precise timestamps.
 #' @param congress The number of the Congress this update took place during.
-#' @param legislative_day The “legislative day” this update took place in. The “legislative day”
+#' @param legislative_day The 'legislative day' this update took place in. The 'legislative day'
 #' is a formal construct that is usually, but not always, the same as the calendar day. For
-#' example, if a day’s session of Congress runs past midnight, the legislative_day will often
+#' example, if a day's session of Congress runs past midnight, the legislative_day will often
 #' stay the same as it was before midnight, until that session adjourns. On January 3rd, it is
 #' possible that the same legislative_day could span two Congresses. (This occurred in 2013.)
-#' @param year The “legislative year” of the update. This is not quite the same as the calendar
+#' @param year The 'legislative year' of the update. This is not quite the same as the calendar
 #' year - the legislative year changes at noon EST on January 3rd. A vote taken on January 1, 2013
-#' has a “legislative year” of 2012.
+#' has a 'legislative year' of 2012.
 #' @param bill_ids An array of IDs of bills that are referenced by or associated with this floor
 #' update.
 #' @param roll_ids An array of IDs of roll call votes that are referenced by or associated with

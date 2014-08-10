@@ -4,7 +4,7 @@
 \title{Get districts for a latitude/longitude or zips}
 \usage{
 cg_districts(latitude = NULL, longitude = NULL, zip = NULL,
-  query = NULL, per_page = 20, page = 1,
+  query = NULL, per_page = 20, page = 1, order = NULL,
   key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")), return = "table", ...)
 }
@@ -16,9 +16,9 @@ cg_districts(latitude = NULL, longitude = NULL, zip = NULL,
 \item{zip}{(integer) A 5 digit zip code}
 
 \item{fields}{You can request specific fields by supplying a vector of fields names. Many fields
-are not returned unless requested. If you don’t supply a fields parameter, you will get the
+are not returned unless requested. If you don't supply a fields parameter, you will get the
 most commonly used subset of fields only. To save on bandwidth, parsing time, and confusion,
-it’s recommended to always specify which fields you will be using.}
+it's recommended to always specify which fields you will be using.}
 
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
@@ -30,6 +30,13 @@ it’s recommended to always specify which fields you will be using.}
 per_page parameter to get more than the default or max number of results per page.}
 
 \item{per_page}{Number of records to return. Default: 20. Max: 50.}
+
+\item{order}{Sort results by one or more fields with the order parameter. order is
+optional, but if no order is provided, the order of results is not guaranteed to be predictable.
+Append \code{__asc} or \code{__desc} to the field names to control sort direction. The default
+direction is \code{desc}, because it is expected most queries will sort by a date. Any field
+which can be used for filtering may be used for sorting. On full-text search endpoints (URLs
+ending in \code{/search}), you may sort by score to order by relevancy.}
 
 \item{query}{(character) Return results the API thinks best match your query. Queries are
 interpreted as phrases.}
@@ -44,7 +51,7 @@ Get districts for a latitude/longitude or zips
 \details{
 A zip code may intersect multiple Congressional districts, so it is not as precise as
 using a latitude and longitude. In general, we recommend against using zip codes to look up
-members of Congress. For one, it’s imprecise: a zip code can intersect multiple congressional
+members of Congress. For one, it's imprecise: a zip code can intersect multiple congressional
 districts. More importantly, zip codes are not shapes. They are lines (delivery routes), and
 treating them as shapes leads to inaccuracies.
 }
