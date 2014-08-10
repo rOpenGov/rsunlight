@@ -252,10 +252,6 @@ laws; private laws affect individual citizens. “public” or “private”.}
 
 \item{enacted_as.number}{The number the law was assigned.}
 
-\item{page}{Page to return.}
-
-\item{per_page}{Numbere of results to return per page.}
-
 \item{fields}{You can request specific fields by supplying a vector of fields names. Many fields
 are not returned unless requested. If you don’t supply a fields parameter, you will get the
 most commonly used subset of fields only. To save on bandwidth, parsing time, and confusion,

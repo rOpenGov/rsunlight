@@ -6,7 +6,7 @@
 cg_nominations(nomination_id = NULL, congress = NULL, received_on = NULL,
   last_action_at = NULL, organization = NULL, committee_ids = NULL,
   nominees = NULL, nominees.position = NULL, nominees.state = NULL,
-  fields = NULL, page = 1, per_page = 20,
+  query = NULL, fields = NULL, page = 1, per_page = 20,
   key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")), return = "table", ...)
 }
@@ -53,6 +53,9 @@ it’s recommended to always specify which fields you will be using.}
 per_page parameter to get more than the default or max number of results per page.}
 
 \item{per_page}{Number of records to return. Default: 20. Max: 50.}
+
+\item{query}{(character) Return results the API thinks best match your query. Queries are
+interpreted as phrases.}
 }
 \description{
 Search for data on nominations

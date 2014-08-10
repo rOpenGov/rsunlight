@@ -23,7 +23,7 @@
 #' update.
 #'
 #' @template cg
-#'
+#' @template cg_query
 #' @examples \dontrun{
 #' cg_floor_updates()
 #' cg_floor_updates(chamber='house', query='Agreed to by voice vote')

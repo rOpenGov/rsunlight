@@ -29,7 +29,7 @@
 #' where [party] is one of 'D', 'R', or 'I', and [vote] is a valid vote as defined above.
 #'
 #' @template cg
-#'
+#' @template cg_query
 #' @examples \dontrun{
 #' cg_votes(chamber='senate', order='voted_at')
 #' cg_votes(query='guns')
@@ -48,9 +48,10 @@ cg_votes <- function(roll_id=NULL, chamber=NULL, number=NULL, year=NULL, congres
    ...)
 {
   url <- 'https://congress.api.sunlightfoundation.com/votes'
-  args <- suncompact(list(apikey=key,roll_id=roll_id, chamber=chamber, number=number, year=year, congress=congress,
-      voted_at=voted_at, vote_type=vote_type, roll_type=roll_type, required=required, result=result,
-      bill_id=bill_id, nomination_id=nomination_id, breakdown.total=breakdown.total, breadkdown.party=breadkdown.party,
+  args <- suncompact(list(apikey=key,roll_id=roll_id, chamber=chamber, number=number, year=year, 
+      congress=congress, voted_at=voted_at, vote_type=vote_type, roll_type=roll_type, 
+      required=required, result=result, bill_id=bill_id, nomination_id=nomination_id, 
+      breakdown.total=breakdown.total, breadkdown.party=breadkdown.party,
       per_page=per_page, page=page, fields=fields))
 
   tt <- GET(url, query=args, ...)

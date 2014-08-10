@@ -15,6 +15,7 @@
 #' @param bill_id The ID of the bill that is being scheduled.
 #'
 #' @template cg
+#' @template cg_query
 #'
 #' @details More info for range parameter
 #' \itemize{
@@ -35,13 +36,14 @@
 #' }
 
 cg_upcoming_bills <- function(scheduled_at=NULL, legislative_day=NULL, range=NULL, congress=NULL,
-  chamber=NULL, source_type=NULL, bill_id=NULL, fields=NULL, page=1, per_page=20, order=NULL,
+  chamber=NULL, source_type=NULL, bill_id=NULL, query=NULL, fields=NULL, page=1, per_page=20, order=NULL,
   key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), return='table', ...)
 {
   url <- 'https://congress.api.sunlightfoundation.com/upcoming_bills'
   args <- suncompact(list(apikey=key, scheduled_at=scheduled_at, legislative_day=legislative_day, 
                           range=range, congress=congress, chamber=chamber, source_type=source_type, 
-                          bill_id=bill_id, per_page=per_page, page=page, fields=fields, order=order))
+                          bill_id=bill_id, per_page=per_page, page=page, fields=fields, 
+                          query=query, order=order))
 
   tt <- GET(url, query=args, ...)
   stop_for_status(tt)

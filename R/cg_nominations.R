@@ -21,7 +21,7 @@
 #' is only available for some nominees, and never for batches of multiple nominees.
 #'
 #' @template cg
-#'
+#' @template cg_query
 #' @examples \dontrun{
 #' cg_nominations(order='received_on')
 #' cg_nominations(committee_ids='SSAS')
@@ -31,14 +31,14 @@
 
 cg_nominations <- function(nomination_id=NULL, congress=NULL, received_on=NULL, last_action_at=NULL,
   organization=NULL, committee_ids=NULL, nominees=NULL, nominees.position=NULL, nominees.state=NULL,
-  fields=NULL, page=1, per_page=20,
+  query=NULL, fields=NULL, page=1, per_page=20,
   key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), return='table', ...)
 {
   url <- 'https://congress.api.sunlightfoundation.com/nominations'
   args <- suncompact(list(apikey=key,nomination_id=nomination_id, congress=congress, 
     received_on=received_on, last_action_at=last_action_at, organization=organization, 
     committee_ids=committee_ids, nominees=nominees, nominees.position=nominees.position, 
-    nominees.state=nominees.state, per_page=per_page, page=page, fields=fields))
+    nominees.state=nominees.state, query=query, per_page=per_page, page=page, fields=fields))
 
   tt <- GET(url, query=args, ...)
   stop_for_status(tt)

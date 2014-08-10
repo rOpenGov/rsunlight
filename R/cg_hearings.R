@@ -12,7 +12,7 @@
 #' “Markup”, “Business Meeting”, “Field Hearing”.
 #'
 #' @template cg
-#'
+#' @template cg_query
 #' @examples \dontrun{
 #' cg_hearings(chamber='house', dc=TRUE)
 #' cg_hearings(query='children')

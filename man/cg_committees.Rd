@@ -4,8 +4,9 @@
 \title{Gets details (subcommittees + membership) for a committee by id.}
 \usage{
 cg_committees(member_ids = NULL, committee_id = NULL, chamber = NULL,
-  subcommittee = NULL, parent_committee_id = NULL, fields = NULL,
-  page = 1, per_page = 20, key = getOption("SunlightLabsKey",
+  subcommittee = NULL, parent_committee_id = NULL, query = NULL,
+  fields = NULL, page = 1, per_page = 20,
+  key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")), return = "table", ...)
 }
 \arguments{
@@ -34,6 +35,9 @@ it’s recommended to always specify which fields you will be using.}
 per_page parameter to get more than the default or max number of results per page.}
 
 \item{per_page}{Number of records to return. Default: 20. Max: 50.}
+
+\item{query}{(character) Return results the API thinks best match your query. Queries are
+interpreted as phrases.}
 }
 \value{
 Committee details including subcommittees and all members.

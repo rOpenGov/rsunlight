@@ -31,7 +31,7 @@
 #' If the sponsor_type is “committee”, this will be that committee’s ID.
 #'
 #' @template cg
-#'
+#' @template cg_query
 #' @examples \dontrun{
 #' cg_amendments()
 #' cg_amendments(chamber='house', congress=113)
@@ -51,7 +51,7 @@ cg_amendments <- function(amendment_id=NULL, amendment_type=NULL, number=NULL, c
                           introduced_on=introduced_on, last_action_at=last_action_at, 
                           amends_bill_id=amends_bill_id,amends_treaty_id=amends_treaty_id, 
                           amends_amendment_id=amends_amendment_id, sponsor_type=sponsor_type, 
-                          sponsor_id=sponsor_id, query=query,per_page=per_page, page=page, 
+                          sponsor_id=sponsor_id, query=query, per_page=per_page, page=page, 
                           fields=fields, order=order))
 
   tt <- GET(url, query=args, ...)

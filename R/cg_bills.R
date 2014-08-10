@@ -156,8 +156,6 @@
 #' @param enacted_as.law_type Whether the law is a public or private law. Most laws are public 
 #' laws; private laws affect individual citizens. “public” or “private”.
 #' @param enacted_as.number The number the law was assigned.
-#' @param page Page to return.
-#' @param per_page Numbere of results to return per page.
 #' 
 #' @template cg
 #'

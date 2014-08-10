@@ -14,6 +14,7 @@
 #' @param parent_committee_id If the committee is a subcommittee, the ID of its parent committee.
 #' 
 #' @template cg
+#' @template cg_query
 #' @return Committee details including subcommittees and all members.
 #' @export
 #' @examples \dontrun{
@@ -33,7 +34,7 @@
 #' }
 
 cg_committees <-  function(member_ids = NULL, committee_id = NULL, chamber = NULL, 
-  subcommittee = NULL, parent_committee_id = NULL, fields = NULL, page = 1, per_page = 20,
+  subcommittee = NULL, parent_committee_id = NULL, query=NULL, fields = NULL, page = 1, per_page = 20,
   key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), return='table',
   ...) 
 {
@@ -43,7 +44,8 @@ cg_committees <-  function(member_ids = NULL, committee_id = NULL, chamber = NUL
   fields <- paste0(fields, collapse = ",")
   args <- suncompact(list(apikey = key, member_ids = member_ids, committee_id = committee_id, 
               chamber = chamber, subcommittee = subcommittee, fields = fields,
-              parent_committee_id = parent_committee_id, page = page, per_page=per_page))
+              parent_committee_id = parent_committee_id, page = page, per_page=per_page, 
+              query=query))
   tt <- GET(url, query=args, ...)
   stop_for_status(tt)
   assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')

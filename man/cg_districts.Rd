@@ -4,7 +4,8 @@
 \title{Get districts for a latitude/longitude or zips}
 \usage{
 cg_districts(latitude = NULL, longitude = NULL, zip = NULL,
-  per_page = 20, page = 1, key = getOption("SunlightLabsKey",
+  query = NULL, per_page = 20, page = 1,
+  key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")), return = "table", ...)
 }
 \arguments{
@@ -29,6 +30,9 @@ it’s recommended to always specify which fields you will be using.}
 per_page parameter to get more than the default or max number of results per page.}
 
 \item{per_page}{Number of records to return. Default: 20. Max: 50.}
+
+\item{query}{(character) Return results the API thinks best match your query. Queries are
+interpreted as phrases.}
 }
 \value{
 List including data.frame and metadata about results, list, or httr

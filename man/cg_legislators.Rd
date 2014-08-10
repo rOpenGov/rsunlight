@@ -14,8 +14,8 @@ cg_legislators(title = NULL, first_name = NULL, middle_name = NULL,
   govtrack_id = NULL, congresspedia_url = NULL, twitter_id = NULL,
   youtube_id = NULL, facebook_id = NULL, senate_class = NULL,
   term_start = NULL, term_end = NULL, birthday = NULL, latitude = NULL,
-  longitude = NULL, zip = NULL, fields = NULL, page = 1,
-  per_page = 20, key = getOption("SunlightLabsKey",
+  longitude = NULL, zip = NULL, query = query, fields = NULL,
+  page = 1, per_page = 20, key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")), return = "table", ...)
 }
 \arguments{
@@ -133,6 +133,9 @@ it’s recommended to always specify which fields you will be using.}
 per_page parameter to get more than the default or max number of results per page.}
 
 \item{per_page}{Number of records to return. Default: 20. Max: 50.}
+
+\item{query}{(character) Return results the API thinks best match your query. Queries are
+interpreted as phrases.}
 }
 \value{
 List of output fields.
