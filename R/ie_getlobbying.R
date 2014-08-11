@@ -29,14 +29,14 @@ ie_lobbying <-  function(
     page = NULL,
     per_page = NULL,
     key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-    callopts = list()) 
+    ...) 
 {
   url <- "http://transparencydata.com/api/1.0/lobbying.json"
   args <- suncompact(list(apikey = key, amount = amount,
     client_ft = client_ft, client_parent_ft = client_parent_ft, filing_type = filing_type,
     lobbyist_ft = lobbyist_ft, registrant_ft = registrant_ft, transaction_id = transaction_id,
     transaction_type = transaction_type, year = year, page = page, per_page = per_page))
-  tt <- GET(url, query=args, callopts)
+  tt <- GET(url, query=args, ...)
   stop_for_status(tt)
   assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
   out <- content(tt, as = "text")

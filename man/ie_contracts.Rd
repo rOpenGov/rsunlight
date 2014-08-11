@@ -12,7 +12,7 @@ ie_contracts(agency_id = NULL, agency_name = NULL,
   vendor_duns = NULL, vendor_name = NULL, vendor_parent_duns = NULL,
   vendor_state = NULL, vendor_zipcode = NULL, page = NULL,
   per_page = NULL, key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), callopts = list())
+  stop("need an API key for Sunlight Labs")), ...)
 }
 \arguments{
 \item{page}{The page of results to return; defaults to 1.}
@@ -22,7 +22,7 @@ The maximum number of records per page is 100,000.}
 
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
-\item{callopts}{Optional additional curl options (debugging tools mostly)}
+\item{...}{Optional additional curl options (debugging tools mostly)}
 
 \item{agency_id}{The FIPS code for the agency.}
 

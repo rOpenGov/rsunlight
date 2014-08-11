@@ -7,7 +7,7 @@ ie_grants(agency_ft = NULL, amount_total = NULL, assistance_type = NULL,
   fiscal_year = NULL, recipient_ft = NULL, recipient_state = NULL,
   recipient_type = NULL, page = NULL, per_page = NULL,
   key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), callopts = list())
+  stop("need an API key for Sunlight Labs")), ...)
 }
 \arguments{
 \item{page}{The page of results to return; defaults to 1.}
@@ -17,7 +17,7 @@ The maximum number of records per page is 100,000.}
 
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
-\item{callopts}{Optional additional curl options (debugging tools mostly)}
+\item{...}{Optional additional curl options (debugging tools mostly)}
 
 \item{agency_ft}{Full-text search on the reported name of the federal agency awarding the grant.}
 

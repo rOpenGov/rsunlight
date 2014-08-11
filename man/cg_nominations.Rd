@@ -3,11 +3,11 @@
 \alias{cg_nominations}
 \title{Search for data on nominations}
 \usage{
-cg_nominations(nomination_id = NULL, congress = NULL, received_on = NULL,
-  last_action_at = NULL, organization = NULL, committee_ids = NULL,
-  nominees = NULL, nominees.position = NULL, nominees.state = NULL,
-  query = NULL, fields = NULL, page = 1, per_page = 20, order = NULL,
-  key = getOption("SunlightLabsKey",
+cg_nominations(nomination_id = NULL, congress = NULL, number = NULL,
+  received_on = NULL, last_action_at = NULL, organization = NULL,
+  committee_ids = NULL, nominees = NULL, nominees.position = NULL,
+  nominees.state = NULL, query = NULL, fields = NULL, page = 1,
+  per_page = 20, order = NULL, key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")), return = "table", ...)
 }
 \arguments{

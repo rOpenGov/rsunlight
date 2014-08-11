@@ -7,7 +7,7 @@ ie_lobbying(amount = NULL, client_ft = NULL, client_parent_ft = NULL,
   filing_type = NULL, lobbyist_ft = NULL, registrant_ft = NULL,
   transaction_id = NULL, transaction_type = NULL, year = NULL,
   page = NULL, per_page = NULL, key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), callopts = list())
+  stop("need an API key for Sunlight Labs")), ...)
 }
 \arguments{
 \item{page}{The page of results to return; defaults to 1.}
@@ -17,7 +17,7 @@ The maximum number of records per page is 100,000.}
 
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
-\item{callopts}{Optional additional curl options (debugging tools mostly)}
+\item{...}{Optional additional curl options (debugging tools mostly)}
 
 \item{amount}{A YYYY formatted year (1990 - 2010) as a single year or YYYY|YYYY for an OR logic.}
 

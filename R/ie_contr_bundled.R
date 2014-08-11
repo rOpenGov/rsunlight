@@ -14,12 +14,12 @@
 
 ie_contr_bundled <-  function(lobbyist_name = NULL, recipient_name = NULL, page = NULL,
   per_page = NULL, key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-  callopts = list())
+  ...)
 {
   url <- "http://transparencydata.com/api/1.0/contributions/bundled.json"
   args <- suncompact(list(apikey = key, lobbyist_name = lobbyist_name, 
                           recipient_name = recipient_name, page = page, per_page = per_page))
-  tt <- GET(url, query=args, callopts)
+  tt <- GET(url, query=args, ...)
   stop_for_status(tt)
   assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
   out <- content(tt, as = "text")

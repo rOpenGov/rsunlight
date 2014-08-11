@@ -7,7 +7,7 @@ ie_misconduct(contractor = NULL, contracting_party = NULL,
   date_year = NULL, enforcement_agency = NULL, instance = NULL,
   penalty_amount = NULL, page = NULL, per_page = NULL,
   key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), callopts = list())
+  stop("need an API key for Sunlight Labs")), ...)
 }
 \arguments{
 \item{contractor}{(character)    The name of the contractor to search for.}
@@ -29,7 +29,7 @@ The maximum number of records per page is 100,000.}
 
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
-\item{callopts}{Optional additional curl options (debugging tools mostly)}
+\item{...}{Optional additional curl options (debugging tools mostly)}
 }
 \value{
 A list, as class ie_misconduct.

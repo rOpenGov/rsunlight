@@ -21,15 +21,14 @@
 
 ie_misconduct <- function(contractor = NULL, contracting_party = NULL, date_year = NULL,
   enforcement_agency = NULL, instance = NULL, penalty_amount = NULL, page = NULL, per_page = NULL,
-  key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-  callopts = list()) 
+  key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...) 
 {
   if(!is.null(penalty_amount)) penalty_amount <- as.integer(penalty_amount)
   url <- "http://transparencydata.com/api/1.0/misconduct.json"
   args <- suncompact(list(apikey = key, contractor = contractor, 
     contracting_party = contracting_party, date_year = date_year, enforcement_agency = enforcement_agency, 
     instance = instance, penalty_amount = penalty_amount, page = page, per_page = per_page))
-  tt <- GET(url, query=args, callopts)
+  tt <- GET(url, query=args, ...)
   stop_for_status(tt)
   assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
   out <- content(tt, as = "text")

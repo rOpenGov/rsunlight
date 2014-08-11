@@ -2,4 +2,4 @@
 #' @param per_page The number of results to return per page, defaults to 1,000.
 #' The maximum number of records per page is 100,000.
 #' @param key your SunlightLabs API key; loads from .Rprofile
-#' @param callopts Optional additional curl options (debugging tools mostly)
+#' @param ... Optional additional curl options (debugging tools mostly)

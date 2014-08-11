@@ -55,7 +55,8 @@ cg_bills <- function(query = NULL, bill_id = NULL, bill_type = NULL, number = NU
   sponsor.party = NULL, enacted_as.law_type = NULL, bill_type__in = NULL,
   history.house_passage_result__exists = NULL, history.senate_passage_result__exists = NULL,
   nicknames=NULL, keywords=NULL, sponsor_id=NULL, cosponsor_ids=NULL, cosponsors_count=NULL,
-  withdrawn_cosponsors_count=NULL, committee_ids=NULL, related_bill_ids=NULL, enacted_as.congress=NULL,
+  withdrawn_cosponsors_count=NULL, withdrawn_cosponsor_ids=NULL, committee_ids=NULL,
+  related_bill_ids=NULL, enacted_as.congress=NULL,
   enacted_as.number=NULL, fields=NULL, page = 1, per_page = 20, order = NULL,
   key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
   return='table', ...)
