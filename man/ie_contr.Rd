@@ -7,7 +7,7 @@ ie_contr(amount = NULL, contributor_ft = NULL, contributor_state = NULL,
   cycle = NULL, date = NULL, for_against = NULL, organization_ft = NULL,
   recipient_ft = NULL, recipient_state = NULL, seat = NULL,
   transaction_namespace = NULL, page = NULL, per_page = NULL,
-  key = getOption("SunlightLabsKey",
+  return = "table", key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")), ...)
 }
 \arguments{
@@ -51,6 +51,10 @@ The maximum number of records per page is 100,000.}
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
 \item{...}{Optional additional curl options (debugging tools mostly)}
+
+\item{return}{(character) One of table (default), list, or response (httr response object).
+When table is requested, the default, a table is not always returned, but is returned almost
+always. You can then make a table yourself if you like.}
 }
 \value{
 Details on campaign contributions.

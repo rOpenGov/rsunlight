@@ -45,7 +45,9 @@ it's recommended to always specify which fields you will be using.}
 
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
-\item{return}{(character) One of table (default), list, or response (httr response object)}
+\item{return}{(character) One of table (default), list, or response (httr response object).
+When table is requested, the default, a table is not always returned, but is returned almost
+always. You can then make a table yourself if you like.}
 
 \item{...}{Optional additional curl options (debugging tools mostly). See examples.}
 

@@ -15,11 +15,13 @@
 #' @export
 #' @examples \dontrun{
 #' ie_epa(defendants='Massey Energy', per_page=1)
+#' ie_epa(defendants='Massey Energy', per_page=1, return='list')
+#' ie_epa(defendants='Massey Energy', per_page=1, return='response')
 #' ie_epa(defendants='Massey Energy', first_date='>|2005-01-01')
 #' }
 
 ie_epa <- function(case_name = NULL, case_num = NULL, defendants = NULL, first_date = NULL, 
-  last_date = NULL, location_addresses = NULL, penalty = NULL, page = NULL, 
+  last_date = NULL, location_addresses = NULL, penalty = NULL, page = NULL, return='table',
   per_page = NULL, key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...) 
 {
   url <- "http://transparencydata.com/api/1.0/epa.json"
@@ -29,8 +31,5 @@ ie_epa <- function(case_name = NULL, case_num = NULL, defendants = NULL, first_d
   tt <- GET(url, query=args, ...)
   stop_for_status(tt)
   assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
-  out <- content(tt, as = "text")
-  res <- fromJSON(out, simplifyVector = FALSE)
-  class(res) <- "ie_epa"
-  return( res )
+  return_obj(return, tt)
 }

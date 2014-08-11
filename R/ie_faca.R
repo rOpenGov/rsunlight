@@ -18,7 +18,7 @@
 #' }
 
 ie_faca <- function(affiliation = NULL, agency_name = NULL, committee_name = NULL, member_name = NULL, 
-  year = NULL, page = NULL, per_page = NULL, 
+  year = NULL, page = NULL, per_page = NULL, return='table',
   key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...) 
 {
   url <- "http://transparencydata.com/api/1.0/faca.json"
@@ -28,8 +28,5 @@ ie_faca <- function(affiliation = NULL, agency_name = NULL, committee_name = NUL
   tt <- GET(url, query=args, ...)
   stop_for_status(tt)
   assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
-  out <- content(tt, as = "text")
-  res <- fromJSON(out, simplifyVector = FALSE)
-  class(res) <- "ie_faca"
-  return( res )
+  return_obj(return, tt)
 }

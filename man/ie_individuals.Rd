@@ -4,7 +4,7 @@
 \title{Politician aggregrates: Search for contributions to politicians.}
 \usage{
 ie_individuals(method = NULL, entity_id = NULL, cycle = NULL,
-  limit = NULL, page = NULL, per_page = NULL,
+  limit = NULL, page = NULL, per_page = NULL, return = "table",
   key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")), ...)
 }
@@ -27,6 +27,10 @@ The maximum number of records per page is 100,000.}
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
 \item{...}{Optional additional curl options (debugging tools mostly)}
+
+\item{return}{(character) One of table (default), list, or response (httr response object).
+When table is requested, the default, a table is not always returned, but is returned almost
+always. You can then make a table yourself if you like.}
 }
 \value{
 A list. Depends on parameters used. Ranges from a single ID returned to basic

@@ -21,7 +21,7 @@
 
 ie_misconduct <- function(contractor = NULL, contracting_party = NULL, date_year = NULL,
   enforcement_agency = NULL, instance = NULL, penalty_amount = NULL, page = NULL, per_page = NULL,
-  key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...) 
+  return='table', key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...) 
 {
   if(!is.null(penalty_amount)) penalty_amount <- as.integer(penalty_amount)
   url <- "http://transparencydata.com/api/1.0/misconduct.json"
@@ -31,12 +31,7 @@ ie_misconduct <- function(contractor = NULL, contracting_party = NULL, date_year
   tt <- GET(url, query=args, ...)
   stop_for_status(tt)
   assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
-  out <- content(tt, as = "text")
-  res <- fromJSON(out, simplifyVector = FALSE)
-  res <- lapply(res, function(z) {
-    z$penalty_amount <- format(z$penalty_amount, scientific = FALSE)
-    z
-  })
-  class(res) <- "ie_misconduct"
-  return( res )
+  tmp <- return_obj(return, tt)
+  tmp$penalty_amount <- format(tmp$penalty_amount, scientific = FALSE)
+  tmp
 }

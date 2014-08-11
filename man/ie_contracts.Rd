@@ -11,7 +11,7 @@ ie_contracts(agency_id = NULL, agency_name = NULL,
   obligated_amount = NULL, vendor_city = NULL, vendor_district = NULL,
   vendor_duns = NULL, vendor_name = NULL, vendor_parent_duns = NULL,
   vendor_state = NULL, vendor_zipcode = NULL, page = NULL,
-  per_page = NULL, key = getOption("SunlightLabsKey",
+  per_page = NULL, return = "table", key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")), ...)
 }
 \arguments{
@@ -23,6 +23,10 @@ The maximum number of records per page is 100,000.}
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
 \item{...}{Optional additional curl options (debugging tools mostly)}
+
+\item{return}{(character) One of table (default), list, or response (httr response object).
+When table is requested, the default, a table is not always returned, but is returned almost
+always. You can then make a table yourself if you like.}
 
 \item{agency_id}{The FIPS code for the agency.}
 
@@ -76,12 +80,10 @@ Get federal contract details
 }
 \examples{
 \dontrun{
-ie_contracts(vendor_city='indianapolis')
-ie_contracts(vendor_city='indianapolis', page=1, per_page=1)
-ie_contracts(fiscal_year='2012', vendor_state='nevada')
+ie_contracts(vendor_city='indianapolis', page=1, per_page=5)
 
 library('httr')
-ie_contracts(vendor_city='indianapolis', page=1, per_page=1, callopts=verbose())
+ie_contracts(vendor_city='indianapolis', page=1, per_page=5, config=verbose())[,c(1:5)]
 }
 }
 

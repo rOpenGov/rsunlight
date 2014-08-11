@@ -25,8 +25,8 @@
 #' @examples \dontrun{
 #' # Search with text string
 #' ie_entities(search='Nancy Pelosi')
-#' ie_entities(search='Jones', type='politician')[[1]]
-#' ie_entities(search='Jones', type='organization')[[1]]
+#' head(ie_entities(search='Jones', type='politician'))
+#' head(ie_entities(search='Jones', type='organization'))
 #'
 #' # Search for an ID by namespace and id
 #' ie_entities(namespace = 'urn:crp:recipient', id = 'N00007360')
@@ -39,7 +39,7 @@
 #' }
 
 ie_entities <- function(search = NULL, type = NULL, namespace = NULL, id = NULL,
-  bioguide_id = NULL, entity_id = NULL, page = NULL, per_page = NULL, 
+  bioguide_id = NULL, entity_id = NULL, page = NULL, per_page = NULL, return='table',
   key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...)
 {
   if(!is.null(search)){
@@ -60,12 +60,9 @@ ie_entities <- function(search = NULL, type = NULL, namespace = NULL, id = NULL,
   }
 
   args <- suncompact(list(apikey = key, search = search, type = type, id = id,
-                          namespace = namespace, bioguide_id = bioguide_id))
+          namespace = namespace, bioguide_id = bioguide_id, page=page, per_page=per_page))
   tt <- GET(url, query=args, ...)
   stop_for_status(tt)
   assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
-  out <- content(tt, as = "text")
-  res <- fromJSON(out, simplifyVector = FALSE)
-  class(res) <- "ie_entities"
-  return( res )
+  return_obj(return, tt)
 }

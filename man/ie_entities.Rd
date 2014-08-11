@@ -5,7 +5,7 @@
 \usage{
 ie_entities(search = NULL, type = NULL, namespace = NULL, id = NULL,
   bioguide_id = NULL, entity_id = NULL, page = NULL, per_page = NULL,
-  key = getOption("SunlightLabsKey",
+  return = "table", key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")), ...)
 }
 \arguments{
@@ -37,6 +37,10 @@ The maximum number of records per page is 100,000.}
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
 \item{...}{Optional additional curl options (debugging tools mostly)}
+
+\item{return}{(character) One of table (default), list, or response (httr response object).
+When table is requested, the default, a table is not always returned, but is returned almost
+always. You can then make a table yourself if you like.}
 }
 \value{
 A list. Depends on parameters used. Ranges from a single ID returned to basic
@@ -49,8 +53,8 @@ Search for politicians, individuals, or organizations with the given name.
 \dontrun{
 # Search with text string
 ie_entities(search='Nancy Pelosi')
-ie_entities(search='Jones', type='politician')[[1]]
-ie_entities(search='Jones', type='organization')[[1]]
+head(ie_entities(search='Jones', type='politician'))
+head(ie_entities(search='Jones', type='organization'))
 
 # Search for an ID by namespace and id
 ie_entities(namespace = 'urn:crp:recipient', id = 'N00007360')

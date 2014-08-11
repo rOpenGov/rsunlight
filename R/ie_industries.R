@@ -37,8 +37,4 @@ ie_industries <- function(method = NULL, entity_id = NULL, cycle = NULL, limit =
   stop_for_status(tt)
   assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
   return_obj(return, tt)
-#   res <- content(tt, as = "text")
-#   out <- fromJSON(res, simplifyVector = FALSE)
-#   class(res) <- "ie_organizations"
-#   return( out )
 }

@@ -14,7 +14,7 @@
 #' @return Details on lobbying.
 #' @export
 #' @examples \dontrun{
-#' ie_lobbying(amount='<|50', year='2010')
+#' ie_lobbying(registrant_ft='Patton Boggs', year=2012, per_page=1)
 #' }
 ie_lobbying <-  function(
     amount = NULL,
@@ -27,7 +27,7 @@ ie_lobbying <-  function(
     transaction_type = NULL,
     year = NULL,
     page = NULL,
-    per_page = NULL,
+    per_page = NULL, return='table',
     key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
     ...) 
 {
@@ -39,8 +39,5 @@ ie_lobbying <-  function(
   tt <- GET(url, query=args, ...)
   stop_for_status(tt)
   assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
-  out <- content(tt, as = "text")
-  res <- fromJSON(out, simplifyVector = FALSE)
-  class(res) <- "ie_lobbying"
-  return( res )
+  return_obj(return, tt)
 }

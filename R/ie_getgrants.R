@@ -12,7 +12,7 @@
 #' @return Details on federal grants.
 #' @export
 #' @examples \dontrun{
-#' ie_grants(fiscal_year='2006')
+#' ie_grants(agency_ft='Agency For International Development', fiscal_year=2012, per_page=1)
 #' }
 ie_grants <-  function(
     agency_ft = NULL,
@@ -23,7 +23,7 @@ ie_grants <-  function(
     recipient_state = NULL,
     recipient_type = NULL,
     page = NULL,
-    per_page = NULL,
+    per_page = NULL,  return='table',
     key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
     ...) 
 {
@@ -35,8 +35,5 @@ ie_grants <-  function(
   tt <- GET(url, query=args, ...)
   stop_for_status(tt)
   assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
-  out <- content(tt, as = "text")
-  res <- fromJSON(out, simplifyVector = FALSE)
-  class(res) <- "ie_grants"
-  return( res )
+  return_obj(return, tt)
 }

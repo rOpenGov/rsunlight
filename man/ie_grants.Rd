@@ -5,7 +5,7 @@
 \usage{
 ie_grants(agency_ft = NULL, amount_total = NULL, assistance_type = NULL,
   fiscal_year = NULL, recipient_ft = NULL, recipient_state = NULL,
-  recipient_type = NULL, page = NULL, per_page = NULL,
+  recipient_type = NULL, page = NULL, per_page = NULL, return = "table",
   key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")), ...)
 }
@@ -18,6 +18,10 @@ The maximum number of records per page is 100,000.}
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
 \item{...}{Optional additional curl options (debugging tools mostly)}
+
+\item{return}{(character) One of table (default), list, or response (httr response object).
+When table is requested, the default, a table is not always returned, but is returned almost
+always. You can then make a table yourself if you like.}
 
 \item{agency_ft}{Full-text search on the reported name of the federal agency awarding the grant.}
 
@@ -41,7 +45,7 @@ Get federal grant details
 }
 \examples{
 \dontrun{
-ie_grants(fiscal_year='2006')
+ie_grants(agency_ft='Agency For International Development', fiscal_year=2012, per_page=1)
 }
 }
 

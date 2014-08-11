@@ -48,7 +48,7 @@
 #' }
 
 ie_politicians <- function(method = NULL, entity_id = NULL, cycle = NULL, limit = NULL,
-  page = NULL, per_page = NULL,
+  page = NULL, per_page = NULL, return='table',
   key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
   ...)
 {
@@ -71,8 +71,5 @@ ie_politicians <- function(method = NULL, entity_id = NULL, cycle = NULL, limit 
   tt <- GET(url, query=args, ...)
   stop_for_status(tt)
   assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
-  res <- content(tt, as = "text")
-  out <- fromJSON(res, simplifyVector = FALSE)
-  class(res) <- "ie_politicians"
-  return( out )
+  return_obj(return, tt)
 }
