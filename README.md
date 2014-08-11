@@ -1,7 +1,8 @@
 rsunlight
 ======
 
-[![Build Status](https://api.travis-ci.org/rOpenGov/rsunlight.png)](https://travis-ci.org/rOpenGov/rsunlight)
+Linux: [![Build Status](https://api.travis-ci.org/rOpenGov/rsunlight.png)](https://travis-ci.org/rOpenGov/rsunlight)
+Windows: [![Build status](https://ci.appveyor.com/api/projects/status/ytc2qdo3u2t3ltm6/branch/master)](https://ci.appveyor.com/api/projects/status/ytc2qdo3u2t3ltm6/branch/master)
 
 + Maintainer: Scott Chamberlain
 + License: [MIT](http://creativecommons.org/publicdomain/zero/1.0/)
