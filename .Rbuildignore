@@ -4,3 +4,4 @@ inst/vign
 .travis.yml
 .gitignore
 man-roxygen/
+^appveyor\.yml$
