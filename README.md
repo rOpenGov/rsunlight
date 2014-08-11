@@ -64,42 +64,57 @@ library("rsunlight")
 ### Get districts for a latitude/longitude.
 
 ```coffee
-(out <- cg_getdistrictlatlong(latitude = 35.778788, longitude = -78.787805))
+(out <- cg_districts(latitude = 35.778788, longitude = -78.787805))
 ```
 
 ```coffee
-$districts
-$districts[[1]]
-$districts[[1]]$district
-$districts[[1]]$district$state
-[1] "NC"
+$results
+  state district
+1    NC        2
 
-$districts[[1]]$district$number
-[1] "2"
+$count
+[1] 1
 ```
 
 ### Search congress people and senate members.
 
 ```coffee
-out <- cg_getlegislatorsearch(name = 'Reed')
-out$results[[1]]$result$legislator[1:5]
+out <- cg_legislators(last_name = 'Reed')
 ```
 
 ```coffee
-$website
-[1] "http://reed.house.gov"
+$results
+  bioguide_id   birthday chamber                               contact_form    crp_id district
+1     R000585 1971-11-18   house https://reed.house.gov/contact-me/email-me N00030949       23
+2     R000122 1949-11-12  senate        http://www.reed.senate.gov/contact/ N00000362       NA
+      facebook_id          fax              fec_ids first_name gender govtrack_id icpsr_id in_office
+1 102449199835273 202-226-6599            H0NY29054        Tom      M      412393    21101      TRUE
+2 213866375370646 202-224-4680 S6RI00163, H0RI02071       John      M      300081    29142      TRUE
+  last_name middle_name name_suffix nickname                  oc_email
+1      Reed          W.          II     <NA> Rep.Reed@opencongress.org
+2      Reed          F.        <NA>     Jack Sen.Reed@opencongress.org
+                                  ocd_id                               office party        phone state
+1 ocd-division/country:us/state:ny/cd:23 1504 Longworth House Office Building     R 202-225-3161    NY
+2       ocd-division/country:us/state:ri      728 Hart Senate Office Building     D 202-224-4642    RI
+    state_name   term_end term_start thomas_id title  twitter_id votesmart_id                    website
+1     New York 2015-01-03 2013-01-03     01982   Rep  RepTomReed       127046      http://reed.house.gov
+2 Rhode Island 2015-01-03 2009-01-06     00949   Sen SenJackReed        27060 http://www.reed.senate.gov
+          youtube_id lis_id senate_class state_rank
+1 CongressmanTomReed   <NA>           NA       <NA>
+2        SenatorReed   S259            2     senior
 
-$fax
-[1] "202-226-6599"
+$count
+[1] 2
 
-$govtrack_id
-[1] "412393"
+$page
+$page$count
+[1] 2
 
-$firstname
-[1] "Tom"
+$page$per_page
+[1] 20
 
-$chamber
-[1] "house"
+$page$page
+[1] 1
 ```
 
 ### Find the popularity of a phrase over a period of time.
@@ -158,26 +173,18 @@ _note: as you can see this is not actually interactive, but when you make it, it
 
 ![](inst/img/rcharts_plot.png)
 
-### Return the top contributoring organizations
+### Return the top contributing organizations
 
 Ranked by total dollars given. An organization's giving is broken down into money given directly (by the organization's PAC) versus money given by individuals employed by or associated with the organization.
 
 ```coffee
-out <- ts_aggregatetopcontribs(id = '85ab2e74589a414495d18cc7a9233981')
-library(plyr)
-ldply(out, data.frame)
+ie_industries(method='top_ind', limit=4)
 ```
 
 ```coffee
-   employee_amount total_amount total_count                                     name direct_count employee_count                               id direct_amount
-1         64000.00    101300.00          79                         Akin, Gump et al           16             63 105dcfc8c9384875a099af230dad9917      37300.00
-2          3500.00     95000.00          30 American Fedn of St/Cnty/Munic Employees           26              4 fb702029157e4c7c887172eba71c66c5      91500.00
-3                0     91600.00          49                National Assn of Realtors           49              0 bb98402bd4d3471cad392a671ecd733a      91600.00
-4                0     85000.00          32                      United Auto Workers           32              0 4d3167b97c9f48deb433aad57bb0ee44      85000.00
-5                0     83500.00          38                  National Education Assn           38              0 1b8fea7e453d4e75841eac48ff9df550      83500.00
-6                0     82500.00          23                Sheet Metal Workers Union           23              0 425be85642b24cc2bc3d8a0bb3c7bc92      82500.00
-7                0     77500.00          19   Intl Brotherhood of Electrical Workers           19              0 b53b4ad137d743a996f4d7467700fc88      77500.00
-8                0     77000.00          19                          Teamsters Union           19              0 f89c8e3ab2b44f72971f91b764868231      77000.00
-9                0     76000.00          36         National Assn of Letter Carriers           36              0 390767dc6b4b491ca775b1bdf8a36eea      76000.00
-10               0     74600.00          22               Plumbers/Pipefitters Union           22              0 c869c8e293614e10960b2e77f5eabecd      74600.00
+count        amount                               id should_show_entity                   name
+1 14919818 3825359507.21 cdb3f500a3f74179bb4a5eb8b2932fa6               TRUE                UNKNOWN
+2  3600761 2787678962.95 f50cf984a2e3477c8167d32e2b14e052               TRUE      LAWYERS/LAW FIRMS
+3   329906 1717649914.58 9cac88377c3b400e89c2d6762e3f28f6               TRUE CANDIDATE SELF-FINANCE
+4  1386613 1707457092.04 7500030dffe24844aa467a75f7aedfd1               TRUE            REAL ESTATE
 ```
