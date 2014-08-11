@@ -58,7 +58,7 @@
 #'
 #' @examples \donttest{
 #' cg_votes(voter_ids.A000055__exists=TRUE)
-#' cg_votes(voted_at__gte=2013-07-02T4:00:00Z)
+#' cg_votes(voted_at__gte='2013-07-02T4:00:00Z')
 #' }
 
 cg_votes <- function(roll_id=NULL, chamber=NULL, number=NULL, year=NULL, congress=NULL,
@@ -76,12 +76,5 @@ cg_votes <- function(roll_id=NULL, chamber=NULL, number=NULL, year=NULL, congres
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
   assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
-
-  return <- match.arg(return, c('response','list','table','data.frame'))
-  if(return=='response'){ tt } else {
-    out <- content(tt, as = "text")
-    res <- fromJSON(out, simplifyVector = FALSE)
-    class(res) <- "cg_votes"
-    if(return=='list') res else fromJSON(out)
-  }
+  return_obj(return, tt)
 }

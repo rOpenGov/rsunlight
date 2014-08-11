@@ -24,18 +24,15 @@ cg_hearings <- function(committee_id=NULL, occurs_at=NULL, congress=NULL, chambe
 {
   url <- 'https://congress.api.sunlightfoundation.com/hearings'
   args <- suncompact(list(apikey=key, committee_id=committee_id, occurs_at=occurs_at, 
-      congress=congress, chamber=chamber, dc=if(dc) 'true' else 'false', bill_ids=bill_ids, 
+      congress=congress, chamber=chamber, dc=getdc(dc), bill_ids=bill_ids, 
       hearing_type=hearing_type, query=query, per_page=per_page, page=page, fields=fields, order=order))
 
   tt <- GET(url, query=args, ...)
   stop_for_status(tt)
   assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
+  return_obj(return, tt)
+}
 
-  return <- match.arg(return, c('response','list','table','data.frame'))
-  if(return=='response'){ tt } else {
-    out <- content(tt, as = "text")
-    res <- fromJSON(out, simplifyVector = FALSE)
-    class(res) <- "cg_hearings"
-    if(return=='list') res else fromJSON(out)
-  }
+getdc <- function(x){
+  if(is.null(x)) NULL else if(x) 'true' else 'false'
 }

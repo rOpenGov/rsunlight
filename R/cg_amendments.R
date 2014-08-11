@@ -57,12 +57,5 @@ cg_amendments <- function(amendment_id=NULL, amendment_type=NULL, number=NULL, c
   tt <- GET(url, query=args, ...)
   stop_for_status(tt)
   assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
-
-  return <- match.arg(return, c('response','list','table','data.frame'))
-  if(return=='response'){ tt } else {
-    out <- content(tt, as = "text")
-    res <- fromJSON(out, simplifyVector = FALSE)
-    class(res) <- "cg_amendments"
-    if(return=='list') res else fromJSON(out)
-  }
+  return_obj(return, tt)
 }
