@@ -40,6 +40,8 @@
 #' direction is \code{desc}, because it is expected most queries will sort by a date. Any field
 #' which can be used for filtering may be used for sorting. On full-text search endpoints (URLs
 #' ending in \code{/search}), you may sort by score to order by relevancy.
+#' 
+#' @template cg_query
 #'
 #' @details Two parameters can be passed on that vary with vote and/or party plus vote:
 #' \itemize{
@@ -49,8 +51,6 @@
 #'  where [party] is one of 'D', 'R', or 'I', and [vote] is a valid vote as defined above.
 #' }
 #'
-#' @template cg
-#' @template cg_query
 #' @examples \dontrun{
 #' cg_votes(chamber='senate', order='voted_at')
 #' cg_votes(query='guns')
@@ -63,7 +63,7 @@
 
 cg_votes <- function(roll_id=NULL, chamber=NULL, number=NULL, year=NULL, congress=NULL,
   voted_at=NULL, vote_type=NULL, roll_type=NULL, required=NULL, result=NULL, bill_id=NULL,
-  nomination_id=NULL, fields=NULL, page=1, per_page=20, order=NULL,
+  nomination_id=NULL, query=NULL, fields=NULL, page=1, per_page=20, order=NULL,
   key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), return='table',
   callopts=list(), ...)
 {
