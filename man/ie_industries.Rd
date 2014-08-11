@@ -4,7 +4,7 @@
 \title{Organization aggregates: Search for contributions to politicians.}
 \usage{
 ie_industries(method = NULL, entity_id = NULL, cycle = NULL,
-  limit = NULL, page = NULL, per_page = NULL,
+  limit = NULL, page = NULL, per_page = NULL, return = "table",
   key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")), ...)
 }
