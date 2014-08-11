@@ -9,6 +9,8 @@ install:
 
 build_script:
   - travis-tool.sh install_deps
+  - Rscript -e 'install.packages(c("devtools","whisker","yaml","lattice","RCurl","RJSONIO"))'
+  - Rscript -e 'devtools::install_github("ramnathv/rCharts")'
 
 test_script:
   - travis-tool.sh run_tests
