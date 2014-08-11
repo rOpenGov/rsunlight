@@ -19,6 +19,8 @@ cw_phrases(entity_type = NULL, entity_value = NULL, n = NULL,
 \item{page}{The page of results to show. 100 results are shown at a time. To get more than
 100 results, use the page parameter.}
 
+\item{per_page}{Number of records to return. Default: 20. Max: 50.}
+
 \item{sort}{The value on which to sort the results. You have to specify ascending or descending
 (see details), but if you forget, we make it ascending by default (prevents 500 error :)).
 Valid values are 'tfidf' (default) and 'count'.}
