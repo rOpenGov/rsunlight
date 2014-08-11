@@ -25,15 +25,14 @@
 
 ie_earmarks <- function(amount = NULL, bill = NULL, city = NULL, description = NULL, member = NULL, 
   member_party = NULL, member_state = NULL, recipient = NULL, year = NULL, page = NULL, 
-  per_page = NULL, key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-  callopts = list()) 
+  per_page = NULL, key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...) 
 {
   url <- "http://transparencydata.com/api/1.0/earmarks.json"
   args <- suncompact(list(apikey = key, amount = amount, bill = bill, city = city, 
     description = description, member = member, member_party = member_party, 
     member_state = member_state, recipient = recipient, year = year, page = page, 
     per_page = per_page))
-  tt <- GET(url, query=args, callopts)
+  tt <- GET(url, query=args, ...)
   stop_for_status(tt)
   assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
   out <- content(tt, as = "text")

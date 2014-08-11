@@ -60,7 +60,7 @@ ie_contracts <-  function(
     page = NULL,
     per_page = NULL,
     key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-    callopts = list())
+    ...)
 {
   url <- "http://transparencydata.com/api/1.0/contracts.json"
   args <- suncompact(list(apikey = key, agency_id = agency_id,
@@ -72,7 +72,7 @@ ie_contracts <-  function(
     vendor_city = vendor_city, vendor_district = vendor_district, vendor_duns = vendor_duns,
     vendor_name = vendor_name, vendor_parent_duns = vendor_parent_duns, vendor_state = vendor_state,
     vendor_zipcode = vendor_zipcode, page = page, per_page = per_page))
-  tt <- GET(url, query=args, callopts)
+  tt <- GET(url, query=args, ...)
   stop_for_status(tt)
   assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
   out <- content(tt, as = "text")

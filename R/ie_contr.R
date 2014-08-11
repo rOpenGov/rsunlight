@@ -48,7 +48,7 @@ ie_contr <-  function(
     page = NULL,
     per_page = NULL,
     key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-    callopts = list()) 
+    ...) 
 {
   url <- "http://transparencydata.com/api/1.0/contributions.json"
   args <- suncompact(list(apikey = key, amount = amount,
@@ -56,11 +56,11 @@ ie_contr <-  function(
     date = date, for_against = for_against, organization_ft = organization_ft,
     recipient_ft = recipient_ft, recipient_state = recipient_state, seat = seat,
     transaction_namespace = transaction_namespace, page = page, per_page = per_page))
-  tt <- GET(url, query=args, callopts)
+  tt <- GET(url, query=args, ...)
   stop_for_status(tt)
   assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
   out <- content(tt, as = "text")
   res <- fromJSON(out, simplifyVector = FALSE)
-  class(res) <- "ie_contributions"
+  class(res) <- "ie_contr"
   return( res )
 }

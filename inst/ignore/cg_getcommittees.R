@@ -1,5 +1,5 @@
 #' Gets details (subcommittees + membership) for a committee by id.
-#' 
+#'
 #' @import httr
 #' @template cg
 #' @param id committee id (eg. JSPR)
@@ -10,7 +10,7 @@
 #' }
 cg_getcommittees <-  function(id = NULL,
     key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-    callopts = list()) 
+    callopts = list())
 {
   url = "http://services.sunlightlabs.com/api/committees.get.json"
   args <- suncompact(list(apikey = key, id = id))

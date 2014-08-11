@@ -9,3 +9,4 @@
 #' @param entity_value The value of the entity given in entity_type. Formats are 
 #'    as follows: date: 2011-11-09; month: 201111; state: NY; 
 #'    legislator (bioguide): L000551
+
