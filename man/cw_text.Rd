@@ -7,9 +7,9 @@ of a word or phrase.}
 cw_text(phrase = NULL, title = NULL, date = NULL, start_date = NULL,
   end_date = NULL, chamber = NULL, state = NULL, party = NULL,
   bioguide_id = NULL, congress = NULL, session = NULL, cr_pages = NULL,
-  volume = NULL, page = NULL, sort = NULL,
+  volume = NULL, page = NULL, sort = NULL, return = "table",
   key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), callopts = list())
+  stop("need an API key for Sunlight Labs")), ...)
 }
 \arguments{
 \item{phrase}{Phrase to search.}
@@ -30,7 +30,9 @@ cw_text(phrase = NULL, title = NULL, date = NULL, start_date = NULL,
 
 \item{key}{Your SunlightLabs API key; loads from .Rprofile.}
 
-\item{callopts}{Further curl options (debugging tools mostly)}
+\item{...}{Further curl options (debugging tools mostly)}
+
+\item{return}{(character) One of table (default), list, or response (httr response object).}
 
 \item{title}{Title of page to search.}
 
@@ -83,8 +85,9 @@ cw_text(phrase='I would have voted', start_date='2011-09-05', end_date='2011-09-
    chamber='House')
 cw_text(title='personal explanation', start_date='2011-09-05', end_date='2011-09-16')
 
+library('plyr')
 out <- cw_text(phrase='climate change', start_date='2010-01-01', end_date='2012-12-01')
-out2 <- ldply(2:13, function(x) cw_text(phrase='climate change', start_date='2010-01-01',
+out2 <- ldply(2:6, function(x) cw_text(phrase='climate change', start_date='2010-01-01',
    end_date='2012-12-01', page=x))
 alldat <- rbind(out, out2)
 str(alldat)

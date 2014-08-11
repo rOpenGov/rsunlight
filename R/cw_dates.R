@@ -39,9 +39,8 @@ cw_dates <- function(phrase = NULL, title = NULL, date = NULL, start_date = NULL
   end_date = NULL, chamber = NULL, state = NULL, party = NULL, bioguide_id = NULL,
   congress = NULL, session = NULL, cr_pages = NULL, volume = NULL, page_id = NULL,
   n = NULL, mincount = NULL, granularity = NULL, percentages = 'true', entity_type = NULL,
-  entity_value = NULL,
-  key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-  callopts = list())
+  entity_value = NULL, return='table',
+  key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...)
 {
   url = "http://capitolwords.org/api/dates.json"
   args <- suncompact(list(apikey = key, phrase = phrase, title = title,
@@ -51,10 +50,8 @@ cw_dates <- function(phrase = NULL, title = NULL, date = NULL, start_date = NULL
         session = session, cr_pages = cr_pages, volume = volume,
         page_id = page_id, n = n, mincount = mincount, granularity = granularity,
         percentages = percentages, entity_type=entity_type, entity_value=entity_value))
-  tt <- GET(url, query=args, callopts)
+  tt <- GET(url, query=args, ...)
   stop_for_status(tt)
-  out <- content(tt, as = "text")
-  output <- fromJSON(out, simplifyVector = FALSE)
-  df <- rbind.fill(lapply(output[[1]], data.frame))
-  return( df )
+  tmp <- return_obj(return, tt)
+  if(return=='response') tmp else tmp$results
 }

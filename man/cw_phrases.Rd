@@ -4,8 +4,9 @@
 \title{Capitol words phrases.json method. List the top phrases for a facet.}
 \usage{
 cw_phrases(entity_type = NULL, entity_value = NULL, n = NULL,
-  page = NULL, sort = NULL, key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), callopts = list())
+  page = NULL, per_page = NULL, sort = NULL, return = "table",
+  key = getOption("SunlightLabsKey",
+  stop("need an API key for Sunlight Labs")), ...)
 }
 \arguments{
 \item{entity_type}{The entity type to get top phrases for. One of 'date', 'month', 'state', or
@@ -24,7 +25,9 @@ Valid values are 'tfidf' (default) and 'count'.}
 
 \item{key}{Your SunlightLabs API key; loads from .Rprofile.}
 
-\item{callopts}{Further curl options (debugging tools mostly)}
+\item{...}{Further curl options (debugging tools mostly)}
+
+\item{return}{(character) One of table (default), list, or response (httr response object).}
 }
 \value{
 Data frame of observations by date.
@@ -37,6 +40,9 @@ Capitol words phrases.json method. List the top phrases for a facet.
 cw_phrases(entity_type='month', entity_value=201007)
 cw_phrases(entity_type='state', entity_value='NV')
 cw_phrases(entity_type='legislator', entity_value='L000551')
+
+library('httr')
+head(cw_phrases(entity_type='month', entity_value=201007, config=verbose()))
 }
 }
 

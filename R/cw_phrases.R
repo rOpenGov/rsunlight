@@ -12,16 +12,20 @@
 #' (see details), but if you forget, we make it ascending by default (prevents 500 error :)). 
 #' Valid values are 'tfidf' (default) and 'count'. 
 #' @param key Your SunlightLabs API key; loads from .Rprofile.
-#' @param callopts Further curl options (debugging tools mostly)
+#' @param ... Further curl options (debugging tools mostly)
+#' @param return (character) One of table (default), list, or response (httr response object).
 #' @return Data frame of observations by date.
 #' @examples \dontrun{
 #' cw_phrases(entity_type='month', entity_value=201007)
 #' cw_phrases(entity_type='state', entity_value='NV')
 #' cw_phrases(entity_type='legislator', entity_value='L000551')
+#' 
+#' library('httr')
+#' head(cw_phrases(entity_type='month', entity_value=201007, config=verbose()))
 #' }
-cw_phrases <- function(entity_type = NULL, entity_value = NULL, n = NULL, page = NULL, sort = NULL,
-  key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-  callopts = list())
+cw_phrases <- function(entity_type = NULL, entity_value = NULL, n = NULL, page = NULL, 
+  per_page = NULL, sort = NULL, return='table',
+  key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...)
 {
   url = "http://capitolwords.org/api/phrases.json"
   if(!is.null(sort)){
@@ -29,11 +33,8 @@ cw_phrases <- function(entity_type = NULL, entity_value = NULL, n = NULL, page =
       sort <- paste(sort, 'asc')
   }
   args <- suncompact(list(apikey = key, entity_type=entity_type, entity_value=entity_value, 
-                          n=n, page=page, sort=sort))
-  tt <- GET(url, query=args, callopts)
+                          n=n, page=page, per_page=per_page, sort=sort))
+  tt <- GET(url, query=args, ...)
   stop_for_status(tt)
-  out <- content(tt, as = "text")
-  output <- fromJSON(out, simplifyVector = FALSE)
-  df <- rbind.fill(lapply(output, data.frame))
-  return( df )
+  return_obj(return, tt)
 }

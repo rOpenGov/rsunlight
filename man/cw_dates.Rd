@@ -9,8 +9,9 @@ cw_dates(phrase = NULL, title = NULL, date = NULL, start_date = NULL,
   bioguide_id = NULL, congress = NULL, session = NULL, cr_pages = NULL,
   volume = NULL, page_id = NULL, n = NULL, mincount = NULL,
   granularity = NULL, percentages = "true", entity_type = NULL,
-  entity_value = NULL, key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), callopts = list())
+  entity_value = NULL, return = "table",
+  key = getOption("SunlightLabsKey",
+  stop("need an API key for Sunlight Labs")), ...)
 }
 \arguments{
 \item{phrase}{Phrase to search.}
@@ -31,7 +32,9 @@ cw_dates(phrase = NULL, title = NULL, date = NULL, start_date = NULL,
 
 \item{key}{Your SunlightLabs API key; loads from .Rprofile.}
 
-\item{callopts}{Further curl options (debugging tools mostly)}
+\item{...}{Further curl options (debugging tools mostly)}
+
+\item{return}{(character) One of table (default), list, or response (httr response object).}
 
 \item{title}{Title of page to search.}
 

@@ -38,8 +38,9 @@
 #'    chamber='House')
 #' cw_text(title='personal explanation', start_date='2011-09-05', end_date='2011-09-16')
 #'
+#' library('plyr')
 #' out <- cw_text(phrase='climate change', start_date='2010-01-01', end_date='2012-12-01')
-#' out2 <- ldply(2:13, function(x) cw_text(phrase='climate change', start_date='2010-01-01', 
+#' out2 <- ldply(2:6, function(x) cw_text(phrase='climate change', start_date='2010-01-01', 
 #'    end_date='2012-12-01', page=x))
 #' alldat <- rbind(out, out2)
 #' str(alldat)
@@ -49,9 +50,8 @@
 
 cw_text <- function(phrase=NULL, title=NULL, date = NULL, start_date=NULL, end_date=NULL,
   chamber=NULL, state=NULL, party=NULL, bioguide_id=NULL, congress=NULL,
-  session=NULL, cr_pages=NULL, volume=NULL, page=NULL, sort=NULL,
-  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-  callopts=list())
+  session=NULL, cr_pages=NULL, volume=NULL, page=NULL, sort=NULL, return='table',
+  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...)
 {
   url = "http://capitolwords.org/api/text.json"
   if(!is.null(sort)){
@@ -62,19 +62,8 @@ cw_text <- function(phrase=NULL, title=NULL, date = NULL, start_date=NULL, end_d
       date = date, end_date=end_date, chamber=chamber, state=state, party=party,
       bioguide_id=bioguide_id, congress=congress, session=session, cr_pages=cr_pages, volume=volume,
       page=page, sort=sort))
-  out <- GET(url, query=args, callopts)
+  out <- GET(url, query=args, ...)
   stop_for_status(out)
-  tt <- content(out, as = "text")
-  output <- fromJSON(tt, simplifyVector = FALSE)
-  message(sprintf('%s records found, %s returned', output$num_found, length(output[[2]])))
-  data <- lapply(output[[2]], function(x){
-     x[sapply(x, is.null)] <- "none"
-     lapply(x, function(x){
-       if(length(x)>1){
-         paste0(x, collapse=" - ")
-       } else { x }
-      })
-#      data.frame(x)
-  })
-#   do.call(rbind.fill, data)
+  tmp <- return_obj(return, out)
+  if(return=='response') tmp else tmp$results
 }

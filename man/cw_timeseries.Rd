@@ -7,8 +7,8 @@ cw_timeseries(phrase = NULL, date = NULL, start_date = NULL,
   end_date = NULL, chamber = NULL, state = NULL, party = NULL,
   bioguide_id = NULL, mincount = NULL, percentages = NULL,
   granularity = "day", entity_type = NULL, entity_value = NULL,
-  key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), callopts = list())
+  return = "table", key = getOption("SunlightLabsKey",
+  stop("need an API key for Sunlight Labs")), ...)
 }
 \arguments{
 \item{phrase}{Phrase to search.}
@@ -29,7 +29,9 @@ cw_timeseries(phrase = NULL, date = NULL, start_date = NULL,
 
 \item{key}{Your SunlightLabs API key; loads from .Rprofile.}
 
-\item{callopts}{Further curl options (debugging tools mostly)}
+\item{...}{Further curl options (debugging tools mostly)}
+
+\item{return}{(character) One of table (default), list, or response (httr response object).}
 
 \item{mincount}{Only return results where mentions are at or above the
 supplied threshold.}
@@ -78,7 +80,7 @@ cw_timeseries(phrase='united states', start_date='2009-01-01',
 end_date='2009-04-30', granularity='month')
 
 # Plot data
-library(ggplot2)
+library('ggplot2')
 dat <- cw_timeseries(phrase='climate change')
 ggplot(dat, aes(day, count)) +
    geom_line() +

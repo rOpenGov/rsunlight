@@ -31,7 +31,7 @@
 #' end_date='2009-04-30', granularity='month')
 #'
 #' # Plot data
-#' library(ggplot2)
+#' library('ggplot2')
 #' dat <- cw_timeseries(phrase='climate change')
 #' ggplot(dat, aes(day, count)) +
 #'    geom_line() +
@@ -65,9 +65,8 @@
 
 cw_timeseries <- function(phrase=NULL, date = NULL, start_date=NULL, end_date=NULL,
   chamber=NULL, state=NULL, party=NULL, bioguide_id=NULL, mincount=NULL,
-  percentages=NULL, granularity='day', entity_type=NULL, entity_value=NULL,
-  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-  callopts=list())
+  percentages=NULL, granularity='day', entity_type=NULL, entity_value=NULL, return='table',
+  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...)
 {
   splitt<-function(x) paste(str_sub(x, 1, 4), "-", str_sub(x, 5, 6), sep="")
   url = "http://capitolwords.org/api/dates.json"
@@ -76,14 +75,14 @@ cw_timeseries <- function(phrase=NULL, date = NULL, start_date=NULL, end_date=NU
                        party=party, bioguide_id=bioguide_id, mincount=mincount,
                        percentages=percentages, granularity=granularity,
                        entity_type=entity_type, entity_value=entity_value))
-  tt <- GET(url, query=args, callopts)
+  tt <- GET(url, query=args, ...)
   stop_for_status(tt)
-  out <- content(tt, as = "text")
-  output <- fromJSON(out, simplifyVector = FALSE)
-  message(sprintf('%s records returned', length(output[[1]])))
-  data <- do.call(rbind.fill, lapply(output[[1]], function(x) data.frame(x)))
-  if(granularity=='day'){ data$day <- as.Date(data$day) } else
-    if(granularity=='month'){ data$month <- as.Date(sprintf("%s-01", sapply(data$month, splitt))) } else
-      if(granularity=='year'){ data$year <- as.Date(sprintf("%s-01-01", data$year)) }
-  data
+  tmp <- return_obj(return, tt)
+  if(return %in% c('response','list')){ tmp } else { 
+    data <- tmp$results
+    if(granularity=='day'){ data$day <- as.Date(data$day) } else
+      if(granularity=='month'){ data$month <- as.Date(sprintf("%s-01", sapply(data$month, splitt))) } else
+        if(granularity=='year'){ data$year <- as.Date(sprintf("%s-01-01", data$year)) }
+    data
+  }
 }
