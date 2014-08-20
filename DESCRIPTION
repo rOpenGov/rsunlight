@@ -3,7 +3,7 @@ Description: Interface to the various Sunlight Labs APIs
     for government data.
     rCharts - https://github.com/ramnathv/rCharts
 Title: Interface to Sunlight Labs APIs.
-Version: 0.2.9.99
+Version: 0.3.0
 Date: 2014-08-19
 License: MIT + file LICENSE
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
