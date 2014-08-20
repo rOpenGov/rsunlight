@@ -61,4 +61,5 @@ out <- cg_getlegislator(party = 'D')
 sunlight_tocsv(out, "~/myfile.csv")
 }
 }
+\keyword{internal}
 
