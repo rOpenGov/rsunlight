@@ -2,4 +2,4 @@ R CMD CHECK passed on my local OS X install on R 3.1.1 and R Under development (
 
 I have read and agree to the the CRAN policies at http://cran.r-project.org/web/packages/policies.html.
 
-I updated the DESCRIPTION 
+I updated the Description field in the DESCRIPTION file with more detailed information on what the package does.
