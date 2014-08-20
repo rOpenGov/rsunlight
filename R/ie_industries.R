@@ -17,7 +17,7 @@
 #' ie_industries(method='top_ind', limit=4)
 #'
 #' # Top organizations in an industry by dollars contributed
-#' ie_industries(method='top_org', entity_id='165d820dd48441e1befdc47f3fa3d236', limit=1)
+#' ie_industries(method='top_org', entity_id='165d820dd48441e1befdc47f3fa3d236')
 #' }
 
 ie_industries <- function(method = NULL, entity_id = NULL, cycle = NULL, limit = NULL,

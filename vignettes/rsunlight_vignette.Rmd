@@ -10,11 +10,9 @@ rsunlight vignette - Interface to Sunlight Labs APIs.
 
 `rsunlight` is an R package to search and retrieve data from the Sunlight Labs APIs. 
 
-
-Returned objects from functions are simple lists. That is, you likely will want to take output objects and make data.frames, vectors, matrices, etc. In future versions of rsunlight, I will return data.frame's when possible as those are easy to work with in R for beginners, though advanced users probably like lists more (I'm guessing, or just the raw JSON, eh)?
+Returned objects from functions are simple lists. That is, you likely will want to take output objects and make data.frames, vectors, matrices, etc. In future versions of rsunlight, I will return data.frame's when possible as those are easy to work with in R for beginners, though advanced users may prefer lists or raw responses from the API with lots of info, including header, etc.
 
 ********************
-
 
 
 
@@ -23,10 +21,9 @@ Returned objects from functions are simple lists. That is, you likely will want 
 
 ```r
 install.packages("devtools")
-library(devtools)
+library('devtools')
 install_github("rsunlight", "ropengov")
 ```
-
 
 ********************
 
@@ -34,9 +31,8 @@ install_github("rsunlight", "ropengov")
 
 
 ```r
-library(rsunlight)
+library('rsunlight')
 ```
-
 
 ********************
 
@@ -44,50 +40,33 @@ library(rsunlight)
 
 
 ```r
-out <- cg_getcommittees(id = "JSPR")
-out$committee$members[[1]]$legislator[1:5]
+out <- cg_committees(id = 'JSPR')
+head(out$results)
 ```
 
 ```
-## $website
-## [1] "http://www.alexander.senate.gov"
-## 
-## $fax
-## [1] "202-228-3398"
-## 
-## $govtrack_id
-## [1] "300002"
-## 
-## $firstname
-## [1] "Lamar"
-## 
-## $chamber
-## [1] "senate"
+##   chamber committee_id
+## 1  senate       SSGA16
+## 2  senate       SSGA15
+## 3  senate       SSGA17
+## 4  senate       SSGA01
+## 5  senate       SSFR13
+## 6  senate       SSFR12
+##                                                                                                                          name
+## 1                                              the Efficiency and Effectiveness of Federal Programs and the Federal Workforce
+## 2                                                                                         Financial and Contracting Oversight
+## 3                                             Emergency Management, Intergovernmental Relations, and the District of Columbia
+## 4                                                                                    Permanent Subcommittee on Investigations
+## 5                              International Operations and Organizations, Human Rights, Democracy, and Global Women's Issues
+## 6 International Development and Foreign Assistance, Economic Affairs, International Environmental Protection, and Peace Corps
+##   parent_committee_id subcommittee
+## 1                SSGA         TRUE
+## 2                SSGA         TRUE
+## 3                SSGA         TRUE
+## 4                SSGA         TRUE
+## 5                SSFR         TRUE
+## 6                SSFR         TRUE
 ```
-
-
-********************
-
-#### Gets a list of all committees that a member serves on, including subcommittes.
-
-
-```r
-out <- cg_getcommitteesallleg(bioguide_id = "S000148")
-out$committees[[1]]
-```
-
-```
-## $committee
-## $committee$chamber
-## [1] "Senate"
-## 
-## $committee$id
-## [1] "SSRA"
-## 
-## $committee$name
-## [1] "Senate Committee on Rules and Administration"
-```
-
 
 ********************
 
@@ -95,20 +74,17 @@ out$committees[[1]]
 
 
 ```r
-out <- cg_getdistrictlatlong(latitude = 35.778788, longitude = -78.787805)
-out$districts
+cg_districts(latitude = 35.778788, longitude = -78.787805)
 ```
 
 ```
-## [[1]]
-## [[1]]$district
-## [[1]]$district$state
-## [1] "NC"
+## $results
+##   state district
+## 1    NC        2
 ## 
-## [[1]]$district$number
-## [1] "2"
+## $count
+## [1] 1
 ```
-
 
 ********************
 
@@ -116,103 +92,92 @@ out$districts
 
 
 ```r
-out <- cg_getdistrictzip(zip = 27511)
-out$districts
+cg_districts(zip = 27511)
 ```
 
 ```
-## [[1]]
-## [[1]]$district
-## [[1]]$district$state
-## [1] "NC"
+## $results
+##   state district
+## 1    NC        2
+## 2    NC        4
+## 3    NC       13
 ## 
-## [[1]]$district$number
-## [1] "2"
-## 
-## 
-## 
-## [[2]]
-## [[2]]$district
-## [[2]]$district$state
-## [1] "NC"
-## 
-## [[2]]$district$number
-## [1] "4"
-## 
-## 
-## 
-## [[3]]
-## [[3]]$district
-## [[3]]$district$state
-## [1] "NC"
-## 
-## [[3]]$district$number
-## [1] "13"
+## $count
+## [1] 3
 ```
-
 
 ********************
 
-#### Search congress people and senate members.
+#### Search politicians by name
 
 
 ```r
-out <- cg_getlegislatorsearch(name = "Reed")
-out$results[[1]]$result$legislator[1:5]
+out <- cg_legislators(last_name = 'Reed')
+head(out$results)
 ```
 
 ```
-## $website
-## [1] "http://reed.house.gov"
-## 
-## $fax
-## [1] "202-226-6599"
-## 
-## $govtrack_id
-## [1] "412393"
-## 
-## $firstname
-## [1] "Tom"
-## 
-## $chamber
-## [1] "house"
+##   bioguide_id   birthday chamber
+## 1     R000585 1971-11-18   house
+## 2     R000122 1949-11-12  senate
+##                                 contact_form    crp_id district
+## 1 https://reed.house.gov/contact-me/email-me N00030949       23
+## 2        http://www.reed.senate.gov/contact/ N00000362       NA
+##       facebook_id          fax              fec_ids first_name gender
+## 1 102449199835273 202-226-6599            H0NY29054        Tom      M
+## 2 213866375370646 202-224-4680 S6RI00163, H0RI02071       John      M
+##   govtrack_id icpsr_id in_office last_name middle_name name_suffix
+## 1      412393    21101      TRUE      Reed          W.          II
+## 2      300081    29142      TRUE      Reed          F.        <NA>
+##   nickname                  oc_email
+## 1     <NA> Rep.Reed@opencongress.org
+## 2     Jack Sen.Reed@opencongress.org
+##                                   ocd_id
+## 1 ocd-division/country:us/state:ny/cd:23
+## 2       ocd-division/country:us/state:ri
+##                                 office party        phone state
+## 1 1504 Longworth House Office Building     R 202-225-3161    NY
+## 2      728 Hart Senate Office Building     D 202-224-4642    RI
+##     state_name   term_end term_start thomas_id title  twitter_id
+## 1     New York 2015-01-03 2013-01-03     01982   Rep  RepTomReed
+## 2 Rhode Island 2015-01-03 2009-01-06     00949   Sen SenJackReed
+##   votesmart_id                    website         youtube_id lis_id
+## 1       127046      http://reed.house.gov CongressmanTomReed   <NA>
+## 2        27060 http://www.reed.senate.gov        SenatorReed   S259
+##   senate_class state_rank
+## 1           NA       <NA>
+## 2            2     senior
 ```
-
 
 ********************
 
-#### Search congress people and senate members for a zip code.
+#### Search politicians by zip code
+
+And get their names and Twitter handles
 
 
 ```r
-out <- cg_legislatorsallforzip(zip = 77006)
-library(plyr)
-ldply(out$legislators, function(x) data.frame(x$legislator[c("firstname", "lastname")]))
+out <- cg_legislators(zip = 77006)
+out$results[,c('last_name','first_name','twitter_id')]
 ```
 
 ```
-##   firstname    lastname
-## 1    Sheila Jackson Lee
-## 2       Ted        Cruz
-## 3      John      Cornyn
-## 4       Ted         Poe
+##     last_name first_name     twitter_id
+## 1        Cruz        Ted     SenTedCruz
+## 2         Poe        Ted    JudgeTedPoe
+## 3 Jackson Lee     Sheila JacksonLeeTX18
+## 4      Cornyn       John     JohnCornyn
 ```
-
 
 ********************
 
-#### Find the popularity of a phrase over a period of time.
+#### Popularity of a phrase through time.
 
-##### Get a list of how many times the phrase "united states" appears in the Congressional Record in each month between January and June, 2010:
+Get a list of how many times the phrase "united states" appears in the Congressional Record in each month between January and June, 2010:
 
 
 ```r
-cw_timeseries(phrase = "united states", start_date = "2009-01-01", end_date = "2009-04-30", 
-    granularity = "month")
-```
-
-```
-## 4 records returned
+cw_timeseries(phrase='united states', start_date='2009-01-01', end_date='2009-04-30', granularity='month')
 ```
 
 ```
@@ -223,76 +188,53 @@ cw_timeseries(phrase = "united states", start_date = "2009-01-01", end_date = "2
 ## 4  2967 2009-04-01
 ```
 
-
 ##### Plot data
 
 
 ```r
-library(ggplot2)
-dat <- cw_timeseries(phrase = "climate change")
-```
-
-```
-## 1430 records returned
-```
-
-```r
-ggplot(dat, aes(day, count)) + geom_line() + theme_grey(base_size = 20)
+library('ggplot2')
+dat <- cw_timeseries(phrase='climate change')
+ggplot(dat, aes(day, count)) + 
+  geom_line() + 
+  theme_grey(base_size=20)
 ```
 
 ![plot of chunk cw_timeseries2](figure/cw_timeseries2.png) 
-
 
 ##### Plot more data
 
 
 ```r
-dat_d <- cw_timeseries(phrase = "climate change", party = "D")
-```
-
-```
-## 978 records returned
-```
-
-```r
+dat_d <- cw_timeseries(phrase='climate change', party="D")
 dat_d$party <- rep("D", nrow(dat_d))
-dat_r <- cw_timeseries(phrase = "climate change", party = "R")
-```
-
-```
-## 643 records returned
-```
-
-```r
+dat_r <- cw_timeseries(phrase='climate change', party="R")
 dat_r$party <- rep("R", nrow(dat_r))
 dat_both <- rbind(dat_d, dat_r)
-ggplot(dat_both, aes(day, count, colour = party)) + geom_line() + theme_grey(base_size = 20) + 
-    scale_colour_manual(values = c("blue", "red"))
+ggplot(dat_both, aes(day, count, colour=party)) + 
+  geom_line() + 
+  theme_grey(base_size=20) + 
+  scale_colour_manual(values=c("blue","red"))
 ```
 
 ![plot of chunk cw_timeseries3](figure/cw_timeseries3.png) 
 
-
-#### Interactive charts using rCharts
+#### Interactive charts
 
 Note that the resulting chart opens in a browser, so is not shown in this vignette, but you will see it open in a browser when you run the code.
 
 
 ```r
-dream <- lapply(c("D", "R"), function(x) cw_timeseries(phrase = "i have a dream", 
-    party = x, start_date = "1996-01-01", end_date = "2013-01-01", granularity = "month"))
-df <- merge(dream[[1]], dream[[2]], by = "month", all = TRUE)
+dream <- lapply(c('D','R'), function(x) cw_timeseries(phrase='i have a dream', party=x, start_date='1996-01-01', end_date='2013-01-01', granularity='month'))
+df <- merge(dream[[1]], dream[[2]], by='month', all=TRUE)
 df[is.na(df)] <- 0
-names(df) <- c("date", "D", "R")
+names(df) <- c('date','D','R')
 df$date <- as.character(df$date)
-# df <- ldply(dream, data.frame)
 
-library(rCharts)
+library('rCharts')
 m1 <- mPlot(x = "date", y = c("D", "R"), type = "Line", data = df)
 m1$set(pointSize = 0, lineWidth = 1)
 m1
 ```
-
 
 ********************
 
@@ -300,85 +242,53 @@ m1
 
 
 ```r
-out <- os_billsearch(terms = "agriculture", state = "tx", chamber = "upper")
-lapply(out, "[[", "title")[100:110]
+out <- os_billsearch(terms = 'agriculture', state = 'tx', chamber = 'upper')
+out$title[1:10]
 ```
 
 ```
-## [[1]]
-## [1] "Relating to the sale by the Brazos River Authority of certain property at Possum Kingdom Lake."
-## 
-## [[2]]
-## [1] "Proposing a constitutional amendment providing immediate additional revenue for the state budget by creating the Texas Gaming Commission, and authorizing and regulating the operation of casino games and slot machines by a limited number of licensed operators and certain Indian tribes."
-## 
-## [[3]]
-## [1] "Relating to production requirements for holders of winery permits."
-## 
-## [[4]]
-## [1] "Relating to the use of human remains in the training of search and rescue animals."
-## 
-## [[5]]
-## [1] "Relating to end-of-course assessment instruments administered to public high school students and other measures of secondary-level performance."
-## 
-## [[6]]
-## [1] "Relating to public high school graduation, including curriculum and assessment requirements for graduation and funding in support of certain curriculum authorized for graduation."
-## 
-## [[7]]
-## [1] "Relating to certain residential and other structures and mitigation of loss to those structures resulting from natural catastrophes; providing a criminal penalty."
-## 
-## [[8]]
-## [1] "Recognizing March 28, 2013, as Texas Water Conservation Day at the State Capitol."
-## 
-## [[9]]
-## [1] "Recognizing March 26, 2013, as Lubbock Day at the State Capitol."
-## 
-## [[10]]
-## [1] "In memory of Steve Jones."
-## 
-## [[11]]
-## [1] "Relating to the regulation of dangerous wild animals."
+##  [1] "Relating to authorizing the issuance of revenue bonds to fund capital projects at public institutions of higher education; making an appropriation."
+##  [2] "Relating to authorizing the issuance of revenue bonds to fund capital projects at public institutions of higher education."                         
+##  [3] "Relating to authorizing the issuance of revenue bonds to fund capital projects at public institutions of higher education."                         
+##  [4] "Relating to authorizing the issuance of revenue bonds to fund capital projects at public institutions of higher education."                         
+##  [5] "Relating to authorizing the issuance of revenue bonds to fund capital projects at public institutions of higher education; making an appropriation."
+##  [6] "Relating to access to certain facilities by search and rescue dogs and their handlers; providing a criminal penalty."                               
+##  [7] "Relating to fever tick eradication; creating a penalty."                                                                                            
+##  [8] "Relating to the Texas Military Preparedness Commission and strategic planning regarding military bases and defense installations."                  
+##  [9] "Relating to certain economic development programs administered by the Department of Agriculture."                                                   
+## [10] "Relating to the regulation and practice of veterinary medicine; authorizing a fee."
 ```
-
 
 ********************
 
-#### Search Legislators on OpenStates. 
+#### Search Legislators on OpenStates
 
 
 ```r
-out <- os_legislatorsearch(state = "tx", party = "democratic", active = TRUE)
-out[[1]][1:4]
+out <- os_legislatorsearch(state = 'tx', party = 'democratic', active = TRUE)
+head(out[,c('full_name','state','district')])
 ```
 
 ```
-## $last_name
-## [1] "Israel"
-## 
-## $all_ids
-## $all_ids[[1]]
-## [1] "TXL000475"
-## 
-## 
-## $full_name
-## [1] "Celia Israel"
-## 
-## $id
-## [1] "TXL000475"
+##              full_name state district
+## 1     Armando Martinez    tx       39
+## 2 Ruth Jones McClendon    tx      120
+## 3        Terry Canales    tx       40
+## 4         Joseph Moody    tx       78
+## 5         Joe Deshotel    tx       22
+## 6      Borris L. Miles    tx      146
 ```
-
 
 ********************
 
-#### Search for entities - that is, politicians, individuals, or organizations with the given name
+#### Search for entities
+
+That is, politicians, individuals, or organizations with the given name
 
 
 ```r
-out <- ts_aggregatesearch("Nancy Pelosi")
-out <- lapply(out, function(x) {
-    x[sapply(x, is.null)] <- "none"
-    x
-})
-ldply(out, data.frame)
+out <- ie_entities('Nancy Pelosi')
+out
 ```
 
 ```
@@ -386,60 +296,80 @@ ldply(out, data.frame)
 ## 1          Nancy Pelosi (D)           0           0             0
 ## 2 Nancy Pelosi for Congress           7           0             0
 ##            seat total_received state lobbying_firm count_received party
-## 1 federal:house       14731364    CA          none          10321     D
-## 2          none              0  none         FALSE              0  none
+## 1 federal:house       14731364    CA            NA          10321     D
+## 2          <NA>              0  <NA>         FALSE              0  <NA>
 ##   total_given         type                               id
 ## 1           0   politician 85ab2e74589a414495d18cc7a9233981
 ## 2        7250 organization afb432ec90454c8a83a3113061e7be27
 ##   non_firm_spending is_superpac
-## 1                 0        none
-## 2                 0        none
+## 1                 0          NA
+## 2                 0          NA
 ```
-
 
 ********************
 
-#### Return the top contributoring organizations, ranked by total dollars given. An organization's giving is broken down into money given directly (by the organization's PAC) versus money given by individuals employed by or associated with the organization.
+#### Contributions by industries
+
+Return the top contributoring companies by industry, ranked by total dollars given. The `entity_id` of `ba400a177400497680cac90f678ecb8f` is the identifier for _oil and gas_.
 
 
 ```r
-out <- ts_aggregatetopcontribs(id = "85ab2e74589a414495d18cc7a9233981")
-ldply(out, data.frame)
+ie_industries(method='top_org', entity_id='ba400a177400497680cac90f678ecb8f')
 ```
 
 ```
-##    employee_amount total_amount total_count
-## 1         64000.00    101300.00          79
-## 2          3500.00     95000.00          30
-## 3                0     91600.00          49
-## 4                0     85000.00          32
-## 5                0     83500.00          38
-## 6                0     82500.00          23
-## 7                0     77500.00          19
-## 8                0     77000.00          19
-## 9                0     76000.00          36
-## 10               0     74600.00          22
-##                                        name direct_count employee_count
-## 1                          Akin, Gump et al           16             63
-## 2  American Fedn of St/Cnty/Munic Employees           26              4
-## 3                 National Assn of Realtors           49              0
-## 4                       United Auto Workers           32              0
-## 5                   National Education Assn           38              0
-## 6                 Sheet Metal Workers Union           23              0
-## 7    Intl Brotherhood of Electrical Workers           19              0
-## 8                           Teamsters Union           19              0
-## 9          National Assn of Letter Carriers           36              0
-## 10               Plumbers/Pipefitters Union           22              0
-##                                  id direct_amount
-## 1  105dcfc8c9384875a099af230dad9917      37300.00
-## 2  fb702029157e4c7c887172eba71c66c5      91500.00
-## 3  bb98402bd4d3471cad392a671ecd733a      91600.00
-## 4  4d3167b97c9f48deb433aad57bb0ee44      85000.00
-## 5  1b8fea7e453d4e75841eac48ff9df550      83500.00
-## 6  425be85642b24cc2bc3d8a0bb3c7bc92      82500.00
-## 7  b53b4ad137d743a996f4d7467700fc88      77500.00
-## 8  f89c8e3ab2b44f72971f91b764868231      77000.00
-## 9  390767dc6b4b491ca775b1bdf8a36eea      76000.00
-## 10 c869c8e293614e10960b2e77f5eabecd      74600.00
+##    employee_amount total_amount total_count                         name
+## 1       1686382.70   4198380.29        2767            Chesapeake Energy
+## 2       2736266.00   2788916.00         247              Chief Oil & Gas
+## 3                0   2521532.64         498  TEXAS OIL & GAS ASSOCIATION
+## 4        302130.38   2145832.38        3139                 Marathon Oil
+## 5        832984.00   1574534.00        1074         Occidental Petroleum
+## 6        922226.00   1532870.00        1302                     USX Corp
+## 7       1253908.87   1253908.87         120           Hyperion Resources
+## 8       1107871.62   1107871.62         275           Beecherl Companies
+## 9       1105536.00   1105536.00         664        Oil & Gas Investments
+## 10       750513.24   1025628.79         821 American Petroleum Institute
+##    direct_count employee_count                               id
+## 1          1983            784 4966257e103a45f5b13d901058b0c0be
+## 2            34            213 f2df5e19f0b449beb19c4d3b7f062245
+## 3           498              0 820a996e87254cfbac33884434150ce0
+## 4          2758            381 894b0134033448daa5208aa97455575b
+## 5           815            259 74f871b3928c49d39d004c08aec1e2a2
+## 6           814            488 8e95d7fa12f74aa387b2c880fb20df65
+## 7             0            120 8d348514c5484120b05ee75929650534
+## 8             0            275 5d92d3d625f8422db0d630f2ef9693c7
+## 9             0            664                             <NA>
+## 10          195            626 83bfbee9757c42308f4c7d0598cbdce3
+##    direct_amount
+## 1     2511997.59
+## 2       52650.00
+## 3     2521532.64
+## 4     1843702.00
+## 5      741550.00
+## 6      610644.00
+## 7              0
+## 8              0
+## 9              0
+## 10     275115.55
 ```
 
+
+#### Contributions by a certain amount
+
+
+```r
+out <- ie_contr(recipient_state='al', for_against='for', amount='>|1000000')
+out[,c('recipient_name','amount','contributor_name')]
+```
+
+```
+##          recipient_name     amount                        contributor_name
+## 1             IVEY, KAY 1500000.00                               IVEY, KAY
+## 2 DAVIS, ARTUR GENESTRE 1000000.00 CMTE TO REELECT ARTUR DAVIS TO CONGRESS
+## 3            JAMES, TIM 2000000.00                              JAMES, TIM
+## 4             IVEY, KAY 1000000.00                             IVEY, KAY E
+## 5             IVEY, KAY 1000000.00                             IVEY, KAY E
+## 6            RILEY, BOB 1000000.00                              RILEY, BOB
+## 7            RILEY, BOB 1000000.00                              RILEY, BOB
+## 8       BISHOP, CHARLES 1000000.00                         BISHOP, CHARLES
+```
