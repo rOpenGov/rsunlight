@@ -14,10 +14,10 @@ Windows: [![Build status](https://ci.appveyor.com/api/projects/status/ytc2qdo3u2
 
 `rsunlight` wraps functions in APIs for:
 
-* Sunlight Labs Congress API (`cg`)
-* Sunlight Labs Open States API (`os`)
-* Sunlight Labs Capitol Words API (`cw`)
-* Sunlight Labs Influence Explorer API (`ie`)
+* Congress API (`cg`)
+* Open States API (`os`)
+* Capitol Words API (`cw`)
+* Influence Explorer API (`ie`)
 
 Functions that wrap these sets of APIs will be prefixed by `cg`, `os`, `cw`, or `ie` for the different methods listed above:
 
