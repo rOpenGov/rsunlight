@@ -5,3 +5,4 @@ inst/vign
 .gitignore
 man-roxygen/
 ^appveyor\.yml$
+cran-comments.md
