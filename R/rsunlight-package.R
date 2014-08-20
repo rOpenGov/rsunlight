@@ -10,10 +10,10 @@
 #' functions for each API are prefixed with a two letter code indicating the service.
 #'
 #' \itemize{
-#'  \item Sunlight Labs Congress API (`cg`)
-#'  \item Sunlight Labs Open States API (`os`)
-#'  \item Sunlight Labs Capitol Words API (`cw`)
-#'  \item Sunlight Labs Influence Explorer API (`ie`)
+#'  \item Congress API (`cg`)
+#'  \item Open States API (`os`)
+#'  \item Capitol Words API (`cw`)
+#'  \item Influence Explorer API (`ie`)
 #' }
 #'
 #' Note that Puerto Rico is not included in Sunlight Foundation data.
@@ -21,7 +21,7 @@
 #' @name rsunlight-package
 #' @aliases rsunlight
 #' @docType package
-#' @title Sunlight Foundation data from R.
+#' @title Sunlight Foundation client for R.
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @keywords package
 NULL

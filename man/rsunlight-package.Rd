@@ -3,7 +3,7 @@
 \name{rsunlight-package}
 \alias{rsunlight}
 \alias{rsunlight-package}
-\title{Sunlight Foundation data from R.}
+\title{Sunlight Foundation client for R.}
 \description{
 Sunlight Foundation data from R
 }
@@ -18,10 +18,10 @@ Currently we have functions to interface with the following Sunlight Foundation 
 functions for each API are prefixed with a two letter code indicating the service.
 
 \itemize{
- \item Sunlight Labs Congress API (`cg`)
- \item Sunlight Labs Open States API (`os`)
- \item Sunlight Labs Capitol Words API (`cw`)
- \item Sunlight Labs Influence Explorer API (`ie`)
+ \item Congress API (`cg`)
+ \item Open States API (`os`)
+ \item Capitol Words API (`cw`)
+ \item Influence Explorer API (`ie`)
 }
 
 Note that Puerto Rico is not included in Sunlight Foundation data.
