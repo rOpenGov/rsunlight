@@ -54,9 +54,6 @@
 #' @examples \dontrun{
 #' cg_votes(chamber='senate', order='voted_at')
 #' cg_votes(query='guns')
-#' }
-#'
-#' @examples \donttest{
 #' cg_votes(voter_ids.A000055__exists=TRUE)
 #' cg_votes(voted_at__gte='2013-07-02T4:00:00Z')
 #' }
