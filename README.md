@@ -49,6 +49,15 @@ If you store your key in your `.Rprofile` file it will be read inside of each fu
 
 ### Install rsunlight
 
+From CRAN
+
+```coffee
+install.packages("rsunlight")
+```
+
+Or development version from Github
+
+
 ```coffee
 install.packages("devtools")
 library(devtools)
