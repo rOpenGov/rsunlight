@@ -1,7 +1,6 @@
 #' Search OpenStates metadata.
 #'
 #' @import httr
-#' @importFrom plyr compact
 #' @param state One or more two-letter state abbreviations (character)
 #' @param key your SunlightLabs API key; or loads from .Rprofile
 #' @param ... Curl options passed on to httr::GET
@@ -14,7 +13,7 @@
 #' out <- os_statemetasearch(c('tx','nv'))
 #' out$tx
 #' out$nv
-#' 
+#'
 #' library('httr')
 #' os_statemetasearch('tx', config=verbose())
 #' }

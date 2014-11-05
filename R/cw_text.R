@@ -2,7 +2,6 @@
 #' of a word or phrase.
 #'
 #' @import httr
-#' @importFrom plyr compact
 #' @template cw
 #' @template cw_dates_text
 #' @param page The page of results to show, 50 results are shown at a time.
@@ -34,13 +33,13 @@
 #' @examples \dontrun{
 #' cw_text(phrase='climate change', start_date='2012-09-16', end_date='2012-09-20')
 #' cw_text(phrase='I would have voted', start_date='2011-09-05', end_date='2011-09-16', party='D')
-#' cw_text(phrase='I would have voted', start_date='2011-09-05', end_date='2011-09-16', 
+#' cw_text(phrase='I would have voted', start_date='2011-09-05', end_date='2011-09-16',
 #'    chamber='House')
 #' cw_text(title='personal explanation', start_date='2011-09-05', end_date='2011-09-16')
 #'
 #' library('plyr')
 #' out <- cw_text(phrase='climate change', start_date='2010-01-01', end_date='2012-12-01')
-#' out2 <- ldply(2:6, function(x) cw_text(phrase='climate change', start_date='2010-01-01', 
+#' out2 <- ldply(2:6, function(x) cw_text(phrase='climate change', start_date='2010-01-01',
 #'    end_date='2012-12-01', page=x))
 #' alldat <- rbind(out, out2)
 #' str(alldat)
