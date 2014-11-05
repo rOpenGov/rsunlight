@@ -18,8 +18,7 @@ Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email="thosjleeper@gmail.com"))
 VignetteBuilder: knitr
 Roxygen: list(wrap = FALSE)
-LazyLoad: yes
-LazyData: yes
+LazyData: true
 Imports:
     httr,
     plyr,
