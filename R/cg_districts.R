@@ -29,6 +29,6 @@ cg_districts <- function(latitude = NULL, longitude = NULL, zip = NULL, query=NU
                           query=query, per_page=per_page, page=page, order=order))
   tt <- GET(url, query=args, ...)
   warn_for_status(tt)
-  assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
+  stopifnot(tt$headers$`content-type` == 'application/json; charset=utf-8')
   return_obj(return, tt)
 }

@@ -30,7 +30,7 @@ ie_misconduct <- function(contractor = NULL, contracting_party = NULL, date_year
     instance = instance, penalty_amount = penalty_amount, page = page, per_page = per_page))
   tt <- GET(url, query=args, ...)
   stop_for_status(tt)
-  assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
+  stopifnot(tt$headers$`content-type` == 'application/json; charset=utf-8')
   tmp <- return_obj(return, tt)
   tmp$penalty_amount <- format(tmp$penalty_amount, scientific = FALSE)
   tmp

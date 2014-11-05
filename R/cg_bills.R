@@ -96,7 +96,7 @@ cg_bills <- function(query = NULL, bill_id = NULL, bill_type = NULL, number = NU
 
   tt <- GET(url, query=args, ...)
   warn_for_status(tt)
-  assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
+  stopifnot(tt$headers$`content-type` == 'application/json; charset=utf-8')
   return_obj(return, tt)
 }
 

@@ -48,7 +48,7 @@ cg_legislators <- function(title=NULL, first_name=NULL, middle_name=NULL,
 {
   if(!is.null(latitude) | !is.null(latitude) | !is.null(zip)){
     url <- 'https://congress.api.sunlightfoundation.com/legislators/locate'
-    assert_that(is.null(title),is.null(first_name),is.null(middle_name),is.null(last_name),
+    stopifnot(is.null(title),is.null(first_name),is.null(middle_name),is.null(last_name),
         is.null(name_suffix),is.null(nickname),is.null(party),is.null(state),is.null(state_name),
         is.null(state_rank),is.null(district),is.null(in_office),is.null(chamber),is.null(gender),
         is.null(phone),is.null(fax),is.null(office),is.null(website),is.null(contact_form),
@@ -58,10 +58,10 @@ cg_legislators <- function(title=NULL, first_name=NULL, middle_name=NULL,
         is.null(youtube_id),is.null(facebook_id),is.null(senate_class),is.null(term_start),
         is.null(term_end),is.null(birthday))
     if(!is.null(latitude) & !is.null(latitude) & is.null(zip)){
-      assert_that(is.null(zip))
+      stopifnot(is.null(zip))
       args <- suncompact(list(apikey=key,latitude=latitude,longitude=longitude,per_page=per_page,page=page,fields=fields,order=order))
     } else if(!is.null(zip)){
-      assert_that(is.null(latitude),is.null(longitude))
+      stopifnot(is.null(latitude),is.null(longitude))
       args <- suncompact(list(apikey=key,zip=zip,per_page=per_page,page=page,fields=fields,query=query,order=order))
     }
   } else {  
@@ -80,6 +80,6 @@ cg_legislators <- function(title=NULL, first_name=NULL, middle_name=NULL,
   
   tt <- GET(url, query=args, ...)
   stop_for_status(tt)
-  assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
+  stopifnot(tt$headers$`content-type` == 'application/json; charset=utf-8')
   return_obj(return, tt)
 }

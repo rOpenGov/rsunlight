@@ -43,6 +43,6 @@ cg_nominations <- function(nomination_id=NULL, congress=NULL, number=NULL, recei
 
   tt <- GET(url, query=args, ...)
   stop_for_status(tt)
-  assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
+  stopifnot(tt$headers$`content-type` == 'application/json; charset=utf-8')
   return_obj(return, tt)
 }

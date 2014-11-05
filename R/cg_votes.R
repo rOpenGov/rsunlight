@@ -72,6 +72,6 @@ cg_votes <- function(roll_id=NULL, chamber=NULL, number=NULL, year=NULL, congres
 
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
-  assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
+  stopifnot(tt$headers$`content-type` == 'application/json; charset=utf-8')
   return_obj(return, tt)
 }

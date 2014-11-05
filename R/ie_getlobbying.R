@@ -38,6 +38,6 @@ ie_lobbying <-  function(
     transaction_type = transaction_type, year = year, page = page, per_page = per_page))
   tt <- GET(url, query=args, ...)
   stop_for_status(tt)
-  assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
+  stopifnot(tt$headers$`content-type` == 'application/json; charset=utf-8')
   return_obj(return, tt)
 }

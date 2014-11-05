@@ -47,6 +47,6 @@ cg_upcoming_bills <- function(scheduled_at=NULL, legislative_day=NULL, range=NUL
 
   tt <- GET(url, query=args, ...)
   stop_for_status(tt)
-  assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
+  stopifnot(tt$headers$`content-type` == 'application/json; charset=utf-8')
   return_obj(return, tt)
 }

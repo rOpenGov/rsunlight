@@ -48,6 +48,6 @@ cg_committees <-  function(member_ids = NULL, committee_id = NULL, chamber = NUL
               query=query, order=order))
   tt <- GET(url, query=args, ...)
   stop_for_status(tt)
-  assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
+  stopifnot(tt$headers$`content-type` == 'application/json; charset=utf-8')
   return_obj(return, tt)
 }

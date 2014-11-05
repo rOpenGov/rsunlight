@@ -21,6 +21,6 @@ ie_contr_bundled <-  function(lobbyist_name = NULL, recipient_name = NULL, page 
               recipient_name = recipient_name, page = page, per_page = per_page))
   tt <- GET(url, query=args, ...)
   stop_for_status(tt)
-  assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
+  stopifnot(tt$headers$`content-type` == 'application/json; charset=utf-8')
   return_obj(return, tt)
 }

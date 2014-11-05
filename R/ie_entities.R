@@ -44,25 +44,25 @@ ie_entities <- function(search = NULL, type = NULL, namespace = NULL, id = NULL,
 {
   if(!is.null(search)){
     url = "http://transparencydata.com/api/1.0/entities.json"
-    assert_that(is.null(namespace), is.null(id), is.null(bioguide_id), is.null(entity_id))
+    stopifnot(is.null(namespace), is.null(id), is.null(bioguide_id), is.null(entity_id))
   }
   if(!is.null(entity_id)){
     url <- sprintf("http://transparencydata.com/api/1.0/entities/%s.json", entity_id)
-    assert_that(is.null(search), is.null(type), is.null(namespace), is.null(id), is.null(bioguide_id))
+    stopifnot(is.null(search), is.null(type), is.null(namespace), is.null(id), is.null(bioguide_id))
   }
   if(!is.null(bioguide_id)){
     url = "http://transparencydata.com/api/1.0/entities/id_lookup.json"
-    assert_that(is.null(search), is.null(type), is.null(namespace), is.null(id), is.null(entity_id))
+    stopifnot(is.null(search), is.null(type), is.null(namespace), is.null(id), is.null(entity_id))
   }
   if(!is.null(namespace) | !is.null(id)){
     url = "http://transparencydata.com/api/1.0/entities/id_lookup.json"
-    assert_that(is.null(search), is.null(type), is.null(bioguide_id), is.null(entity_id))
+    stopifnot(is.null(search), is.null(type), is.null(bioguide_id), is.null(entity_id))
   }
 
   args <- suncompact(list(apikey = key, search = search, type = type, id = id,
           namespace = namespace, bioguide_id = bioguide_id, page=page, per_page=per_page))
   tt <- GET(url, query=args, ...)
   stop_for_status(tt)
-  assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
+  stopifnot(tt$headers$`content-type` == 'application/json; charset=utf-8')
   return_obj(return, tt)
 }

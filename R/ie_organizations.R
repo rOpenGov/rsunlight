@@ -96,6 +96,6 @@ ie_organizations <- function(method = NULL, entity_id = NULL, cycle = NULL, limi
 
   tt <- GET(url, query=args, ...)
   stop_for_status(tt)
-  assert_that(tt$headers$`content-type` == 'application/json; charset=utf-8')
+  stopifnot(tt$headers$`content-type` == 'application/json; charset=utf-8')
   return_obj(return, tt)
 }
