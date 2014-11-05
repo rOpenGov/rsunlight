@@ -24,8 +24,7 @@ Imports:
     httr,
     plyr,
     jsonlite,
-    stringr,
-    assertthat
+    stringr
 Suggests:
     knitr,
     testthat,

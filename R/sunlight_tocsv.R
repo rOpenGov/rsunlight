@@ -1,6 +1,5 @@
 #' Write data from any rsunlight function output to a csv file on your machine.
 #'
-#' @import assertthat
 #' @keywords internal
 #' @param x Output from any of the rsunlight functions.
 #' @param file File name, with path.
