@@ -36,6 +36,15 @@ library('rsunlight')
 
 ********************
 
+#### Set your API key
+
+
+```r
+options(SunlightLabsKey = "key")
+````
+
+********************
+
 #### Gets details (subcommittees + membership) for a committee by id.
 
 
