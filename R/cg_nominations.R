@@ -41,8 +41,5 @@ cg_nominations <- function(nomination_id=NULL, congress=NULL, number=NULL, recei
     nominees.state=nominees.state, query=query, per_page=per_page, page=page, fields=fields,
     order=order))
 
-  tt <- GET(url, query=args, ...)
-  stop_for_status(tt)
-  stopifnot(tt$headers$`content-type` == 'application/json; charset=utf-8')
-  return_obj(return, tt)
+  return_obj(return, query(url, args, ...))
 }

@@ -1,5 +1,5 @@
 #' Search for itemized bundlers.
-#' 
+#'
 #' @import httr
 #' @export
 #' @param lobbyist_name Lobbyist name
@@ -17,10 +17,7 @@ ie_contr_bundled <-  function(lobbyist_name = NULL, recipient_name = NULL, page 
   ...)
 {
   url <- "http://transparencydata.com/api/1.0/contributions/bundled.json"
-  args <- suncompact(list(apikey = key, lobbyist_name = lobbyist_name, 
+  args <- suncompact(list(apikey = key, lobbyist_name = lobbyist_name,
               recipient_name = recipient_name, page = page, per_page = per_page))
-  tt <- GET(url, query=args, ...)
-  stop_for_status(tt)
-  stopifnot(tt$headers$`content-type` == 'application/json; charset=utf-8')
-  return_obj(return, tt)
+  return_obj(return, query(url, args, ...))
 }

@@ -46,16 +46,13 @@ cg_amendments <- function(amendment_id=NULL, amendment_type=NULL, number=NULL, c
   key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), return='table', ...)
 {
   url <- 'https://congress.api.sunlightfoundation.com/amendments'
-  args <- suncompact(list(apikey=key, amendment_id=amendment_id, amendment_type=amendment_type, 
-                          number=number, congress=congress, chamber=chamber, house_number=house_number, 
-                          introduced_on=introduced_on, last_action_at=last_action_at, 
-                          amends_bill_id=amends_bill_id,amends_treaty_id=amends_treaty_id, 
-                          amends_amendment_id=amends_amendment_id, sponsor_type=sponsor_type, 
-                          sponsor_id=sponsor_id, query=query, per_page=per_page, page=page, 
+  args <- suncompact(list(apikey=key, amendment_id=amendment_id, amendment_type=amendment_type,
+                          number=number, congress=congress, chamber=chamber, house_number=house_number,
+                          introduced_on=introduced_on, last_action_at=last_action_at,
+                          amends_bill_id=amends_bill_id,amends_treaty_id=amends_treaty_id,
+                          amends_amendment_id=amends_amendment_id, sponsor_type=sponsor_type,
+                          sponsor_id=sponsor_id, query=query, per_page=per_page, page=page,
                           fields=fields, order=order))
 
-  tt <- GET(url, query=args, ...)
-  stop_for_status(tt)
-  stopifnot(tt$headers$`content-type` == 'application/json; charset=utf-8')
-  return_obj(return, tt)
+  return_obj(return, query(url, args, ...))
 }

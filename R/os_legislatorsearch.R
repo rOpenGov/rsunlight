@@ -1,7 +1,7 @@
 #' Search Legislators on OpenStates.
 #'
 #' @import httr
-#' 
+#'
 #' @param state state two-letter abbreviation (character)
 #' @param first_name first name of legislator (character)
 #' @param last_name last name of legislator (character)
@@ -27,7 +27,7 @@
 #' os_legislatorsearch(state = 'tx', party = 'democratic', active = TRUE)
 #' os_legislatorsearch(state = 'nv', party = 'republican')
 #' os_legislatorsearch(state = 'dc', chamber = 'upper')
-#' 
+#'
 #' os_legislatorsearch(state = 'ca', party = 'democratic', per_page=3)
 #' }
 os_legislatorsearch <- function(state = NULL, first_name = NULL,
@@ -39,9 +39,7 @@ os_legislatorsearch <- function(state = NULL, first_name = NULL,
   url = "http://openstates.org/api/v1/legislators/"
   args <- suncompact(list(apikey = key, state = state, first_name = first_name,
                        last_name = last_name, chamber = chamber, active = active,
-                       term = term, district = district, party = party, 
+                       term = term, district = district, party = party,
                        page=page, per_page=per_page, fields=paste(fields, collapse = ",")))
-  tt <- GET(url, query=args, ...)
-  stop_for_status(tt)
-  return_obj(return, tt)
+  return_obj(return, query(url, args, ...))
 }

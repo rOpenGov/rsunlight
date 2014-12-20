@@ -1,5 +1,5 @@
 #' Get federal grant details
-#' 
+#'
 #' @import httr
 #' @template ie
 #' @param agency_ft Full-text search on the reported name of the federal agency awarding the grant.
@@ -25,15 +25,12 @@ ie_grants <-  function(
     page = NULL,
     per_page = NULL,  return='table',
     key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-    ...) 
+    ...)
 {
   url <- "http://transparencydata.com/api/1.0/grants.json"
   args <- suncompact(list(apikey = key, agency_ft = agency_ft,
     amount_total = amount_total, assistance_type = assistance_type, fiscal_year = fiscal_year,
     recipient_ft = recipient_ft, recipient_state = recipient_state, recipient_type = recipient_type,
     page = page, per_page = per_page))
-  tt <- GET(url, query=args, ...)
-  stop_for_status(tt)
-  stopifnot(tt$headers$`content-type` == 'application/json; charset=utf-8')
-  return_obj(return, tt)
+  return_obj(return, query(url, args, ...))
 }

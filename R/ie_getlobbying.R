@@ -1,5 +1,5 @@
 #' Get lobbying details
-#' 
+#'
 #' @import httr
 #' @template ie
 #' @param amount A YYYY formatted year (1990 - 2010) as a single year or YYYY|YYYY for an OR logic.
@@ -29,15 +29,12 @@ ie_lobbying <-  function(
     page = NULL,
     per_page = NULL, return='table',
     key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-    ...) 
+    ...)
 {
   url <- "http://transparencydata.com/api/1.0/lobbying.json"
   args <- suncompact(list(apikey = key, amount = amount,
     client_ft = client_ft, client_parent_ft = client_parent_ft, filing_type = filing_type,
     lobbyist_ft = lobbyist_ft, registrant_ft = registrant_ft, transaction_id = transaction_id,
     transaction_type = transaction_type, year = year, page = page, per_page = per_page))
-  tt <- GET(url, query=args, ...)
-  stop_for_status(tt)
-  stopifnot(tt$headers$`content-type` == 'application/json; charset=utf-8')
-  return_obj(return, tt)
+  return_obj(return, query(url, args, ...))
 }

@@ -27,8 +27,6 @@ cg_districts <- function(latitude = NULL, longitude = NULL, zip = NULL, query=NU
   url = "https://congress.api.sunlightfoundation.com/districts/locate"
   args <- suncompact(list(apikey = key, latitude = latitude, longitude = longitude, zip = zip,
                           query=query, per_page=per_page, page=page, order=order))
-  tt <- GET(url, query=args, ...)
-  warn_for_status(tt)
-  stopifnot(tt$headers$`content-type` == 'application/json; charset=utf-8')
-  return_obj(return, tt)
+
+  return_obj(return, query(url, args, ...))
 }

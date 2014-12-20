@@ -68,8 +68,5 @@ ie_politicians <- function(method = NULL, entity_id = NULL, cycle = NULL, limit 
   if(method=="top_pol") limit <- NULL
   args <- suncompact(list(apikey = key, cycle = cycle, limit = limit))
 
-  tt <- GET(url, query=args, ...)
-  stop_for_status(tt)
-  stopifnot(tt$headers$`content-type` == 'application/json; charset=utf-8')
-  return_obj(return, tt)
+  return_obj(return, query(url, args, ...))
 }

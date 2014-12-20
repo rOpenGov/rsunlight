@@ -61,8 +61,5 @@ ie_entities <- function(search = NULL, type = NULL, namespace = NULL, id = NULL,
 
   args <- suncompact(list(apikey = key, search = search, type = type, id = id,
           namespace = namespace, bioguide_id = bioguide_id, page=page, per_page=per_page))
-  tt <- GET(url, query=args, ...)
-  stop_for_status(tt)
-  stopifnot(tt$headers$`content-type` == 'application/json; charset=utf-8')
-  return_obj(return, tt)
+  return_obj(return, query(url, args, ...))
 }

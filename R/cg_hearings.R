@@ -8,7 +8,7 @@
 #' @param chamber (character) The chamber ('house', 'senate', or 'joint') of the committee holding the hearing.
 #' @param dc (logical) Whether the committee hearing is held in DC (TRUE) or in the field (FALSE).
 #' @param bill_ids (numeric) The IDs of any bills mentioned by or associated with the hearing.
-#' @param hearing_type (character) (House only) The type of hearing this is. Can be: 'Hearing', 
+#' @param hearing_type (character) (House only) The type of hearing this is. Can be: 'Hearing',
 #' 'Markup', 'Business Meeting', 'Field Hearing'.
 #'
 #' @template cg
@@ -23,14 +23,11 @@ cg_hearings <- function(committee_id=NULL, occurs_at=NULL, congress=NULL, chambe
   key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), return='table', ...)
 {
   url <- 'https://congress.api.sunlightfoundation.com/hearings'
-  args <- suncompact(list(apikey=key, committee_id=committee_id, occurs_at=occurs_at, 
-      congress=congress, chamber=chamber, dc=getdc(dc), bill_ids=bill_ids, 
+  args <- suncompact(list(apikey=key, committee_id=committee_id, occurs_at=occurs_at,
+      congress=congress, chamber=chamber, dc=getdc(dc), bill_ids=bill_ids,
       hearing_type=hearing_type, query=query, per_page=per_page, page=page, fields=fields, order=order))
 
-  tt <- GET(url, query=args, ...)
-  stop_for_status(tt)
-  stopifnot(tt$headers$`content-type` == 'application/json; charset=utf-8')
-  return_obj(return, tt)
+  return_obj(return, query(url, args, ...))
 }
 
 getdc <- function(x){
