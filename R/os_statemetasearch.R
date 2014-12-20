@@ -1,6 +1,5 @@
 #' Search OpenStates metadata.
 #'
-#' @import httr
 #' @param state One or more two-letter state abbreviations (character)
 #' @param key your SunlightLabs API key; or loads from .Rprofile
 #' @param ... Curl options passed on to httr::GET

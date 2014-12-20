@@ -2,7 +2,6 @@
 #'
 #' Search for itemized campaign contributions at the federal (FEC) or state (NIMSP) level.
 #'
-#' @import httr
 #' @param amount The amount of the contribution in US dollars in one of the following formats:
 #' 500 (exactly 500 dollars), >|500 (greater than or equal to 500 dollars), <|500 (less than or
 #' equal to 500 dollars)

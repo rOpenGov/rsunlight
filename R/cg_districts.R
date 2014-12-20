@@ -1,6 +1,5 @@
 #' Get districts for a latitude/longitude or zips
 #'
-#' @import httr
 #' @export
 #' @param latitude (numeric) latitude of coordinate
 #' @param longitude (numeric) longitude of coordinate

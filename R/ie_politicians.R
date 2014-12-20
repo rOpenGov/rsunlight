@@ -1,6 +1,5 @@
 #' Politician aggregrates: Search for contributions to politicians.
 #'
-#' @import httr
 #' @export
 #' @param method (character) The query string. One of top_pol, top_con, unk_ind, top_ind, top_sec,
 #' local_breakdown, type_breakdown, fec_summary, fec_indexp

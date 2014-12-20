@@ -1,6 +1,5 @@
 #' Get lobbying details
 #'
-#' @import httr
 #' @template ie
 #' @param amount A YYYY formatted year (1990 - 2010) as a single year or YYYY|YYYY for an OR logic.
 #' @param client_ft Full-text search on the name of the client for which the lobbyist is working.

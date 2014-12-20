@@ -1,7 +1,5 @@
 #' Search Legislators on OpenStates.
 #'
-#' @import httr
-#'
 #' @param state state two-letter abbreviation (character)
 #' @param first_name first name of legislator (character)
 #' @param last_name last name of legislator (character)

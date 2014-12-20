@@ -1,7 +1,6 @@
 #' Capitol words text.json method. Search the congressional record for instances
 #' of a word or phrase.
 #'
-#' @import httr
 #' @template cw
 #' @template cw_dates_text
 #' @param page The page of results to show, 50 results are shown at a time.

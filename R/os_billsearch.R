@@ -1,7 +1,5 @@
 #' Search OpenStates bills.
 #'
-#' @import httr
-#'
 #' @param terms search terms bill search (character)
 #' @param state state two-letter abbreviation (character)
 #' @param window a string representing what time period to search across.

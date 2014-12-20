@@ -1,6 +1,5 @@
 #' Organization aggregates: Search for contributions to politicians.
 #'
-#' @import httr
 #' @export
 #' @param method (character) The query string. One of top_ind or top_org.
 #' @param entity_id (character) The transparencydata ID to look up.

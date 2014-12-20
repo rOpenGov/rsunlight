@@ -2,7 +2,6 @@
 #'
 #' Search for politicians, individuals, or organizations with the given name.
 #'
-#' @import httr
 #' @export
 #' @param search (character) The query string. There are no logic operators or grouping.
 #' @param type (character) Filter results to a particular type of entity. One of politician,

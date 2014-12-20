@@ -3,7 +3,7 @@
 #' @keywords internal
 #' @param x Output from any of the rsunlight functions.
 #' @param file File name, with path.
-#' @param ... Further args passed to read.csv
+#' @param ... Further arguments passed to read.csv
 #' @details This function attemps to coerce the raw output from each rsunlight function to a
 #' data.frame to write to csv, but it may fail in some cases. You can always make your own
 #' data.frame.

@@ -1,6 +1,5 @@
 #' Organization aggregates: Search for contributions to politicians.
 #'
-#' @import httr
 #' @export
 #' @param method (character) The query string. One of top_org, top_rec, pac_rec, party_breakdown,
 #' level_breakdown, registrants, issues, bills, lobbyists, reg_clients, reg_issues, or reg_bills.

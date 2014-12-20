@@ -1,6 +1,5 @@
 #' Search itemized EPA enforcement actions.
 #'
-#' @import httr
 #' @param case_name (character) The name of the enforcement case.
 #' @param case_num (character) One or more specific case numbers.
 #' @param defendants (character) Full-text search for the name(s) of the defendant companies.

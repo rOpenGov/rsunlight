@@ -1,7 +1,6 @@
 #' Capitol words dates.json method. Search the congressional record for
 #' instances of a word or phrase over time.
 #'
-#' @import httr
 #' @template cw
 #' @template cw_dates_text
 #' @param page_id Page id.

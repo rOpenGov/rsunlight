@@ -1,6 +1,5 @@
 #' Search for itemized Federal Advisory Committee memberships.
 #'
-#' @import httr
 #' @param affiliation (character) The name of the affiliated organization.
 #' @param agency_name (character) The name of the agency associated with the committee.
 #' @param committee_name (character) The name of the advisory committee.

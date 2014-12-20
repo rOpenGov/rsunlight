@@ -1,6 +1,5 @@
 #' Search for legislators.
 #'
-#' @import httr
 #' @template getleg
 #'
 #' @param latitude latitude of coordinate
