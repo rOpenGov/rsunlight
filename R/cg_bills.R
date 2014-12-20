@@ -94,10 +94,7 @@ cg_bills <- function(query = NULL, bill_id = NULL, bill_type = NULL, number = NU
     committee_ids=committee_ids, related_bill_ids=related_bill_ids, enacted_as.congress=enacted_as.congress,
     enacted_as.number=enacted_as.number))
 
-  tt <- GET(url, query=args, ...)
-  warn_for_status(tt)
-  stopifnot(tt$headers$`content-type` == 'application/json; charset=utf-8')
-  return_obj(return, tt)
+  return_obj(return, query(url, args, ...))
 }
 
 ll <- function(x) if(!is.null(x)){ if(x) tolower(x) else x }

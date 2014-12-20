@@ -31,7 +31,7 @@
 #' @export
 #' @examples \dontrun{
 #' ie_contracts(vendor_city='indianapolis', page=1, per_page=5)
-#' 
+#'
 #' library('httr')
 #' ie_contracts(vendor_city='indianapolis', page=1, per_page=5, config=verbose())[,c(1:5)]
 #' }
@@ -70,8 +70,5 @@ ie_contracts <-  function(
     vendor_city = vendor_city, vendor_district = vendor_district, vendor_duns = vendor_duns,
     vendor_name = vendor_name, vendor_parent_duns = vendor_parent_duns, vendor_state = vendor_state,
     vendor_zipcode = vendor_zipcode, page = page, per_page = per_page))
-  tt <- GET(url, query=args, ...)
-  stop_for_status(tt)
-  stopifnot(tt$headers$`content-type` == 'application/json; charset=utf-8')
-  return_obj(return, tt)
+  return_obj(return, query(url, args, ...))
 }

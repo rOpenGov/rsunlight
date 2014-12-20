@@ -40,7 +40,7 @@
 #' direction is \code{desc}, because it is expected most queries will sort by a date. Any field
 #' which can be used for filtering may be used for sorting. On full-text search endpoints (URLs
 #' ending in \code{/search}), you may sort by score to order by relevancy.
-#' 
+#'
 #' @template cg_query
 #'
 #' @details Two parameters can be passed on that vary with vote and/or party plus vote:
@@ -70,8 +70,5 @@ cg_votes <- function(roll_id=NULL, chamber=NULL, number=NULL, year=NULL, congres
       required=required, result=result, bill_id=bill_id, nomination_id=nomination_id,
       per_page=per_page, page=page, fields=fields, order=order, ...))
 
-  tt <- GET(url, query=args, callopts)
-  stop_for_status(tt)
-  stopifnot(tt$headers$`content-type` == 'application/json; charset=utf-8')
-  return_obj(return, tt)
+  return_obj(return, query(url, args, callopts, ...))
 }

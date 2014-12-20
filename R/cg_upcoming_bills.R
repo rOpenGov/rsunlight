@@ -40,13 +40,10 @@ cg_upcoming_bills <- function(scheduled_at=NULL, legislative_day=NULL, range=NUL
   key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), return='table', ...)
 {
   url <- 'https://congress.api.sunlightfoundation.com/upcoming_bills'
-  args <- suncompact(list(apikey=key, scheduled_at=scheduled_at, legislative_day=legislative_day, 
-                          range=range, congress=congress, chamber=chamber, source_type=source_type, 
-                          bill_id=bill_id, per_page=per_page, page=page, fields=fields, 
+  args <- suncompact(list(apikey=key, scheduled_at=scheduled_at, legislative_day=legislative_day,
+                          range=range, congress=congress, chamber=chamber, source_type=source_type,
+                          bill_id=bill_id, per_page=per_page, page=page, fields=fields,
                           query=query, order=order))
 
-  tt <- GET(url, query=args, ...)
-  stop_for_status(tt)
-  stopifnot(tt$headers$`content-type` == 'application/json; charset=utf-8')
-  return_obj(return, tt)
+  return_obj(return, query(url, args, ...))
 }

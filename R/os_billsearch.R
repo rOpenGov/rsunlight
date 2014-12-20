@@ -20,13 +20,13 @@
 #'    subject parameters are supplied then only bills that match all of
 #'    them will be returned. See list of subjects
 #' @param type (character) Only bills of a given type (e.g. 'bill', 'resolution', etc.)
-#' @param search_window By default all bills are searched, but if a time window is desired the 
-#' following options can be passed to search_window: all (Default, include all sessions.), 
-#' term (Only bills from sessions within the current term.), session (Only bills from the current 
-#' session.), session:2009 (Only bills from the session named 2009.), term:2009-2011 (Only bills 
+#' @param search_window By default all bills are searched, but if a time window is desired the
+#' following options can be passed to search_window: all (Default, include all sessions.),
+#' term (Only bills from sessions within the current term.), session (Only bills from the current
+#' session.), session:2009 (Only bills from the session named 2009.), term:2009-2011 (Only bills
 #' from the sessions in the 2009-2011 session.)
-#' @param sort (character) One of 'first' (default), 'last', 'signed', 'passed_lower', 
-#'    'passed_upper', 'updated_at', or 'created_at'. 
+#' @param sort (character) One of 'first' (default), 'last', 'signed', 'passed_lower',
+#'    'passed_upper', 'updated_at', or 'created_at'.
 #' @param fields You can request specific fields by supplying a vector of fields names. Many fields
 #' are not returned unless requested. If you don't supply a fields parameter, you will get the
 #' most commonly used subset of fields only. To save on bandwidth, parsing time, and confusion,
@@ -46,13 +46,13 @@
 #' os_billsearch(terms = 'taxi', state = 'dc', per_page=3)
 #' os_billsearch(terms = 'taxi', state = 'dc', per_page=3, sort='created_at')
 #' os_billsearch(terms = 'taxi', state = 'dc', type='resolution')
-#' 
+#'
 #' # Search window
 #' length(os_billsearch(terms = 'climate change', search_window='term'))
 #' length(os_billsearch(terms = 'climate change', search_window='term:2009-2011'))
 #' length(os_billsearch(terms = 'climate change', search_window='session'))
 #' length(os_billsearch(terms = 'climate change', search_window='session:2009'))
-#' 
+#'
 #' os_billsearch(terms = 'agriculture', state = 'tx', per_page=2)
 #' os_billsearch(terms = 'agriculture', state = 'tx', per_page=2, page=2)
 #' os_billsearch(terms = 'agriculture', state = 'tx', fields=c('id','created_at'), per_page=10)
@@ -66,10 +66,8 @@ os_billsearch <- function(terms = NULL, state = NULL, window = NULL,
   url = "http://openstates.org/api/v1/bills/"
   args <- suncompact(list(apikey = key, q = terms, state = state, window = window,
                        chamber = chamber, sponsor_id = sponsor_id,
-                       updated_since = updated_since, subject = subject, type=type, 
+                       updated_since = updated_since, subject = subject, type=type,
                        search_window=search_window, sort=sort, page=page, per_page=per_page,
                        fields=paste(fields, collapse = ",")))
-  tt <- GET(url, query=args, ...)
-  stop_for_status(tt)
-  return_obj(return, tt)
+  return_obj(return, query(url, args, ...))
 }

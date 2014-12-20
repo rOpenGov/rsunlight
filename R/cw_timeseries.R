@@ -75,10 +75,9 @@ cw_timeseries <- function(phrase=NULL, date = NULL, start_date=NULL, end_date=NU
                        party=party, bioguide_id=bioguide_id, mincount=mincount,
                        percentages=percentages, granularity=granularity,
                        entity_type=entity_type, entity_value=entity_value))
-  tt <- GET(url, query=args, ...)
-  stop_for_status(tt)
-  tmp <- return_obj(return, tt)
-  if(return %in% c('response','list')){ tmp } else { 
+
+  tmp <- return_obj(return, query(url, args, ...))
+  if(return %in% c('response','list')){ tmp } else {
     data <- tmp$results
     if(granularity=='day'){ data$day <- as.Date(data$day) } else
       if(granularity=='month'){ data$month <- as.Date(sprintf("%s-01", sapply(data$month, splitt))) } else
