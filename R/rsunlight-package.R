@@ -24,6 +24,7 @@
 #' @title Sunlight Foundation client for R.
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @keywords package
+#' @import httr jsonlite
 NULL
 
 #' Sunlight Labs Influence Explorer API sector code and names to use for searching/retreiving data.

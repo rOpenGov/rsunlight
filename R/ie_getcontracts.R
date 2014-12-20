@@ -1,6 +1,5 @@
 #' Get federal contract details
 #'
-#' @import httr
 #' @template ie
 #' @param agency_id The FIPS code for the agency.
 #' @param agency_name Full-text search on the name of the agency.

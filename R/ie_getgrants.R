@@ -1,6 +1,5 @@
 #' Get federal grant details
 #'
-#' @import httr
 #' @template ie
 #' @param agency_ft Full-text search on the reported name of the federal agency awarding the grant.
 #' @param amount_total Total amount of the grant in US dollars in one of the following formats: 500 (exactly 500 dollars), >|500 (greater than or equal to 500 dollars), <|500 (less than or equal to 500 dollars)

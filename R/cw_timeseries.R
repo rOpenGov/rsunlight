@@ -1,6 +1,5 @@
 #' Find the popularity of a phrase over a period of time.
 #'
-#' @import httr
 #' @importFrom plyr rbind.fill
 #' @importFrom stringr str_sub
 #' @template cw

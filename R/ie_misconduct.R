@@ -1,6 +1,5 @@
 #' Search for itemized misconduct incident reports
 #'
-#' @import httr
 #' @param contractor (character)	The name of the contractor to search for.
 #' @param contracting_party (character)  The FIPS code for the contracting agency.
 #' @param date_year (numeric) The year in which a date significant to the incident occurred.

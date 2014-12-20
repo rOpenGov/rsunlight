@@ -1,6 +1,5 @@
 #' Lookup bills on OpenStates.
 #'
-#' @import httr
 #' @importFrom stringr str_extract ignore.case
 #'
 #' @param state state two-letter abbreviation (character), required

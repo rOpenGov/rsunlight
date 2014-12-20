@@ -28,7 +28,7 @@ sunlight_tocsv(x, file = "~/", ...)
 
 \item{file}{File name, with path.}
 
-\item{...}{Further args passed to read.csv}
+\item{...}{Further arguments passed to read.csv}
 }
 \description{
 Write data from any rsunlight function output to a csv file on your machine.

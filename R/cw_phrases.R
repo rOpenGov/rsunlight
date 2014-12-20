@@ -1,6 +1,5 @@
 #' Capitol words phrases.json method. List the top phrases for a facet.
 #'
-#' @import httr
 #' @export
 #' @param entity_type The entity type to get top phrases for. One of 'date', 'month', 'state', or
 #'    'legislator'.

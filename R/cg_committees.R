@@ -1,6 +1,6 @@
-#' Gets details (subcommittees + membership) for a committee by id.
+#' @title Gets details (subcommittees + membership) for a committee by id.
 #'
-#' Names, IDs, contact info, and memberships of committees and subcommittees in the House and
+#' @description Names, IDs, contact info, and memberships of committees and subcommittees in the House and
 #' Senate. All committee information is sourced from bulk data at github.com/unitedstates, which
 #' in turn comes from official House and Senate sources . Feel free to open a ticket with any
 #' bugs or suggestions. We only provide information on current committees and memberships. For

@@ -1,6 +1,5 @@
 #' Search for itemized bundlers.
 #'
-#' @import httr
 #' @export
 #' @param lobbyist_name Lobbyist name
 #' @param recipient_name Recipient name

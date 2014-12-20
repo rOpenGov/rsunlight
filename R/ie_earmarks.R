@@ -1,6 +1,5 @@
 #' Search itemized earmark requests through FY 2010.
 #'
-#' @import httr
 #' @param amount (integer) The final amount of the earmark.
 #' @param bill (character) The bill, section or subsection of the earmark.
 #' @param city (character) The city where the money will be spent.

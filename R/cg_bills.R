@@ -9,7 +9,6 @@
 #'  debate.
 #' }
 #'
-#' @import httr jsonlite
 #' @export
 #' @template bills
 #' @template cg
