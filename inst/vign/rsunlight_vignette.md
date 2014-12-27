@@ -199,7 +199,7 @@ ggplot(dat, aes(day, count)) +
   theme_grey(base_size=20)
 ```
 
-![plot of chunk cw_timeseries2](figure/cw_timeseries2.png) 
+![plot of chunk cw_timeseries2](figure/cw_timeseries2-1.png) 
 
 ##### Plot more data
 
@@ -216,25 +216,7 @@ ggplot(dat_both, aes(day, count, colour=party)) +
   scale_colour_manual(values=c("blue","red"))
 ```
 
-![plot of chunk cw_timeseries3](figure/cw_timeseries3.png) 
-
-#### Interactive charts
-
-Note that the resulting chart opens in a browser, so is not shown in this vignette, but you will see it open in a browser when you run the code.
-
-
-```r
-dream <- lapply(c('D','R'), function(x) cw_timeseries(phrase='i have a dream', party=x, start_date='1996-01-01', end_date='2013-01-01', granularity='month'))
-df <- merge(dream[[1]], dream[[2]], by='month', all=TRUE)
-df[is.na(df)] <- 0
-names(df) <- c('date','D','R')
-df$date <- as.character(df$date)
-
-library('rCharts')
-m1 <- mPlot(x = "date", y = c("D", "R"), type = "Line", data = df)
-m1$set(pointSize = 0, lineWidth = 1)
-m1
-```
+![plot of chunk cw_timeseries3](figure/cw_timeseries3-1.png) 
 
 ********************
 
@@ -270,13 +252,13 @@ head(out[,c('full_name','state','district')])
 ```
 
 ```
-##              full_name state district
-## 1     Armando Martinez    tx       39
-## 2 Ruth Jones McClendon    tx      120
-## 3        Terry Canales    tx       40
-## 4         Joseph Moody    tx       78
-## 5         Joe Deshotel    tx       22
-## 6      Borris L. Miles    tx      146
+##          full_name state district
+## 1 Elliott Naishtat    tx       49
+## 2       Mary Perez    tx      144
+## 3 Roland Gutierrez    tx      119
+## 4     Celia Israel    tx       50
+## 5   Garnet Coleman    tx      147
+## 6     Ryan Guillen    tx       31
 ```
 
 ********************
@@ -296,7 +278,7 @@ out
 ## 1          Nancy Pelosi (D)           0           0             0
 ## 2 Nancy Pelosi for Congress           7           0             0
 ##            seat total_received state lobbying_firm count_received party
-## 1 federal:house       14731364    CA            NA          10321     D
+## 1 federal:house       15868714    CA            NA          10782     D
 ## 2          <NA>              0  <NA>         FALSE              0  <NA>
 ##   total_given         type                               id
 ## 1           0   politician 85ab2e74589a414495d18cc7a9233981
@@ -326,9 +308,9 @@ ie_industries(method='top_org', entity_id='ba400a177400497680cac90f678ecb8f')
 ## 5        832984.00   1574534.00        1074         Occidental Petroleum
 ## 6        922226.00   1532870.00        1302                     USX Corp
 ## 7       1253908.87   1253908.87         120           Hyperion Resources
-## 8       1107871.62   1107871.62         275           Beecherl Companies
-## 9       1105536.00   1105536.00         664        Oil & Gas Investments
-## 10       750513.24   1025628.79         821 American Petroleum Institute
+## 8       1234806.00   1234806.00         740        Oil & Gas Investments
+## 9        759779.24   1150643.79         918 American Petroleum Institute
+## 10      1107871.62   1107871.62         275           Beecherl Companies
 ##    direct_count employee_count                               id
 ## 1          1983            784 4966257e103a45f5b13d901058b0c0be
 ## 2            34            213 f2df5e19f0b449beb19c4d3b7f062245
@@ -337,9 +319,9 @@ ie_industries(method='top_org', entity_id='ba400a177400497680cac90f678ecb8f')
 ## 5           815            259 74f871b3928c49d39d004c08aec1e2a2
 ## 6           814            488 8e95d7fa12f74aa387b2c880fb20df65
 ## 7             0            120 8d348514c5484120b05ee75929650534
-## 8             0            275 5d92d3d625f8422db0d630f2ef9693c7
-## 9             0            664                             <NA>
-## 10          195            626 83bfbee9757c42308f4c7d0598cbdce3
+## 8             0            740                             <NA>
+## 9           286            632 83bfbee9757c42308f4c7d0598cbdce3
+## 10            0            275 5d92d3d625f8422db0d630f2ef9693c7
 ##    direct_amount
 ## 1     2511997.59
 ## 2       52650.00
@@ -349,8 +331,8 @@ ie_industries(method='top_org', entity_id='ba400a177400497680cac90f678ecb8f')
 ## 6      610644.00
 ## 7              0
 ## 8              0
-## 9              0
-## 10     275115.55
+## 9      390864.55
+## 10             0
 ```
 
 
