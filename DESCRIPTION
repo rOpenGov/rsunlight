@@ -5,7 +5,7 @@ Description: Interface to four Sunlight Foundation APIs
     Open States API. Sunlight Foundation is a nonpartison nonprofit that
     collects and provides data on government activities, and those that
     influence government. Functions are provided to interact with each of the
-    four APIs. rCharts - https://github.com/ramnathv/rCharts
+    four APIs.
 Title: Interface to Sunlight Foundation APIs.
 Version: 0.3.2.99
 Date: 2014-12-27
@@ -26,5 +26,4 @@ Imports:
     stringr
 Suggests:
     knitr,
-    testthat,
-    rCharts
+    testthat

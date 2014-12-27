@@ -96,21 +96,6 @@ ggplot(dat_both, aes(day, count, colour=party)) +
    geom_line() +
    theme_grey(base_size=20) +
    scale_colour_manual(values=c("blue","red"))
-
-
-## interactive version with Morris.js from rCharts
-dream <- lapply(c('D','R'), function(x) cw_timeseries(phrase='climate change', party=x,
-   granularity='month'))
-df <- merge(dream[[1]], dream[[2]], by='month', all=TRUE)
-df[is.na(df)] <- 0
-names(df) <- c('date','D','R')
-df$date <- as.character(df$date)
-
-library(rCharts)
-m1 <- mPlot(x = "date", y = c("D", "R"), type = "Line", data = df)
-m1$set(pointSize = 0, lineWidth = 1)
-m1
-m1$publish("My Chart", host = 'rpubs') # publish to rpubs
 }
 }
 
