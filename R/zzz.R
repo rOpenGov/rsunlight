@@ -16,3 +16,4 @@ return_obj <- function(x, y){
 }
 
 cgurl <- function() 'https://congress.api.sunlightfoundation.com'
+cwurl <- function() 'http://capitolwords.org/api'

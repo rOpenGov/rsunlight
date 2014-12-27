@@ -41,7 +41,6 @@ cw_dates <- function(phrase = NULL, title = NULL, date = NULL, start_date = NULL
   entity_value = NULL, return='table',
   key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...)
 {
-  url = "http://capitolwords.org/api/dates.json"
   args <- suncompact(list(apikey = key, phrase = phrase, title = title,
         date = date, start_date = start_date, end_date = end_date,
         chamber = chamber, state = state, party = party,
@@ -51,7 +50,7 @@ cw_dates <- function(phrase = NULL, title = NULL, date = NULL, start_date = NULL
         percentages = percentages, entity_type=entity_type, entity_value=entity_value))
 
 
-  tmp <- return_obj(return, query(url, args, ...))
+  tmp <- return_obj(return, query(paste0(cwurl(), "/dates.json"), args, ...))
   if(return=='response'){
     return(tmp)
   } else {

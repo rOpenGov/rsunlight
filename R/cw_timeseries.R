@@ -53,14 +53,13 @@ cw_timeseries <- function(phrase=NULL, date = NULL, start_date=NULL, end_date=NU
   key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...)
 {
   splitt<-function(x) paste(str_sub(x, 1, 4), "-", str_sub(x, 5, 6), sep="")
-  url = "http://capitolwords.org/api/dates.json"
   args <- suncompact(list(apikey=key, phrase=phrase, start_date=start_date,
                        date = date, end_date=end_date, chamber=chamber, state=state,
                        party=party, bioguide_id=bioguide_id, mincount=mincount,
                        percentages=percentages, granularity=granularity,
                        entity_type=entity_type, entity_value=entity_value))
 
-  tmp <- return_obj(return, query(url, args, ...))
+  tmp <- return_obj(return, query(paste0(cwurl(), "/dates.json"), args, ...))
   if(return %in% c('response','list')){ tmp } else {
     data <- tmp$results
     if(granularity=='day'){ data$day <- as.Date(data$day) } else

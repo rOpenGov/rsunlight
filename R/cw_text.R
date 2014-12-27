@@ -51,7 +51,6 @@ cw_text <- function(phrase=NULL, title=NULL, date = NULL, start_date=NULL, end_d
   session=NULL, cr_pages=NULL, volume=NULL, page=NULL, sort=NULL, return='table',
   key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...)
 {
-  url = "http://capitolwords.org/api/text.json"
   if(!is.null(sort)){
     if(!grepl('asc|desc', sort))
       sort <- paste(sort, 'asc')
@@ -60,7 +59,7 @@ cw_text <- function(phrase=NULL, title=NULL, date = NULL, start_date=NULL, end_d
       date = date, end_date=end_date, chamber=chamber, state=state, party=party,
       bioguide_id=bioguide_id, congress=congress, session=session, cr_pages=cr_pages, volume=volume,
       page=page, sort=sort))
-  tmp <- return_obj(return, query(url, args, ...))
+  tmp <- return_obj(return, query(paste0(cwurl(), "/text.json"), args, ...))
   if(return=='response'){
     return(tmp)
   } else {
