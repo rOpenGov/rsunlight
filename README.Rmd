@@ -1,7 +1,15 @@
 rsunlight
 ======
 
-
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "inst/img/"
+)
+```
 
 Linux: [![Build Status](https://api.travis-ci.org/rOpenGov/rsunlight.png)](https://travis-ci.org/rOpenGov/rsunlight)
 Windows: [![Build status](https://ci.appveyor.com/api/projects/status/ytc2qdo3u2t3ltm6/branch/master)](https://ci.appveyor.com/api/projects/status/ytc2qdo3u2t3ltm6/branch/master)
@@ -51,16 +59,14 @@ If you store your key in your `.Rprofile` file it will be read inside of each fu
 
 From CRAN
 
-
-```r
+```{r eval=FALSE}
 install.packages("rsunlight")
 ```
 
 Or development version from Github
 
 
-
-```r
+```{r eval=FALSE}
 install.packages("devtools")
 library(devtools)
 install_github("ropengov/rsunlight")
@@ -68,28 +74,19 @@ install_github("ropengov/rsunlight")
 
 ## Load rsunlight
 
-
-```r
+```{r}
 library("rsunlight")
 ```
 
 ## Get districts for a latitude/longitude.
 
-
-```r
+```{r}
 cg_districts(latitude = 35.778788, longitude = -78.787805)
-#> $results
-#>   state district
-#> 1    NC        2
-#> 
-#> $count
-#> [1] 1
 ```
 
 ## Search congress people and senate members.
 
-
-```r
+```{r}
 out <- cg_legislators(last_name = 'Reed')
 ```
 
@@ -97,18 +94,11 @@ out <- cg_legislators(last_name = 'Reed')
 
 Get a list of how many times the phrase "united states" appears in the Congressional Record in each month between January and June, 2010:
 
-
-```r
+```{r}
 cw_timeseries(phrase='united states', start_date='2009-01-01', end_date='2009-04-30', granularity='month')
-#>   count      month
-#> 1  3805 2009-01-01
-#> 2  3512 2009-02-01
-#> 3  6018 2009-03-01
-#> 4  2967 2009-04-01
 ```
 
-
-```r
+```{r tidy=FALSE}
 library("ggplot2")
 dat_d <- cw_timeseries(phrase='climate change', party="D")
 dat_d$party <- rep("D", nrow(dat_d))
@@ -121,14 +111,11 @@ ggplot(dat_both, aes(day, count, colour=party)) +
   scale_colour_manual(values=c("blue","red"))
 ```
 
-![plot of chunk unnamed-chunk-8](inst/img/unnamed-chunk-8-1.png) 
-
 ## Interactive charts using rCharts
 
 Note that the resulting chart opens in a browser, so is not shown in this vignette, but you will see it open in a browser when you run the code.
 
-
-```r
+```{r eval=FALSE}
 dream <- lapply(c('D','R'), function(x) cw_timeseries(phrase='i have a dream', party=x, start_date='1996-01-01', end_date='2013-01-01', granularity='month'))
 df <- merge(dream[[1]], dream[[2]], by='month', all=TRUE)
 df[is.na(df)] <- 0
@@ -136,8 +123,7 @@ names(df) <- c('date','D','R')
 df$date <- as.character(df$date)
 ```
 
-
-```r
+```{r eval=FALSE}
 library(rCharts)
 m1 <- mPlot(x = "date", y = c("D", "R"), type = "Line", data = df)
 m1$set(pointSize = 0, lineWidth = 1)
@@ -152,17 +138,6 @@ _note: as you can see this is not actually interactive, but when you make it, it
 
 Ranked by total dollars given. An organization's giving is broken down into money given directly (by the organization's PAC) versus money given by individuals employed by or associated with the organization.
 
-
-```r
+```{r}
 ie_industries(method='top_ind', limit=4)
-#>      count        amount                               id
-#> 1 14920003 3825328792.21 cdb3f500a3f74179bb4a5eb8b2932fa6
-#> 2  3676565 2860383835.95 f50cf984a2e3477c8167d32e2b14e052
-#> 3  1425026 1768144131.04 7500030dffe24844aa467a75f7aedfd1
-#> 4   329908 1717719914.58 9cac88377c3b400e89c2d6762e3f28f6
-#>   should_show_entity                   name
-#> 1               TRUE                UNKNOWN
-#> 2               TRUE      LAWYERS/LAW FIRMS
-#> 3               TRUE            REAL ESTATE
-#> 4               TRUE CANDIDATE SELF-FINANCE
 ```
