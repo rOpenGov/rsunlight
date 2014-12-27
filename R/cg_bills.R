@@ -61,9 +61,9 @@ cg_bills <- function(query = NULL, bill_id = NULL, bill_type = NULL, number = NU
   return='table', ...)
 {
   if(is.null(query)){
-    url <- 'https://congress.api.sunlightfoundation.com/bills'
+    url <- paste0(cgurl(), '/bills')
   } else {
-    url <- 'https://congress.api.sunlightfoundation.com/bills/search'
+    url <- paste0(cgurl(), '/bills/search')
   }
   args <- suncompact(list(apikey=key,query=query,bill_id=bill_id,bill_type=bill_type,
     number=number,congress=congress,chamber=chamber,introduced_on=introduced_on,

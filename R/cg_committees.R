@@ -40,11 +40,10 @@ cg_committees <-  function(member_ids = NULL, committee_id = NULL, chamber = NUL
 {
   if(!is.null(subcommittee))
     subcommittee <- ifelse(subcommittee, 'true', 'false')
-  url = "https://congress.api.sunlightfoundation.com/committees"
   fields <- paste0(fields, collapse = ",")
   args <- suncompact(list(apikey = key, member_ids = member_ids, committee_id = committee_id,
               chamber = chamber, subcommittee = subcommittee, fields = fields,
               parent_committee_id = parent_committee_id, page = page, per_page=per_page,
               query=query, order=order))
-  return_obj(return, query(url, args, ...))
+  return_obj(return, query(paste0(cgurl(), "/committees"), args, ...))
 }

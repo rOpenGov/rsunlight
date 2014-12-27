@@ -46,7 +46,7 @@ cg_legislators <- function(title=NULL, first_name=NULL, middle_name=NULL,
     ...)
 {
   if(!is.null(latitude) | !is.null(latitude) | !is.null(zip)){
-    url <- 'https://congress.api.sunlightfoundation.com/legislators/locate'
+    url <- paste0(cgurl(), "/legislators/locate")
     stopifnot(is.null(title),is.null(first_name),is.null(middle_name),is.null(last_name),
         is.null(name_suffix),is.null(nickname),is.null(party),is.null(state),is.null(state_name),
         is.null(state_rank),is.null(district),is.null(in_office),is.null(chamber),is.null(gender),
@@ -64,7 +64,7 @@ cg_legislators <- function(title=NULL, first_name=NULL, middle_name=NULL,
       args <- suncompact(list(apikey=key,zip=zip,per_page=per_page,page=page,fields=fields,query=query,order=order))
     }
   } else {
-    url <- 'https://congress.api.sunlightfoundation.com/legislators'
+    url <- paste0(cgurl(), "/legislators")
     args <- suncompact(list(apikey=key,title=title,first_name=first_name,middle_name=middle_name,
         last_name=last_name,name_suffix=name_suffix,nickname=nickname,party=party,state=state,
         state_name=state_name,state_rank=state_rank,district=district,in_office=in_office,

@@ -23,9 +23,8 @@ cg_districts <- function(latitude = NULL, longitude = NULL, zip = NULL, query=NU
   key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
   return='table', ...)
 {
-  url = "https://congress.api.sunlightfoundation.com/districts/locate"
   args <- suncompact(list(apikey = key, latitude = latitude, longitude = longitude, zip = zip,
                           query=query, per_page=per_page, page=page, order=order))
 
-  return_obj(return, query(url, args, ...))
+  return_obj(return, query(paste0(cgurl(), "/districts/locate"), args, ...))
 }

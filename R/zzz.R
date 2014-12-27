@@ -14,3 +14,5 @@ return_obj <- function(x, y){
     if(x=='list') fromJSON(out, simplifyVector = FALSE, flatten = TRUE) else fromJSON(out)
   }
 }
+
+cgurl <- function() 'https://congress.api.sunlightfoundation.com'
