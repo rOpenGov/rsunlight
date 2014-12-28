@@ -53,7 +53,7 @@ ie_individuals <- function(method = NULL, entity_id = NULL, cycle = NULL, limit 
     lobb_iss = sprintf('indiv/%s/issues.json', entity_id)
   )
 
-  url <- sprintf('http://transparencydata.com/api/1.0/aggregates/%s', urlsuffix)
+  url <- sprintf('%s/aggregates/%s', ieurl(), urlsuffix)
   if(method=="top_ind") limit <- NULL
   args <- suncompact(list(apikey = key, cycle = cycle, limit = limit))
 

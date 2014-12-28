@@ -59,7 +59,6 @@ ie_contracts <-  function(
     key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
     ...)
 {
-  url <- "http://transparencydata.com/api/1.0/contracts.json"
   args <- suncompact(list(apikey = key, agency_id = agency_id,
     agency_name = agency_name, contracting_agency_id = contracting_agency_id,
     contracting_agency_name = contracting_agency_name, current_amount = current_amount,
@@ -69,5 +68,5 @@ ie_contracts <-  function(
     vendor_city = vendor_city, vendor_district = vendor_district, vendor_duns = vendor_duns,
     vendor_name = vendor_name, vendor_parent_duns = vendor_parent_duns, vendor_state = vendor_state,
     vendor_zipcode = vendor_zipcode, page = page, per_page = per_page))
-  return_obj(return, query(url, args, ...))
+  return_obj(return, query(paste0(ieurl(), "/contracts.json"), args, ...))
 }

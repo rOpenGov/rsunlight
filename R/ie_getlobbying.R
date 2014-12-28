@@ -30,10 +30,9 @@ ie_lobbying <-  function(
     key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
     ...)
 {
-  url <- "http://transparencydata.com/api/1.0/lobbying.json"
   args <- suncompact(list(apikey = key, amount = amount,
     client_ft = client_ft, client_parent_ft = client_parent_ft, filing_type = filing_type,
     lobbyist_ft = lobbyist_ft, registrant_ft = registrant_ft, transaction_id = transaction_id,
     transaction_type = transaction_type, year = year, page = page, per_page = per_page))
-  return_obj(return, query(url, args, ...))
+  return_obj(return, query(paste0(ieurl(), "/lobbying.json"), args, ...))
 }

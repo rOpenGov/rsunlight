@@ -20,9 +20,8 @@ ie_faca <- function(affiliation = NULL, agency_name = NULL, committee_name = NUL
   year = NULL, page = NULL, per_page = NULL, return='table',
   key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...)
 {
-  url <- "http://transparencydata.com/api/1.0/faca.json"
   args <- suncompact(list(apikey = key, affiliation = affiliation, agency_name = agency_name,
     committee_name = committee_name, member_name = member_name, year=year, page = page,
     per_page = per_page))
-  return_obj(return, query(url, args, ...))
+  return_obj(return, query(paste0(ieurl(), "/faca.json"), args, ...))
 }

@@ -49,11 +49,10 @@ ie_contr <-  function(
     key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
     ...)
 {
-  url <- "http://transparencydata.com/api/1.0/contributions.json"
   args <- suncompact(list(apikey = key, amount = amount,
     contributor_ft = contributor_ft, contributor_state = contributor_state, cycle = cycle,
     date = date, for_against = for_against, organization_ft = organization_ft,
     recipient_ft = recipient_ft, recipient_state = recipient_state, seat = seat,
     transaction_namespace = transaction_namespace, page = page, per_page = per_page))
-  return_obj(return, query(url, args, ...))
+  return_obj(return, query(paste0(ieurl(), "/contributions.json"), args, ...))
 }

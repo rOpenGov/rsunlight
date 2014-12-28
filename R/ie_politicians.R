@@ -63,7 +63,7 @@ ie_politicians <- function(method = NULL, entity_id = NULL, cycle = NULL, limit 
     fec_indexp = sprintf('pol/%s/fec_indexp.json', entity_id)
   )
 
-  url <- sprintf('http://transparencydata.com/api/1.0/aggregates/%s', urlsuffix)
+  url <- sprintf('%s/aggregates/%s', ieurl(), urlsuffix)
   if(method=="top_pol") limit <- NULL
   args <- suncompact(list(apikey = key, cycle = cycle, limit = limit))
 

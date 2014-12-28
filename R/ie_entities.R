@@ -42,19 +42,19 @@ ie_entities <- function(search = NULL, type = NULL, namespace = NULL, id = NULL,
   key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...)
 {
   if(!is.null(search)){
-    url = "http://transparencydata.com/api/1.0/entities.json"
+    url <- paste0(ieurl(), "/entities.json")
     stopifnot(is.null(namespace), is.null(id), is.null(bioguide_id), is.null(entity_id))
   }
   if(!is.null(entity_id)){
-    url <- sprintf("http://transparencydata.com/api/1.0/entities/%s.json", entity_id)
+    url <- sprintf("%s/entities/%s.json", ieurl(), entity_id)
     stopifnot(is.null(search), is.null(type), is.null(namespace), is.null(id), is.null(bioguide_id))
   }
   if(!is.null(bioguide_id)){
-    url = "http://transparencydata.com/api/1.0/entities/id_lookup.json"
+    url <- paste0(ieurl(), "/entities/id_lookup.json")
     stopifnot(is.null(search), is.null(type), is.null(namespace), is.null(id), is.null(entity_id))
   }
   if(!is.null(namespace) | !is.null(id)){
-    url = "http://transparencydata.com/api/1.0/entities/id_lookup.json"
+    url <- paste0(ieurl(), "/entities/id_lookup.json")
     stopifnot(is.null(search), is.null(type), is.null(bioguide_id), is.null(entity_id))
   }
 

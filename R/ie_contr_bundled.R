@@ -15,8 +15,7 @@ ie_contr_bundled <-  function(lobbyist_name = NULL, recipient_name = NULL, page 
   per_page = NULL, return='table', key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
   ...)
 {
-  url <- "http://transparencydata.com/api/1.0/contributions/bundled.json"
   args <- suncompact(list(apikey = key, lobbyist_name = lobbyist_name,
               recipient_name = recipient_name, page = page, per_page = per_page))
-  return_obj(return, query(url, args, ...))
+  return_obj(return, query(paste0(ieurl(), "/contributions/bundled.json"), args, ...))
 }

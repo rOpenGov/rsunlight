@@ -28,7 +28,7 @@ ie_industries <- function(method = NULL, entity_id = NULL, cycle = NULL, limit =
     top_org = sprintf('industry/%s/orgs.json', entity_id)
   )
 
-  url <- sprintf('http://transparencydata.com/api/1.0/aggregates/%s', urlsuffix)
+  url <- sprintf('%s/aggregates/%s', ieurl(), urlsuffix)
   if(method=="top_org") limit <- NULL
   args <- suncompact(list(apikey = key, cycle = cycle, limit = limit))
 

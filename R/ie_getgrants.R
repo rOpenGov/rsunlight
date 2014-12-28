@@ -26,10 +26,9 @@ ie_grants <-  function(
     key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
     ...)
 {
-  url <- "http://transparencydata.com/api/1.0/grants.json"
   args <- suncompact(list(apikey = key, agency_ft = agency_ft,
     amount_total = amount_total, assistance_type = assistance_type, fiscal_year = fiscal_year,
     recipient_ft = recipient_ft, recipient_state = recipient_state, recipient_type = recipient_type,
     page = page, per_page = per_page))
-  return_obj(return, query(url, args, ...))
+  return_obj(return, query(paste0(ieurl(), "/grants.json"), args, ...))
 }
