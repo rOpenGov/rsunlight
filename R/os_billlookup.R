@@ -36,12 +36,11 @@ os_billlookup <- function(state = NULL, session = NULL, bill_id = NULL,
   key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...)
 {
   bills <- NULL
-  url = "http://openstates.org/api/v1/bills"
   if(length(bill_id) > 1){
     bills <- paste(bill_id, collapse = "|")
     bill_id <- NULL
   }
   args <- suncompact(list(apikey=key, state=state, session=session, bill_id=bill_id,
           bill_id__in=bills, per_page=per_page, page=page, fields=paste(fields, collapse = ",")))
-  return_obj(return, query(url, args, ...))
+  return_obj(return, query(paste0(osurl(), "/bills"), args, ...))
 }

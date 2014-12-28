@@ -5,7 +5,7 @@ query <- function(url, args, ...){
 
   #Check status. 403s are the most likely and we don't want to be just providing a shouty "403 FORBIDDEN";
   #we know why those show up and can be reasonable about it.
-  status <- query_results$all_headers[[1]]$status
+  status <- query_results$status_code
   if(status == 403){
     stop("Your connection was not authorised: you have either not provided an API key, or provided
          an invalid one. Please see ?rsunlight")

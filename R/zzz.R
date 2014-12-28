@@ -18,3 +18,4 @@ return_obj <- function(x, y){
 cgurl <- function() 'https://congress.api.sunlightfoundation.com'
 cwurl <- function() 'http://capitolwords.org/api'
 ieurl <- function() 'http://transparencydata.com/api/1.0'
+osurl <- function() 'http://openstates.org/api/v1'

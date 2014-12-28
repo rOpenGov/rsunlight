@@ -34,10 +34,9 @@ os_legislatorsearch <- function(state = NULL, first_name = NULL,
     key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
     ...)
 {
-  url = "http://openstates.org/api/v1/legislators/"
   args <- suncompact(list(apikey = key, state = state, first_name = first_name,
                        last_name = last_name, chamber = chamber, active = active,
                        term = term, district = district, party = party,
                        page=page, per_page=per_page, fields=paste(fields, collapse = ",")))
-  return_obj(return, query(url, args, ...))
+  return_obj(return, query(paste0(osurl(), "/legislators"), args, ...))
 }

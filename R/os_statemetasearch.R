@@ -20,7 +20,7 @@ os_statemetasearch <- function(state = NULL,
     key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...)
 {
   getdata <- function(x=NULL){
-    url = "http://openstates.org/api/v1/metadata/"
+    url <- paste0(osurl(), "/metadata/")
     if(!is.null(x))
       url <- paste(url, x, sep= "")
     url2 <- paste(url, "?apikey=", key, sep= "")
