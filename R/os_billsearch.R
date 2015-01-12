@@ -35,7 +35,7 @@
 #' @param return (character) One of table (default), list, or response (httr response object)
 #' @param key your SunlightLabs API key; loads from .Rprofile
 #' @param ... Optional additional curl options (debugging tools mostly). See examples.
-#' @return List of output fields.
+#' @return a data.frame of bills.
 #' @export
 #' @examples \dontrun{
 #' os_billsearch(terms = 'agriculture', state = 'tx')
