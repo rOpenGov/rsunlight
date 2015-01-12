@@ -64,7 +64,7 @@ it's recommended to always specify which fields you will be using.}
 \item{...}{Optional additional curl options (debugging tools mostly). See examples.}
 }
 \value{
-List of output fields.
+a data.frame of bills.
 }
 \description{
 Search OpenStates bills.
