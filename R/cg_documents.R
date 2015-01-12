@@ -42,16 +42,20 @@
 #' @template cg
 #' @examples \dontrun{
 #' cg_documents()
+#' cg_documents(per_page=4)
+#' cg_documents(per_page=4)
+#' cg_documents(fields=c('document_id','type'))
 #' }
 
 cg_documents <- function(document_id=NULL, document_type=NULL, chamber=NULL, committee_id=NULL,
   committee_names=NULL, congress=NULL, house_event_id=NULL, hearing_type_code=NULL,
   hearing_title=NULL, published_at=NULL, bill_id=NULL, description=NULL, version_code=NULL,
   bioguide_id=NULL, occurs_at=NULL, urls=NULL, text=NULL, text_preview=NULL, witness=NULL,
-  page=1, per_page=20, order=NULL,
+  fields=NULL, page=1, per_page=20, order=NULL,
   key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), return='table', ...)
 {
-  args <- suncompact(list(apikey=key, per_page=per_page, page=page, order=order,
+  fields <- paste0(fields, collapse = ",")
+  args <- suncompact(list(apikey=key, per_page=per_page, page=page, order=order, fields=fields,
                           document_id=document_id, document_type=document_type, chamber=chamber,
                           committee_id=committee_id, committee_names=committee_names,
                           congress=congress, house_event_id=house_event_id,
@@ -59,5 +63,5 @@ cg_documents <- function(document_id=NULL, document_type=NULL, chamber=NULL, com
                           published_at=published_at, bill_id=bill_id, description=description,
                           version_code=version_code, bioguide_id=bioguide_id, occurs_at=occurs_at,
                           urls=urls, text=text, text_preview=text_preview, witness=witness))
-  return_obj(return, query(paste0(cgurl(), "/congressional_documents/search"), args, ...))
+  return_obj(return, query(url=paste0(cgurl(), "/congressional_documents/search"), args, ...))
 }

@@ -10,7 +10,7 @@ cg_documents(document_id = NULL, document_type = NULL, chamber = NULL,
   published_at = NULL, bill_id = NULL, description = NULL,
   version_code = NULL, bioguide_id = NULL, occurs_at = NULL,
   urls = NULL, text = NULL, text_preview = NULL, witness = NULL,
-  page = 1, per_page = 20, order = NULL,
+  fields = NULL, page = 1, per_page = 20, order = NULL,
   key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")), return = "table", ...)
 }
@@ -56,6 +56,11 @@ hosted by the Sunlight Foundation.}
 
 \item{witness}{Information about a witness associated with a document.}
 
+\item{fields}{You can request specific fields by supplying a vector of fields names. Many fields
+are not returned unless requested. If you don't supply a fields parameter, you will get the
+most commonly used subset of fields only. To save on bandwidth, parsing time, and confusion,
+it's recommended to always specify which fields you will be using.}
+
 \item{page}{Page to return. Default: 1. You can use this in combination with the
 per_page parameter to get more than the default or max number of results per page.}
 
@@ -75,11 +80,6 @@ When table is requested, the default, a table is not always returned, but is ret
 always. You can then make a table yourself if you like.}
 
 \item{...}{Optional additional curl options (debugging tools mostly). See examples.}
-
-\item{fields}{You can request specific fields by supplying a vector of fields names. Many fields
-are not returned unless requested. If you don't supply a fields parameter, you will get the
-most commonly used subset of fields only. To save on bandwidth, parsing time, and confusion,
-it's recommended to always specify which fields you will be using.}
 }
 \description{
 Search for data on documents
@@ -102,6 +102,9 @@ Search for data on documents
 \examples{
 \dontrun{
 cg_documents()
+cg_documents(per_page=4)
+cg_documents(per_page=4)
+cg_documents(fields=c('document_id','type'))
 }
 }
 
