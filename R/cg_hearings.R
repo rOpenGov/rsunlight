@@ -13,6 +13,15 @@
 #'
 #' @template cg
 #' @template cg_query
+#'
+#' @return url (character) (House only) A permalink to that hearing’s description on that committee’s official website.
+#' @return description (character) A description of the hearing.
+#' @return room (character) If the hearing is in DC, the building and room number the hearing is in. If the hearing is in the field, the address of the hearing.
+#' @return hearing_id (character) (House only) A permalink to that hearing’s description on that committee’s official website.
+#' 
+#' @references 
+#' \url{https://sunlightlabs.github.io/congress/hearings.html}
+#' 
 #' @examples \dontrun{
 #' cg_hearings(chamber='house', dc=TRUE)
 #' cg_hearings(query='children')
