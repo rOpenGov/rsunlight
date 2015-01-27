@@ -3,7 +3,7 @@
 #' @export
 #'
 #' @param committee_id (numeric) The ID of the committee holding the hearing.
-#' @param occurs_at (numeric) The time the hearing will occur.
+#' @param occurs_at (character) The time the hearing will occur. format: "%Y-%m-%dT%H:%M:%SZ" e.g. "2014-05-01T13:00:00Z" 
 #' @param congress (numeric) The number of the Congress the committee hearing is taking place during.
 #' @param chamber (character) The chamber ('house', 'senate', or 'joint') of the committee holding the hearing.
 #' @param dc (logical) Whether the committee hearing is held in DC (TRUE) or in the field (FALSE).
