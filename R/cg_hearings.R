@@ -3,7 +3,7 @@
 #' @export
 #'
 #' @param committee_id (numeric) The ID of the committee holding the hearing.
-#' @param occurs_at (numeric) The time the hearing will occur.
+#' @param occurs_at (character) The time the hearing will occur. format: "%Y-%m-%dT%H:%M:%SZ" e.g. "2014-05-01T13:00:00Z" 
 #' @param congress (numeric) The number of the Congress the committee hearing is taking place during.
 #' @param chamber (character) The chamber ('house', 'senate', or 'joint') of the committee holding the hearing.
 #' @param dc (logical) Whether the committee hearing is held in DC (TRUE) or in the field (FALSE).
@@ -13,6 +13,15 @@
 #'
 #' @template cg
 #' @template cg_query
+#'
+#' @return url (character) (House only) A permalink to that hearing’s description on that committee’s official website.
+#' @return description (character) A description of the hearing.
+#' @return room (character) If the hearing is in DC, the building and room number the hearing is in. If the hearing is in the field, the address of the hearing.
+#' @return hearing_id (character) (House only) A permalink to that hearing’s description on that committee’s official website.
+#' 
+#' @references 
+#' \url{https://sunlightlabs.github.io/congress/hearings.html}
+#' 
 #' @examples \dontrun{
 #' cg_hearings(chamber='house', dc=TRUE)
 #' cg_hearings(query='children')
