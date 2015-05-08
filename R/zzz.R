@@ -23,6 +23,10 @@ one_vec <- function(x) {
   }
 }
 
+get_iter <- function(z) {
+  z[vapply(z, length, 1) > 1]
+}
+
 cgurl <- function() 'https://congress.api.sunlightfoundation.com'
 cwurl <- function() 'http://capitolwords.org/api'
 ieurl <- function() 'http://transparencydata.com/api/1.0'

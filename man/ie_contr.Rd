@@ -8,7 +8,7 @@ ie_contr(amount = NULL, contributor_ft = NULL, contributor_state = NULL,
   cycle = NULL, date = NULL, for_against = NULL, organization_ft = NULL,
   recipient_ft = NULL, recipient_state = NULL, seat = NULL,
   transaction_namespace = NULL, page = NULL, per_page = NULL,
-  return = "table", key = getOption("SunlightLabsKey",
+  as = "table", key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")), ...)
 }
 \arguments{
@@ -49,13 +49,13 @@ contribution is running.}
 \item{per_page}{The number of results to return per page, defaults to 1,000.
 The maximum number of records per page is 100,000.}
 
-\item{return}{(character) One of table (default), list, or response (httr response object).
-When table is requested, the default, a table is not always returned, but is returned almost
-always. You can then make a table yourself if you like.}
-
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
 \item{...}{Optional additional curl options (debugging tools mostly)}
+
+\item{return}{(character) One of table (default), list, or response (httr response object).
+When table is requested, the default, a table is not always returned, but is returned almost
+always. You can then make a table yourself if you like.}
 }
 \value{
 Details on campaign contributions.
@@ -68,6 +68,11 @@ Search for itemized campaign contributions at the federal (FEC) or state (NIMSP)
 ie_contr(amount='<|100')
 ie_contr(amount='<|100', page=1, per_page=3)
 ie_contr(recipient_state='al', for_against='for', amount='<|20')
+
+# some parameters are vectorized, pass in more than one value
+ie_contr(amount = c('<|100', '>|10000'))
+ie_contr(recipient_ft = c('Merkley', 'Wyden'))
+ie_contr(recipient_ft = c('Obama', 'Murray'))
 }
 }
 

@@ -30,6 +30,11 @@
 #' ie_contr(amount='<|100')
 #' ie_contr(amount='<|100', page=1, per_page=3)
 #' ie_contr(recipient_state='al', for_against='for', amount='<|20')
+#'
+#' # some parameters are vectorized, pass in more than one value
+#' ie_contr(amount = c('<|100', '>|10000'))
+#' ie_contr(recipient_ft = c('Merkley', 'Wyden'))
+#' ie_contr(recipient_ft = c('Obama', 'Murray'))
 #' }
 
 ie_contr <-  function(
@@ -45,14 +50,37 @@ ie_contr <-  function(
     seat = NULL,
     transaction_namespace = NULL,
     page = NULL,
-    per_page = NULL, return='table',
+    per_page = NULL, as='table',
     key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-    ...)
-{
+    ...) {
+
   args <- suncompact(list(apikey = key, amount = amount,
     contributor_ft = contributor_ft, contributor_state = contributor_state, cycle = cycle,
     date = date, for_against = for_against, organization_ft = organization_ft,
     recipient_ft = recipient_ft, recipient_state = recipient_state, seat = seat,
     transaction_namespace = transaction_namespace, page = page, per_page = per_page))
-  return_obj(return, query(paste0(ieurl(), "/contributions.json"), args, ...))
+  one_vec(args)
+  iter <- get_iter(args)
+  if (length(iter) == 0) {
+    tmp <- return_obj(as, query(paste0(ieurl(), "/contributions.json"), args, ...))
+  } else {
+    tmp <- lapply(iter[[1]], function(w) {
+      args[[ names(iter) ]] <- w
+      return_obj(as, query(paste0(ieurl(), "/contributions.json"), args, ...))
+    })
+    if (as == "table") {
+      tmp <- rbind.fill(tmp)
+    }
+  }
+  switch(as,
+         table = structure(tmp, class = c("sunlight", "data.frame")),
+         list = tmp,
+         response = tmp)
+}
+
+#' @export
+print.sunlight <- function(x, ..., n = 10){
+  cat("<Sunlight data>", sep = "\n")
+  cat(sprintf("   Dimensions:   [%s X %s]\n", NROW(x), NCOL(x)), sep = "\n")
+  trunc_mat(x, n = n)
 }
