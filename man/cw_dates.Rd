@@ -43,7 +43,8 @@ cw_dates(phrase = NULL, title = NULL, date = NULL, start_date = NULL,
 
 \item{page_id}{Page id.}
 
-\item{n}{Size, not sure what this is.}
+\item{n}{(integer) The size of phrase, in words, to search for (up to 5). The length of
+the phrase to search against.}
 
 \item{mincount}{Only return results where mentions are at or above the supplied threshold}
 

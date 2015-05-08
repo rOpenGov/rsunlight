@@ -4,7 +4,8 @@
 #' @template cw
 #' @template cw_dates_text
 #' @param page_id Page id.
-#' @param n Size, not sure what this is.
+#' @param n (integer) The size of phrase, in words, to search for (up to 5). The length of
+#'    the phrase to search against.
 #' @param percentages Include the percentage of mentions versus total words in
 #'    the result objects. Valid values: 'true', 'false' (default) (character)
 #' @param mincount Only return results where mentions are at or above the supplied threshold
