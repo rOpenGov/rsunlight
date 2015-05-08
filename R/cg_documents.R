@@ -16,11 +16,11 @@
 #' @param description Description of the hearing.
 #' @param version_code The short-code for what stage the version of the bill. See GPO for
 #' explanations of the version code.
-#' @param bioguide_id Unique identifier for a member of Congress if they are associated with the
-#' document.
+#' @param bioguide_id Unique identifier for a member of Congress if they are associated
+#' with the document.
 #' @param occurs_at Date and time of a hearing associated with the document.
-#' @param urls The original link to the document. The permalink is a link to a copy of the document
-#' hosted by the Sunlight Foundation.
+#' @param urls The original link to the document. The permalink is a link to a copy
+#' of the document hosted by the Sunlight Foundation.
 #' @param text Extracted text from the document.
 #' @param text_preview A preview of the text.
 #' @param witness Information about a witness associated with a document.

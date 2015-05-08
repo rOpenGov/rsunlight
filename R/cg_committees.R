@@ -1,17 +1,21 @@
 #' @title Gets details (subcommittees + membership) for a committee by id.
 #'
-#' @description Names, IDs, contact info, and memberships of committees and subcommittees in the House and
-#' Senate. All committee information is sourced from bulk data at github.com/unitedstates, which
-#' in turn comes from official House and Senate sources . Feel free to open a ticket with any
-#' bugs or suggestions. We only provide information on current committees and memberships. For
-#' historic data on committee names, IDs, and contact info, refer to the bulk data.
+#' @description Names, IDs, contact info, and memberships of committees and subcommittees
+#' in the House and Senate. All committee information is sourced from bulk data at
+#' github.com/unitedstates, which in turn comes from official House and Senate sources.
+#' Feel free to open a ticket with any bugs or suggestions. We only provide information
+#' on current committees and memberships. For historic data on committee names, IDs,
+#' and contact info, refer to the bulk data.
 #'
 #' @import httr
-#' @param member_ids An array of bioguide IDs of legislators that are assigned to this committee.
-#' @param committee_id Official ID of the committee, as it appears in various official sources (Senate, House, and Library of Congress).
+#' @param member_ids An array of bioguide IDs of legislators that are assigned to
+#' this committee.
+#' @param committee_id Official ID of the committee, as it appears in various official
+#' sources (Senate, House, and Library of Congress).
 #' @param chamber The chamber this committee is part of. 'house', 'senate', or 'joint'.
 #' @param subcommittee Whether or not the committee is a subcommittee.
-#' @param parent_committee_id If the committee is a subcommittee, the ID of its parent committee.
+#' @param parent_committee_id If the committee is a subcommittee, the ID of its
+#' parent committee.
 #'
 #' @template cg
 #' @template cg_query

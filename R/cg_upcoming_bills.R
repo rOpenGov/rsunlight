@@ -2,12 +2,13 @@
 #'
 #' @export
 #'
-#' @param scheduled_at The exact time at which our systems first spotted this bill on the schedule
-#' in this chamber and on this legislative day. Currently, we check the schedules every 15 minutes.
-#' @param legislative_day The legislative day this bill is scheduled for. Combine with the range
-#' field to understand precision. May be null.
-#' @param range How precise this information is. One of 'day', 'week', or NULL. See Details for
-#' more.
+#' @param scheduled_at The exact time at which our systems first spotted this bill
+#' on the schedule in this chamber and on this legislative day. Currently, we check
+#' the schedules every 15 minutes.
+#' @param legislative_day The legislative day this bill is scheduled for. Combine
+#' with the range field to understand precision. May be null.
+#' @param range How precise this information is. One of 'day', 'week', or NULL. See
+#' Details for more.
 #' @param congress The number of the Congress this bill has been scheduled in.
 #' @param chamber The chamber which has scheduled this bill.
 #' @param source_type The source for this information. 'house_daily' (Majority Leader daily

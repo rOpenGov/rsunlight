@@ -11,15 +11,18 @@ cg_committees(member_ids = NULL, committee_id = NULL, chamber = NULL,
   stop("need an API key for Sunlight Labs")), as = "table", ...)
 }
 \arguments{
-\item{member_ids}{An array of bioguide IDs of legislators that are assigned to this committee.}
+\item{member_ids}{An array of bioguide IDs of legislators that are assigned to
+this committee.}
 
-\item{committee_id}{Official ID of the committee, as it appears in various official sources (Senate, House, and Library of Congress).}
+\item{committee_id}{Official ID of the committee, as it appears in various official
+sources (Senate, House, and Library of Congress).}
 
 \item{chamber}{The chamber this committee is part of. 'house', 'senate', or 'joint'.}
 
 \item{subcommittee}{Whether or not the committee is a subcommittee.}
 
-\item{parent_committee_id}{If the committee is a subcommittee, the ID of its parent committee.}
+\item{parent_committee_id}{If the committee is a subcommittee, the ID of its
+parent committee.}
 
 \item{query}{(character) Return results the API thinks best match your query. Queries are
 interpreted as phrases.}
@@ -53,11 +56,12 @@ always. You can then make a table yourself if you like.}
 Committee details including subcommittees and all members.
 }
 \description{
-Names, IDs, contact info, and memberships of committees and subcommittees in the House and
-Senate. All committee information is sourced from bulk data at github.com/unitedstates, which
-in turn comes from official House and Senate sources . Feel free to open a ticket with any
-bugs or suggestions. We only provide information on current committees and memberships. For
-historic data on committee names, IDs, and contact info, refer to the bulk data.
+Names, IDs, contact info, and memberships of committees and subcommittees
+in the House and Senate. All committee information is sourced from bulk data at
+github.com/unitedstates, which in turn comes from official House and Senate sources.
+Feel free to open a ticket with any bugs or suggestions. We only provide information
+on current committees and memberships. For historic data on committee names, IDs,
+and contact info, refer to the bulk data.
 }
 \examples{
 \dontrun{

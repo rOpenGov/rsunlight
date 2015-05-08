@@ -42,13 +42,13 @@ cg_documents(document_id = NULL, document_type = NULL, chamber = NULL,
 \item{version_code}{The short-code for what stage the version of the bill. See GPO for
 explanations of the version code.}
 
-\item{bioguide_id}{Unique identifier for a member of Congress if they are associated with the
-document.}
+\item{bioguide_id}{Unique identifier for a member of Congress if they are associated
+with the document.}
 
 \item{occurs_at}{Date and time of a hearing associated with the document.}
 
-\item{urls}{The original link to the document. The permalink is a link to a copy of the document
-hosted by the Sunlight Foundation.}
+\item{urls}{The original link to the document. The permalink is a link to a copy
+of the document hosted by the Sunlight Foundation.}
 
 \item{text}{Extracted text from the document.}
 

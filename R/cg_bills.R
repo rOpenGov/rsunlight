@@ -2,11 +2,11 @@
 #'
 #' Data on bills in Congress goes back to 2009, and comes from a mix of sources:
 #' \itemize{
-#'  \item Scrapers at github.com/unitedstates for most data, including core status and history
-#'  information.
+#'  \item Scrapers at github.com/unitedstates for most data, including core status and
+#'  history information.
 #'  \item Bulk data at GPO's FDSys for version information, and full text.
-#'  \item The House' MajorityLeader.gov and Senate Democrats' official site for notices of upcoming
-#'  debate.
+#'  \item The House' MajorityLeader.gov and Senate Democrats' official site for
+#'  notices of upcoming debate.
 #' }
 #'
 #' @export
@@ -14,9 +14,10 @@
 #' @template cg
 #'
 #' @details
-#' History: The history field includes useful flags and dates/times in a bill's life. The above is
-#' a real-life example of H.R. 3590 - not all fields will be present for every bill. Time fields
-#' can hold either dates or times - Congress is inconsistent about providing specific timestamps.
+#' History: The history field includes useful flags and dates/times in a bill's life.
+#' The above is a real-life example of H.R. 3590 - not all fields will be present
+#' for every bill. Time fields can hold either dates or times - Congress is inconsistent
+#' about providing specific timestamps.
 #'
 #' @return Committee details including subcommittees and all members.
 #'

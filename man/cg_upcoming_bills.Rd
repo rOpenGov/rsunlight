@@ -11,14 +11,15 @@ cg_upcoming_bills(scheduled_at = NULL, legislative_day = NULL,
   stop("need an API key for Sunlight Labs")), as = "table", ...)
 }
 \arguments{
-\item{scheduled_at}{The exact time at which our systems first spotted this bill on the schedule
-in this chamber and on this legislative day. Currently, we check the schedules every 15 minutes.}
+\item{scheduled_at}{The exact time at which our systems first spotted this bill
+on the schedule in this chamber and on this legislative day. Currently, we check
+the schedules every 15 minutes.}
 
-\item{legislative_day}{The legislative day this bill is scheduled for. Combine with the range
-field to understand precision. May be null.}
+\item{legislative_day}{The legislative day this bill is scheduled for. Combine
+with the range field to understand precision. May be null.}
 
-\item{range}{How precise this information is. One of 'day', 'week', or NULL. See Details for
-more.}
+\item{range}{How precise this information is. One of 'day', 'week', or NULL. See
+Details for more.}
 
 \item{congress}{The number of the Congress this bill has been scheduled in.}
 
