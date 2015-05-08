@@ -8,7 +8,7 @@ cg_committees(member_ids = NULL, committee_id = NULL, chamber = NULL,
   subcommittee = NULL, parent_committee_id = NULL, query = NULL,
   fields = NULL, page = 1, per_page = 20, order = NULL,
   key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), return = "table", ...)
+  stop("need an API key for Sunlight Labs")), as = "table", ...)
 }
 \arguments{
 \item{member_ids}{An array of bioguide IDs of legislators that are assigned to this committee.}
@@ -43,7 +43,7 @@ ending in \code{/search}), you may sort by score to order by relevancy.}
 
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
-\item{return}{(character) One of table (default), list, or response (httr response object).
+\item{as}{(character) One of table (default), list, or response (httr response object).
 When table is requested, the default, a table is not always returned, but is returned almost
 always. You can then make a table yourself if you like.}
 
@@ -71,9 +71,9 @@ cg_committees(parent_committee_id='HSWM')
 cg_committees(per_page='all')
 
 # Output a list
-cg_committees(member_ids='L000551', return='list')
+cg_committees(member_ids='L000551', as='list')
 # Output an httr response object, for debugging purposes
-cg_committees(member_ids='L000551', return='response')
+cg_committees(member_ids='L000551', as='response')
 }
 }
 

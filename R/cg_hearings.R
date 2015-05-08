@@ -36,13 +36,13 @@
 
 cg_hearings <- function(committee_id=NULL, occurs_at=NULL, congress=NULL, chamber=NULL,
   dc=NULL, bill_ids=NULL, hearing_type=NULL, query=NULL, fields=NULL, page=1, per_page=20, order=NULL,
-  key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), return='table', ...)
-{
+  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), as = 'table', ...) {
+
   args <- suncompact(list(apikey=key, committee_id=committee_id, occurs_at=occurs_at,
       congress=congress, chamber=chamber, dc=getdc(dc), bill_ids=bill_ids,
       hearing_type=hearing_type, query=query, per_page=per_page, page=page, fields=fields, order=order))
 
-  return_obj(return, query(paste0(cgurl(), "/hearings"), args, ...))
+  return_obj(as, query(paste0(cgurl(), "/hearings"), args, ...))
 }
 
 getdc <- function(x){

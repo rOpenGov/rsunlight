@@ -52,8 +52,8 @@ cg_documents <- function(document_id=NULL, document_type=NULL, chamber=NULL, com
   hearing_title=NULL, published_at=NULL, bill_id=NULL, description=NULL, version_code=NULL,
   bioguide_id=NULL, occurs_at=NULL, urls=NULL, text=NULL, text_preview=NULL, witness=NULL,
   fields=NULL, page=1, per_page=20, order=NULL,
-  key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), return='table', ...)
-{
+  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), as = 'table', ...) {
+
   fields <- paste0(fields, collapse = ",")
   args <- suncompact(list(apikey=key, per_page=per_page, page=page, order=order, fields=fields,
                           document_id=document_id, document_type=document_type, chamber=chamber,
@@ -63,5 +63,5 @@ cg_documents <- function(document_id=NULL, document_type=NULL, chamber=NULL, com
                           published_at=published_at, bill_id=bill_id, description=description,
                           version_code=version_code, bioguide_id=bioguide_id, occurs_at=occurs_at,
                           urls=urls, text=text, text_preview=text_preview, witness=witness))
-  return_obj(return, query(url=paste0(cgurl(), "/congressional_documents/search"), args, ...))
+  return_obj(as, query(url=paste0(cgurl(), "/congressional_documents/search"), args, ...))
 }

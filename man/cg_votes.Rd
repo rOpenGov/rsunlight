@@ -9,7 +9,7 @@ cg_votes(roll_id = NULL, chamber = NULL, number = NULL, year = NULL,
   required = NULL, result = NULL, bill_id = NULL, nomination_id = NULL,
   query = NULL, fields = NULL, page = 1, per_page = 20, order = NULL,
   key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), return = "table",
+  stop("need an API key for Sunlight Labs")), as = "table",
   callopts = list(), ...)
 }
 \arguments{
@@ -68,11 +68,11 @@ ending in \code{/search}), you may sort by score to order by relevancy.}
 
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
-\item{return}{(character) One of table (default), list, or response (httr response object)}
-
 \item{callopts}{Curl options to be passed on to httr::GET}
 
 \item{...}{See Details. You can pass on additional parameters.}
+
+\item{return}{(character) One of table (default), list, or response (httr response object)}
 }
 \description{
 Search for data on votes.

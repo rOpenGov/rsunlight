@@ -28,22 +28,23 @@
 #' cg_committees(per_page='all')
 #'
 #' # Output a list
-#' cg_committees(member_ids='L000551', return='list')
+#' cg_committees(member_ids='L000551', as='list')
 #' # Output an httr response object, for debugging purposes
-#' cg_committees(member_ids='L000551', return='response')
+#' cg_committees(member_ids='L000551', as='response')
 #' }
 
 cg_committees <-  function(member_ids = NULL, committee_id = NULL, chamber = NULL, subcommittee = NULL,
   parent_committee_id = NULL, query=NULL, fields = NULL, page = 1, per_page = 20, order = NULL,
-  key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), return='table',
-  ...)
-{
-  if(!is.null(subcommittee))
+  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), as = 'table',
+  ...) {
+
+  if (!is.null(subcommittee)) {
     subcommittee <- ifelse(subcommittee, 'true', 'false')
+  }
   fields <- paste0(fields, collapse = ",")
   args <- suncompact(list(apikey = key, member_ids = member_ids, committee_id = committee_id,
               chamber = chamber, subcommittee = subcommittee, fields = fields,
               parent_committee_id = parent_committee_id, page = page, per_page=per_page,
               query=query, order=order))
-  return_obj(return, query(paste0(cgurl(), "/committees"), args, ...))
+  return_obj(as, query(paste0(cgurl(), "/committees"), args, ...))
 }

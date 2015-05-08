@@ -61,13 +61,13 @@
 cg_votes <- function(roll_id=NULL, chamber=NULL, number=NULL, year=NULL, congress=NULL,
   voted_at=NULL, vote_type=NULL, roll_type=NULL, required=NULL, result=NULL, bill_id=NULL,
   nomination_id=NULL, query=NULL, fields=NULL, page=1, per_page=20, order=NULL,
-  key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), return='table',
-  callopts=list(), ...)
-{
+  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), as = 'table',
+  callopts = list(), ...) {
+
   args <- suncompact(list(apikey=key,roll_id=roll_id, chamber=chamber, number=number, year=year,
       congress=congress, voted_at=voted_at, vote_type=vote_type, roll_type=roll_type,
       required=required, result=result, bill_id=bill_id, nomination_id=nomination_id,
       per_page=per_page, page=page, fields=fields, order=order, ...))
 
-  return_obj(return, query(paste0(cgurl(), "/votes"), args, callopts, ...))
+  return_obj(as, query(paste0(cgurl(), "/votes"), args, callopts, ...))
 }

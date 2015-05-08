@@ -32,12 +32,12 @@
 cg_floor_updates <- function(chamber=NULL, timestamp=NULL, congress=NULL, legislative_day=NULL,
   year=NULL, bill_ids=NULL, roll_ids=NULL, legislator_ids=NULL, query=NULL,
   fields=NULL, page=1, per_page=20, order=NULL,
-  key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), return='table', ...)
-{
+  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), as = 'table', ...) {
+
   args <- suncompact(list(apikey=key, chamber=chamber, timestamp=timestamp, congress=congress,
                           legislative_day=legislative_day, year=year, bill_ids=bill_ids,
                           roll_ids=roll_ids, legislator_ids=legislator_ids, query=query,
                           per_page=per_page, page=page, fields=fields, order=order))
 
-  return_obj(return, query(paste0(cgurl(), "/floor_updates"), args, ...))
+  return_obj(as, query(paste0(cgurl(), "/floor_updates"), args, ...))
 }

@@ -7,7 +7,7 @@
 cg_districts(latitude = NULL, longitude = NULL, zip = NULL,
   query = NULL, per_page = 20, page = 1, order = NULL,
   key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), return = "table", ...)
+  stop("need an API key for Sunlight Labs")), as = "table", ...)
 }
 \arguments{
 \item{latitude}{(numeric) latitude of coordinate}
@@ -33,9 +33,9 @@ ending in \code{/search}), you may sort by score to order by relevancy.}
 
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
-\item{return}{(character) One of table (default), list, or response (httr response object)}
-
 \item{...}{Optional additional curl options (debugging tools mostly). See examples.}
+
+\item{return}{(character) One of table (default), list, or response (httr response object)}
 }
 \value{
 List including data.frame and metadata about results, list, or httr

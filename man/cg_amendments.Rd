@@ -11,7 +11,7 @@ cg_amendments(amendment_id = NULL, amendment_type = NULL, number = NULL,
   sponsor_type = NULL, sponsor_id = NULL, query = NULL, fields = NULL,
   page = 1, per_page = 20, order = NULL,
   key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), return = "table", ...)
+  stop("need an API key for Sunlight Labs")), as = "table", ...)
 }
 \arguments{
 \item{amendment_id}{The unique ID for this amendment. Formed from the amendment_type, number,
@@ -76,7 +76,7 @@ ending in \code{/search}), you may sort by score to order by relevancy.}
 
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
-\item{return}{(character) One of table (default), list, or response (httr response object).
+\item{as}{(character) One of table (default), list, or response (httr response object).
 When table is requested, the default, a table is not always returned, but is returned almost
 always. You can then make a table yourself if you like.}
 

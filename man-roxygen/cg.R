@@ -3,7 +3,7 @@
 #' most commonly used subset of fields only. To save on bandwidth, parsing time, and confusion,
 #' it's recommended to always specify which fields you will be using.
 #' @param key your SunlightLabs API key; loads from .Rprofile
-#' @param return (character) One of table (default), list, or response (httr response object).
+#' @param as (character) One of table (default), list, or response (httr response object).
 #' When table is requested, the default, a table is not always returned, but is returned almost
 #' always. You can then make a table yourself if you like.
 #' @param ... Optional additional curl options (debugging tools mostly). See examples.

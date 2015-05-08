@@ -17,7 +17,7 @@ cg_legislators(title = NULL, first_name = NULL, middle_name = NULL,
   term_start = NULL, term_end = NULL, birthday = NULL, latitude = NULL,
   longitude = NULL, zip = NULL, query = NULL, fields = NULL, page = 1,
   per_page = 20, order = NULL, key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), return = "table", ...)
+  stop("need an API key for Sunlight Labs")), as = "table", ...)
 }
 \arguments{
 \item{title}{Title held by this legislator, either Sen or Rep}
@@ -141,7 +141,7 @@ ending in \code{/search}), you may sort by score to order by relevancy.}
 
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
-\item{return}{(character) One of table (default), list, or response (httr response object).
+\item{as}{(character) One of table (default), list, or response (httr response object).
 When table is requested, the default, a table is not always returned, but is returned almost
 always. You can then make a table yourself if you like.}
 

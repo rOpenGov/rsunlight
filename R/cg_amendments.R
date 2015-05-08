@@ -43,8 +43,8 @@ cg_amendments <- function(amendment_id=NULL, amendment_type=NULL, number=NULL, c
   chamber=NULL, house_number=NULL, introduced_on=NULL, last_action_at=NULL, amends_bill_id=NULL,
   amends_treaty_id=NULL, amends_amendment_id=NULL, sponsor_type=NULL, sponsor_id=NULL,
   query=NULL, fields=NULL, page=1, per_page=20, order=NULL,
-  key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), return='table', ...)
-{
+  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), as = 'table', ...) {
+
   url <- 'https://congress.api.sunlightfoundation.com/amendments'
   args <- suncompact(list(apikey=key, amendment_id=amendment_id, amendment_type=amendment_type,
                           number=number, congress=congress, chamber=chamber, house_number=house_number,
@@ -54,5 +54,5 @@ cg_amendments <- function(amendment_id=NULL, amendment_type=NULL, number=NULL, c
                           sponsor_id=sponsor_id, query=query, per_page=per_page, page=page,
                           fields=fields, order=order))
 
-  return_obj(return, query(url, args, ...))
+  return_obj(as, query(url, args, ...))
 }

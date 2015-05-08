@@ -9,7 +9,7 @@ cg_nominations(nomination_id = NULL, congress = NULL, number = NULL,
   committee_ids = NULL, nominees = NULL, nominees.position = NULL,
   nominees.state = NULL, query = NULL, fields = NULL, page = 1,
   per_page = 20, order = NULL, key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), return = "table", ...)
+  stop("need an API key for Sunlight Labs")), as = "table", ...)
 }
 \arguments{
 \item{nomination_id}{The unique identifier for this nomination, taken from the Library of
@@ -61,7 +61,7 @@ ending in \code{/search}), you may sort by score to order by relevancy.}
 
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
-\item{return}{(character) One of table (default), list, or response (httr response object).
+\item{as}{(character) One of table (default), list, or response (httr response object).
 When table is requested, the default, a table is not always returned, but is returned almost
 always. You can then make a table yourself if you like.}
 

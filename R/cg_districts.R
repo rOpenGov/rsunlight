@@ -20,11 +20,11 @@
 
 cg_districts <- function(latitude = NULL, longitude = NULL, zip = NULL, query=NULL,
   per_page=20, page=1, order = NULL,
-  key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-  return='table', ...)
-{
+  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
+  as = 'table', ...) {
+
   args <- suncompact(list(apikey = key, latitude = latitude, longitude = longitude, zip = zip,
                           query=query, per_page=per_page, page=page, order=order))
 
-  return_obj(return, query(paste0(cgurl(), "/districts/locate"), args, ...))
+  return_obj(as, query(paste0(cgurl(), "/districts/locate"), args, ...))
 }

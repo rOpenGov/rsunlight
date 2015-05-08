@@ -57,10 +57,10 @@ cg_bills <- function(query = NULL, bill_id = NULL, bill_type = NULL, number = NU
   withdrawn_cosponsors_count=NULL, withdrawn_cosponsor_ids=NULL, committee_ids=NULL,
   related_bill_ids=NULL, enacted_as.congress=NULL,
   enacted_as.number=NULL, fields=NULL, page = 1, per_page = 20, order = NULL,
-  key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-  return='table', ...)
-{
-  if(is.null(query)){
+  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
+  as = 'table', ...) {
+
+  if (is.null(query)) {
     url <- paste0(cgurl(), '/bills')
   } else {
     url <- paste0(cgurl(), '/bills/search')
@@ -93,7 +93,7 @@ cg_bills <- function(query = NULL, bill_id = NULL, bill_type = NULL, number = NU
     committee_ids=committee_ids, related_bill_ids=related_bill_ids, enacted_as.congress=enacted_as.congress,
     enacted_as.number=enacted_as.number))
 
-  return_obj(return, query(url, args, ...))
+  return_obj(as, query(url, args, ...))
 }
 
 ll <- function(x) if(!is.null(x)){ if(x) tolower(x) else x }
