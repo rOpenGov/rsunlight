@@ -5,7 +5,7 @@
 \title{Capitol words phrases.json method. List the top phrases for a facet.}
 \usage{
 cw_phrases(entity_type = NULL, entity_value = NULL, n = NULL,
-  page = NULL, per_page = NULL, sort = NULL, return = "table",
+  page = NULL, per_page = NULL, sort = NULL, as = "table",
   key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")), ...)
 }
@@ -26,7 +26,7 @@ cw_phrases(entity_type = NULL, entity_value = NULL, n = NULL,
 (see details), but if you forget, we make it ascending by default (prevents 500 error :)).
 Valid values are 'tfidf' (default) and 'count'.}
 
-\item{return}{(character) One of table (default), list, or response (httr response object).}
+\item{as}{(character) One of table (default), list, or response (httr response object).}
 
 \item{key}{Your SunlightLabs API key; loads from .Rprofile.}
 

@@ -13,7 +13,7 @@
 #' Valid values are 'tfidf' (default) and 'count'.
 #' @param key Your SunlightLabs API key; loads from .Rprofile.
 #' @param ... Further curl options (debugging tools mostly)
-#' @param return (character) One of table (default), list, or response (httr response object).
+#' @param as (character) One of table (default), list, or response (httr response object).
 #' @return Data frame of observations by date.
 #' @examples \dontrun{
 #' cw_phrases(entity_type='month', entity_value=201007)
@@ -24,14 +24,15 @@
 #' head(cw_phrases(entity_type='month', entity_value=201007, config=verbose()))
 #' }
 cw_phrases <- function(entity_type = NULL, entity_value = NULL, n = NULL, page = NULL,
-  per_page = NULL, sort = NULL, return='table',
-  key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...)
-{
-  if(!is.null(sort)){
-    if(!grepl('asc|desc', sort))
+  per_page = NULL, sort = NULL, as = 'table',
+  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...) {
+
+  if (!is.null(sort)) {
+    if (!grepl('asc|desc', sort)) {
       sort <- paste(sort, 'asc')
+    }
   }
-  args <- suncompact(list(apikey = key, entity_type=entity_type, entity_value=entity_value,
-                          n=n, page=page, per_page=per_page, sort=sort))
-  return_obj(return, query(paste0(cwurl(), "/phrases.json"), args, ...))
+  args <- suncompact(list(apikey = key, entity_type = entity_type, entity_value = entity_value,
+                          n = n, page = page, per_page = per_page, sort = sort))
+  return_obj(as, query(paste0(cwurl(), "/phrases.json"), args, ...))
 }

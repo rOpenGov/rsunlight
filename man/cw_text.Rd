@@ -8,7 +8,7 @@ of a word or phrase.}
 cw_text(phrase = NULL, title = NULL, date = NULL, start_date = NULL,
   end_date = NULL, chamber = NULL, state = NULL, party = NULL,
   bioguide_id = NULL, congress = NULL, session = NULL, cr_pages = NULL,
-  volume = NULL, page = NULL, sort = NULL, return = "table",
+  volume = NULL, page = NULL, sort = NULL, as = "table",
   key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")), ...)
 }
@@ -45,7 +45,7 @@ cw_text(phrase = NULL, title = NULL, date = NULL, start_date = NULL,
 (see details), but if you forget, we make it ascending by default (prevents 500 error :)).
 See Details.}
 
-\item{return}{(character) One of table (default), list, or response (httr response object).}
+\item{as}{(character) One of table (default), list, or response (httr response object).}
 
 \item{key}{Your SunlightLabs API key; loads from .Rprofile.}
 

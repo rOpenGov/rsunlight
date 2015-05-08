@@ -49,22 +49,28 @@
 
 cw_timeseries <- function(phrase=NULL, date = NULL, start_date=NULL, end_date=NULL,
   chamber=NULL, state=NULL, party=NULL, bioguide_id=NULL, mincount=NULL,
-  percentages=NULL, granularity='day', entity_type=NULL, entity_value=NULL, return='table',
-  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...)
-{
-  splitt<-function(x) paste(str_sub(x, 1, 4), "-", str_sub(x, 5, 6), sep="")
+  percentages=NULL, granularity='day', entity_type=NULL, entity_value=NULL, as = 'table',
+  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...) {
+
+  splitt <- function(x) paste(str_sub(x, 1, 4), "-", str_sub(x, 5, 6), sep = "")
   args <- suncompact(list(apikey=key, phrase=phrase, start_date=start_date,
                        date = date, end_date=end_date, chamber=chamber, state=state,
                        party=party, bioguide_id=bioguide_id, mincount=mincount,
                        percentages=percentages, granularity=granularity,
                        entity_type=entity_type, entity_value=entity_value))
 
-  tmp <- return_obj(return, query(paste0(cwurl(), "/dates.json"), args, ...))
-  if(return %in% c('response','list')){ tmp } else {
+  tmp <- return_obj(as, query(paste0(cwurl(), "/dates.json"), args, ...))
+  if (as %in% c('response','list')) {
+    tmp
+  } else {
     data <- tmp$results
-    if(granularity=='day'){ data$day <- as.Date(data$day) } else
-      if(granularity=='month'){ data$month <- as.Date(sprintf("%s-01", sapply(data$month, splitt))) } else
-        if(granularity=='year'){ data$year <- as.Date(sprintf("%s-01-01", data$year)) }
+    if (granularity == 'day') {
+      data$day <- as.Date(data$day)
+    } else if (granularity == 'month') {
+      data$month <- as.Date(sprintf("%s-01", sapply(data$month, splitt)))
+    } else if (granularity == 'year') {
+      data$year <- as.Date(sprintf("%s-01-01", data$year))
+    }
     data
   }
 }

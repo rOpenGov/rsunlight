@@ -8,7 +8,7 @@ cw_timeseries(phrase = NULL, date = NULL, start_date = NULL,
   end_date = NULL, chamber = NULL, state = NULL, party = NULL,
   bioguide_id = NULL, mincount = NULL, percentages = NULL,
   granularity = "day", entity_type = NULL, entity_value = NULL,
-  return = "table", key = getOption("SunlightLabsKey",
+  as = "table", key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")), ...)
 }
 \arguments{
@@ -44,7 +44,7 @@ the result objects. Valid values: 'true', 'false' (default) (character)}
 as follows: date: 2011-11-09; month: 201111; state: NY;
 legislator (bioguide): L000551}
 
-\item{return}{(character) One of table (default), list, or response (httr response object).}
+\item{as}{(character) One of table (default), list, or response (httr response object).}
 
 \item{key}{Your SunlightLabs API key; loads from .Rprofile.}
 

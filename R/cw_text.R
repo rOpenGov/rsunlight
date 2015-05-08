@@ -48,19 +48,20 @@
 
 cw_text <- function(phrase=NULL, title=NULL, date = NULL, start_date=NULL, end_date=NULL,
   chamber=NULL, state=NULL, party=NULL, bioguide_id=NULL, congress=NULL,
-  session=NULL, cr_pages=NULL, volume=NULL, page=NULL, sort=NULL, return='table',
-  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...)
-{
-  if(!is.null(sort)){
-    if(!grepl('asc|desc', sort))
+  session=NULL, cr_pages=NULL, volume=NULL, page=NULL, sort=NULL, as = 'table',
+  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...) {
+
+  if (!is.null(sort)) {
+    if (!grepl('asc|desc', sort)) {
       sort <- paste(sort, 'asc')
+    }
   }
-  args <- suncompact(list(apikey=key, phrase=phrase, start_date=start_date,
-      date = date, end_date=end_date, chamber=chamber, state=state, party=party,
-      bioguide_id=bioguide_id, congress=congress, session=session, cr_pages=cr_pages, volume=volume,
-      page=page, sort=sort))
-  tmp <- return_obj(return, query(paste0(cwurl(), "/text.json"), args, ...))
-  if(return=='response'){
+  args <- suncompact(list(apikey = key, phrase = phrase, start_date = start_date,
+      date = date, end_date = end_date, chamber = chamber, state = state, party = party,
+      bioguide_id = bioguide_id, congress = congress, session = session, cr_pages = cr_pages,
+      volume = volume, page = page, sort = sort))
+  tmp <- return_obj(as, query(paste0(cwurl(), "/text.json"), args, ...))
+  if (as == 'response') {
     return(tmp)
   } else {
     return(tmp$results)

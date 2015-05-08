@@ -8,4 +8,4 @@
 #' @param bioguide_id Bioguide ID for politician (e.g., B000243)
 #' @param key Your SunlightLabs API key; loads from .Rprofile.
 #' @param ... Further curl options (debugging tools mostly)
-#' @param return (character) One of table (default), list, or response (httr response object).
+#' @param as (character) One of table (default), list, or response (httr response object).

@@ -39,20 +39,20 @@ cw_dates <- function(phrase = NULL, title = NULL, date = NULL, start_date = NULL
   end_date = NULL, chamber = NULL, state = NULL, party = NULL, bioguide_id = NULL,
   congress = NULL, session = NULL, cr_pages = NULL, volume = NULL, page_id = NULL,
   n = NULL, mincount = NULL, granularity = NULL, percentages = 'true', entity_type = NULL,
-  entity_value = NULL, return='table',
-  key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...)
-{
+  entity_value = NULL, as = 'table',
+  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...) {
+
   args <- suncompact(list(apikey = key, phrase = phrase, title = title,
         date = date, start_date = start_date, end_date = end_date,
         chamber = chamber, state = state, party = party,
         bioguide_id = bioguide_id, congress = congress,
         session = session, cr_pages = cr_pages, volume = volume,
         page_id = page_id, n = n, mincount = mincount, granularity = granularity,
-        percentages = percentages, entity_type=entity_type, entity_value=entity_value))
+        percentages = percentages, entity_type = entity_type, entity_value = entity_value))
 
 
-  tmp <- return_obj(return, query(paste0(cwurl(), "/dates.json"), args, ...))
-  if(return=='response'){
+  tmp <- return_obj(as, query(paste0(cwurl(), "/dates.json"), args, ...))
+  if (as == 'response') {
     return(tmp)
   } else {
     return(tmp$results)
