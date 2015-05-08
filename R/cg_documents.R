@@ -55,7 +55,7 @@ cg_documents <- function(document_id=NULL, document_type=NULL, chamber=NULL, com
   key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), as = 'table', ...) {
 
   fields <- paste0(fields, collapse = ",")
-  args <- suncompact(list(apikey=key, per_page=per_page, page=page, order=order, fields=fields,
+  args <- sc(list(apikey=key, per_page=per_page, page=page, order=order, fields=fields,
                           document_id=document_id, document_type=document_type, chamber=chamber,
                           committee_id=committee_id, committee_names=committee_names,
                           congress=congress, house_event_id=house_event_id,

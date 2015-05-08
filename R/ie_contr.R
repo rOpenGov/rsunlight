@@ -54,7 +54,7 @@ ie_contr <-  function(
     key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
     ...) {
 
-  args <- suncompact(list(apikey = key, amount = amount,
+  args <- sc(list(apikey = key, amount = amount,
     contributor_ft = contributor_ft, contributor_state = contributor_state, cycle = cycle,
     date = date, for_against = for_against, organization_ft = organization_ft,
     recipient_ft = recipient_ft, recipient_state = recipient_state, seat = seat,

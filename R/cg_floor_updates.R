@@ -34,7 +34,7 @@ cg_floor_updates <- function(chamber=NULL, timestamp=NULL, congress=NULL, legisl
   fields=NULL, page=1, per_page=20, order=NULL,
   key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), as = 'table', ...) {
 
-  args <- suncompact(list(apikey=key, chamber=chamber, timestamp=timestamp, congress=congress,
+  args <- sc(list(apikey=key, chamber=chamber, timestamp=timestamp, congress=congress,
                           legislative_day=legislative_day, year=year, bill_ids=bill_ids,
                           roll_ids=roll_ids, legislator_ids=legislator_ids, query=query,
                           per_page=per_page, page=page, fields=fields, order=order))

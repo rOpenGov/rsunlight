@@ -61,7 +61,7 @@ os_billsearch <- function(terms = NULL, state = NULL, window = NULL,
     key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
     ...) {
 
-  args <- suncompact(list(apikey = key, q = terms, state = state, window = window,
+  args <- sc(list(apikey = key, q = terms, state = state, window = window,
                        chamber = chamber, sponsor_id = sponsor_id,
                        updated_since = updated_since, subject = subject, type = type,
                        search_window = search_window, sort = sort, page = page, per_page = per_page,

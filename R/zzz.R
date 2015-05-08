@@ -1,4 +1,4 @@
-suncompact <- function(x){
+sc <- function(x){
   Filter(Negate(is.null), x)
 }
 

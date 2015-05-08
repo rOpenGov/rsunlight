@@ -58,14 +58,14 @@ cg_legislators <- function(title=NULL, first_name=NULL, middle_name=NULL,
         is.null(term_end),is.null(birthday))
     if(!is.null(latitude) & !is.null(latitude) & is.null(zip)){
       stopifnot(is.null(zip))
-      args <- suncompact(list(apikey=key,latitude=latitude,longitude=longitude,per_page=per_page,page=page,fields=fields,order=order))
+      args <- sc(list(apikey=key,latitude=latitude,longitude=longitude,per_page=per_page,page=page,fields=fields,order=order))
     } else if(!is.null(zip)){
       stopifnot(is.null(latitude),is.null(longitude))
-      args <- suncompact(list(apikey=key,zip=zip,per_page=per_page,page=page,fields=fields,query=query,order=order))
+      args <- sc(list(apikey=key,zip=zip,per_page=per_page,page=page,fields=fields,query=query,order=order))
     }
   } else {
     url <- paste0(cgurl(), "/legislators")
-    args <- suncompact(list(apikey=key,title=title,first_name=first_name,middle_name=middle_name,
+    args <- sc(list(apikey=key,title=title,first_name=first_name,middle_name=middle_name,
         last_name=last_name,name_suffix=name_suffix,nickname=nickname,party=party,state=state,
         state_name=state_name,state_rank=state_rank,district=district,in_office=in_office,
         chamber=chamber,gender=gender,phone=phone,fax=fax,office=office,website=website,

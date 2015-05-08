@@ -63,7 +63,7 @@ ie_contracts <-  function(
     key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
     ...) {
 
-  args <- suncompact(list(apikey = key, agency_id = agency_id,
+  args <- sc(list(apikey = key, agency_id = agency_id,
     agency_name = agency_name, contracting_agency_id = contracting_agency_id,
     contracting_agency_name = contracting_agency_name, current_amount = current_amount,
     fiscal_year = fiscal_year, maximum_amount = maximum_amount, place_district = place_district,

@@ -51,6 +51,6 @@ ie_individuals <- function(method = "top_ind", entity_id = NULL, cycle = NULL, l
 
   url <- sprintf('%s/aggregates/%s', ieurl(), urlsuffix)
   if (method == "top_ind") limit <- NULL
-  args <- suncompact(list(apikey = key, cycle = cycle, limit = limit))
+  args <- sc(list(apikey = key, cycle = cycle, limit = limit))
   return_obj(as, query(url, args, ...))
 }

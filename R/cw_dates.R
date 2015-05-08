@@ -42,7 +42,7 @@ cw_dates <- function(phrase = NULL, title = NULL, date = NULL, start_date = NULL
   entity_value = NULL, as = 'table',
   key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...) {
 
-  args <- suncompact(list(apikey = key, phrase = phrase, title = title,
+  args <- sc(list(apikey = key, phrase = phrase, title = title,
         date = date, start_date = start_date, end_date = end_date,
         chamber = chamber, state = state, party = party,
         bioguide_id = bioguide_id, congress = congress,

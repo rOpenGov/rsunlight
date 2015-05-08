@@ -56,7 +56,7 @@ cw_text <- function(phrase=NULL, title=NULL, date = NULL, start_date=NULL, end_d
       sort <- paste(sort, 'asc')
     }
   }
-  args <- suncompact(list(apikey = key, phrase = phrase, start_date = start_date,
+  args <- sc(list(apikey = key, phrase = phrase, start_date = start_date,
       date = date, end_date = end_date, chamber = chamber, state = state, party = party,
       bioguide_id = bioguide_id, congress = congress, session = session, cr_pages = cr_pages,
       volume = volume, page = page, sort = sort))

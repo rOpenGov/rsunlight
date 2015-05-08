@@ -46,7 +46,7 @@ cg_amendments <- function(amendment_id=NULL, amendment_type=NULL, number=NULL, c
   key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), as = 'table', ...) {
 
   url <- 'https://congress.api.sunlightfoundation.com/amendments'
-  args <- suncompact(list(apikey=key, amendment_id=amendment_id, amendment_type=amendment_type,
+  args <- sc(list(apikey=key, amendment_id=amendment_id, amendment_type=amendment_type,
                           number=number, congress=congress, chamber=chamber, house_number=house_number,
                           introduced_on=introduced_on, last_action_at=last_action_at,
                           amends_bill_id=amends_bill_id,amends_treaty_id=amends_treaty_id,

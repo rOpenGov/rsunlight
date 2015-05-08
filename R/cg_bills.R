@@ -66,7 +66,7 @@ cg_bills <- function(query = NULL, bill_id = NULL, bill_type = NULL, number = NU
   } else {
     url <- paste0(cgurl(), '/bills/search')
   }
-  args <- suncompact(list(apikey=key,query=query,bill_id=bill_id,bill_type=bill_type,
+  args <- sc(list(apikey=key,query=query,bill_id=bill_id,bill_type=bill_type,
     number=number,congress=congress,chamber=chamber,introduced_on=introduced_on,
     last_action_at=last_action_at,last_vote_at=last_vote_at,last_version_on=last_version_on,
     highlight=highlight,history.active=ll(history.active), history.active_at=history.active_at,

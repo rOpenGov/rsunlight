@@ -90,7 +90,7 @@ ie_organizations <- function(method = NULL, entity_id = NULL, cycle = NULL, limi
 
   url <- sprintf('%s/aggregates/%s', ieurl(), urlsuffix)
   if (method == "top_org") limit <- NULL
-  args <- suncompact(list(apikey = key, cycle = cycle, limit = limit))
+  args <- sc(list(apikey = key, cycle = cycle, limit = limit))
 
   return_obj(as, query(url, args, ...))
 }

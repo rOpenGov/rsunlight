@@ -61,7 +61,7 @@ ie_entities <- function(search = NULL, type = NULL, namespace = NULL, id = NULL,
     stopifnot(is.null(search), is.null(type), is.null(bioguide_id), is.null(entity_id))
   }
 
-  args <- suncompact(list(apikey = key, search = search, type = type, id = id,
+  args <- sc(list(apikey = key, search = search, type = type, id = id,
           namespace = namespace, bioguide_id = bioguide_id, page = page, per_page = per_page))
   give(as, url, "", args, ...)
 }

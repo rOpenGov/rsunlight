@@ -20,7 +20,7 @@ ie_contr_bundled <-  function(lobbyist_name = NULL, recipient_name = NULL, page 
   key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
   ...) {
 
-  args <- suncompact(list(apikey = key, lobbyist_name = lobbyist_name,
+  args <- sc(list(apikey = key, lobbyist_name = lobbyist_name,
               recipient_name = recipient_name, page = page, per_page = per_page))
   give(as, ieurl(), "/contributions/bundled.json", args, ...)
 }

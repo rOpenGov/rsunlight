@@ -35,7 +35,7 @@ cg_nominations <- function(nomination_id=NULL, congress=NULL, number=NULL, recei
   key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), as = 'table', ...) {
 
   url <- 'https://congress.api.sunlightfoundation.com/nominations'
-  args <- suncompact(list(apikey=key,nomination_id=nomination_id, congress=congress,
+  args <- sc(list(apikey=key,nomination_id=nomination_id, congress=congress,
     number=number, received_on=received_on, last_action_at=last_action_at, organization=organization,
     committee_ids=committee_ids, nominees=nominees, nominees.position=nominees.position,
     nominees.state=nominees.state, query=query, per_page=per_page, page=page, fields=fields,

@@ -26,7 +26,7 @@ ie_misconduct <- function(contractor = NULL, contracting_party = NULL, date_year
   as = 'table', key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...) {
 
   if (!is.null(penalty_amount)) penalty_amount <- as.integer(penalty_amount)
-  args <- suncompact(list(apikey = key, contractor = contractor,
+  args <- sc(list(apikey = key, contractor = contractor,
     contracting_party = contracting_party, date_year = date_year, enforcement_agency = enforcement_agency,
     instance = instance, penalty_amount = penalty_amount, page = page, per_page = per_page))
   give(as, ieurl(), "/misconduct.json", args, ...)

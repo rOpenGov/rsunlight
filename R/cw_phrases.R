@@ -32,7 +32,7 @@ cw_phrases <- function(entity_type = NULL, entity_value = NULL, n = NULL, page =
       sort <- paste(sort, 'asc')
     }
   }
-  args <- suncompact(list(apikey = key, entity_type = entity_type, entity_value = entity_value,
+  args <- sc(list(apikey = key, entity_type = entity_type, entity_value = entity_value,
                           n = n, page = page, per_page = per_page, sort = sort))
   return_obj(as, query(paste0(cwurl(), "/phrases.json"), args, ...))
 }

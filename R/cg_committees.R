@@ -46,7 +46,7 @@ cg_committees <-  function(member_ids = NULL, committee_id = NULL, chamber = NUL
     subcommittee <- ifelse(subcommittee, 'true', 'false')
   }
   fields <- paste0(fields, collapse = ",")
-  args <- suncompact(list(apikey = key, member_ids = member_ids, committee_id = committee_id,
+  args <- sc(list(apikey = key, member_ids = member_ids, committee_id = committee_id,
               chamber = chamber, subcommittee = subcommittee, fields = fields,
               parent_committee_id = parent_committee_id, page = page, per_page=per_page,
               query=query, order=order))

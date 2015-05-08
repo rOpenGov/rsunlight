@@ -40,7 +40,7 @@ os_billlookup <- function(state = NULL, session = NULL, bill_id = NULL,
     bills <- paste(bill_id, collapse = "|")
     bill_id <- NULL
   }
-  args <- suncompact(list(apikey = key, state = state, session = session, bill_id = bill_id,
+  args <- sc(list(apikey = key, state = state, session = session, bill_id = bill_id,
           bill_id__in = bills, per_page = per_page, page = page, fields = paste(fields, collapse = ",")))
   return_obj(as, query(paste0(osurl(), "/bills"), args, ...))
 }

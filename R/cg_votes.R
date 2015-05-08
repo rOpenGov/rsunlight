@@ -64,7 +64,7 @@ cg_votes <- function(roll_id=NULL, chamber=NULL, number=NULL, year=NULL, congres
   key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), as = 'table',
   callopts = list(), ...) {
 
-  args <- suncompact(list(apikey=key,roll_id=roll_id, chamber=chamber, number=number, year=year,
+  args <- sc(list(apikey=key,roll_id=roll_id, chamber=chamber, number=number, year=year,
       congress=congress, voted_at=voted_at, vote_type=vote_type, roll_type=roll_type,
       required=required, result=result, bill_id=bill_id, nomination_id=nomination_id,
       per_page=per_page, page=page, fields=fields, order=order, ...))
