@@ -6,7 +6,7 @@
 \usage{
 ie_faca(affiliation = NULL, agency_name = NULL, committee_name = NULL,
   member_name = NULL, year = NULL, page = NULL, per_page = NULL,
-  return = "table", key = getOption("SunlightLabsKey",
+  as = "table", key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")), ...)
 }
 \arguments{
@@ -25,7 +25,7 @@ ie_faca(affiliation = NULL, agency_name = NULL, committee_name = NULL,
 \item{per_page}{The number of results to return per page, defaults to 1,000.
 The maximum number of records per page is 100,000.}
 
-\item{return}{(character) One of table (default), list, or response (httr response object).
+\item{as}{(character) One of table (default), list, or response (httr response object).
 When table is requested, the default, a table is not always returned, but is returned almost
 always. You can then make a table yourself if you like.}
 

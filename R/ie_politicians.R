@@ -47,10 +47,10 @@
 #' }
 
 ie_politicians <- function(method = NULL, entity_id = NULL, cycle = NULL, limit = NULL,
-  page = NULL, per_page = NULL, return='table',
-  key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-  ...)
-{
+  page = NULL, per_page = NULL, as = 'table',
+  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
+  ...) {
+
   urlsuffix <- switch(method,
     top_pol = sprintf('pols/top_%s.json', limit),
     top_con = sprintf('pol/%s/contributors.json', entity_id),
@@ -64,8 +64,8 @@ ie_politicians <- function(method = NULL, entity_id = NULL, cycle = NULL, limit 
   )
 
   url <- sprintf('%s/aggregates/%s', ieurl(), urlsuffix)
-  if(method=="top_pol") limit <- NULL
+  if (method == "top_pol") limit <- NULL
   args <- suncompact(list(apikey = key, cycle = cycle, limit = limit))
 
-  return_obj(return, query(url, args, ...))
+  return_obj(as, query(url, args, ...))
 }

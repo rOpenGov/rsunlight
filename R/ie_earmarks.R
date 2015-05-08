@@ -24,11 +24,12 @@
 
 ie_earmarks <- function(amount = NULL, bill = NULL, city = NULL, description = NULL, member = NULL,
   member_party = NULL, member_state = NULL, recipient = NULL, year = NULL, page = NULL,
-  per_page = NULL, return='table', key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...)
-{
+  per_page = NULL, as = 'table',
+  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...) {
+
   args <- suncompact(list(apikey = key, amount = amount, bill = bill, city = city,
     description = description, member = member, member_party = member_party,
     member_state = member_state, recipient = recipient, year = year, page = page,
     per_page = per_page))
-  return_obj(return, query(paste0(ieurl(), "/earmarks.json"), args, ...))
+  return_obj(as, query(paste0(ieurl(), "/earmarks.json"), args, ...))
 }

@@ -3,7 +3,7 @@ vignettes/margins.sty
 inst/vign
 .travis.yml
 .gitignore
-man-roxygen/
+man-roxygen
 ^appveyor\.yml$
 cran-comments.md
 ^.*\.Rproj$

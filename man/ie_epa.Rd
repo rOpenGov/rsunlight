@@ -6,7 +6,7 @@
 \usage{
 ie_epa(case_name = NULL, case_num = NULL, defendants = NULL,
   first_date = NULL, last_date = NULL, location_addresses = NULL,
-  penalty = NULL, page = NULL, return = "table", per_page = NULL,
+  penalty = NULL, page = NULL, as = "table", per_page = NULL,
   key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")), ...)
 }
@@ -29,7 +29,7 @@ case in ISO format.}
 
 \item{page}{The page of results to return; defaults to 1.}
 
-\item{return}{(character) One of table (default), list, or response (httr response object).
+\item{as}{(character) One of table (default), list, or response (httr response object).
 When table is requested, the default, a table is not always returned, but is returned almost
 always. You can then make a table yourself if you like.}
 
@@ -49,8 +49,8 @@ Search itemized EPA enforcement actions.
 \examples{
 \dontrun{
 ie_epa(defendants='Massey Energy', per_page=1)
-ie_epa(defendants='Massey Energy', per_page=1, return='list')
-ie_epa(defendants='Massey Energy', per_page=1, return='response')
+ie_epa(defendants='Massey Energy', per_page=1, as='list')
+ie_epa(defendants='Massey Energy', per_page=1, as='response')
 ie_epa(defendants='Massey Energy', first_date='>|2005-01-01')
 }
 }

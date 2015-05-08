@@ -40,9 +40,9 @@
 #' }
 
 ie_individuals <- function(method = NULL, entity_id = NULL, cycle = NULL, limit = NULL,
-  page = NULL, per_page = NULL, return='table',
-  key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...)
-{
+  page = NULL, per_page = NULL, as = 'table',
+  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...) {
+
   urlsuffix <- switch(method,
     top_ind = sprintf('indivs/top_%s.json', limit),
     top_recorg = sprintf('indiv/%s/recipient_orgs.json', entity_id),
@@ -54,8 +54,8 @@ ie_individuals <- function(method = NULL, entity_id = NULL, cycle = NULL, limit 
   )
 
   url <- sprintf('%s/aggregates/%s', ieurl(), urlsuffix)
-  if(method=="top_ind") limit <- NULL
+  if (method == "top_ind") limit <- NULL
   args <- suncompact(list(apikey = key, cycle = cycle, limit = limit))
 
-  return_obj(return, query(url, args, ...))
+  return_obj(as, query(url, args, ...))
 }

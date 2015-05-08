@@ -3,6 +3,6 @@
 #' The maximum number of records per page is 100,000.
 #' @param key your SunlightLabs API key; loads from .Rprofile
 #' @param ... Optional additional curl options (debugging tools mostly)
-#' @param return (character) One of table (default), list, or response (httr response object).
+#' @param as (character) One of table (default), list, or response (httr response object).
 #' When table is requested, the default, a table is not always returned, but is returned almost
 #' always. You can then make a table yourself if you like.

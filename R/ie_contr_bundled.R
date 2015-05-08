@@ -12,10 +12,11 @@
 #' }
 
 ie_contr_bundled <-  function(lobbyist_name = NULL, recipient_name = NULL, page = NULL,
-  per_page = NULL, return='table', key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-  ...)
-{
+  per_page = NULL, as = 'table',
+  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
+  ...) {
+
   args <- suncompact(list(apikey = key, lobbyist_name = lobbyist_name,
               recipient_name = recipient_name, page = page, per_page = per_page))
-  return_obj(return, query(paste0(ieurl(), "/contributions/bundled.json"), args, ...))
+  return_obj(as, query(paste0(ieurl(), "/contributions/bundled.json"), args, ...))
 }

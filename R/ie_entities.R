@@ -38,27 +38,27 @@
 #' }
 
 ie_entities <- function(search = NULL, type = NULL, namespace = NULL, id = NULL,
-  bioguide_id = NULL, entity_id = NULL, page = NULL, per_page = NULL, return='table',
-  key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...)
-{
-  if(!is.null(search)){
+  bioguide_id = NULL, entity_id = NULL, page = NULL, per_page = NULL, as = 'table',
+  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...) {
+
+  if (!is.null(search)) {
     url <- paste0(ieurl(), "/entities.json")
     stopifnot(is.null(namespace), is.null(id), is.null(bioguide_id), is.null(entity_id))
   }
-  if(!is.null(entity_id)){
+  if (!is.null(entity_id)) {
     url <- sprintf("%s/entities/%s.json", ieurl(), entity_id)
     stopifnot(is.null(search), is.null(type), is.null(namespace), is.null(id), is.null(bioguide_id))
   }
-  if(!is.null(bioguide_id)){
+  if (!is.null(bioguide_id)) {
     url <- paste0(ieurl(), "/entities/id_lookup.json")
     stopifnot(is.null(search), is.null(type), is.null(namespace), is.null(id), is.null(entity_id))
   }
-  if(!is.null(namespace) | !is.null(id)){
+  if (!is.null(namespace) | !is.null(id)) {
     url <- paste0(ieurl(), "/entities/id_lookup.json")
     stopifnot(is.null(search), is.null(type), is.null(bioguide_id), is.null(entity_id))
   }
 
   args <- suncompact(list(apikey = key, search = search, type = type, id = id,
-          namespace = namespace, bioguide_id = bioguide_id, page=page, per_page=per_page))
-  return_obj(return, query(url, args, ...))
+          namespace = namespace, bioguide_id = bioguide_id, page = page, per_page = per_page))
+  return_obj(as, query(url, args, ...))
 }
