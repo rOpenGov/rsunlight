@@ -44,8 +44,7 @@ always. You can then make a table yourself if you like.}
 \item{...}{Optional additional curl options (debugging tools mostly)}
 }
 \value{
-A list. Depends on parameters used. Ranges from a single ID returned to basic
-   information about the the contributions to and from each entity.
+A data.frame, list, or httr response object. Depends on parameters used.
 }
 \description{
 Search for politicians, individuals, or organizations with the given name.
@@ -65,6 +64,10 @@ ie_entities(bioguide_id='L000551')
 
 # Search for data by entity id
 ie_entities(entity_id='97737bb56b6a4211bcc57a837368b1a4')
+
+# most parameters are vectorized, pass in more than one value
+ie_entities(search = c('Nancy Pelosi', 'Jones'))
+ie_entities(bioguide_id = c('L000551', 'M000355'))
 }
 }
 

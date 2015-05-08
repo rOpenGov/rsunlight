@@ -74,7 +74,7 @@ always. You can then make a table yourself if you like.}
 \item{...}{Optional additional curl options (debugging tools mostly)}
 }
 \value{
-Details on federal government contracts in a list.
+A data.frame (default), list, or httr response object.
 }
 \description{
 Get federal contract details
@@ -85,6 +85,10 @@ ie_contracts(vendor_city='indianapolis', page=1, per_page=5)
 
 library('httr')
 ie_contracts(vendor_city='indianapolis', page=1, per_page=5, config=verbose())[,c(1:5)]
+
+# most parameters are vectorized, pass in more than one value
+ie_contracts(vendor_city = c('indianapolis', 'dallas'), per_page=5)
+ie_contracts(vendor_name = c('rolls-royce corporation', 'raytheon'), per_page=5)
 }
 }
 

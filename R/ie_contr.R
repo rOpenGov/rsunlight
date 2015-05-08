@@ -24,14 +24,14 @@
 #' @param transaction_namespace Filters on federal or state contributions:
 #' \dQuote{urn:fec:transaction} (federal) or \dQuote{urn:nimsp:transaction} (state).
 #' @template ie
-#' @return Details on campaign contributions.
+#' @return A data.frame, list, or httr response object.
 #' @export
 #' @examples \dontrun{
 #' ie_contr(amount='<|100')
 #' ie_contr(amount='<|100', page=1, per_page=3)
 #' ie_contr(recipient_state='al', for_against='for', amount='<|20')
 #'
-#' # some parameters are vectorized, pass in more than one value
+#' # most parameters are vectorized, pass in more than one value
 #' ie_contr(amount = c('<|100', '>|10000'))
 #' ie_contr(recipient_ft = c('Merkley', 'Wyden'))
 #' ie_contr(recipient_ft = c('Obama', 'Murray'))
@@ -50,8 +50,8 @@ ie_contr <-  function(
     seat = NULL,
     transaction_namespace = NULL,
     page = NULL,
-    per_page = NULL, as='table',
-    key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
+    per_page = NULL, as = 'table',
+    key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
     ...) {
 
   args <- suncompact(list(apikey = key, amount = amount,
@@ -60,5 +60,5 @@ ie_contr <-  function(
     recipient_ft = recipient_ft, recipient_state = recipient_state, seat = seat,
     transaction_namespace = transaction_namespace, page = page, per_page = per_page))
   one_vec(args)
-  give(args, as, ieurl(), "/contributions.json", ...)
+  give(as, ieurl(), "/contributions.json", args, ...)
 }

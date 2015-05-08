@@ -26,13 +26,17 @@
 #' contractor.
 #' @param vendor_state The primary state in which the contractor does business.
 #' @param vendor_zipcode The primary zipcode in which the contractor does business.
-#' @return Details on federal government contracts in a list.
+#' @return A data.frame (default), list, or httr response object.
 #' @export
 #' @examples \dontrun{
 #' ie_contracts(vendor_city='indianapolis', page=1, per_page=5)
 #'
 #' library('httr')
 #' ie_contracts(vendor_city='indianapolis', page=1, per_page=5, config=verbose())[,c(1:5)]
+#'
+#' # most parameters are vectorized, pass in more than one value
+#' ie_contracts(vendor_city = c('indianapolis', 'dallas'), per_page=5)
+#' ie_contracts(vendor_name = c('rolls-royce corporation', 'raytheon'), per_page=5)
 #' }
 ie_contracts <-  function(
     agency_id = NULL,
@@ -68,5 +72,5 @@ ie_contracts <-  function(
     vendor_city = vendor_city, vendor_district = vendor_district, vendor_duns = vendor_duns,
     vendor_name = vendor_name, vendor_parent_duns = vendor_parent_duns, vendor_state = vendor_state,
     vendor_zipcode = vendor_zipcode, page = page, per_page = per_page))
-  return_obj(as, query(paste0(ieurl(), "/contracts.json"), args, ...))
+  give(as, ieurl(), "/contracts.json", args, ...)
 }

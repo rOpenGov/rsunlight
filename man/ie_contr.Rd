@@ -58,7 +58,7 @@ always. You can then make a table yourself if you like.}
 \item{...}{Optional additional curl options (debugging tools mostly)}
 }
 \value{
-Details on campaign contributions.
+A data.frame, list, or httr response object.
 }
 \description{
 Search for itemized campaign contributions at the federal (FEC) or state (NIMSP) level.
@@ -69,7 +69,7 @@ ie_contr(amount='<|100')
 ie_contr(amount='<|100', page=1, per_page=3)
 ie_contr(recipient_state='al', for_against='for', amount='<|20')
 
-# some parameters are vectorized, pass in more than one value
+# most parameters are vectorized, pass in more than one value
 ie_contr(amount = c('<|100', '>|10000'))
 ie_contr(recipient_ft = c('Merkley', 'Wyden'))
 ie_contr(recipient_ft = c('Obama', 'Murray'))

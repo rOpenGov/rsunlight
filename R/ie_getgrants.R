@@ -8,10 +8,15 @@
 #' @param recipient_ft Full-text search on the reported name of the grant recipient.
 #' @param recipient_state Two-letter abbreviation of the state in which the grant was awarded.
 #' @param recipient_type The type of entity that received the grant: \dQuote{00} (State government), \dQuote{01} (County government), \dQuote{02} (City or township government), \dQuote{04} (Special district government), \dQuote{05} (Independent school district), \dQuote{06} (State controlled institution of higher education), \dQuote{11} (Indian tribe), \dQuote{12} (Other nonprofit), \dQuote{20} (Private higher education), \dQuote{21} (Individual), \dQuote{22} (Profit organization), \dQuote{23} (Small business), or \dQuote{25} (Other).
-#' @return Details on federal grants.
+#' @return A data.frame (default), list, or httr response object.
 #' @export
 #' @examples \dontrun{
 #' ie_grants(agency_ft='Agency For International Development', fiscal_year=2012, per_page=1)
+#'
+#' # most parameters are vectorized, pass in more than one value
+#' agencies <- c('Agency For International Development', 'centers for disease control')
+#' ie_contracts(agency_ft = agencies, per_page=5)
+#' ie_contracts(fiscal_year = c(2012, 2013), per_page=2)
 #' }
 ie_grants <-  function(
     agency_ft = NULL,
@@ -30,5 +35,5 @@ ie_grants <-  function(
     amount_total = amount_total, assistance_type = assistance_type, fiscal_year = fiscal_year,
     recipient_ft = recipient_ft, recipient_state = recipient_state, recipient_type = recipient_type,
     page = page, per_page = per_page))
-  return_obj(as, query(paste0(ieurl(), "/grants.json"), args, ...))
+  give(as, ieurl(), "/grants.json", args, ...)
 }

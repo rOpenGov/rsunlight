@@ -7,8 +7,7 @@
 #' organization, individual or industry.
 #' @param limit (integer) Limit number of records returned.
 #' @template ie
-#' @return A list. Depends on parameters used. Ranges from a single ID returned to basic
-#' information about the the contributions to and from each entity.
+#' @return A data.frame (default), list, or httr response object.
 #'
 #' @examples \dontrun{
 #' # Top industries, By contributions given, in dollars.

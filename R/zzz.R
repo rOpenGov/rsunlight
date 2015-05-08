@@ -16,7 +16,7 @@ return_obj <- function(x, y){
   }
 }
 
-give <- function(args, as, url, endpt, ...) {
+give <- function(as, url, endpt, args, ...) {
   iter <- get_iter(args)
   if (length(iter) == 0) {
     tmp <- return_obj(as, query(paste0(url, endpt), args, ...))

@@ -18,8 +18,7 @@
 #'    id/namespace parameters. Required, if namespace and id are omitted.
 #' @param entity_id (character) The transparencydata ID to look up.
 #' @template ie
-#' @return A list. Depends on parameters used. Ranges from a single ID returned to basic
-#'    information about the the contributions to and from each entity.
+#' @return A data.frame, list, or httr response object. Depends on parameters used.
 #'
 #' @examples \dontrun{
 #' # Search with text string
@@ -35,6 +34,10 @@
 #'
 #' # Search for data by entity id
 #' ie_entities(entity_id='97737bb56b6a4211bcc57a837368b1a4')
+#'
+#' # most parameters are vectorized, pass in more than one value
+#' ie_entities(search = c('Nancy Pelosi', 'Jones'))
+#' ie_entities(bioguide_id = c('L000551', 'M000355'))
 #' }
 
 ie_entities <- function(search = NULL, type = NULL, namespace = NULL, id = NULL,
@@ -60,5 +63,5 @@ ie_entities <- function(search = NULL, type = NULL, namespace = NULL, id = NULL,
 
   args <- suncompact(list(apikey = key, search = search, type = type, id = id,
           namespace = namespace, bioguide_id = bioguide_id, page = page, per_page = per_page))
-  return_obj(as, query(url, args, ...))
+  give(as, url, "", args, ...)
 }

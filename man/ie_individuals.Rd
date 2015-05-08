@@ -4,13 +4,13 @@
 \alias{ie_individuals}
 \title{Politician aggregrates: Search for contributions to politicians.}
 \usage{
-ie_individuals(method = NULL, entity_id = NULL, cycle = NULL,
+ie_individuals(method = "top_ind", entity_id = NULL, cycle = NULL,
   limit = NULL, page = NULL, per_page = NULL, as = "table",
   key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")), ...)
 }
 \arguments{
-\item{method}{(character) The query string. One of top_ind, top_recorg, top_recpol,
+\item{method}{(character) The query string. One of top_ind (default), top_recorg, top_recpol,
 party_breakdown, lobb_reg, lobb_cli, or lobb_iss.}
 
 \item{entity_id}{(character) The transparencydata ID to look up.}
@@ -34,8 +34,7 @@ always. You can then make a table yourself if you like.}
 \item{...}{Optional additional curl options (debugging tools mostly)}
 }
 \value{
-A list. Depends on parameters used. Ranges from a single ID returned to basic
-   information about the the contributions to and from each entity.
+A data.frame (default), list, or httr response object.
 }
 \description{
 Politician aggregrates: Search for contributions to politicians.
@@ -55,9 +54,6 @@ ie_individuals(method='top_recorg', entity_id='a03df5d9b20e467fa0ceaefa94c4491e'
 ie_individuals(method='top_recpol', entity_id='a03df5d9b20e467fa0ceaefa94c4491e')
 ie_individuals(method='top_recpol', entity_id='a03df5d9b20e467fa0ceaefa94c4491e',
    cycle=2012, limit=1)
-
-# Party breakdown
-ie_individuals(method='party_breakdown', entity_id='cc768536a9434b9da6fef5846a16ee88')
 
 # Lobbying registrants
 ie_individuals(method='lobb_reg', entity_id='4d052c80ef184ce5a5e41e6d34dc452f')

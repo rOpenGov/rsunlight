@@ -7,7 +7,7 @@
 #' @param instance (character)  Full-text search on the description of the misconduct instance.
 #' @param penalty_amount (numeric) The amount of the penalty, in US dollars.
 #' @template ie
-#' @return A list, as class ie_misconduct.
+#' @return A data.frame (default), list, or httr response object.
 #' @export
 #' @examples \dontrun{
 #' ie_misconduct(contractor='SAIC', date_year=2012)
@@ -16,6 +16,9 @@
 #'
 #' ie_misconduct(penalty_amount=5000000)
 #' ie_misconduct(contractor='GlaxoSmithKline', per_page=3)
+#'
+#' # most parameters are vectorized, pass in more than one value
+#' ie_misconduct(date_year = c(2010, 2011), per_page=2)
 #' }
 
 ie_misconduct <- function(contractor = NULL, contracting_party = NULL, date_year = NULL,
@@ -26,7 +29,5 @@ ie_misconduct <- function(contractor = NULL, contracting_party = NULL, date_year
   args <- suncompact(list(apikey = key, contractor = contractor,
     contracting_party = contracting_party, date_year = date_year, enforcement_agency = enforcement_agency,
     instance = instance, penalty_amount = penalty_amount, page = page, per_page = per_page))
-  tmp <- return_obj(as, query(paste0(ieurl(), "/misconduct.json"), args, ...))
-  tmp$penalty_amount <- format(tmp$penalty_amount, scientific = FALSE)
-  tmp
+  give(as, ieurl(), "/misconduct.json", args, ...)
 }

@@ -12,23 +12,32 @@ ie_lobbying(amount = NULL, client_ft = NULL, client_parent_ft = NULL,
   stop("need an API key for Sunlight Labs")), ...)
 }
 \arguments{
-\item{amount}{A YYYY formatted year (1990 - 2010) as a single year or YYYY|YYYY for an OR logic.}
+\item{amount}{The amount spent on lobbying in US dollars.}
 
-\item{client_ft}{Full-text search on the name of the client for which the lobbyist is working.}
+\item{client_ft}{Full-text search on the name of the client for which the
+lobbyist is working.}
 
-\item{client_parent_ft}{Full-text search on the name of the parent organization of the client.}
+\item{client_parent_ft}{Full-text search on the name of the parent organization
+of the client.}
 
-\item{filing_type}{Type of filing as identified by CRP. See \url{http://data.influenceexplorer.com/api/lobbying/}.}
+\item{filing_type}{Type of filing as identified by CRP. See
+\url{http://data.influenceexplorer.com/api/lobbying/}.}
 
-\item{lobbyist_ft}{Full-text search on the name of the lobbyist involved in the lobbying activity.}
+\item{lobbyist_ft}{Full-text search on the name of the lobbyist involved in the
+lobbying activity.}
 
-\item{registrant_ft}{Full-text search on the name of the person or organization filing the lobbyist registration. This is typically the firm that employs the lobbyists. Use the registrant_is_firm field to filter on firms v. individuals.}
+\item{registrant_ft}{Full-text search on the name of the person or organization
+filing the lobbyist registration. This is typically the firm that employs the
+lobbyists. Use the registrant_is_firm field to filter on firms v. individuals.}
 
 \item{transaction_id}{Report ID given by the Senate Office of Public Records.}
 
-\item{transaction_type}{The type of filing as reported by the Senate Office of Public Records. See \url{http://assets.transparencydata.org.s3.amazonaws.com/docs/transaction_types-20100402.csv}.}
+\item{transaction_type}{The type of filing as reported by the Senate Office of
+Public Records. See
+\url{http://assets.transparencydata.org.s3.amazonaws.com/docs/transaction_types-20100402.csv}.}
 
-\item{year}{A YYYY formatted year (1990 - 2010) as a single year or YYYY|YYYY for an OR logic.}
+\item{year}{A YYYY formatted year (1990 - 2010) as a single year or YYYY|YYYY for
+an OR logic.}
 
 \item{page}{The page of results to return; defaults to 1.}
 
@@ -44,7 +53,7 @@ always. You can then make a table yourself if you like.}
 \item{...}{Optional additional curl options (debugging tools mostly)}
 }
 \value{
-Details on lobbying.
+A data.frame (default), list, or httr response object.
 }
 \description{
 Get lobbying details
@@ -52,6 +61,11 @@ Get lobbying details
 \examples{
 \dontrun{
 ie_lobbying(registrant_ft='Patton Boggs', year=2012, per_page=1)
+
+# most parameters are vectorized, pass in more than one value
+agencies <- c('Agency For International Development', 'centers for disease control')
+ie_lobbying(registrant_ft = c('Patton Boggs', 'Ben Barnes'), per_page=2)
+ie_lobbying(amount = c(1000, 50000L), per_page=2)
 }
 }
 

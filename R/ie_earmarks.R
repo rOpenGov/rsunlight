@@ -11,7 +11,7 @@
 #' @param year (character) The YYYY-formatted fiscal year for which the earmark was requested.
 #' @template ie
 #' @template earmarks
-#' @return A list, as class ie_earmarks.
+#' @return A data.frame (default), list, or httr response object
 #' @export
 #' @examples \dontrun{
 #' ie_earmarks(year='2010', per_page=3)
@@ -20,6 +20,10 @@
 #' ie_earmarks(member_state='AK', per_page=3)
 #' ie_earmarks(member_party='R', per_page=1)
 #' ie_earmarks(description='Infantry Support')
+#'
+#' # most parameters are vectorized, pass in more than one value
+#' ie_earmarks(member_state = c('OR', 'WA'))
+#' ie_earmarks(member_party = c('R', 'D'))
 #' }
 
 ie_earmarks <- function(amount = NULL, bill = NULL, city = NULL, description = NULL, member = NULL,
@@ -31,5 +35,5 @@ ie_earmarks <- function(amount = NULL, bill = NULL, city = NULL, description = N
     description = description, member = member, member_party = member_party,
     member_state = member_state, recipient = recipient, year = year, page = page,
     per_page = per_page))
-  return_obj(as, query(paste0(ieurl(), "/earmarks.json"), args, ...))
+  give(as, ieurl(), "/earmarks.json", args, ...)
 }

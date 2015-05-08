@@ -1,15 +1,14 @@
 #' Politician aggregrates: Search for contributions to politicians.
 #'
 #' @export
-#' @param method (character) The query string. One of top_ind, top_recorg, top_recpol,
+#' @param method (character) The query string. One of top_ind (default), top_recorg, top_recpol,
 #' party_breakdown, lobb_reg, lobb_cli, or lobb_iss.
 #' @param entity_id (character) The transparencydata ID to look up.
 #' @param cycle (character) Filter results to a particular type of entity. One of politician,
 #'    organization, individual or industry.
 #' @param limit (integer) Limit number of records returned.
 #' @template ie
-#' @return A list. Depends on parameters used. Ranges from a single ID returned to basic
-#'    information about the the contributions to and from each entity.
+#' @return A data.frame (default), list, or httr response object.
 #'
 #' @examples \dontrun{
 #' # Top individuals
@@ -26,9 +25,6 @@
 #' ie_individuals(method='top_recpol', entity_id='a03df5d9b20e467fa0ceaefa94c4491e',
 #'    cycle=2012, limit=1)
 #'
-#' # Party breakdown
-#' ie_individuals(method='party_breakdown', entity_id='cc768536a9434b9da6fef5846a16ee88')
-#'
 #' # Lobbying registrants
 #' ie_individuals(method='lobb_reg', entity_id='4d052c80ef184ce5a5e41e6d34dc452f')
 #'
@@ -39,7 +35,7 @@
 #' ie_individuals(method='lobb_iss', entity_id='4d052c80ef184ce5a5e41e6d34dc452f', limit=2)
 #' }
 
-ie_individuals <- function(method = NULL, entity_id = NULL, cycle = NULL, limit = NULL,
+ie_individuals <- function(method = "top_ind", entity_id = NULL, cycle = NULL, limit = NULL,
   page = NULL, per_page = NULL, as = 'table',
   key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...) {
 
@@ -56,6 +52,5 @@ ie_individuals <- function(method = NULL, entity_id = NULL, cycle = NULL, limit 
   url <- sprintf('%s/aggregates/%s', ieurl(), urlsuffix)
   if (method == "top_ind") limit <- NULL
   args <- suncompact(list(apikey = key, cycle = cycle, limit = limit))
-
   return_obj(as, query(url, args, ...))
 }

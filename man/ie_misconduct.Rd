@@ -37,7 +37,7 @@ always. You can then make a table yourself if you like.}
 \item{...}{Optional additional curl options (debugging tools mostly)}
 }
 \value{
-A list, as class ie_misconduct.
+A data.frame (default), list, or httr response object.
 }
 \description{
 Search for itemized misconduct incident reports
@@ -50,6 +50,9 @@ ie_misconduct(date_year=2012, per_page=2)
 
 ie_misconduct(penalty_amount=5000000)
 ie_misconduct(contractor='GlaxoSmithKline', per_page=3)
+
+# most parameters are vectorized, pass in more than one value
+ie_misconduct(date_year = c(2010, 2011), per_page=2)
 }
 }
 

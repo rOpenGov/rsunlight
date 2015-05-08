@@ -39,7 +39,7 @@ always. You can then make a table yourself if you like.}
 \item{...}{Optional additional curl options (debugging tools mostly)}
 }
 \value{
-Details on federal grants.
+A data.frame (default), list, or httr response object.
 }
 \description{
 Get federal grant details
@@ -47,6 +47,11 @@ Get federal grant details
 \examples{
 \dontrun{
 ie_grants(agency_ft='Agency For International Development', fiscal_year=2012, per_page=1)
+
+# most parameters are vectorized, pass in more than one value
+agencies <- c('Agency For International Development', 'centers for disease control')
+ie_contracts(agency_ft = agencies, per_page=5)
+ie_contracts(fiscal_year = c(2012, 2013), per_page=2)
 }
 }
 

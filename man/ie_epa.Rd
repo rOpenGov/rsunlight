@@ -41,7 +41,7 @@ The maximum number of records per page is 100,000.}
 \item{...}{Optional additional curl options (debugging tools mostly)}
 }
 \value{
-A list, as class ie_epa.
+A data.frame, list, or httr response object
 }
 \description{
 Search itemized EPA enforcement actions.
@@ -52,6 +52,10 @@ ie_epa(defendants='Massey Energy', per_page=1)
 ie_epa(defendants='Massey Energy', per_page=1, as='list')
 ie_epa(defendants='Massey Energy', per_page=1, as='response')
 ie_epa(defendants='Massey Energy', first_date='>|2005-01-01')
+
+# most parameters are vectorized, pass in more than one value
+ie_epa(defendants = c('Massey Energy', 'Hannah Steel'))
+ie_epa(case_num = c('04-1986-0004', '04-1986-0003'))
 }
 }
 

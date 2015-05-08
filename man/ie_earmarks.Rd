@@ -81,7 +81,7 @@ THe output fields for each element are as follows.
  \item recipients The organization that will receive the earmark, when known
 }
 
-A list, as class ie_earmarks.
+A data.frame (default), list, or httr response object
 }
 \description{
 Search itemized earmark requests through FY 2010.
@@ -94,6 +94,10 @@ ie_earmarks(member='Nadler', per_page=1)
 ie_earmarks(member_state='AK', per_page=3)
 ie_earmarks(member_party='R', per_page=1)
 ie_earmarks(description='Infantry Support')
+
+# most parameters are vectorized, pass in more than one value
+ie_earmarks(member_state = c('OR', 'WA'))
+ie_earmarks(member_party = c('R', 'D'))
 }
 }
 

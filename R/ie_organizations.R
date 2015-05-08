@@ -9,8 +9,7 @@
 #' organization, individual or industry.
 #' @param limit (integer) Limit number of records returned.
 #' @template ie
-#' @return A list. Depends on parameters used. Ranges from a single ID returned to basic
-#' information about the the contributions to and from each entity.
+#' @return A data.frame (default), list, or httr response object.
 #'
 #' @examples \dontrun{
 #' # Top Organizations
@@ -90,7 +89,7 @@ ie_organizations <- function(method = NULL, entity_id = NULL, cycle = NULL, limi
   )
 
   url <- sprintf('%s/aggregates/%s', ieurl(), urlsuffix)
-  if (method=="top_org") limit <- NULL
+  if (method == "top_org") limit <- NULL
   args <- suncompact(list(apikey = key, cycle = cycle, limit = limit))
 
   return_obj(as, query(url, args, ...))

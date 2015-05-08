@@ -34,7 +34,7 @@ always. You can then make a table yourself if you like.}
 \item{...}{Optional additional curl options (debugging tools mostly)}
 }
 \value{
-A list, as class ie_faca.
+A data.frame, list, or httr response object
 }
 \description{
 Search for itemized Federal Advisory Committee memberships.
@@ -46,6 +46,10 @@ ie_faca(agency_name='DOC', per_page=3)
 ie_faca(affiliation='U.S. House of Representatives', per_page=3)
 ie_faca(year=2011, per_page=1)
 ie_faca(committee_name='2010 Census Advisory Committee', per_page=1)
+
+# most parameters are vectorized, pass in more than one value
+ie_faca(member_name = c('Francis Collins', 'Barbara Welty'))
+ie_faca(agency_name = c('DOC', 'HHS'))
 }
 }
 

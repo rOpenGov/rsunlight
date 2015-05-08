@@ -34,8 +34,7 @@ always. You can then make a table yourself if you like.}
 \item{...}{Optional additional curl options (debugging tools mostly)}
 }
 \value{
-A list. Depends on parameters used. Ranges from a single ID returned to basic
-   information about the the contributions to and from each entity.
+A data.frame (default), list, or httr response object.
 }
 \description{
 Politician aggregrates: Search for contributions to politicians.
