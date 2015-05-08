@@ -91,6 +91,9 @@ cg_amendments()
 cg_amendments(chamber='house', congress=113)
 cg_amendments(sponsor_type='committee', sponsor_id='HSRU')
 cg_amendments(amends_bill_id='hr624-113')
+
+# most parameters are vectorized, pass in more than one value
+cg_amendments(chamber = c('house', 'senate'), per_page=2)
 }
 }
 

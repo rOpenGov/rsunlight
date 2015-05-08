@@ -32,9 +32,6 @@
 #' # Search for an ID by bioguide id
 #' ie_entities(bioguide_id='L000551')
 #'
-#' # Search for data by entity id
-#' ie_entities(entity_id='97737bb56b6a4211bcc57a837368b1a4')
-#'
 #' # most parameters are vectorized, pass in more than one value
 #' ie_entities(search = c('Nancy Pelosi', 'Jones'))
 #' ie_entities(bioguide_id = c('L000551', 'M000355'))

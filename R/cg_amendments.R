@@ -37,6 +37,9 @@
 #' cg_amendments(chamber='house', congress=113)
 #' cg_amendments(sponsor_type='committee', sponsor_id='HSRU')
 #' cg_amendments(amends_bill_id='hr624-113')
+#'
+#' # most parameters are vectorized, pass in more than one value
+#' cg_amendments(chamber = c('house', 'senate'), per_page=2)
 #' }
 
 cg_amendments <- function(amendment_id=NULL, amendment_type=NULL, number=NULL, congress=NULL,
@@ -53,6 +56,5 @@ cg_amendments <- function(amendment_id=NULL, amendment_type=NULL, number=NULL, c
                           amends_amendment_id=amends_amendment_id, sponsor_type=sponsor_type,
                           sponsor_id=sponsor_id, query=query, per_page=per_page, page=page,
                           fields=fields, order=order))
-
-  return_obj(as, query(url, args, ...))
+  give_cg(as, url, "", args, ...)
 }

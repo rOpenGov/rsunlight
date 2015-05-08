@@ -35,6 +35,29 @@ give <- function(as, url, endpt, args, ...) {
          response = tmp)
 }
 
+give_cg <- function(as, url, endpt, args, ...) {
+  iter <- get_iter(args)
+  if (length(iter) == 0) {
+    tmp <- return_obj(as, query(paste0(url, endpt), args, ...))
+  } else {
+    tmp <- lapply(iter[[1]], function(w) {
+      args[[ names(iter) ]] <- w
+      return_obj(as, query(paste0(url, endpt), args, ...))
+    })
+    if (as == "table") {
+      tmp <- rbind.fill(lapply(tmp, "[[", "results"))
+      # tmp <- list(results = df, tmp[ names(tmp) != "results" ])
+    }
+  }
+  switch(as,
+#          table = structure(list(data = tmp$results, meta = tmp[ names(tmp) != "results" ]),
+#                            class = c("sunlight_cg", "data.frame")),
+         table = structure(if (length(iter) == 0) tmp$results else tmp,
+                           class = c("sunlight", "data.frame")),
+         list = tmp,
+         response = tmp)
+}
+
 one_vec <- function(x) {
   lens <- x[vapply(x, length, 1) > 1]
   if (length(lens) > 1) {

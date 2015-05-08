@@ -95,6 +95,7 @@ cg_bills <- function(query = NULL, bill_id = NULL, bill_type = NULL, number = NU
     enacted_as.number=enacted_as.number))
 
   return_obj(as, query(url, args, ...))
+  # give_cg(as, url, "", args, ...)
 }
 
 ll <- function(x) if(!is.null(x)){ if(x) tolower(x) else x }
