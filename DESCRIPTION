@@ -27,3 +27,5 @@ Imports:
 Suggests:
     knitr,
     testthat
+Enhances:
+    ggplot2
