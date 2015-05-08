@@ -16,6 +16,25 @@ return_obj <- function(x, y){
   }
 }
 
+give <- function(args, as, url, endpt, ...) {
+  iter <- get_iter(args)
+  if (length(iter) == 0) {
+    tmp <- return_obj(as, query(paste0(url, endpt), args, ...))
+  } else {
+    tmp <- lapply(iter[[1]], function(w) {
+      args[[ names(iter) ]] <- w
+      return_obj(as, query(paste0(url, endpt), args, ...))
+    })
+    if (as == "table") {
+      tmp <- rbind.fill(tmp)
+    }
+  }
+  switch(as,
+         table = structure(tmp, class = c("sunlight", "data.frame")),
+         list = tmp,
+         response = tmp)
+}
+
 one_vec <- function(x) {
   lens <- x[vapply(x, length, 1) > 1]
   if (length(lens) > 1) {
@@ -25,6 +44,13 @@ one_vec <- function(x) {
 
 get_iter <- function(z) {
   z[vapply(z, length, 1) > 1]
+}
+
+#' @export
+print.sunlight <- function(x, ..., n = 10){
+  cat("<Sunlight data>", sep = "\n")
+  cat(sprintf("   Dimensions:   [%s X %s]\n", NROW(x), NCOL(x)), sep = "\n")
+  trunc_mat(x, n = n)
 }
 
 cgurl <- function() 'https://congress.api.sunlightfoundation.com'

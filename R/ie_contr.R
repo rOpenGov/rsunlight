@@ -60,27 +60,5 @@ ie_contr <-  function(
     recipient_ft = recipient_ft, recipient_state = recipient_state, seat = seat,
     transaction_namespace = transaction_namespace, page = page, per_page = per_page))
   one_vec(args)
-  iter <- get_iter(args)
-  if (length(iter) == 0) {
-    tmp <- return_obj(as, query(paste0(ieurl(), "/contributions.json"), args, ...))
-  } else {
-    tmp <- lapply(iter[[1]], function(w) {
-      args[[ names(iter) ]] <- w
-      return_obj(as, query(paste0(ieurl(), "/contributions.json"), args, ...))
-    })
-    if (as == "table") {
-      tmp <- rbind.fill(tmp)
-    }
-  }
-  switch(as,
-         table = structure(tmp, class = c("sunlight", "data.frame")),
-         list = tmp,
-         response = tmp)
-}
-
-#' @export
-print.sunlight <- function(x, ..., n = 10){
-  cat("<Sunlight data>", sep = "\n")
-  cat(sprintf("   Dimensions:   [%s X %s]\n", NROW(x), NCOL(x)), sep = "\n")
-  trunc_mat(x, n = n)
+  give(args, as, ieurl(), "/contributions.json", ...)
 }
