@@ -7,7 +7,7 @@
 os_legislatorsearch(state = NULL, first_name = NULL, last_name = NULL,
   chamber = NULL, active = NULL, term = NULL, district = NULL,
   party = NULL, page = NULL, per_page = NULL, fields = NULL,
-  return = "table", key = getOption("SunlightLabsKey",
+  as = "table", key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")), ...)
 }
 \arguments{
@@ -37,11 +37,11 @@ are not returned unless requested. If you don't supply a fields parameter, you w
 most commonly used subset of fields only. To save on bandwidth, parsing time, and confusion,
 it's recommended to always specify which fields you will be using.}
 
-\item{return}{(character) One of table (default), list, or response (httr response object)}
-
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
-\item{...}{Optional additional curl options (debugging tools mostly). See examples.}
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+
+\item{return}{(character) One of table (default), list, or response (httr response object)}
 }
 \value{
 List of output fields.

@@ -7,7 +7,7 @@
 os_billsearch(terms = NULL, state = NULL, window = NULL,
   chamber = "upper", sponsor_id = NULL, updated_since = NULL,
   subject = NULL, type = NULL, search_window = NULL, sort = NULL,
-  page = NULL, per_page = NULL, fields = NULL, return = "table",
+  page = NULL, per_page = NULL, fields = NULL, as = "table",
   key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")), ...)
 }
@@ -57,11 +57,11 @@ are not returned unless requested. If you don't supply a fields parameter, you w
 most commonly used subset of fields only. To save on bandwidth, parsing time, and confusion,
 it's recommended to always specify which fields you will be using.}
 
-\item{return}{(character) One of table (default), list, or response (httr response object)}
+\item{as}{(character) One of table (default), list, or response (httr response object)}
 
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
-\item{...}{Optional additional curl options (debugging tools mostly). See examples.}
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
 a data.frame of bills.

@@ -17,7 +17,7 @@
 #' per_page parameter to get more than the default or max number of results per page.
 #' @param return (character) One of table (default), list, or response (httr response object)
 #' @param key your SunlightLabs API key; loads from .Rprofile
-#' @param ... Optional additional curl options (debugging tools mostly). See examples.
+#' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @return List of output fields.
 #' @export
 #' @examples \dontrun{
@@ -30,13 +30,13 @@
 #' }
 os_legislatorsearch <- function(state = NULL, first_name = NULL,
     last_name = NULL, chamber = NULL, active = NULL, term = NULL, district = NULL,
-    party = NULL, page=NULL, per_page=NULL, fields = NULL, return='table',
-    key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-    ...)
-{
+    party = NULL, page=NULL, per_page=NULL, fields = NULL, as = 'table',
+    key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
+    ...) {
+
   args <- suncompact(list(apikey = key, state = state, first_name = first_name,
                        last_name = last_name, chamber = chamber, active = active,
                        term = term, district = district, party = party,
-                       page=page, per_page=per_page, fields=paste(fields, collapse = ",")))
-  return_obj(return, query(paste0(osurl(), "/legislators"), args, ...))
+                       page = page, per_page = per_page, fields = paste(fields, collapse = ",")))
+  return_obj(as, query(paste0(osurl(), "/legislators"), args, ...))
 }

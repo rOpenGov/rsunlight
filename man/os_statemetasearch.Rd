@@ -12,7 +12,7 @@ os_statemetasearch(state = NULL, key = getOption("SunlightLabsKey",
 
 \item{key}{your SunlightLabs API key; or loads from .Rprofile}
 
-\item{...}{Curl options passed on to httr::GET}
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
 A list with metadata for each state.

@@ -32,9 +32,9 @@
 #' @param per_page Number of records to return. Default: 20. Max: 50.
 #' @param page Page to return. Default: 1. You can use this in combination with the
 #' per_page parameter to get more than the default or max number of results per page.
-#' @param return (character) One of table (default), list, or response (httr response object)
+#' @param as (character) One of table (default), list, or response (httr response object)
 #' @param key your SunlightLabs API key; loads from .Rprofile
-#' @param ... Optional additional curl options (debugging tools mostly). See examples.
+#' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @return a data.frame of bills.
 #' @export
 #' @examples \dontrun{
@@ -57,14 +57,14 @@
 #' }
 os_billsearch <- function(terms = NULL, state = NULL, window = NULL,
     chamber = 'upper', sponsor_id = NULL, updated_since = NULL, subject = NULL, type=NULL,
-    search_window=NULL, sort=NULL, page=NULL, per_page=NULL, fields = NULL, return='table',
-    key=getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-    ...)
-{
+    search_window=NULL, sort=NULL, page=NULL, per_page=NULL, fields = NULL, as ='table',
+    key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
+    ...) {
+
   args <- suncompact(list(apikey = key, q = terms, state = state, window = window,
                        chamber = chamber, sponsor_id = sponsor_id,
-                       updated_since = updated_since, subject = subject, type=type,
-                       search_window=search_window, sort=sort, page=page, per_page=per_page,
-                       fields=paste(fields, collapse = ",")))
-  return_obj(return, query(paste0(osurl(), "/bills"), args, ...))
+                       updated_since = updated_since, subject = subject, type = type,
+                       search_window = search_window, sort = sort, page = page, per_page = per_page,
+                       fields = paste(fields, collapse = ",")))
+  return_obj(as, query(paste0(osurl(), "/bills"), args, ...))
 }

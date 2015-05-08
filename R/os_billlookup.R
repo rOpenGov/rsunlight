@@ -13,9 +13,9 @@
 #' @param per_page Number of records to return. Default: 20. Max: 50.
 #' @param page Page to return. Default: 1. You can use this in combination with the
 #' per_page parameter to get more than the default or max number of results per page.
-#' @param return (character) One of table (default), list, or response (httr response object)
+#' @param as (character) One of table (default), list, or response (httr response object)
 #' @param key your SunlightLabs API key; loads from .Rprofile
-#' @param ... Optional additional curl options (debugging tools mostly). See examples.
+#' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @return List of output fields.
 #' @export
 #' @examples \dontrun{
@@ -32,15 +32,15 @@
 #' }
 
 os_billlookup <- function(state = NULL, session = NULL, bill_id = NULL,
-  fields = NULL, per_page = NULL, page = NULL, return='table',
-  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...)
-{
+  fields = NULL, per_page = NULL, page = NULL, as = 'table',
+  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...) {
+
   bills <- NULL
-  if(length(bill_id) > 1){
+  if (length(bill_id) > 1) {
     bills <- paste(bill_id, collapse = "|")
     bill_id <- NULL
   }
-  args <- suncompact(list(apikey=key, state=state, session=session, bill_id=bill_id,
-          bill_id__in=bills, per_page=per_page, page=page, fields=paste(fields, collapse = ",")))
-  return_obj(return, query(paste0(osurl(), "/bills"), args, ...))
+  args <- suncompact(list(apikey = key, state = state, session = session, bill_id = bill_id,
+          bill_id__in = bills, per_page = per_page, page = page, fields = paste(fields, collapse = ",")))
+  return_obj(as, query(paste0(osurl(), "/bills"), args, ...))
 }

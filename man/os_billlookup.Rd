@@ -5,7 +5,7 @@
 \title{Lookup bills on OpenStates.}
 \usage{
 os_billlookup(state = NULL, session = NULL, bill_id = NULL,
-  fields = NULL, per_page = NULL, page = NULL, return = "table",
+  fields = NULL, per_page = NULL, page = NULL, as = "table",
   key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")), ...)
 }
@@ -27,11 +27,11 @@ it's recommended to always specify which fields you will be using.}
 \item{page}{Page to return. Default: 1. You can use this in combination with the
 per_page parameter to get more than the default or max number of results per page.}
 
-\item{return}{(character) One of table (default), list, or response (httr response object)}
+\item{as}{(character) One of table (default), list, or response (httr response object)}
 
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
-\item{...}{Optional additional curl options (debugging tools mostly). See examples.}
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
 List of output fields.
