@@ -68,11 +68,11 @@ ending in \code{/search}), you may sort by score to order by relevancy.}
 
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
+\item{as}{(character) One of table (default), list, or response (httr response object)}
+
 \item{callopts}{Curl options to be passed on to httr::GET}
 
 \item{...}{See Details. You can pass on additional parameters.}
-
-\item{return}{(character) One of table (default), list, or response (httr response object)}
 }
 \description{
 Search for data on votes.

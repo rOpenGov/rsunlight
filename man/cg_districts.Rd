@@ -33,9 +33,9 @@ ending in \code{/search}), you may sort by score to order by relevancy.}
 
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
-\item{...}{Optional additional curl options (debugging tools mostly). See examples.}
+\item{as}{(character) One of table (default), list, or response (httr response object)}
 
-\item{return}{(character) One of table (default), list, or response (httr response object)}
+\item{...}{Optional additional curl options (debugging tools mostly). See examples.}
 }
 \value{
 List including data.frame and metadata about results, list, or httr
