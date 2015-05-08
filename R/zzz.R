@@ -8,10 +8,16 @@ suncompact <- function(x){
 }
 
 return_obj <- function(x, y){
-  x <- match.arg(x, c('response','list','table','data.frame'))
-  if(x=='response'){ y } else {
+  x <- match.arg(x, c('response', 'list', 'table', 'data.frame'))
+  if (x == 'response') {
+    y
+  } else {
     out <- content(y, as = "text")
-    if(x=='list') fromJSON(out, simplifyVector = FALSE, flatten = TRUE) else fromJSON(out)
+    if (x == 'list') {
+      fromJSON(out, simplifyVector = FALSE, flatten = TRUE)
+    } else {
+      fromJSON(out)
+    }
   }
 }
 
