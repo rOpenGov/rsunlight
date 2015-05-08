@@ -1,8 +1,3 @@
-#' Remove null elements from a list
-#' @param x Input list
-#' @export
-#' @keywords internal
-
 suncompact <- function(x){
   Filter(Negate(is.null), x)
 }
@@ -18,6 +13,13 @@ return_obj <- function(x, y){
     } else {
       fromJSON(out)
     }
+  }
+}
+
+one_vec <- function(x) {
+  lens <- x[vapply(x, length, 1) > 1]
+  if (length(lens) > 1) {
+    stop("Only one parameter can be vectorized per function call", call. = FALSE)
   }
 }
 
