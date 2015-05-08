@@ -1,8 +1,11 @@
 rsunlight
 ======
 
-Linux: [![Build Status](https://api.travis-ci.org/rOpenGov/rsunlight.png)](https://travis-ci.org/rOpenGov/rsunlight)
-Windows: [![Build status](https://ci.appveyor.com/api/projects/status/ytc2qdo3u2t3ltm6/branch/master)](https://ci.appveyor.com/api/projects/status/ytc2qdo3u2t3ltm6/branch/master)
+
+
+[![Build Status](https://api.travis-ci.org/rOpenGov/rsunlight.png)](https://travis-ci.org/rOpenGov/rsunlight)
+[![Build status](https://ci.appveyor.com/api/projects/status/ytc2qdo3u2t3ltm6/branch/master)](https://ci.appveyor.com/api/projects/status/ytc2qdo3u2t3ltm6/branch/master)
+[![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/rsunlight)](https://github.com/metacran/cranlogs.app)
 
 + Maintainer: [Scott Chamberlain](https://github.com/sckott/)
 + License: [MIT](http://opensource.org/licenses/MIT)
@@ -57,14 +60,9 @@ install.packages("rsunlight")
 Or development version from Github
 
 
-
 ```r
-install.packages("devtools")
-library(devtools)
-install_github("ropengov/rsunlight")
+devtools::install_github("ropengov/rsunlight")
 ```
-
-## Load rsunlight
 
 
 ```r
@@ -127,8 +125,8 @@ Note that the resulting chart opens in a browser, so is not shown in this vignet
 
 
 ```r
-dream <- lapply(c('D','R'), function(x) cw_timeseries(phrase='i have a dream', party=x, start_date='1996-01-01', end_date='2013-01-01', granularity='month'))
-df <- merge(dream[[1]], dream[[2]], by='month', all=TRUE)
+dream <- lapply(c('D','R'), function(x) cw_timeseries(phrase = 'i have a dream', party = x, start_date = '1996-01-01', end_date = '2013-01-01', granularity = 'month'))
+df <- merge(dream[[1]], dream[[2]], by = 'month', all = TRUE)
 df[is.na(df)] <- 0
 names(df) <- c('date','D','R')
 df$date <- as.character(df$date)
@@ -152,15 +150,15 @@ Ranked by total dollars given. An organization's giving is broken down into mone
 
 
 ```r
-ie_industries(method='top_ind', limit=4)
+ie_industries(method = 'top_ind', limit = 4)
 #>      count        amount                               id
-#> 1 14920003 3825328792.21 cdb3f500a3f74179bb4a5eb8b2932fa6
-#> 2  3676565 2860383835.95 f50cf984a2e3477c8167d32e2b14e052
-#> 3  1425026 1768144131.04 7500030dffe24844aa467a75f7aedfd1
-#> 4   329908 1717719914.58 9cac88377c3b400e89c2d6762e3f28f6
-#>   should_show_entity                   name
-#> 1               TRUE                UNKNOWN
-#> 2               TRUE      LAWYERS/LAW FIRMS
-#> 3               TRUE            REAL ESTATE
-#> 4               TRUE CANDIDATE SELF-FINANCE
+#> 1 14920072 3825432715.21 cdb3f500a3f74179bb4a5eb8b2932fa6
+#> 2  3706621 2892170142.95 f50cf984a2e3477c8167d32e2b14e052
+#> 3  1441992 1807645239.04 7500030dffe24844aa467a75f7aedfd1
+#> 4   821204 1728183840.57 0af3f418f426497e8bbf916bfc074ebc
+#>   should_show_entity                    name
+#> 1               TRUE                 UNKNOWN
+#> 2               TRUE       LAWYERS/LAW FIRMS
+#> 3               TRUE             REAL ESTATE
+#> 4               TRUE SECURITIES & INVESTMENT
 ```

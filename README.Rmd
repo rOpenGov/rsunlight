@@ -11,8 +11,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-Linux: [![Build Status](https://api.travis-ci.org/rOpenGov/rsunlight.png)](https://travis-ci.org/rOpenGov/rsunlight)
-Windows: [![Build status](https://ci.appveyor.com/api/projects/status/ytc2qdo3u2t3ltm6/branch/master)](https://ci.appveyor.com/api/projects/status/ytc2qdo3u2t3ltm6/branch/master)
+[![Build Status](https://api.travis-ci.org/rOpenGov/rsunlight.png)](https://travis-ci.org/rOpenGov/rsunlight)
+[![Build status](https://ci.appveyor.com/api/projects/status/ytc2qdo3u2t3ltm6/branch/master)](https://ci.appveyor.com/api/projects/status/ytc2qdo3u2t3ltm6/branch/master)
+[![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/rsunlight)](https://github.com/metacran/cranlogs.app)
 
 + Maintainer: [Scott Chamberlain](https://github.com/sckott/)
 + License: [MIT](http://opensource.org/licenses/MIT)
@@ -65,14 +66,9 @@ install.packages("rsunlight")
 
 Or development version from Github
 
-
 ```{r eval=FALSE}
-install.packages("devtools")
-library(devtools)
-install_github("ropengov/rsunlight")
+devtools::install_github("ropengov/rsunlight")
 ```
-
-## Load rsunlight
 
 ```{r}
 library("rsunlight")
@@ -116,8 +112,8 @@ ggplot(dat_both, aes(day, count, colour=party)) +
 Note that the resulting chart opens in a browser, so is not shown in this vignette, but you will see it open in a browser when you run the code.
 
 ```{r eval=FALSE}
-dream <- lapply(c('D','R'), function(x) cw_timeseries(phrase='i have a dream', party=x, start_date='1996-01-01', end_date='2013-01-01', granularity='month'))
-df <- merge(dream[[1]], dream[[2]], by='month', all=TRUE)
+dream <- lapply(c('D','R'), function(x) cw_timeseries(phrase = 'i have a dream', party = x, start_date = '1996-01-01', end_date = '2013-01-01', granularity = 'month'))
+df <- merge(dream[[1]], dream[[2]], by = 'month', all = TRUE)
 df[is.na(df)] <- 0
 names(df) <- c('date','D','R')
 df$date <- as.character(df$date)
@@ -139,5 +135,5 @@ _note: as you can see this is not actually interactive, but when you make it, it
 Ranked by total dollars given. An organization's giving is broken down into money given directly (by the organization's PAC) versus money given by individuals employed by or associated with the organization.
 
 ```{r}
-ie_industries(method='top_ind', limit=4)
+ie_industries(method = 'top_ind', limit = 4)
 ```
