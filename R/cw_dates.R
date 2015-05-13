@@ -34,6 +34,12 @@
 #'
 #' cw_dates(phrase='voting', start_date='2009-01-01',
 #'    end_date='2009-04-30', granularity='month', party='R')
+#'
+#' # pass in more than one value for some parameters
+#' cw_dates(phrase='voting', start_date='2009-01-01',
+#'    end_date='2009-04-30', granularity='month', party=c('R', 'D'))
+#' cw_dates(phrase=c('voting', 'hate'), start_date='2009-01-01',
+#'    end_date='2009-04-30', granularity='month', party='D')
 #' }
 cw_dates <- function(phrase = NULL, title = NULL, date = NULL, start_date = NULL,
   end_date = NULL, chamber = NULL, state = NULL, party = NULL, bioguide_id = NULL,
@@ -49,12 +55,5 @@ cw_dates <- function(phrase = NULL, title = NULL, date = NULL, start_date = NULL
         session = session, cr_pages = cr_pages, volume = volume,
         page_id = page_id, n = n, mincount = mincount, granularity = granularity,
         percentages = percentages, entity_type = entity_type, entity_value = entity_value))
-
-
-  tmp <- return_obj(as, query(paste0(cwurl(), "/dates.json"), args, ...))
-  if (as == 'response') {
-    return(tmp)
-  } else {
-    return(tmp$results)
-  }
+  give_cg(as, cwurl(), "/dates.json", args, ...)
 }

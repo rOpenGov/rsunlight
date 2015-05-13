@@ -41,7 +41,7 @@
 #' cg_bills(per_page='all')
 #'
 #' # most parameters are vectorized, pass in more than one value
-#' cg_committees(congress = c(112, 113))
+#' cg_bills(bill_id = c("hjres131-113", "hjres129-113", "s2921-113"))
 #' }
 
 cg_bills <- function(query = NULL, bill_id = NULL, bill_type = NULL, number = NULL,

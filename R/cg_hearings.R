@@ -34,7 +34,7 @@
 #' cg_hearings(query='children')
 #'
 #' # most parameters are vectorized, pass in more than one value
-#' cg_hearings(bioguide_id = c('house', 'senate'))
+#' cg_hearings(chamber = c('house', 'senate'))
 #' }
 
 cg_hearings <- function(committee_id=NULL, occurs_at=NULL, congress=NULL, chamber=NULL,

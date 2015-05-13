@@ -46,6 +46,9 @@ give_cg <- function(as, url, endpt, args, ...) {
     })
     if (as == "table") {
       res <- lapply(tmp, "[[", "results")
+      for (i in seq_along(res)) {
+        res[[i]][names(iter)] <- iter[[1]][i]
+      }
       res <- res[vapply(res, length, numeric(1)) != 0]
       tmp <- rbind.fill(res)
     }

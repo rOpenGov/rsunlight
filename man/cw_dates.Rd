@@ -91,6 +91,12 @@ cw_dates(phrase='united states', entity_type='state',
 
 cw_dates(phrase='voting', start_date='2009-01-01',
    end_date='2009-04-30', granularity='month', party='R')
+
+# pass in more than one value for some parameters
+cw_dates(phrase='voting', start_date='2009-01-01',
+   end_date='2009-04-30', granularity='month', party=c('R', 'D'))
+cw_dates(phrase=c('voting', 'hate'), start_date='2009-01-01',
+   end_date='2009-04-30', granularity='month', party='D')
 }
 }
 
