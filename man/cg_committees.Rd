@@ -78,6 +78,9 @@ cg_committees(per_page='all')
 cg_committees(member_ids='L000551', as='list')
 # Output an httr response object, for debugging purposes
 cg_committees(member_ids='L000551', as='response')
+
+# most parameters are vectorized, pass in more than one value
+cg_committees(committee_id = c('SSAP', 'SSGA01'))
 }
 }
 

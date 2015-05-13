@@ -34,6 +34,9 @@
 #'
 #' @examples \dontrun{
 #' cg_upcoming_bills()
+#'
+#' # Pass in more than one value to a parameter
+#' cg_upcoming_bills(chamber = c("house", "senate"))
 #' }
 
 cg_upcoming_bills <- function(scheduled_at=NULL, legislative_day=NULL, range=NULL, congress=NULL,
@@ -44,6 +47,5 @@ cg_upcoming_bills <- function(scheduled_at=NULL, legislative_day=NULL, range=NUL
                           range=range, congress=congress, chamber=chamber, source_type=source_type,
                           bill_id=bill_id, per_page=per_page, page=page, fields=fields,
                           query=query, order=order))
-
-  return_obj(as, query(paste0(cgurl(), "/upcoming_bills"), args, ...))
+  give_cg(as, cgurl(), "/upcoming_bills", args, ...)
 }

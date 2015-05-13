@@ -45,6 +45,9 @@
 #' cg_documents(per_page=4)
 #' cg_documents(per_page=4)
 #' cg_documents(fields=c('document_id','type'))
+#'
+#' # most parameters are vectorized, pass in more than one value
+#' cg_documents(bioguide_id = c("P000523", "O000167"))
 #' }
 
 cg_documents <- function(document_id=NULL, document_type=NULL, chamber=NULL, committee_id=NULL,
@@ -63,5 +66,5 @@ cg_documents <- function(document_id=NULL, document_type=NULL, chamber=NULL, com
                           published_at=published_at, bill_id=bill_id, description=description,
                           version_code=version_code, bioguide_id=bioguide_id, occurs_at=occurs_at,
                           urls=urls, text=text, text_preview=text_preview, witness=witness))
-  return_obj(as, query(url=paste0(cgurl(), "/congressional_documents/search"), args, ...))
+  give_cg(as, cgurl(), "/congressional_documents/search", args, ...)
 }

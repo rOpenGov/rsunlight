@@ -27,6 +27,9 @@
 #' cg_nominations(committee_ids='SSAS')
 #' cg_nominations(organization='Privacy and Civil Liberties Oversight Board')
 #' cg_nominations(query='Petraeus')
+#'
+#' # most parameters are vectorized, pass in more than one value
+#' cg_nominations(party = c('PN1873-111', 'PN604-112'))
 #' }
 
 cg_nominations <- function(nomination_id=NULL, congress=NULL, number=NULL, received_on=NULL, last_action_at=NULL,
@@ -40,6 +43,5 @@ cg_nominations <- function(nomination_id=NULL, congress=NULL, number=NULL, recei
     committee_ids=committee_ids, nominees=nominees, nominees.position=nominees.position,
     nominees.state=nominees.state, query=query, per_page=per_page, page=page, fields=fields,
     order=order))
-
-  return_obj(as, query(url, args, ...))
+  give_cg(as, url, "", args, ...)
 }

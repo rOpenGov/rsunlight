@@ -16,6 +16,9 @@
 #' @examples \dontrun{
 #' cg_districts(zip = 27511)
 #' cg_districts(latitude = 35.778788, longitude = -78.787805)
+#'
+#' # most parameters are vectorized, pass in more than one value
+#' cg_districts(zip = c(27511, 97202))
 #' }
 
 cg_districts <- function(latitude = NULL, longitude = NULL, zip = NULL, query=NULL,
@@ -24,7 +27,7 @@ cg_districts <- function(latitude = NULL, longitude = NULL, zip = NULL, query=NU
   as = 'table', ...) {
 
   args <- sc(list(apikey = key, latitude = latitude, longitude = longitude, zip = zip,
-                          query=query, per_page=per_page, page=page, order=order))
+                          query = query, per_page = per_page, page = page, order = order))
 
-  return_obj(as, query(paste0(cgurl(), "/districts/locate"), args, ...))
+  give_cg(as, cgurl(), "/districts/locate", args, ...)
 }

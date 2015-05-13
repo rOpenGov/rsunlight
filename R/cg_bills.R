@@ -39,6 +39,9 @@
 #'
 #' # Disable pagination
 #' cg_bills(per_page='all')
+#'
+#' # most parameters are vectorized, pass in more than one value
+#' cg_committees(congress = c(112, 113))
 #' }
 
 cg_bills <- function(query = NULL, bill_id = NULL, bill_type = NULL, number = NULL,
@@ -94,8 +97,8 @@ cg_bills <- function(query = NULL, bill_id = NULL, bill_type = NULL, number = NU
     committee_ids=committee_ids, related_bill_ids=related_bill_ids, enacted_as.congress=enacted_as.congress,
     enacted_as.number=enacted_as.number))
 
-  return_obj(as, query(url, args, ...))
-  # give_cg(as, url, "", args, ...)
+  # return_obj(as, query(url, args, ...))
+  give_cg(as, url, "", args, ...)
 }
 
 ll <- function(x) if(!is.null(x)){ if(x) tolower(x) else x }

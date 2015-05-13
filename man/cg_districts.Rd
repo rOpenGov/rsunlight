@@ -55,6 +55,9 @@ treating them as shapes leads to inaccuracies.
 \dontrun{
 cg_districts(zip = 27511)
 cg_districts(latitude = 35.778788, longitude = -78.787805)
+
+# most parameters are vectorized, pass in more than one value
+cg_districts(zip = c(27511, 97202))
 }
 }
 

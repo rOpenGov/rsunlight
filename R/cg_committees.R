@@ -35,6 +35,9 @@
 #' cg_committees(member_ids='L000551', as='list')
 #' # Output an httr response object, for debugging purposes
 #' cg_committees(member_ids='L000551', as='response')
+#'
+#' # most parameters are vectorized, pass in more than one value
+#' cg_committees(committee_id = c('SSAP', 'SSGA01'))
 #' }
 
 cg_committees <-  function(member_ids = NULL, committee_id = NULL, chamber = NULL, subcommittee = NULL,
@@ -48,7 +51,7 @@ cg_committees <-  function(member_ids = NULL, committee_id = NULL, chamber = NUL
   fields <- paste0(fields, collapse = ",")
   args <- sc(list(apikey = key, member_ids = member_ids, committee_id = committee_id,
               chamber = chamber, subcommittee = subcommittee, fields = fields,
-              parent_committee_id = parent_committee_id, page = page, per_page=per_page,
-              query=query, order=order))
-  return_obj(as, query(paste0(cgurl(), "/committees"), args, ...))
+              parent_committee_id = parent_committee_id, page = page, per_page = per_page,
+              query = query, order = order))
+  give_cg(as, cgurl(), "/committees", args, ...)
 }

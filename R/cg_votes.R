@@ -55,7 +55,9 @@
 #' cg_votes(chamber='senate', order='voted_at')
 #' cg_votes(query='guns')
 #' cg_votes(voter_ids.A000055__exists=TRUE)
-#' cg_votes(voted_at__gte='2013-07-02T4:00:00Z')
+#'
+#' # Pass in more than one value for a parameter
+#' cg_votes(chamber = c('house', 'senate'))
 #' }
 
 cg_votes <- function(roll_id=NULL, chamber=NULL, number=NULL, year=NULL, congress=NULL,
@@ -69,5 +71,6 @@ cg_votes <- function(roll_id=NULL, chamber=NULL, number=NULL, year=NULL, congres
       required=required, result=result, bill_id=bill_id, nomination_id=nomination_id,
       per_page=per_page, page=page, fields=fields, order=order, ...))
 
-  return_obj(as, query(paste0(cgurl(), "/votes"), args, callopts, ...))
+  # return_obj(as, query(paste0(cgurl(), "/votes"), args, callopts, ...))
+  give_cg(as, cgurl(), "/votes", args, callopts)
 }

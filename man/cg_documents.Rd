@@ -105,6 +105,9 @@ cg_documents()
 cg_documents(per_page=4)
 cg_documents(per_page=4)
 cg_documents(fields=c('document_id','type'))
+
+# most parameters are vectorized, pass in more than one value
+cg_documents(bioguide_id = c("P000523", "O000167"))
 }
 }
 

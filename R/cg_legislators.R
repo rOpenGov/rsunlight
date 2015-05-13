@@ -13,15 +13,14 @@
 #' @examples \dontrun{
 #' cg_legislators(last_name = 'Pelosi')
 #' cg_legislators(party = 'D')
-#' cg_legislators(twitter_id = 'SenRandPaul')
 #' cg_legislators(facebook_id = 'mitchmcconnell')
 #' cg_legislators(latitude = 35.778788, longitude = -78.787805)
 #' cg_legislators(zip = 77006)
 #'
 #' # Output a list
-#' cg_legislators(last_name = 'Pelosi', return='list')
+#' cg_legislators(last_name = 'Pelosi', as='list')
 #' # Output an httr response object, for debugging purposes
-#' cg_legislators(last_name = 'Pelosi', return='response')
+#' cg_legislators(last_name = 'Pelosi', as='response')
 #'
 #' # Pagination
 #' cg_legislators(party = 'D', per_page=2)
@@ -30,6 +29,9 @@
 #' library('httr')
 #' cg_legislators(party = 'D', config=verbose())
 #' cg_legislators(party = 'D', config=timeout(0.1))
+#'
+#' # most parameters are vectorized, pass in more than one value
+#' cg_legislators(party = c('D', 'R'))
 #' }
 
 cg_legislators <- function(title=NULL, first_name=NULL, middle_name=NULL,
@@ -77,5 +79,5 @@ cg_legislators <- function(title=NULL, first_name=NULL, middle_name=NULL,
         birthday=birthday,per_page=per_page,page=page,fields=fields,query=query,order=order))
   }
 
-  return_obj(as, query(url, args, ...))
+  give_cg(as, url, "", args, ...)
 }

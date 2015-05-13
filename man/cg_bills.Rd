@@ -220,6 +220,9 @@ cg_bills(query='transparency accountability'~5, highlight=TRUE)
 
 # Disable pagination
 cg_bills(per_page='all')
+
+# most parameters are vectorized, pass in more than one value
+cg_committees(congress = c(112, 113))
 }
 }
 

@@ -76,6 +76,9 @@ cg_nominations(order='received_on')
 cg_nominations(committee_ids='SSAS')
 cg_nominations(organization='Privacy and Civil Liberties Oversight Board')
 cg_nominations(query='Petraeus')
+
+# most parameters are vectorized, pass in more than one value
+cg_nominations(party = c('PN1873-111', 'PN604-112'))
 }
 }
 

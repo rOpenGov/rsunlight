@@ -11,7 +11,7 @@ return_obj <- function(x, y){
     if (x == 'list') {
       fromJSON(out, simplifyVector = FALSE, flatten = TRUE)
     } else {
-      fromJSON(out)
+      fromJSON(out, flatten = TRUE)
     }
   }
 }
@@ -45,13 +45,12 @@ give_cg <- function(as, url, endpt, args, ...) {
       return_obj(as, query(paste0(url, endpt), args, ...))
     })
     if (as == "table") {
-      tmp <- rbind.fill(lapply(tmp, "[[", "results"))
-      # tmp <- list(results = df, tmp[ names(tmp) != "results" ])
+      res <- lapply(tmp, "[[", "results")
+      res <- res[vapply(res, length, numeric(1)) != 0]
+      tmp <- rbind.fill(res)
     }
   }
   switch(as,
-#          table = structure(list(data = tmp$results, meta = tmp[ names(tmp) != "results" ]),
-#                            class = c("sunlight_cg", "data.frame")),
          table = structure(if (length(iter) == 0) tmp$results else tmp,
                            class = c("sunlight", "data.frame")),
          list = tmp,

@@ -79,6 +79,9 @@ On January 3rd, it is possible that the same legislative_day could span two Cong
 \examples{
 \dontrun{
 cg_upcoming_bills()
+
+# Pass in more than one value to a parameter
+cg_upcoming_bills(chamber = c("house", "senate"))
 }
 }
 

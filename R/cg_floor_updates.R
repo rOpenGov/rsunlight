@@ -27,6 +27,9 @@
 #' @examples \dontrun{
 #' cg_floor_updates()
 #' cg_floor_updates(chamber='house', query='Agreed to by voice vote')
+#'
+#' # most parameters are vectorized, pass in more than one value
+#' cg_floor_updates(chamber = c("house", "senate"))
 #' }
 
 cg_floor_updates <- function(chamber=NULL, timestamp=NULL, congress=NULL, legislative_day=NULL,
@@ -38,6 +41,5 @@ cg_floor_updates <- function(chamber=NULL, timestamp=NULL, congress=NULL, legisl
                           legislative_day=legislative_day, year=year, bill_ids=bill_ids,
                           roll_ids=roll_ids, legislator_ids=legislator_ids, query=query,
                           per_page=per_page, page=page, fields=fields, order=order))
-
-  return_obj(as, query(paste0(cgurl(), "/floor_updates"), args, ...))
+  give_cg(as, cgurl(), "/floor_updates", args, ...)
 }

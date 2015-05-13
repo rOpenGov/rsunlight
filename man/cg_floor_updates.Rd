@@ -73,6 +73,9 @@ Search for data on upcoming bills.
 \dontrun{
 cg_floor_updates()
 cg_floor_updates(chamber='house', query='Agreed to by voice vote')
+
+# most parameters are vectorized, pass in more than one value
+cg_floor_updates(chamber = c("house", "senate"))
 }
 }
 

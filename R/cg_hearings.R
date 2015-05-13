@@ -32,6 +32,9 @@
 #' @examples \dontrun{
 #' cg_hearings(chamber='house', dc=TRUE)
 #' cg_hearings(query='children')
+#'
+#' # most parameters are vectorized, pass in more than one value
+#' cg_hearings(bioguide_id = c('house', 'senate'))
 #' }
 
 cg_hearings <- function(committee_id=NULL, occurs_at=NULL, congress=NULL, chamber=NULL,
@@ -41,10 +44,15 @@ cg_hearings <- function(committee_id=NULL, occurs_at=NULL, congress=NULL, chambe
   args <- sc(list(apikey=key, committee_id=committee_id, occurs_at=occurs_at,
       congress=congress, chamber=chamber, dc=getdc(dc), bill_ids=bill_ids,
       hearing_type=hearing_type, query=query, per_page=per_page, page=page, fields=fields, order=order))
-
-  return_obj(as, query(paste0(cgurl(), "/hearings"), args, ...))
+  give_cg(as, cgurl(), "/hearings", args, ...)
 }
 
 getdc <- function(x){
-  if(is.null(x)) NULL else if(x) 'true' else 'false'
+  if (is.null(x)) {
+    NULL
+  } else if (x) {
+    'true'
+  } else  {
+    'false'
+  }
 }
