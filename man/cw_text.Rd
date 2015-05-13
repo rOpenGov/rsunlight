@@ -90,10 +90,12 @@ library('plyr')
 out <- cw_text(phrase='climate change', start_date='2010-01-01', end_date='2012-12-01')
 out2 <- ldply(2:6, function(x) cw_text(phrase='climate change', start_date='2010-01-01',
    end_date='2012-12-01', page=x))
-alldat <- rbind(out, out2)
-str(alldat)
+rbind(out, out2)
 
 cw_text(phrase='climate change', start_date='2012-09-16', end_date='2012-09-20', sort='title')
+
+# pass in many values for some parametrs
+cw_text(phrase=c('climate change', 'politics'), start_date='2012-09-16', end_date='2012-09-20')
 }
 }
 

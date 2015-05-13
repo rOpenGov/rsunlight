@@ -16,6 +16,14 @@ return_obj <- function(x, y){
   }
 }
 
+give_noiter <- function(as, url, endpt, args, ...) {
+  tmp <- return_obj(as, query(paste0(url, endpt), args, ...))
+  switch(as,
+         table = structure(tmp, class = c("sunlight", "data.frame")),
+         list = tmp,
+         response = tmp)
+}
+
 give <- function(as, url, endpt, args, ...) {
   iter <- get_iter(args)
   if (length(iter) == 0) {

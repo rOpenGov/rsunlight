@@ -87,15 +87,15 @@ ggplot(dat, aes(day, count)) +
    geom_line() +
    theme_grey(base_size=20)
 
-dat_d <- cw_timeseries(phrase='climate change', party="D")
+dat_d <- cw_timeseries(phrase = 'climate change', party = "D")
 dat_d$party <- rep("D", nrow(dat_d))
-dat_r <- cw_timeseries(phrase='climate change', party="R")
+dat_r <- cw_timeseries(phrase = 'climate change', party = "R")
 dat_r$party <- rep("R", nrow(dat_r))
 dat_both <- rbind(dat_d, dat_r)
-ggplot(dat_both, aes(day, count, colour=party)) +
+ggplot(dat_both, aes(day, count, colour = party)) +
    geom_line() +
-   theme_grey(base_size=20) +
-   scale_colour_manual(values=c("blue","red"))
+   theme_grey(base_size = 20) +
+   scale_colour_manual(values=c("blue", "red"))
 }
 }
 

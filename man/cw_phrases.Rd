@@ -4,16 +4,17 @@
 \alias{cw_phrases}
 \title{Capitol words phrases.json method. List the top phrases for a facet.}
 \usage{
-cw_phrases(entity_type = NULL, entity_value = NULL, n = NULL,
-  page = NULL, per_page = NULL, sort = NULL, as = "table",
+cw_phrases(entity_type, entity_value, n = NULL, page = NULL,
+  per_page = NULL, sort = NULL, as = "table",
   key = getOption("SunlightLabsKey",
   stop("need an API key for Sunlight Labs")), ...)
 }
 \arguments{
-\item{entity_type}{The entity type to get top phrases for. One of 'date', 'month', 'state', or
-'legislator'.}
+\item{entity_type}{The entity type to get top phrases for. One of 'date',
+'month', 'state', or 'legislator'. Required.}
 
-\item{entity_value}{The value of the entity given in \code{entity_type}. See Details.}
+\item{entity_value}{The value of the entity given in \code{entity_type}.
+See Details. Required.}
 
 \item{n}{The size of phrase, in words, to search for (up to 5).}
 
@@ -22,9 +23,9 @@ cw_phrases(entity_type = NULL, entity_value = NULL, n = NULL,
 
 \item{per_page}{Number of records to return. Default: 20. Max: 50.}
 
-\item{sort}{The value on which to sort the results. You have to specify ascending or descending
-(see details), but if you forget, we make it ascending by default (prevents 500 error :)).
-Valid values are 'tfidf' (default) and 'count'.}
+\item{sort}{The value on which to sort the results. You have to specify ascending or
+descending (see details), but if you forget, we make it ascending by default
+(prevents 500 error :)). Valid values are 'tfidf' (default) and 'count'.}
 
 \item{as}{(character) One of table (default), list, or response (httr response object).}
 

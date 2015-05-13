@@ -40,10 +40,12 @@
 #' out <- cw_text(phrase='climate change', start_date='2010-01-01', end_date='2012-12-01')
 #' out2 <- ldply(2:6, function(x) cw_text(phrase='climate change', start_date='2010-01-01',
 #'    end_date='2012-12-01', page=x))
-#' alldat <- rbind(out, out2)
-#' str(alldat)
+#' rbind(out, out2)
 #'
 #' cw_text(phrase='climate change', start_date='2012-09-16', end_date='2012-09-20', sort='title')
+#'
+#' # pass in many values for some parametrs
+#' cw_text(phrase=c('climate change', 'politics'), start_date='2012-09-16', end_date='2012-09-20')
 #' }
 
 cw_text <- function(phrase=NULL, title=NULL, date = NULL, start_date=NULL, end_date=NULL,
@@ -60,10 +62,5 @@ cw_text <- function(phrase=NULL, title=NULL, date = NULL, start_date=NULL, end_d
       date = date, end_date = end_date, chamber = chamber, state = state, party = party,
       bioguide_id = bioguide_id, congress = congress, session = session, cr_pages = cr_pages,
       volume = volume, page = page, sort = sort))
-  tmp <- return_obj(as, query(paste0(cwurl(), "/text.json"), args, ...))
-  if (as == 'response') {
-    return(tmp)
-  } else {
-    return(tmp$results)
-  }
+  give_cg(as, cwurl(), "/text.json", args, ...)
 }

@@ -36,15 +36,15 @@
 #'    geom_line() +
 #'    theme_grey(base_size=20)
 #'
-#' dat_d <- cw_timeseries(phrase='climate change', party="D")
+#' dat_d <- cw_timeseries(phrase = 'climate change', party = "D")
 #' dat_d$party <- rep("D", nrow(dat_d))
-#' dat_r <- cw_timeseries(phrase='climate change', party="R")
+#' dat_r <- cw_timeseries(phrase = 'climate change', party = "R")
 #' dat_r$party <- rep("R", nrow(dat_r))
 #' dat_both <- rbind(dat_d, dat_r)
-#' ggplot(dat_both, aes(day, count, colour=party)) +
+#' ggplot(dat_both, aes(day, count, colour = party)) +
 #'    geom_line() +
-#'    theme_grey(base_size=20) +
-#'    scale_colour_manual(values=c("blue","red"))
+#'    theme_grey(base_size = 20) +
+#'    scale_colour_manual(values=c("blue", "red"))
 #' }
 
 cw_timeseries <- function(phrase=NULL, date = NULL, start_date=NULL, end_date=NULL,
@@ -59,18 +59,17 @@ cw_timeseries <- function(phrase=NULL, date = NULL, start_date=NULL, end_date=NU
                        percentages=percentages, granularity=granularity,
                        entity_type=entity_type, entity_value=entity_value))
 
-  tmp <- return_obj(as, query(paste0(cwurl(), "/dates.json"), args, ...))
-  if (as %in% c('response','list')) {
+  tmp <- give_cg(as, cwurl(), "/dates.json", args, ...)
+  if (as %in% c('response', 'list')) {
     tmp
   } else {
-    data <- tmp$results
     if (granularity == 'day') {
-      data$day <- as.Date(data$day)
+      tmp$day <- as.Date(tmp$day)
     } else if (granularity == 'month') {
-      data$month <- as.Date(sprintf("%s-01", sapply(data$month, splitt)))
+      tmp$month <- as.Date(sprintf("%s-01", sapply(tmp$month, splitt)))
     } else if (granularity == 'year') {
-      data$year <- as.Date(sprintf("%s-01-01", data$year))
+      tmp$year <- as.Date(sprintf("%s-01-01", tmp$year))
     }
-    data
+    tmp
   }
 }
