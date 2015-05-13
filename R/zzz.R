@@ -3,16 +3,28 @@ sc <- function(x){
 }
 
 return_obj <- function(x, y){
+  y <- err_hand(y)
   x <- match.arg(x, c('response', 'list', 'table', 'data.frame'))
   if (x == 'response') {
     y
   } else {
-    out <- content(y, as = "text")
     if (x == 'list') {
-      fromJSON(out, simplifyVector = FALSE, flatten = TRUE)
+      fromJSON(y, simplifyVector = FALSE, flatten = TRUE)
     } else {
-      fromJSON(out, flatten = TRUE)
+      fromJSON(y, flatten = TRUE)
     }
+  }
+}
+
+# check if stupid single left bracket returned
+err_hand <- function(z) {
+  tmp <- content(z, "text")
+  if (identical(tmp, "[")) {
+    q <- parse_url(z$request$opts$url)$query
+    q <- paste0("\n - ", paste(names(q), q, sep = "="), collapse = "")
+    stop("The following query had no results:\n", q, call. = FALSE)
+  } else {
+    tmp
   }
 }
 
