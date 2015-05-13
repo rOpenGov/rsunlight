@@ -27,6 +27,10 @@
 #' os_legislatorsearch(state = 'dc', chamber = 'upper')
 #'
 #' os_legislatorsearch(state = 'ca', party = 'democratic', per_page=3)
+#'
+#' # pass in more than one value for some parameters
+#' os_legislatorsearch(state = c('dc', 'or'), chamber = 'upper')
+#' os_legislatorsearch(first_name = c('jane', 'bob'), chamber = 'upper')
 #' }
 os_legislatorsearch <- function(state = NULL, first_name = NULL,
     last_name = NULL, chamber = NULL, active = NULL, term = NULL, district = NULL,
@@ -38,5 +42,5 @@ os_legislatorsearch <- function(state = NULL, first_name = NULL,
                        last_name = last_name, chamber = chamber, active = active,
                        term = term, district = district, party = party,
                        page = page, per_page = per_page, fields = paste(fields, collapse = ",")))
-  return_obj(as, query(paste0(osurl(), "/legislators"), args, ...))
+  give(as, osurl(), "/legislators", args, ...)
 }

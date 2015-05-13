@@ -46,14 +46,18 @@
 #' os_billsearch(terms = 'taxi', state = 'dc', type='resolution')
 #'
 #' # Search window
-#' length(os_billsearch(terms = 'climate change', search_window='term'))
-#' length(os_billsearch(terms = 'climate change', search_window='term:2009-2011'))
-#' length(os_billsearch(terms = 'climate change', search_window='session'))
-#' length(os_billsearch(terms = 'climate change', search_window='session:2009'))
+#' os_billsearch(terms = 'climate change', search_window='term')
+#' os_billsearch(terms = 'climate change', search_window='term:2009-2011')
+#' os_billsearch(terms = 'climate change', search_window='session')
+#' os_billsearch(terms = 'climate change', search_window='session:2009')
 #'
 #' os_billsearch(terms = 'agriculture', state = 'tx', per_page=2)
 #' os_billsearch(terms = 'agriculture', state = 'tx', per_page=2, page=2)
 #' os_billsearch(terms = 'agriculture', state = 'tx', fields=c('id','created_at'), per_page=10)
+#'
+#' # Pass in more than one value for some parameters
+#' os_billsearch(terms = 'agriculture', state = c('tx', 'or'))
+#' os_billsearch(terms = 'agriculture', state = "or", chamber = c('upper', 'lower'))
 #' }
 os_billsearch <- function(terms = NULL, state = NULL, window = NULL,
     chamber = 'upper', sponsor_id = NULL, updated_since = NULL, subject = NULL, type=NULL,
@@ -66,5 +70,5 @@ os_billsearch <- function(terms = NULL, state = NULL, window = NULL,
                        updated_since = updated_since, subject = subject, type = type,
                        search_window = search_window, sort = sort, page = page, per_page = per_page,
                        fields = paste(fields, collapse = ",")))
-  return_obj(as, query(paste0(osurl(), "/bills"), args, ...))
+  give(as, osurl(), "/bills", args, ...)
 }

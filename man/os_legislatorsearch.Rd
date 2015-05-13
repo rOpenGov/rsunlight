@@ -57,6 +57,10 @@ os_legislatorsearch(state = 'nv', party = 'republican')
 os_legislatorsearch(state = 'dc', chamber = 'upper')
 
 os_legislatorsearch(state = 'ca', party = 'democratic', per_page=3)
+
+# pass in more than one value for some parameters
+os_legislatorsearch(state = c('dc', 'or'), chamber = 'upper')
+os_legislatorsearch(first_name = c('jane', 'bob'), chamber = 'upper')
 }
 }
 
