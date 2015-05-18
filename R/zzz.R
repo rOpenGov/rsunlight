@@ -46,6 +46,7 @@ give <- function(as, url, endpt, args, ...) {
       return_obj(as, query(paste0(url, endpt), args, ...))
     })
     if (as == "table") {
+      tmp <- tmp[vapply(tmp, length, numeric(1)) != 0]
       tmp <- rbind.fill(tmp)
     }
   }
