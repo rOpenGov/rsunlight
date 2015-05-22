@@ -5,7 +5,7 @@ rsunlight
 
 [![Build Status](https://api.travis-ci.org/rOpenGov/rsunlight.png)](https://travis-ci.org/rOpenGov/rsunlight)
 [![Build status](https://ci.appveyor.com/api/projects/status/ytc2qdo3u2t3ltm6/branch/master)](https://ci.appveyor.com/project/sckott/rsunlight)
-[![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/rsunlight)](https://github.com/metacran/cranlogs.app)
+[![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/grand-total/rsunlight)](https://github.com/metacran/cranlogs.app)
 [![cran version](http://www.r-pkg.org/badges/version/rsunlight)](http://cran.rstudio.com/web/packages/rsunlight)
 
 + Maintainer: [Scott Chamberlain](https://github.com/sckott/)
