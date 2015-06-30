@@ -7,8 +7,7 @@
 ie_grants(agency_ft = NULL, amount_total = NULL, assistance_type = NULL,
   fiscal_year = NULL, recipient_ft = NULL, recipient_state = NULL,
   recipient_type = NULL, page = NULL, per_page = NULL, as = "table",
-  key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), ...)
+  key = NULL, ...)
 }
 \arguments{
 \item{agency_ft}{Full-text search on the reported name of the federal agency awarding the grant.}

@@ -5,9 +5,8 @@
 \title{Get districts for a latitude/longitude or zips}
 \usage{
 cg_districts(latitude = NULL, longitude = NULL, zip = NULL,
-  query = NULL, per_page = 20, page = 1, order = NULL,
-  key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), as = "table", ...)
+  query = NULL, per_page = 20, page = 1, order = NULL, key = NULL,
+  as = "table", ...)
 }
 \arguments{
 \item{latitude}{(numeric) latitude of coordinate}

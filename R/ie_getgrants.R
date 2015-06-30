@@ -27,10 +27,9 @@ ie_grants <-  function(
     recipient_state = NULL,
     recipient_type = NULL,
     page = NULL,
-    per_page = NULL, as = 'table',
-    key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-    ...) {
+    per_page = NULL, as = 'table', key = NULL, ...) {
 
+  key <- check_key(key)
   args <- sc(list(apikey = key, agency_ft = agency_ft,
     amount_total = amount_total, assistance_type = assistance_type, fiscal_year = fiscal_year,
     recipient_ft = recipient_ft, recipient_state = recipient_state, recipient_type = recipient_type,

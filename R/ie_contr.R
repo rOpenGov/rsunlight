@@ -50,10 +50,9 @@ ie_contr <-  function(
     seat = NULL,
     transaction_namespace = NULL,
     page = NULL,
-    per_page = NULL, as = 'table',
-    key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-    ...) {
+    per_page = NULL, as = 'table', key = NULL, ...) {
 
+  key <- check_key(key)
   args <- sc(list(apikey = key, amount = amount,
     contributor_ft = contributor_ft, contributor_state = contributor_state, cycle = cycle,
     date = date, for_against = for_against, organization_ft = organization_ft,

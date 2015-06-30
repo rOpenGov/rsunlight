@@ -9,9 +9,8 @@ cg_amendments(amendment_id = NULL, amendment_type = NULL, number = NULL,
   introduced_on = NULL, last_action_at = NULL, amends_bill_id = NULL,
   amends_treaty_id = NULL, amends_amendment_id = NULL,
   sponsor_type = NULL, sponsor_id = NULL, query = NULL, fields = NULL,
-  page = 1, per_page = 20, order = NULL,
-  key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), as = "table", ...)
+  page = 1, per_page = 20, order = NULL, key = NULL, as = "table",
+  ...)
 }
 \arguments{
 \item{amendment_id}{The unique ID for this amendment. Formed from the amendment_type, number,
@@ -74,7 +73,8 @@ direction is \code{desc}, because it is expected most queries will sort by a dat
 which can be used for filtering may be used for sorting. On full-text search endpoints (URLs
 ending in \code{/search}), you may sort by score to order by relevancy.}
 
-\item{key}{your SunlightLabs API key; loads from .Rprofile}
+\item{key}{your SunlightLabs API key; loads from environment variable from .Renviron or
+from an option from .Rprofile}
 
 \item{as}{(character) One of table (default), list, or response (httr response object).
 When table is requested, the default, a table is not always returned, but is returned almost

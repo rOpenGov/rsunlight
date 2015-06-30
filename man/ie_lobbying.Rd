@@ -7,9 +7,7 @@
 ie_lobbying(amount = NULL, client_ft = NULL, client_parent_ft = NULL,
   filing_type = NULL, lobbyist_ft = NULL, registrant_ft = NULL,
   transaction_id = NULL, transaction_type = NULL, year = NULL,
-  page = NULL, per_page = NULL, as = "table",
-  key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), ...)
+  page = NULL, per_page = NULL, as = "table", key = NULL, ...)
 }
 \arguments{
 \item{amount}{The amount spent on lobbying in US dollars.}

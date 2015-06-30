@@ -35,8 +35,9 @@
 cg_nominations <- function(nomination_id=NULL, congress=NULL, number=NULL, received_on=NULL, last_action_at=NULL,
   organization=NULL, committee_ids=NULL, nominees=NULL, nominees.position=NULL, nominees.state=NULL,
   query=NULL, fields=NULL, page=1, per_page=20, order=NULL,
-  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), as = 'table', ...) {
+  key = NULL, as = 'table', ...) {
 
+  key <- check_key(key)
   url <- 'https://congress.api.sunlightfoundation.com/nominations'
   args <- sc(list(apikey=key,nomination_id=nomination_id, congress=congress,
     number=number, received_on=received_on, last_action_at=last_action_at, organization=organization,

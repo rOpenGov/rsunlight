@@ -59,10 +59,9 @@ ie_contracts <-  function(
     vendor_state = NULL,
     vendor_zipcode = NULL,
     page = NULL,
-    per_page = NULL, as = 'table',
-    key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-    ...) {
+    per_page = NULL, as = 'table', key = NULL, ...) {
 
+  key <- check_key(key)
   args <- sc(list(apikey = key, agency_id = agency_id,
     agency_name = agency_name, contracting_agency_id = contracting_agency_id,
     contracting_agency_name = contracting_agency_name, current_amount = current_amount,

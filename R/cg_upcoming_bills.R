@@ -41,8 +41,9 @@
 
 cg_upcoming_bills <- function(scheduled_at=NULL, legislative_day=NULL, range=NULL, congress=NULL,
   chamber=NULL, source_type=NULL, bill_id=NULL, query=NULL, fields=NULL, page=1, per_page=20, order=NULL,
-  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), as = 'table', ...) {
+  key = NULL, as = 'table', ...) {
 
+  key <- check_key(key)
   args <- sc(list(apikey=key, scheduled_at=scheduled_at, legislative_day=legislative_day,
                           range=range, congress=congress, chamber=chamber, source_type=source_type,
                           bill_id=bill_id, per_page=per_page, page=page, fields=fields,

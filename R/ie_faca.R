@@ -21,9 +21,9 @@
 #' }
 
 ie_faca <- function(affiliation = NULL, agency_name = NULL, committee_name = NULL, member_name = NULL,
-  year = NULL, page = NULL, per_page = NULL, as = 'table',
-  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...) {
+  year = NULL, page = NULL, per_page = NULL, as = 'table', key = NULL, ...) {
 
+  key <- check_key(key)
   args <- sc(list(apikey = key, affiliation = affiliation, agency_name = agency_name,
     committee_name = committee_name, member_name = member_name, year = year, page = page,
     per_page = per_page))

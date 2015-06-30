@@ -45,9 +45,9 @@ cw_dates <- function(phrase = NULL, title = NULL, date = NULL, start_date = NULL
   end_date = NULL, chamber = NULL, state = NULL, party = NULL, bioguide_id = NULL,
   congress = NULL, session = NULL, cr_pages = NULL, volume = NULL, page_id = NULL,
   n = NULL, mincount = NULL, granularity = NULL, percentages = 'true', entity_type = NULL,
-  entity_value = NULL, as = 'table',
-  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...) {
+  entity_value = NULL, as = 'table', key = NULL, ...) {
 
+  key <- check_key(key)
   args <- sc(list(apikey = key, phrase = phrase, title = title,
         date = date, start_date = start_date, end_date = end_date,
         chamber = chamber, state = state, party = party,

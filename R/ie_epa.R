@@ -25,9 +25,9 @@
 
 ie_epa <- function(case_name = NULL, case_num = NULL, defendants = NULL, first_date = NULL,
   last_date = NULL, location_addresses = NULL, penalty = NULL, page = NULL, as = 'table',
-  per_page = NULL,
-  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...) {
+  per_page = NULL, key = NULL, ...) {
 
+  key <- check_key(key)
   args <- sc(list(apikey = key, case_name = case_name, case_num = case_num,
     defendants = defendants, first_date = first_date, last_date = last_date,
     location_addresses = location_addresses, penalty = penalty, page = page, per_page = per_page))

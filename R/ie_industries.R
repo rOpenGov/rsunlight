@@ -20,8 +20,9 @@
 
 ie_industries <- function(method = NULL, entity_id = NULL, cycle = NULL, limit = NULL,
   page = NULL, per_page = NULL, as = 'table',
-  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...) {
+  key = NULL, ...) {
 
+  key <- check_key(key)
   urlsuffix <- switch(method,
     top_ind = sprintf('industries/top_%s.json', limit),
     top_org = sprintf('industry/%s/orgs.json', entity_id)

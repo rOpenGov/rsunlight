@@ -43,10 +43,9 @@ cg_legislators <- function(title=NULL, first_name=NULL, middle_name=NULL,
     govtrack_id=NULL, congresspedia_url=NULL, twitter_id=NULL, youtube_id=NULL,
     facebook_id=NULL, senate_class=NULL, term_start=NULL, term_end=NULL, birthday=NULL,
     latitude = NULL, longitude = NULL, zip = NULL, query=NULL, fields=NULL, page=1, per_page=20,
-    order=NULL,
-    key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), as = 'table',
-    ...) {
+    order=NULL, key = NULL, as = 'table', ...) {
 
+  key <- check_key(key)
   if(!is.null(latitude) | !is.null(latitude) | !is.null(zip)){
     url <- paste0(cgurl(), "/legislators/locate")
     stopifnot(is.null(title),is.null(first_name),is.null(middle_name),is.null(last_name),

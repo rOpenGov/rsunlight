@@ -16,9 +16,8 @@
 #' library('httr')
 #' os_statemetasearch('tx', config=verbose())
 #' }
-os_statemetasearch <- function(state = NULL,
-    key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...) {
-
+os_statemetasearch <- function(state = NULL, key = NULL, ...) {
+  key <- check_key(key)
   getdata <- function(x = NULL){
     url <- paste0(osurl(), "/metadata/")
     if (!is.null(x)) {

@@ -12,8 +12,7 @@ ie_contracts(agency_id = NULL, agency_name = NULL,
   obligated_amount = NULL, vendor_city = NULL, vendor_district = NULL,
   vendor_duns = NULL, vendor_name = NULL, vendor_parent_duns = NULL,
   vendor_state = NULL, vendor_zipcode = NULL, page = NULL,
-  per_page = NULL, as = "table", key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), ...)
+  per_page = NULL, as = "table", key = NULL, ...)
 }
 \arguments{
 \item{agency_id}{The FIPS code for the agency.}

@@ -39,8 +39,9 @@
 
 ie_entities <- function(search = NULL, type = NULL, namespace = NULL, id = NULL,
   bioguide_id = NULL, entity_id = NULL, page = NULL, per_page = NULL, as = 'table',
-  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...) {
+  key = NULL, ...) {
 
+  key <- check_key(key)
   if (!is.null(search)) {
     url <- paste0(ieurl(), "/entities.json")
     stopifnot(is.null(namespace), is.null(id), is.null(bioguide_id), is.null(entity_id))

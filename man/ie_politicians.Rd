@@ -6,8 +6,7 @@
 \usage{
 ie_politicians(method = NULL, entity_id = NULL, cycle = NULL,
   limit = NULL, page = NULL, per_page = NULL, as = "table",
-  key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), ...)
+  key = NULL, ...)
 }
 \arguments{
 \item{method}{(character) The query string. One of top_pol, top_con, unk_ind, top_ind, top_sec,

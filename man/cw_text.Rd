@@ -8,9 +8,8 @@ of a word or phrase.}
 cw_text(phrase = NULL, title = NULL, date = NULL, start_date = NULL,
   end_date = NULL, chamber = NULL, state = NULL, party = NULL,
   bioguide_id = NULL, congress = NULL, session = NULL, cr_pages = NULL,
-  volume = NULL, page = NULL, sort = NULL, as = "table",
-  key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), ...)
+  volume = NULL, page = NULL, sort = NULL, as = "table", key = NULL,
+  ...)
 }
 \arguments{
 \item{phrase}{Phrase to search.}

@@ -23,8 +23,9 @@
 
 ie_misconduct <- function(contractor = NULL, contracting_party = NULL, date_year = NULL,
   enforcement_agency = NULL, instance = NULL, penalty_amount = NULL, page = NULL, per_page = NULL,
-  as = 'table', key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...) {
+  as = 'table', key = NULL, ...) {
 
+  key <- check_key(key)
   if (!is.null(penalty_amount)) penalty_amount <- as.integer(penalty_amount)
   args <- sc(list(apikey = key, contractor = contractor,
     contracting_party = contracting_party, date_year = date_year, enforcement_agency = enforcement_agency,

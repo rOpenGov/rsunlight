@@ -8,8 +8,7 @@ cw_timeseries(phrase = NULL, date = NULL, start_date = NULL,
   end_date = NULL, chamber = NULL, state = NULL, party = NULL,
   bioguide_id = NULL, mincount = NULL, percentages = NULL,
   granularity = "day", entity_type = NULL, entity_value = NULL,
-  as = "table", key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), ...)
+  as = "table", key = NULL, ...)
 }
 \arguments{
 \item{phrase}{Phrase to search.}

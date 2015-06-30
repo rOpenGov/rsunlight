@@ -55,8 +55,9 @@ cg_documents <- function(document_id=NULL, document_type=NULL, chamber=NULL, com
   hearing_title=NULL, published_at=NULL, bill_id=NULL, description=NULL, version_code=NULL,
   bioguide_id=NULL, occurs_at=NULL, urls=NULL, text=NULL, text_preview=NULL, witness=NULL,
   fields=NULL, page=1, per_page=20, order=NULL,
-  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), as = 'table', ...) {
+  key = NULL, as = 'table', ...) {
 
+  key <- check_key(key)
   fields <- paste0(fields, collapse = ",")
   args <- sc(list(apikey=key, per_page=per_page, page=page, order=order, fields=fields,
                           document_id=document_id, document_type=document_type, chamber=chamber,

@@ -8,9 +8,7 @@ cg_votes(roll_id = NULL, chamber = NULL, number = NULL, year = NULL,
   congress = NULL, voted_at = NULL, vote_type = NULL, roll_type = NULL,
   required = NULL, result = NULL, bill_id = NULL, nomination_id = NULL,
   query = NULL, fields = NULL, page = 1, per_page = 20, order = NULL,
-  key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), as = "table",
-  callopts = list(), ...)
+  key = NULL, as = "table", callopts = list(), ...)
 }
 \arguments{
 \item{roll_id}{A unique identifier for a roll call vote. Made from the first letter of the

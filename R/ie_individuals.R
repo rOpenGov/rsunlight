@@ -37,8 +37,9 @@
 
 ie_individuals <- function(method = "top_ind", entity_id = NULL, cycle = NULL, limit = NULL,
   page = NULL, per_page = NULL, as = 'table',
-  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...) {
+  key = NULL, ...) {
 
+  key <- check_key(key)
   urlsuffix <- switch(method,
     top_ind = sprintf('indivs/top_%s.json', limit),
     top_recorg = sprintf('indiv/%s/recipient_orgs.json', entity_id),

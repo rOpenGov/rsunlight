@@ -10,9 +10,8 @@ cg_documents(document_id = NULL, document_type = NULL, chamber = NULL,
   published_at = NULL, bill_id = NULL, description = NULL,
   version_code = NULL, bioguide_id = NULL, occurs_at = NULL,
   urls = NULL, text = NULL, text_preview = NULL, witness = NULL,
-  fields = NULL, page = 1, per_page = 20, order = NULL,
-  key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), as = "table", ...)
+  fields = NULL, page = 1, per_page = 20, order = NULL, key = NULL,
+  as = "table", ...)
 }
 \arguments{
 \item{document_id}{A unique id for each document.}
@@ -73,7 +72,8 @@ direction is \code{desc}, because it is expected most queries will sort by a dat
 which can be used for filtering may be used for sorting. On full-text search endpoints (URLs
 ending in \code{/search}), you may sort by score to order by relevancy.}
 
-\item{key}{your SunlightLabs API key; loads from .Rprofile}
+\item{key}{your SunlightLabs API key; loads from environment variable from .Renviron or
+from an option from .Rprofile}
 
 \item{as}{(character) One of table (default), list, or response (httr response object).
 When table is requested, the default, a table is not always returned, but is returned almost

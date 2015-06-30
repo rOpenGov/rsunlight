@@ -65,9 +65,9 @@
 #' }
 
 ie_organizations <- function(method = NULL, entity_id = NULL, cycle = NULL, limit = NULL,
-  page = NULL, per_page = NULL, as = 'table',
-  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...) {
+  page = NULL, per_page = NULL, as = 'table', key = NULL, ...) {
 
+  key <- check_key(key)
   urlsuffix <- switch(method,
     top_org = sprintf('orgs/top_%s.json', limit),
     top_rec = sprintf('org/%s/recipients.json', entity_id),

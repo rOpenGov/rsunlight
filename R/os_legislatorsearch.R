@@ -34,10 +34,9 @@
 #' }
 os_legislatorsearch <- function(state = NULL, first_name = NULL,
     last_name = NULL, chamber = NULL, active = NULL, term = NULL, district = NULL,
-    party = NULL, page=NULL, per_page=NULL, fields = NULL, as = 'table',
-    key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-    ...) {
+    party = NULL, page=NULL, per_page=NULL, fields = NULL, as = 'table', key = NULL, ...) {
 
+  key <- check_key(key)
   args <- sc(list(apikey = key, state = state, first_name = first_name,
                        last_name = last_name, chamber = chamber, active = active,
                        term = term, district = district, party = party,

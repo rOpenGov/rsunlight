@@ -8,8 +8,7 @@ os_billsearch(terms = NULL, state = NULL, window = NULL,
   chamber = "upper", sponsor_id = NULL, updated_since = NULL,
   subject = NULL, type = NULL, search_window = NULL, sort = NULL,
   page = NULL, per_page = NULL, fields = NULL, as = "table",
-  key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), ...)
+  key = NULL, ...)
 }
 \arguments{
 \item{terms}{search terms bill search (character)}

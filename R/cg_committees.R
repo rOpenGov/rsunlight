@@ -42,9 +42,9 @@
 
 cg_committees <-  function(member_ids = NULL, committee_id = NULL, chamber = NULL, subcommittee = NULL,
   parent_committee_id = NULL, query=NULL, fields = NULL, page = 1, per_page = 20, order = NULL,
-  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), as = 'table',
-  ...) {
+  key = NULL, as = 'table', ...) {
 
+  key <- check_key(key)
   if (!is.null(subcommittee)) {
     subcommittee <- ifelse(subcommittee, 'true', 'false')
   }

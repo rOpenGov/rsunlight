@@ -51,8 +51,9 @@
 cw_text <- function(phrase=NULL, title=NULL, date = NULL, start_date=NULL, end_date=NULL,
   chamber=NULL, state=NULL, party=NULL, bioguide_id=NULL, congress=NULL,
   session=NULL, cr_pages=NULL, volume=NULL, page=NULL, sort=NULL, as = 'table',
-  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...) {
+  key = NULL, ...) {
 
+  key <- check_key(key)
   if (!is.null(sort)) {
     if (!grepl('asc|desc', sort)) {
       sort <- paste(sort, 'asc')

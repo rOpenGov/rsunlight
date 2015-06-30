@@ -62,9 +62,9 @@
 os_billsearch <- function(terms = NULL, state = NULL, window = NULL,
     chamber = 'upper', sponsor_id = NULL, updated_since = NULL, subject = NULL, type=NULL,
     search_window=NULL, sort=NULL, page=NULL, per_page=NULL, fields = NULL, as ='table',
-    key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-    ...) {
+    key = NULL, ...) {
 
+  key <- check_key(key)
   args <- sc(list(apikey = key, q = terms, state = state, window = window,
                        chamber = chamber, sponsor_id = sponsor_id,
                        updated_since = updated_since, subject = subject, type = type,

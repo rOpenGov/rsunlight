@@ -6,8 +6,7 @@
 \usage{
 os_billlookup(state = NULL, session = NULL, bill_id = NULL,
   fields = NULL, per_page = NULL, page = NULL, as = "table",
-  key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), ...)
+  key = NULL, ...)
 }
 \arguments{
 \item{state}{state two-letter abbreviation (character), required}

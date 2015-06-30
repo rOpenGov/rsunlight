@@ -61,9 +61,9 @@ cg_bills <- function(query = NULL, bill_id = NULL, bill_type = NULL, number = NU
   withdrawn_cosponsors_count=NULL, withdrawn_cosponsor_ids=NULL, committee_ids=NULL,
   related_bill_ids=NULL, enacted_as.congress=NULL,
   enacted_as.number=NULL, fields=NULL, page = 1, per_page = 20, order = NULL,
-  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-  as = 'table', ...) {
+  key = NULL, as = 'table', ...) {
 
+  key <- check_key(key)
   if (is.null(query)) {
     url <- paste0(cgurl(), '/bills')
   } else {

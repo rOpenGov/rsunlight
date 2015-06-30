@@ -8,8 +8,7 @@ ie_contr(amount = NULL, contributor_ft = NULL, contributor_state = NULL,
   cycle = NULL, date = NULL, for_against = NULL, organization_ft = NULL,
   recipient_ft = NULL, recipient_state = NULL, seat = NULL,
   transaction_namespace = NULL, page = NULL, per_page = NULL,
-  as = "table", key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), ...)
+  as = "table", key = NULL, ...)
 }
 \arguments{
 \item{amount}{The amount of the contribution in US dollars in one of the following formats:

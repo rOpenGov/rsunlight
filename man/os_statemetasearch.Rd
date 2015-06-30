@@ -4,8 +4,7 @@
 \alias{os_statemetasearch}
 \title{Search OpenStates metadata.}
 \usage{
-os_statemetasearch(state = NULL, key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), ...)
+os_statemetasearch(state = NULL, key = NULL, ...)
 }
 \arguments{
 \item{state}{One or more two-letter state abbreviations (character)}

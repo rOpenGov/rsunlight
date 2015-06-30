@@ -32,9 +32,9 @@
 #' }
 
 os_billlookup <- function(state = NULL, session = NULL, bill_id = NULL,
-  fields = NULL, per_page = NULL, page = NULL, as = 'table',
-  key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")), ...) {
+  fields = NULL, per_page = NULL, page = NULL, as = 'table', key = NULL, ...) {
 
+  key <- check_key(key)
   bills <- NULL
   if (length(bill_id) > 1) {
     bills <- paste(bill_id, collapse = "|")

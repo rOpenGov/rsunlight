@@ -10,8 +10,7 @@ cw_dates(phrase = NULL, title = NULL, date = NULL, start_date = NULL,
   bioguide_id = NULL, congress = NULL, session = NULL, cr_pages = NULL,
   volume = NULL, page_id = NULL, n = NULL, mincount = NULL,
   granularity = NULL, percentages = "true", entity_type = NULL,
-  entity_value = NULL, as = "table", key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), ...)
+  entity_value = NULL, as = "table", key = NULL, ...)
 }
 \arguments{
 \item{phrase}{Phrase to search.}

@@ -5,8 +5,7 @@
 \title{Search for itemized bundlers.}
 \usage{
 ie_contr_bundled(lobbyist_name = NULL, recipient_name = NULL, page = NULL,
-  per_page = NULL, as = "table", key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), ...)
+  per_page = NULL, as = "table", key = NULL, ...)
 }
 \arguments{
 \item{lobbyist_name}{Lobbyist name}

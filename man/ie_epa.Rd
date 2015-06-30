@@ -7,8 +7,7 @@
 ie_epa(case_name = NULL, case_num = NULL, defendants = NULL,
   first_date = NULL, last_date = NULL, location_addresses = NULL,
   penalty = NULL, page = NULL, as = "table", per_page = NULL,
-  key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), ...)
+  key = NULL, ...)
 }
 \arguments{
 \item{case_name}{(character) The name of the enforcement case.}

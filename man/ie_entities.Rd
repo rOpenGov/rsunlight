@@ -6,8 +6,7 @@
 \usage{
 ie_entities(search = NULL, type = NULL, namespace = NULL, id = NULL,
   bioguide_id = NULL, entity_id = NULL, page = NULL, per_page = NULL,
-  as = "table", key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), ...)
+  as = "table", key = NULL, ...)
 }
 \arguments{
 \item{search}{(character) The query string. There are no logic operators or grouping.}

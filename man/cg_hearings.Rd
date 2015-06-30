@@ -7,8 +7,7 @@
 cg_hearings(committee_id = NULL, occurs_at = NULL, congress = NULL,
   chamber = NULL, dc = NULL, bill_ids = NULL, hearing_type = NULL,
   query = NULL, fields = NULL, page = 1, per_page = 20, order = NULL,
-  key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), as = "table", ...)
+  key = NULL, as = "table", ...)
 }
 \arguments{
 \item{committee_id}{(numeric) The ID of the committee holding the hearing.}
@@ -50,7 +49,8 @@ direction is \code{desc}, because it is expected most queries will sort by a dat
 which can be used for filtering may be used for sorting. On full-text search endpoints (URLs
 ending in \code{/search}), you may sort by score to order by relevancy.}
 
-\item{key}{your SunlightLabs API key; loads from .Rprofile}
+\item{key}{your SunlightLabs API key; loads from environment variable from .Renviron or
+from an option from .Rprofile}
 
 \item{as}{(character) One of table (default), list, or response (httr response object).
 When table is requested, the default, a table is not always returned, but is returned almost

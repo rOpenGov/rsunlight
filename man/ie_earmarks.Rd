@@ -7,8 +7,7 @@
 ie_earmarks(amount = NULL, bill = NULL, city = NULL, description = NULL,
   member = NULL, member_party = NULL, member_state = NULL,
   recipient = NULL, year = NULL, page = NULL, per_page = NULL,
-  as = "table", key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), ...)
+  as = "table", key = NULL, ...)
 }
 \arguments{
 \item{amount}{(integer) The final amount of the earmark.}

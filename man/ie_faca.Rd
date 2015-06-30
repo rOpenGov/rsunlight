@@ -6,8 +6,7 @@
 \usage{
 ie_faca(affiliation = NULL, agency_name = NULL, committee_name = NULL,
   member_name = NULL, year = NULL, page = NULL, per_page = NULL,
-  as = "table", key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), ...)
+  as = "table", key = NULL, ...)
 }
 \arguments{
 \item{affiliation}{(character) The name of the affiliated organization.}

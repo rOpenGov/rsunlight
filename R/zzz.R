@@ -100,6 +100,20 @@ print.sunlight <- function(x, ..., n = 10){
   trunc_mat(x, n = n)
 }
 
+check_key <- function(x){
+  tmp <- if (is.null(x)) {
+    Sys.getenv("SUNLIGHT_LABS_KEY", "")
+  } else {
+    x
+  }
+
+  if (tmp == "") {
+    getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs"))
+  } else {
+    tmp
+  }
+}
+
 cgurl <- function() 'https://congress.api.sunlightfoundation.com'
 cwurl <- function() 'http://capitolwords.org/api'
 ieurl <- function() 'http://transparencydata.com/api/1.0'

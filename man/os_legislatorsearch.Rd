@@ -7,8 +7,7 @@
 os_legislatorsearch(state = NULL, first_name = NULL, last_name = NULL,
   chamber = NULL, active = NULL, term = NULL, district = NULL,
   party = NULL, page = NULL, per_page = NULL, fields = NULL,
-  as = "table", key = getOption("SunlightLabsKey",
-  stop("need an API key for Sunlight Labs")), ...)
+  as = "table", key = NULL, ...)
 }
 \arguments{
 \item{state}{state two-letter abbreviation (character)}

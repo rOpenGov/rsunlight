@@ -29,21 +29,12 @@
 #' ie_lobbying(registrant_ft = c('Patton Boggs', 'Ben Barnes'), per_page=2)
 #' ie_lobbying(amount = c(1000, 50000L), per_page=2)
 #' }
-ie_lobbying <-  function(
-    amount = NULL,
-    client_ft = NULL,
-    client_parent_ft = NULL,
-    filing_type = NULL,
-    lobbyist_ft = NULL,
-    registrant_ft = NULL,
-    transaction_id = NULL,
-    transaction_type = NULL,
-    year = NULL,
-    page = NULL,
-    per_page = NULL, as = 'table',
-    key = getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs")),
-    ...) {
+ie_lobbying <-  function(amount = NULL, client_ft = NULL, client_parent_ft = NULL,
+    filing_type = NULL, lobbyist_ft = NULL, registrant_ft = NULL, transaction_id = NULL,
+    transaction_type = NULL, year = NULL, page = NULL, per_page = NULL,
+    as = 'table', key = NULL, ...) {
 
+  key <- check_key(key)
   args <- sc(list(apikey = key, amount = amount,
     client_ft = client_ft, client_parent_ft = client_parent_ft, filing_type = filing_type,
     lobbyist_ft = lobbyist_ft, registrant_ft = registrant_ft, transaction_id = transaction_id,
