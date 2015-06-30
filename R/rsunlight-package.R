@@ -20,6 +20,8 @@
 #'
 #' Note that Puerto Rico is not included in Sunlight Foundation data.
 #'
+#' @importFrom methods is
+#' @importFrom utils head
 #' @name rsunlight-package
 #' @aliases rsunlight
 #' @docType package
