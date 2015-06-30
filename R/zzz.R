@@ -67,6 +67,7 @@ give_cg <- function(as, url, endpt, args, ...) {
     })
     if (as == "table") {
       res <- lapply(tmp, "[[", "results")
+      res <- Filter(function(x) !(is.null(x) || length(x) == 0), res)
       for (i in seq_along(res)) {
         res[[i]][names(iter)] <- iter[[1]][i]
       }

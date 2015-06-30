@@ -35,7 +35,7 @@
 #' cg_bills(query='health care', history.enacted=TRUE)
 #' cg_bills(query='freedom of information')
 #' cg_bills(query='"freedom of information" accountab*')
-#' cg_bills(query='transparency accountability'~5, highlight=TRUE)
+#' cg_bills(query="'transparency accountability'~5", highlight=TRUE)
 #'
 #' # Disable pagination
 #' cg_bills(per_page='all')
