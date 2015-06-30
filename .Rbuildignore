@@ -1,5 +1,6 @@
 Makefile
 vignettes/margins.sty
+vignettes/figure
 inst/vign
 .travis.yml
 .gitignore
