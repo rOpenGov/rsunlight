@@ -38,16 +38,15 @@ Data from the Sunlight Foundation API is provided by Sunlight Foundation.
 
 <a href="http://sunlightfoundation.com/api/"><img src="http://www.altweeklies.com/imager/b/main/5866471/f291/SunlightFoundationLogo_500wide.gif" alt="NYT API" /></a>
 
-We set up the functions so that you can put the key in your .Rprofile file, which will be called on startup of R, and then you don't have to enter your API key for each run of a function. For example, put this in your `.Rprofile` file:
-
-```
-# key for API access to the Sunlight Labs API methods
-options(SunlightLabsKey = "YOURKEYHERE")
-```
+You need API keys for Sunlight Foundation APIs. Please get your own API keys if you
+plant to use these functions for Sunlight Labs (http://services.sunlightlabs.com/).
+We set up the functions so that you can use either env vars, or R options. For env
+vars, put an entry in your `.Renviron` file with the name `SUNLIGHT_LABS_KEY`,
+so the full thing would be `SUNLIGHT_LABS_KEY=<key>`. For R options, put the key in
+your `.Rprofile` file like `options(SunlightLabsKey = "key")`. Both are called
+on R startup, and then you don't have to enter your API key for each run of a function.
 
 **Note** that Puerto Rico is not included in Sunlight Foundation data.
-
-If you store your key in your `.Rprofile` file it will be read inside of each function call. Or you can pass your key into each function call manually by `key=yourkey`.
 
 ## Install rsunlight
 
@@ -70,33 +69,112 @@ devtools::install_github("ropengov/rsunlight")
 library("rsunlight")
 ```
 
-## Get districts for a latitude/longitude.
+## Congress API
+
+### Get districts for a latitude/longitude.
 
 
 ```r
 cg_districts(latitude = 35.778788, longitude = -78.787805)
-#> $results
+#> <Sunlight data>
+#>    Dimensions:   [1 X 2]
+#> 
 #>   state district
 #> 1    NC        2
-#> 
-#> $count
-#> [1] 1
 ```
 
-## Search congress people and senate members.
+### Search congress people and senate members.
 
 
 ```r
 out <- cg_legislators(last_name = 'Reed')
 ```
 
-## Find the popularity of a phrase over a period of time.
+## Open States API
+
+### Bill Search 
+
+Search for bills with the term _agriculture_, in Texas, and in the upper chamber. 
+
+
+```r
+os_billsearch(terms = 'agriculture', state = 'tx', chamber = 'upper')
+#> <Sunlight data>
+#>    Dimensions:   [320 X 10]
+#> 
+#>                                                                          title
+#> 1  Relating to certain committees and programs to develop the wine industry in
+#> 2  Relating to a waiver of fees by the Department of Agriculture and the Parks
+#> 3  Urging the United States Department of Agriculture Food and Nutrition Servi
+#> 4  Relating to the designation of an office in the Department of Agriculture t
+#> 5  Relating to the office of water and the water advisory committee in the Dep
+#> 6  Relating to establishing an agriculture ombudsman office in the Department 
+#> 7  Relating to authorizing the issuance of revenue bonds to fund capital proje
+#> 8  Relating to authorizing the issuance of revenue bonds to fund capital proje
+#> 9  Relating to authorizing the issuance of revenue bonds to fund capital proje
+#> 10 Relating to authorizing the issuance of revenue bonds to fund capital proje
+#> ..                                                                         ...
+#> Variables not shown: created_at (chr), updated_at (chr), id (chr), chamber
+#>      (chr), state (chr), session (chr), type (list), subjects (list),
+#>      bill_id (chr)
+```
+
+### Legislator Search
+
+Search for Republican legislators in Nevada
+
+
+```r
+os_legislatorsearch(state = 'nv', party = 'republican')
+#> <Sunlight data>
+#>    Dimensions:   [36 X 26]
+#> 
+#>    last_name                                               all_ids
+#> 1    O'Neill                       NVL000291, NVL000355, NVL000358
+#> 2    Dooling                                  NVL000273, NVL000319
+#> 3      Fiore                                  NVL000252, NVL000297
+#> 4    Edwards                                  NVL000287, NVL000345
+#> 5   Hambrick NVL000082, NVL000040, NVL000178, NVL000226, NVL000321
+#> 6   Woodbury NVL000105, NVL000063, NVL000200, NVL000234, NVL000320
+#> 7    Gardner                                  NVL000290, NVL000329
+#> 8     Nelson                                  NVL000270, NVL000293
+#> 9     Kirner NVL000131, NVL000186, NVL000186, NVL000240, NVL000298
+#> 10 Armstrong                                  NVL000292, NVL000313
+#> ..       ...                                                   ...
+#>                full_name
+#> 1  Philip "P.K." O'Neill
+#> 2    Victoria A. Dooling
+#> 3          Michele Fiore
+#> 4          Chris Edwards
+#> 5          John Hambrick
+#> 6       Melissa Woodbury
+#> 7       David M. Gardner
+#> 8        Erven T. Nelson
+#> 9           Randy Kirner
+#> 10       Derek Armstrong
+#> ..                   ...
+#> Variables not shown: id (chr), first_name (chr), middle_name (chr),
+#>      district (chr), state (chr), party (chr), updated_at (chr), leg_id
+#>      (chr), active (lgl), photo_url (chr), created_at (chr), chamber
+#>      (chr), offices (list), suffixes (chr), email (chr),
+#>      transparencydata_id (chr), nickname (chr), url (chr), votesmart_id
+#>      (chr), country (chr), level (chr), +address (chr),
+#>      csrfmiddlewaretoken (chr)
+```
+
+
+## Capitol Words API
+
+### Find the popularity of a phrase over a period of time.
 
 Get a list of how many times the phrase "united states" appears in the Congressional Record in each month between January and June, 2010:
 
 
 ```r
 cw_timeseries(phrase='united states', start_date='2009-01-01', end_date='2009-04-30', granularity='month')
+#> <Sunlight data>
+#>    Dimensions:   [4 X 2]
+#> 
 #>   count      month
 #> 1  3805 2009-01-01
 #> 2  3512 2009-02-01
@@ -118,34 +196,11 @@ ggplot(dat_both, aes(day, count, colour=party)) +
   scale_colour_manual(values=c("blue","red"))
 ```
 
-![plot of chunk unnamed-chunk-8](inst/img/unnamed-chunk-8-1.png) 
+![plot of chunk unnamed-chunk-10](inst/img/unnamed-chunk-10-1.png) 
 
-## Interactive charts using rCharts
+## Influence Explorer API
 
-Note that the resulting chart opens in a browser, so is not shown in this vignette, but you will see it open in a browser when you run the code.
-
-
-```r
-dream <- lapply(c('D','R'), function(x) cw_timeseries(phrase = 'i have a dream', party = x, start_date = '1996-01-01', end_date = '2013-01-01', granularity = 'month'))
-df <- merge(dream[[1]], dream[[2]], by = 'month', all = TRUE)
-df[is.na(df)] <- 0
-names(df) <- c('date','D','R')
-df$date <- as.character(df$date)
-```
-
-
-```r
-library(rCharts)
-m1 <- mPlot(x = "date", y = c("D", "R"), type = "Line", data = df)
-m1$set(pointSize = 0, lineWidth = 1)
-m1
-```
-
-_note: as you can see this is not actually interactive, but when you make it, it will be_
-
-![rchartsimage](inst/img/rcharts_plot.png)
-
-## Return the top contributing organizations
+### Return the top contributing organizations
 
 Ranked by total dollars given. An organization's giving is broken down into money given directly (by the organization's PAC) versus money given by individuals employed by or associated with the organization.
 

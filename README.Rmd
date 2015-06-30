@@ -46,16 +46,15 @@ Data from the Sunlight Foundation API is provided by Sunlight Foundation.
 
 <a href="http://sunlightfoundation.com/api/"><img src="http://www.altweeklies.com/imager/b/main/5866471/f291/SunlightFoundationLogo_500wide.gif" alt="NYT API" /></a>
 
-We set up the functions so that you can put the key in your .Rprofile file, which will be called on startup of R, and then you don't have to enter your API key for each run of a function. For example, put this in your `.Rprofile` file:
-
-```
-# key for API access to the Sunlight Labs API methods
-options(SunlightLabsKey = "YOURKEYHERE")
-```
+You need API keys for Sunlight Foundation APIs. Please get your own API keys if you
+plant to use these functions for Sunlight Labs (http://services.sunlightlabs.com/).
+We set up the functions so that you can use either env vars, or R options. For env
+vars, put an entry in your `.Renviron` file with the name `SUNLIGHT_LABS_KEY`,
+so the full thing would be `SUNLIGHT_LABS_KEY=<key>`. For R options, put the key in
+your `.Rprofile` file like `options(SunlightLabsKey = "key")`. Both are called
+on R startup, and then you don't have to enter your API key for each run of a function.
 
 **Note** that Puerto Rico is not included in Sunlight Foundation data.
-
-If you store your key in your `.Rprofile` file it will be read inside of each function call. Or you can pass your key into each function call manually by `key=yourkey`.
 
 ## Install rsunlight
 
@@ -75,19 +74,42 @@ devtools::install_github("ropengov/rsunlight")
 library("rsunlight")
 ```
 
-## Get districts for a latitude/longitude.
+## Congress API
+
+### Get districts for a latitude/longitude.
 
 ```{r}
 cg_districts(latitude = 35.778788, longitude = -78.787805)
 ```
 
-## Search congress people and senate members.
+### Search congress people and senate members.
 
 ```{r}
 out <- cg_legislators(last_name = 'Reed')
 ```
 
-## Find the popularity of a phrase over a period of time.
+## Open States API
+
+### Bill Search 
+
+Search for bills with the term _agriculture_, in Texas, and in the upper chamber. 
+
+```{r}
+os_billsearch(terms = 'agriculture', state = 'tx', chamber = 'upper')
+```
+
+### Legislator Search
+
+Search for Republican legislators in Nevada
+
+```{r}
+os_legislatorsearch(state = 'nv', party = 'republican')
+```
+
+
+## Capitol Words API
+
+### Find the popularity of a phrase over a period of time.
 
 Get a list of how many times the phrase "united states" appears in the Congressional Record in each month between January and June, 2010:
 
@@ -95,7 +117,7 @@ Get a list of how many times the phrase "united states" appears in the Congressi
 cw_timeseries(phrase='united states', start_date='2009-01-01', end_date='2009-04-30', granularity='month')
 ```
 
-```{r tidy=FALSE}
+```{r tidy=FALSE, fig.width=10}
 library("ggplot2")
 dat_d <- cw_timeseries(phrase='climate change', party="D")
 dat_d$party <- rep("D", nrow(dat_d))
@@ -108,30 +130,9 @@ ggplot(dat_both, aes(day, count, colour=party)) +
   scale_colour_manual(values=c("blue","red"))
 ```
 
-## Interactive charts using rCharts
+## Influence Explorer API
 
-Note that the resulting chart opens in a browser, so is not shown in this vignette, but you will see it open in a browser when you run the code.
-
-```{r eval=FALSE}
-dream <- lapply(c('D','R'), function(x) cw_timeseries(phrase = 'i have a dream', party = x, start_date = '1996-01-01', end_date = '2013-01-01', granularity = 'month'))
-df <- merge(dream[[1]], dream[[2]], by = 'month', all = TRUE)
-df[is.na(df)] <- 0
-names(df) <- c('date','D','R')
-df$date <- as.character(df$date)
-```
-
-```{r eval=FALSE}
-library(rCharts)
-m1 <- mPlot(x = "date", y = c("D", "R"), type = "Line", data = df)
-m1$set(pointSize = 0, lineWidth = 1)
-m1
-```
-
-_note: as you can see this is not actually interactive, but when you make it, it will be_
-
-![rchartsimage](inst/img/rcharts_plot.png)
-
-## Return the top contributing organizations
+### Return the top contributing organizations
 
 Ranked by total dollars given. An organization's giving is broken down into money given directly (by the organization's PAC) versus money given by individuals employed by or associated with the organization.
 
