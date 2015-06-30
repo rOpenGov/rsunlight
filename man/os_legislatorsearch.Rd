@@ -6,8 +6,7 @@
 \usage{
 os_legislatorsearch(state = NULL, first_name = NULL, last_name = NULL,
   chamber = NULL, active = NULL, term = NULL, district = NULL,
-  party = NULL, page = NULL, per_page = NULL, fields = NULL,
-  as = "table", key = NULL, ...)
+  party = NULL, fields = NULL, as = "table", key = NULL, ...)
 }
 \arguments{
 \item{state}{state two-letter abbreviation (character)}
@@ -25,11 +24,6 @@ os_legislatorsearch(state = NULL, first_name = NULL, last_name = NULL,
 \item{district}{legislative district (character)}
 
 \item{party}{democratic or republican (character)}
-
-\item{page}{Page to return. Default: 1. You can use this in combination with the
-per_page parameter to get more than the default or max number of results per page.}
-
-\item{per_page}{Number of records to return. Default: 20. Max: 50.}
 
 \item{fields}{You can request specific fields by supplying a vector of fields names. Many fields
 are not returned unless requested. If you don't supply a fields parameter, you will get the
@@ -54,8 +48,6 @@ os_legislatorsearch(state = 'ca', party = 'democratic')
 os_legislatorsearch(state = 'tx', party = 'democratic', active = TRUE)
 os_legislatorsearch(state = 'nv', party = 'republican')
 os_legislatorsearch(state = 'dc', chamber = 'upper')
-
-os_legislatorsearch(state = 'ca', party = 'democratic', per_page=3)
 
 # pass in more than one value for some parameters
 os_legislatorsearch(state = c('dc', 'or'), chamber = 'upper')

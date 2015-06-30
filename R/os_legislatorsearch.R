@@ -12,9 +12,6 @@
 #' are not returned unless requested. If you don't supply a fields parameter, you will get the
 #' most commonly used subset of fields only. To save on bandwidth, parsing time, and confusion,
 #' it's recommended to always specify which fields you will be using.
-#' @param per_page Number of records to return. Default: 20. Max: 50.
-#' @param page Page to return. Default: 1. You can use this in combination with the
-#' per_page parameter to get more than the default or max number of results per page.
 #' @param as (character) One of table (default), list, or response (httr response object)
 #' @param key your SunlightLabs API key; loads from .Rprofile
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
@@ -26,20 +23,18 @@
 #' os_legislatorsearch(state = 'nv', party = 'republican')
 #' os_legislatorsearch(state = 'dc', chamber = 'upper')
 #'
-#' os_legislatorsearch(state = 'ca', party = 'democratic', per_page=3)
-#'
 #' # pass in more than one value for some parameters
 #' os_legislatorsearch(state = c('dc', 'or'), chamber = 'upper')
 #' os_legislatorsearch(first_name = c('jane', 'bob'), chamber = 'upper')
 #' }
 os_legislatorsearch <- function(state = NULL, first_name = NULL,
     last_name = NULL, chamber = NULL, active = NULL, term = NULL, district = NULL,
-    party = NULL, page=NULL, per_page=NULL, fields = NULL, as = 'table', key = NULL, ...) {
+    party = NULL, fields = NULL, as = 'table', key = NULL, ...) {
 
   key <- check_key(key)
   args <- sc(list(apikey = key, state = state, first_name = first_name,
                        last_name = last_name, chamber = chamber, active = active,
                        term = term, district = district, party = party,
-                       page = page, per_page = per_page, fields = paste(fields, collapse = ",")))
+                       fields = paste(fields, collapse = ",")))
   give(as, osurl(), "/legislators", args, ...)
 }
