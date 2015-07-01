@@ -1,13 +1,13 @@
 rsunlight 0.4
 ===============
 
-NEW FEATURES
+## NEW FEATURES
 
 * API keys can be now be stored as both an env var and an option. (#54)
 * Most outputs by default are data.frames, and use the `dplyr::tbl_df` style  (#50)
 * New function added `cg_documents()` for the [Congressional documents route](https://sunlightlabs.github.io/congress/congressional_documents.html) (#35)
 
-MINOR IMPROVEMENTS
+## MINOR IMPROVEMENTS
 
 * `rCharts` dependency removed. This package is still not on CRAN, so this is
 simpler. In addition, CRAN wants all deps in a "mainstream" CRAN like repo. (#53)
@@ -17,7 +17,7 @@ simpler. In addition, CRAN wants all deps in a "mainstream" CRAN like repo. (#53
 * Non base R functions are now explicitly imported, from `methods` and `utils` packages (#55)
 * Set base URLs for each of the four Sunlight APIs in one place, less error prone in case they change their base URLs (#46)
 
-BUG FIXES
+## BUG FIXES
 
 * Fixed bug due to unconventional object (`[`) returned when no data found in some Sunlight API routes (#51)
 * Bug fixes to bills functions (#42)
@@ -25,7 +25,7 @@ BUG FIXES
 rsunlight 0.3
 ===============
 
-NEW FEATURES
+## NEW FEATURES
 
 * Complete reworking of the package, function names, et.
 * New Congress API, in functions `cg_*`
@@ -35,7 +35,7 @@ NEW FEATURES
 rsunlight 0.2
 ===============
 
-NEW FEATURES
+## NEW FEATURES
 
 * Changed package name to rsunlight, only holds functions to interact with Sunlight Labs APIs. NYtimes congress API functions moved to a new pacakge rtimes.
 
@@ -43,6 +43,6 @@ NEW FEATURES
 rsunlight 0.1
 ===============
 
-NEW FEATURES
+## NEW FEATURES
 
 * released to CRAN
