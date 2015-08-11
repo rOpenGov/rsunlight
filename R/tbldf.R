@@ -1,3 +1,6 @@
+# ------------------------------------
+# From dplyr (https://github.com/hadley/dplyr) to get a pretty printed
+# data.frame
 trunc_mat <- function(x, n = NULL){
   rows <- nrow(x)
   if (!is.na(rows) && rows == 0)
@@ -34,11 +37,11 @@ trunc_mat <- function(x, n = NULL){
     vars <- colnames(mat)[too_wide]
     types <- vapply(df[too_wide], type_sum, character(1))
     var_types <- paste0(vars, " (", types, ")", collapse = ", ")
-    cat(noaa_wrap("Variables not shown: ", var_types), "\n", sep = "")
+    cat(rs_wrap("Variables not shown: ", var_types), "\n", sep = "")
   }
 }
 
-noaa_wrap <- function (..., indent = 0, width = getOption("width")){
+rs_wrap <- function (..., indent = 0, width = getOption("width")){
   x <- paste0(..., collapse = "")
   wrapped <- strwrap(x, indent = indent, exdent = indent + 5, width = width)
   paste0(wrapped, collapse = "\n")

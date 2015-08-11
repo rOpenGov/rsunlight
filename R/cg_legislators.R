@@ -32,6 +32,7 @@
 #'
 #' # most parameters are vectorized, pass in more than one value
 #' cg_legislators(party = c('D', 'R'))
+#' cg_legislators(last_name = c('Pelosi', 'Merkley'))
 #' }
 
 cg_legislators <- function(title=NULL, first_name=NULL, middle_name=NULL,
@@ -46,9 +47,9 @@ cg_legislators <- function(title=NULL, first_name=NULL, middle_name=NULL,
     order=NULL, key = NULL, as = 'table', ...) {
 
   key <- check_key(key)
-  if(!is.null(latitude) | !is.null(latitude) | !is.null(zip)){
+  if (!is.null(latitude) | !is.null(latitude) | !is.null(zip)) {
     url <- paste0(cgurl(), "/legislators/locate")
-    stopifnot(is.null(title),is.null(first_name),is.null(middle_name),is.null(last_name),
+    if (!all(is.null(title),is.null(first_name),is.null(middle_name),is.null(last_name),
         is.null(name_suffix),is.null(nickname),is.null(party),is.null(state),is.null(state_name),
         is.null(state_rank),is.null(district),is.null(in_office),is.null(chamber),is.null(gender),
         is.null(phone),is.null(fax),is.null(office),is.null(website),is.null(contact_form),
@@ -56,11 +57,12 @@ cg_legislators <- function(title=NULL, first_name=NULL, middle_name=NULL,
         is.null(thomas_id),is.null(lis_id),is.null(crp_id),is.null(icpsr_id),is.null(votesmart_id),
         is.null(fec_ids),is.null(govtrack_id),is.null(congresspedia_url),is.null(twitter_id),
         is.null(youtube_id),is.null(facebook_id),is.null(senate_class),is.null(term_start),
-        is.null(term_end),is.null(birthday))
-    if(!is.null(latitude) & !is.null(latitude) & is.null(zip)){
+        is.null(term_end),is.null(birthday)))
+      stop("If latitude, longitude, or zip are used, all other parameters must be NULL", call. = FALSE)
+    if (!is.null(latitude) & !is.null(latitude) & is.null(zip)) {
       stopifnot(is.null(zip))
       args <- sc(list(apikey=key,latitude=latitude,longitude=longitude,per_page=per_page,page=page,fields=fields,order=order))
-    } else if(!is.null(zip)){
+    } else if (!is.null(zip)) {
       stopifnot(is.null(latitude),is.null(longitude))
       args <- sc(list(apikey=key,zip=zip,per_page=per_page,page=page,fields=fields,query=query,order=order))
     }

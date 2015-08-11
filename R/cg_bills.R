@@ -101,4 +101,16 @@ cg_bills <- function(query = NULL, bill_id = NULL, bill_type = NULL, number = NU
   give_cg(as, url, "", args, ...)
 }
 
-ll <- function(x) if(!is.null(x)){ if(x) tolower(x) else x }
+ll <- function(x) {
+  if (!is.null(x)) {
+    if (!is.logical(x)) {
+      stop(deparse(substitute(x)), " must be logical",
+                             call. = FALSE)
+    }
+    if (x) {
+      tolower(x)
+    } else {
+      x
+    }
+  }
+}

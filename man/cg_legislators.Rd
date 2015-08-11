@@ -203,6 +203,7 @@ cg_legislators(party = 'D', config=timeout(0.1))
 
 # most parameters are vectorized, pass in more than one value
 cg_legislators(party = c('D', 'R'))
+cg_legislators(last_name = c('Pelosi', 'Merkley'))
 }
 }
 
