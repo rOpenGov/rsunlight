@@ -1,13 +1,12 @@
 Package: rsunlight
 Title: Interface to 'Sunlight' Foundation 'APIs'
-Description: Interface to four 'Sunlight' Foundation 'APIs'
-    (http://sunlightfoundation.com/api/) for government data, including the
-    Congress 'API' 'v3', the Capitol Words 'API', the Influence Explorer 'API', and the
-    Open States 'API'. 'Sunlight' Foundation is a 'nonpartison' 'nonprofit' that
-    collects and provides data on government activities, and those that
-    influence government. Functions are provided to interact with each of the
-    four 'APIs'.
-Version: 0.4.0.9400
+Description: Interface to four 'Sunlight' Foundation 'APIs' (http://
+    sunlightfoundation.com/api/) for government data, including the Congress 'API'
+    'v3', the Capitol Words 'API', the Influence Explorer 'API', and the Open States
+    'API'. 'Sunlight' Foundation is a 'nonpartison' 'nonprofit' that collects and
+    provides data on government activities, and those that influence government.
+    Functions are provided to interact with each of the four 'APIs'.
+Version: 0.4.1.9000
 License: MIT + file LICENSE
 URL: https://github.com/ropengov/rsunlight
 BugReports: https://github.com/ropengov/rsunlight/issues
@@ -28,5 +27,5 @@ Imports:
 Suggests:
     knitr,
     testthat
-Enhances:
-    ggplot2
+Enhances: ggplot2
+RoxygenNote: 5.0.1
