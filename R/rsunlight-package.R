@@ -32,12 +32,6 @@
 #' @import httr jsonlite
 NULL
 
-#' Sunlight Labs Influence Explorer API sector code and names to use for searching/retreiving data.
-#' @name ie_sectors
-#' @docType data
-#' @keywords datasets
-NULL
-
 #' Congressional sessions, up to the 114th (2015-2016)
 #' @name sessions
 #' @docType data
