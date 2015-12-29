@@ -22,14 +22,12 @@ rsunlight
 * Congress API (`cg`)
 * Open States API (`os`)
 * Capitol Words API (`cw`)
-* Influence Explorer API (`ie`)
 
-Functions that wrap these sets of APIs will be prefixed by `cg`, `os`, `cw`, or `ie` for the different methods listed above:
+Functions that wrap these sets of APIs will be prefixed by `cg`, `os`, or `cw` for the different methods listed above:
 
 * `cg` + `fxn`
 * `os` + `fxn`
 * `cw` + `fxn`
-* `ie` + `fxn`
 
 where `fxn` would be a function to a interface with a specific Sunlight Foundation API.
 
@@ -93,9 +91,9 @@ out <- cg_legislators(last_name = 'Reed')
 
 ## Open States API
 
-### Bill Search 
+### Bill Search
 
-Search for bills with the term _agriculture_, in Texas, and in the upper chamber. 
+Search for bills with the term _agriculture_, in Texas, and in the upper chamber.
 
 
 ```r
@@ -130,37 +128,24 @@ os_legislatorsearch(state = 'nv', party = 'republican')
 #> <Sunlight data>
 #>    Dimensions:   [36 X 26]
 #> 
-#>    last_name                                               all_ids
-#> 1    O'Neill                       NVL000291, NVL000355, NVL000358
-#> 2    Dooling                                  NVL000273, NVL000319
-#> 3      Fiore                                  NVL000252, NVL000297
-#> 4    Edwards                                  NVL000287, NVL000345
-#> 5   Hambrick NVL000082, NVL000040, NVL000178, NVL000226, NVL000321
-#> 6   Woodbury NVL000105, NVL000063, NVL000200, NVL000234, NVL000320
-#> 7    Gardner                                  NVL000290, NVL000329
-#> 8     Nelson                                  NVL000270, NVL000293
-#> 9     Kirner NVL000131, NVL000186, NVL000186, NVL000240, NVL000298
-#> 10 Armstrong                                  NVL000292, NVL000313
-#> ..       ...                                                   ...
-#>                full_name
-#> 1  Philip "P.K." O'Neill
-#> 2    Victoria A. Dooling
-#> 3          Michele Fiore
-#> 4          Chris Edwards
-#> 5          John Hambrick
-#> 6       Melissa Woodbury
-#> 7       David M. Gardner
-#> 8        Erven T. Nelson
-#> 9           Randy Kirner
-#> 10       Derek Armstrong
-#> ..                   ...
-#> Variables not shown: id (chr), first_name (chr), middle_name (chr),
-#>      district (chr), state (chr), party (chr), updated_at (chr), leg_id
-#>      (chr), active (lgl), photo_url (chr), created_at (chr), chamber
-#>      (chr), offices (list), suffixes (chr), email (chr),
-#>      transparencydata_id (chr), nickname (chr), url (chr), votesmart_id
-#>      (chr), country (chr), level (chr), +address (chr),
-#>      csrfmiddlewaretoken (chr)
+#>    last_name          updated_at           full_name        id  first_name
+#> 1    O'Neill 2015-12-15 08:41:55 Philip P.K. O'Neill NVL000291      Philip
+#> 2    Dooling 2015-12-15 08:42:35 Victoria A. Dooling NVL000273 Victoria A.
+#> 3      Fiore 2015-12-15 08:42:36       Michele Fiore NVL000252     Michele
+#> 4    Edwards 2015-12-15 08:42:36       Chris Edwards NVL000287       Chris
+#> 5   Hambrick 2015-12-15 08:42:36       John Hambrick NVL000082        John
+#> 6   Woodbury 2015-12-15 08:42:36    Melissa Woodbury NVL000105     Melissa
+#> 7    Gardner 2015-12-15 08:42:36    David M. Gardner NVL000290    David M.
+#> 8     Nelson 2015-12-15 08:42:36     Erven T. Nelson NVL000270    Erven T.
+#> 9     Kirner 2015-12-15 08:42:36        Randy Kirner NVL000131       Randy
+#> 10 Armstrong 2015-12-15 08:42:36     Derek Armstrong NVL000292       Derek
+#> ..       ...                 ...                 ...       ...         ...
+#> Variables not shown: middle_name (chr), district (chr), state (chr), party
+#>      (chr), email (chr), all_ids (list), leg_id (chr), active (lgl),
+#>      transparencydata_id (chr), nickname (chr), photo_url (chr), url
+#>      (chr), created_at (chr), chamber (chr), offices (list), suffixes
+#>      (chr), votesmart_id (chr), country (chr), level (chr), +address
+#>      (chr), csrfmiddlewaretoken (chr)
 ```
 
 
@@ -198,24 +183,3 @@ ggplot(dat_both, aes(day, count, colour=party)) +
 ```
 
 ![plot of chunk unnamed-chunk-10](inst/img/unnamed-chunk-10-1.png) 
-
-## Influence Explorer API
-
-### Return the top contributing organizations
-
-Ranked by total dollars given. An organization's giving is broken down into money given directly (by the organization's PAC) versus money given by individuals employed by or associated with the organization.
-
-
-```r
-ie_industries(method = 'top_ind', limit = 4)
-#>      count        amount                               id
-#> 1 14920072 3825432715.21 cdb3f500a3f74179bb4a5eb8b2932fa6
-#> 2  3706621 2892170142.95 f50cf984a2e3477c8167d32e2b14e052
-#> 3  1441992 1807645239.04 7500030dffe24844aa467a75f7aedfd1
-#> 4   821204 1728183840.57 0af3f418f426497e8bbf916bfc074ebc
-#>   should_show_entity                    name
-#> 1               TRUE                 UNKNOWN
-#> 2               TRUE       LAWYERS/LAW FIRMS
-#> 3               TRUE             REAL ESTATE
-#> 4               TRUE SECURITIES & INVESTMENT
-```

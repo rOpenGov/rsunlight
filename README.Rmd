@@ -30,14 +30,12 @@ knitr::opts_chunk$set(
 * Congress API (`cg`)
 * Open States API (`os`)
 * Capitol Words API (`cw`)
-* Influence Explorer API (`ie`)
 
-Functions that wrap these sets of APIs will be prefixed by `cg`, `os`, `cw`, or `ie` for the different methods listed above:
+Functions that wrap these sets of APIs will be prefixed by `cg`, `os`, or `cw` for the different methods listed above:
 
 * `cg` + `fxn`
 * `os` + `fxn`
 * `cw` + `fxn`
-* `ie` + `fxn`
 
 where `fxn` would be a function to a interface with a specific Sunlight Foundation API.
 
@@ -129,14 +127,4 @@ ggplot(dat_both, aes(day, count, colour=party)) +
   geom_line() +
   theme_grey(base_size=20) +
   scale_colour_manual(values=c("blue","red"))
-```
-
-## Influence Explorer API
-
-### Return the top contributing organizations
-
-Ranked by total dollars given. An organization's giving is broken down into money given directly (by the organization's PAC) versus money given by individuals employed by or associated with the organization.
-
-```{r}
-ie_industries(method = 'top_ind', limit = 4)
 ```
