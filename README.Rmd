@@ -46,7 +46,7 @@ Data from the Sunlight Foundation API is provided by Sunlight Foundation.
 <a href="http://sunlightfoundation.com/api/"><img src="http://www.altweeklies.com/imager/b/main/5866471/f291/SunlightFoundationLogo_500wide.gif" alt="NYT API" /></a>
 
 You need API keys for Sunlight Foundation APIs. Please get your own API keys if you
-plant to use these functions for Sunlight Labs (http://services.sunlightlabs.com/).
+plan to use these functions for Sunlight Labs (http://services.sunlightlabs.com/).
 We set up the functions so that you can use either env vars, or R options. For env
 vars, put an entry in your `.Renviron` file with the name `SUNLIGHT_LABS_KEY`,
 so the full thing would be `SUNLIGHT_LABS_KEY=<key>`. For R options, put the key in
