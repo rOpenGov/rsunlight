@@ -18,9 +18,9 @@ return_obj <- function(x, y){
 
 # check if stupid single left bracket returned
 err_hand <- function(z) {
-  tmp <- content(z, "text")
+  tmp <- httr::content(z, "text")
   if (identical(tmp, "[")) {
-    q <- parse_url(z$request$opts$url)$query
+    q <- httr::parse_url(z$request$opts$url)$query
     q <- paste0("\n - ", paste(names(q), q, sep = "="), collapse = "")
     stop("The following query had no results:\n", q, call. = FALSE)
   } else {
@@ -47,7 +47,7 @@ give <- function(as, url, endpt, args, ...) {
     })
     if (as == "table") {
       tmp <- tmp[vapply(tmp, length, numeric(1)) != 0]
-      tmp <- rbind.fill(tmp)
+      tmp <- plyr::rbind.fill(tmp)
     }
   }
   switch(as,

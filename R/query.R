@@ -1,7 +1,7 @@
 query <- function(url, args, ...){
 
   #Query
-  query_results <- GET(url, query = args, ...)
+  query_results <- httr::GET(url, query = args, ...)
 
   #Check status. 403s are the most likely and we don't want to be just providing a shouty "403 FORBIDDEN";
   #we know why those show up and can be reasonable about it.
@@ -12,7 +12,7 @@ query <- function(url, args, ...){
   }
 
   #Check status against remaining options, check returned type.
-  stop_for_status(status)
+  httr::stop_for_status(status)
   stopifnot(query_results$headers$`content-type` == 'application/json; charset=utf-8')
 
   #Assuming it hasn't blown up by now, return
