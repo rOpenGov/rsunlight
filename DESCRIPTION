@@ -1,11 +1,11 @@
 Package: rsunlight
 Title: Interface to 'Sunlight' Foundation 'APIs'
-Description: Interface to four 'Sunlight' Foundation 'APIs' (http://
-    sunlightfoundation.com/api/) for government data, including the Congress 'API'
-    'v3', the Capitol Words 'API', the Influence Explorer 'API', and the Open States
+Description: Interface to three 'Sunlight' Foundation 'APIs' (http://
+    sunlightfoundation.com/api/) for government data, including the
+    Congress 'API' 'v3', the Capitol Words 'API', and the Open States
     'API'. 'Sunlight' Foundation is a 'nonpartison' 'nonprofit' that collects and
     provides data on government activities, and those that influence government.
-    Functions are provided to interact with each of the four 'APIs'.
+    Functions are provided to interact with each of the three 'APIs'.
 Version: 0.4.2
 License: MIT + file LICENSE
 URL: https://github.com/ropengov/rsunlight
