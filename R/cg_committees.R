@@ -7,7 +7,7 @@
 #' on current committees and memberships. For historic data on committee names, IDs,
 #' and contact info, refer to the bulk data.
 #'
-#' @import httr
+#' @export
 #' @param member_ids An array of bioguide IDs of legislators that are assigned to
 #' this committee.
 #' @param committee_id Official ID of the committee, as it appears in various official
@@ -16,11 +16,9 @@
 #' @param subcommittee Whether or not the committee is a subcommittee.
 #' @param parent_committee_id If the committee is a subcommittee, the ID of its
 #' parent committee.
-#'
 #' @template cg
 #' @template cg_query
 #' @return Committee details including subcommittees and all members.
-#' @export
 #' @examples \dontrun{
 #' cg_committees(member_ids='L000551')
 #' cg_committees(committee_id='SSAP')

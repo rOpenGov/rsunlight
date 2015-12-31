@@ -21,7 +21,10 @@
 #'
 #' @importFrom methods is
 #' @importFrom utils head
-#' @import httr jsonlite
+#' @importFrom httr GET content stop_for_status parse_url
+#' @importFrom jsonlite fromJSON
+#' @importFrom plyr rbind.fill
+#' @importFrom stringr str_sub
 #' @name rsunlight-package
 #' @aliases rsunlight
 #' @docType package

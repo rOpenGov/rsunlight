@@ -1,12 +1,10 @@
 #' Find the popularity of a phrase over a period of time.
 #'
-#' @importFrom plyr rbind.fill
-#' @importFrom stringr str_sub
+#' @export
 #' @template cw
 #' @template cw_timeseries
 #' @return A data.frame with number of times (and percentages of the text result,
 #' if selected).
-#' @export
 #' @examples \dontrun{
 #' # Search for a phrase to get a time series of
 #' cw_timeseries(phrase='climate change')

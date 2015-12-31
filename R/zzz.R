@@ -9,9 +9,9 @@ return_obj <- function(x, y){
     y
   } else {
     if (x == 'list') {
-      fromJSON(y, simplifyVector = FALSE, flatten = TRUE)
+      jsonlite::fromJSON(y, simplifyVector = FALSE, flatten = TRUE)
     } else {
-      fromJSON(y, flatten = TRUE)
+      jsonlite::fromJSON(y, flatten = TRUE)
     }
   }
 }
