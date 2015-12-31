@@ -1,6 +1,7 @@
 <!--
 %\VignetteEngine{knitr}
 %\VignetteIndexEntry{rsunlight vignette}
+%\VignetteEncoding{UTF-8}
 -->
 
 
@@ -233,16 +234,16 @@ os_legislatorsearch(state = 'tx', party = 'democratic', active = TRUE)
 #>    Dimensions:   [63 X 29]
 #> 
 #>    last_name          updated_at nimsp_candidate_id         full_name
-#> 1   Naishtat 2015-06-29 18:45:42             112047  Elliott Naishtat
-#> 2     Romero 2015-06-29 18:45:42                 NA Ramon Romero, Jr.
-#> 3  Gutierrez 2015-06-29 18:45:42             111938  Roland Gutierrez
-#> 4     Israel 2015-06-29 18:45:42                 NA      Celia Israel
-#> 5    Coleman 2015-06-29 18:45:42              99959    Garnet Coleman
-#> 6    Guillen 2015-06-29 18:45:42             111937      Ryan Guillen
-#> 7    Johnson 2015-06-29 18:45:42                 NA      Eric Johnson
-#> 8      Moody 2015-06-29 18:45:42             100029      Joseph Moody
-#> 9     Turner 2015-06-29 18:45:42             112130  Sylvester Turner
-#> 10   Collier 2015-06-29 18:45:42                 NA    Nicole Collier
+#> 1   Naishtat 2015-12-16 09:56:01             112047  Elliott Naishtat
+#> 2     Romero 2015-12-16 09:56:01                 NA Ramon Romero, Jr.
+#> 3   Minjarez 2015-12-16 09:56:01                 NA      Ina Minjarez
+#> 4  Gutierrez 2015-12-16 09:56:01             111938  Roland Gutierrez
+#> 5     Israel 2015-12-16 09:56:01                 NA      Celia Israel
+#> 6    Coleman 2015-12-16 09:56:01              99959    Garnet Coleman
+#> 7    Guillen 2015-12-16 09:56:01             111937      Ryan Guillen
+#> 8    Johnson 2015-12-16 09:56:01                 NA      Eric Johnson
+#> 9      Moody 2015-12-16 09:56:01             100029      Joseph Moody
+#> 10    Turner 2015-12-16 09:56:01             112130  Sylvester Turner
 #> ..       ...                 ...                ...               ...
 #> Variables not shown: +district_address (chr), first_name (chr),
 #>      middle_name (chr), district (chr), id (chr), state (chr),
@@ -251,110 +252,4 @@ os_legislatorsearch(state = 'tx', party = 'democratic', active = TRUE)
 #>      (chr), url (chr), country (chr), created_at (chr), level (chr),
 #>      nimsp_id (chr), chamber (chr), offices (list), suffixes (chr), email
 #>      (chr), nickname (chr), +birth_date (chr)
-```
-
-## Influence Explorer API
-
-### Search for entities
-
-That is, politicians, individuals, or organizations with the given name
-
-
-```r
-ie_entities('Nancy Pelosi')
-```
-
-```
-#> <Sunlight data>
-#>    Dimensions:   [2 X 15]
-#> 
-#>                        name count_given firm_income count_lobbied
-#> 1          Nancy Pelosi (D)           0           0             0
-#> 2 Nancy Pelosi for Congress           7           0             0
-#> Variables not shown: seat (chr), total_received (dbl), state (chr),
-#>      lobbying_firm (lgl), count_received (int), party (chr), total_given
-#>      (dbl), type (chr), id (chr), non_firm_spending (dbl), is_superpac
-#>      (lgl)
-```
-
-### Contributions by industries
-
-Return the top contributoring companies by industry, ranked by total dollars given. The `entity_id` of `ba400a177400497680cac90f678ecb8f` is the identifier for _oil and gas_.
-
-
-```r
-ie_industries(method='top_org', entity_id='ba400a177400497680cac90f678ecb8f')
-```
-
-```
-#>    employee_amount total_amount total_count                         name
-#> 1       1686382.70   4198380.29        2767            Chesapeake Energy
-#> 2       2736266.00   2788916.00         247              Chief Oil & Gas
-#> 3                0   2521532.64         498  TEXAS OIL & GAS ASSOCIATION
-#> 4        302130.38   2145832.38        3139                 Marathon Oil
-#> 5        832984.00   1574534.00        1074         Occidental Petroleum
-#> 6        922226.00   1532870.00        1302                     USX Corp
-#> 7       1461206.00   1461206.00         799        Oil & Gas Investments
-#> 8       1253908.87   1253908.87         120           Hyperion Resources
-#> 9        770779.24   1201643.79         946 American Petroleum Institute
-#> 10      1107871.62   1107871.62         275           Beecherl Companies
-#>    direct_count employee_count                               id
-#> 1          1983            784 4966257e103a45f5b13d901058b0c0be
-#> 2            34            213 f2df5e19f0b449beb19c4d3b7f062245
-#> 3           498              0 820a996e87254cfbac33884434150ce0
-#> 4          2758            381 894b0134033448daa5208aa97455575b
-#> 5           815            259 74f871b3928c49d39d004c08aec1e2a2
-#> 6           814            488 8e95d7fa12f74aa387b2c880fb20df65
-#> 7             0            799                             <NA>
-#> 8             0            120 8d348514c5484120b05ee75929650534
-#> 9           312            634 83bfbee9757c42308f4c7d0598cbdce3
-#> 10            0            275 5d92d3d625f8422db0d630f2ef9693c7
-#>    direct_amount
-#> 1     2511997.59
-#> 2       52650.00
-#> 3     2521532.64
-#> 4     1843702.00
-#> 5      741550.00
-#> 6      610644.00
-#> 7              0
-#> 8              0
-#> 9      430864.55
-#> 10             0
-```
-
-### Contributions by a certain amount
-
-
-```r
-ie_contr(recipient_state='al', for_against='for', amount='>|1000000')
-```
-
-```
-#> <Sunlight data>
-#>    Dimensions:   [8 X 41]
-#> 
-#>             seat committee_ext_id seat_held recipient_party
-#> 1 state:governor                                          R
-#> 2 state:governor                                          D
-#> 3 state:governor                                          R
-#> 4   state:office                                          R
-#> 5   state:office                                          R
-#> 6 state:governor                                          R
-#> 7 state:governor                                          R
-#> 8 state:governor                                          D
-#> Variables not shown: transaction_type_description (chr), recipient_type
-#>      (chr), seat_status (chr), recipient_state (chr), contributor_category
-#>      (chr), contributor_gender (chr), contributor_state (chr),
-#>      recipient_category (chr), is_amendment (lgl), district (chr),
-#>      organization_name (chr), recipient_ext_id (chr),
-#>      parent_organization_name (chr), contributor_address (chr),
-#>      transaction_id (chr), contributor_occupation (chr), filing_id (chr),
-#>      contributor_city (chr), recipient_state_held (chr), district_held
-#>      (chr), recipient_name (chr), organization_ext_id (chr),
-#>      contributor_zipcode (chr), transaction_namespace (chr), date (chr),
-#>      committee_name (chr), candidacy_status (lgl),
-#>      parent_organization_ext_id (chr), cycle (int), contributor_name
-#>      (chr), contributor_type (chr), contributor_employer (chr),
-#>      seat_result (chr), transaction_type (chr), amount (chr),
-#>      contributor_ext_id (chr), committee_party (chr)
 ```
