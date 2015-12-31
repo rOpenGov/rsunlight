@@ -6,7 +6,7 @@ Description: Interface to four 'Sunlight' Foundation 'APIs' (http://
     'API'. 'Sunlight' Foundation is a 'nonpartison' 'nonprofit' that collects and
     provides data on government activities, and those that influence government.
     Functions are provided to interact with each of the four 'APIs'.
-Version: 0.4.1.9800
+Version: 0.4.2
 License: MIT + file LICENSE
 URL: https://github.com/ropengov/rsunlight
 BugReports: https://github.com/ropengov/rsunlight/issues
