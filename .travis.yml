@@ -1,6 +1,5 @@
 language: r
 sudo: required
-warnings_are_errors: true
 
 r_packages:
  - ggplot2
