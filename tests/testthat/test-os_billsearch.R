@@ -17,7 +17,7 @@ test_that("returns the correct", {
   expect_equal(unique(a$state), "tx")
   expect_equal(unique(b$state), "dc")
   dates <- as.Date(b$created_at)
-  expect_more_than(max(dates), min(dates))
+  expect_true(max(dates) > min(dates))
 })
 
 test_that("paging works", {
