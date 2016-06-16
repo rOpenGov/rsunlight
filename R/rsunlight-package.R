@@ -25,6 +25,7 @@
 #' @importFrom jsonlite fromJSON
 #' @importFrom plyr rbind.fill
 #' @importFrom stringr str_sub
+#' @importFrom tibble as_data_frame
 #' @name rsunlight-package
 #' @aliases rsunlight
 #' @docType package

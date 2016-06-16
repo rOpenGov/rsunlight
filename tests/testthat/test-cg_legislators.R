@@ -8,10 +8,10 @@ test_that("cg_legislators returns the correct", {
 
   # classes
   expect_is(aa, "data.frame")
-  expect_is(aa, "sunlight")
+  expect_is(aa, "tbl_df")
 
   expect_is(bb, "data.frame")
-  expect_is(bb, "sunlight")
+  expect_is(bb, "tbl_df")
   expect_equal(bb$state[1], "NC")
 
   # dimensions
@@ -26,10 +26,10 @@ test_that("cg_legislators geographic search works", {
 
   # classes
   expect_is(aa, "data.frame")
-  expect_is(aa, "sunlight")
+  expect_is(aa, "tbl_df")
 
   expect_is(bb, "data.frame")
-  expect_is(bb, "sunlight")
+  expect_is(bb, "tbl_df")
 
   # right names back
   expect_true(any(grepl("Wyden", aa$last_name)))
@@ -43,7 +43,7 @@ test_that("cg_legislators vectorizing works", {
 
   res <- cg_legislators(last_name = c('Pelosi', 'Merkley'))
   expect_is(res, "data.frame")
-  expect_is(res, "sunlight")
+  expect_is(res, "tbl_df")
   expect_equal(NROW(res), 2)
   expect_equal(res$last_name, c('Pelosi', 'Merkley'))
 })

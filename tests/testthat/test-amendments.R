@@ -9,11 +9,11 @@ test_that("returns the correct", {
   e <- cg_amendments(amends_bill_id='hr624-113')
 
   # classes
-  expect_is(a, "sunlight")
+  expect_is(a, "tbl_df")
   expect_is(a, "data.frame")
-  expect_is(b, "sunlight")
-  expect_is(d, "sunlight")
-  expect_is(e, "sunlight")
+  expect_is(b, "tbl_df")
+  expect_is(d, "tbl_df")
+  expect_is(e, "tbl_df")
 
   # values
   expect_equal(unique(b$chamber), "house")
@@ -27,7 +27,7 @@ test_that("vectorizing works", {
   skip_on_cran()
 
   res <- cg_amendments(chamber = c('house', 'senate'))
-  expect_is(res, "sunlight")
+  expect_is(res, "tbl_df")
   expect_equal(unique(res$chamber), c('house', 'senate'))
 })
 

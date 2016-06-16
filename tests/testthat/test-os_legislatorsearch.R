@@ -10,7 +10,7 @@ test_that("returns the correct", {
   expect_is(a, "data.frame")
   expect_is(b, "data.frame")
   expect_is(a$state, "character")
-  expect_is(a$`+district_offices`, "list")
+  expect_true(all(is.na(a$`+district_offices`)))
 
   # values
   expect_equal(unique(a$state), "ca")

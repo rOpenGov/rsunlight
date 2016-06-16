@@ -8,10 +8,10 @@ test_that("cg_bills returns the correct", {
 
   # classes
   expect_is(aa, "data.frame")
-  expect_is(aa, "sunlight")
+  expect_is(aa, "tbl_df")
 
   expect_is(bb, "data.frame")
-  expect_is(bb, "sunlight")
+  expect_is(bb, "tbl_df")
   expect_true(bb$history.vetoed[1])
 
   # dimensions
@@ -24,7 +24,7 @@ test_that("cg_bills vectorizing works", {
   bills <- c("hjres131-113", "hjres129-113", "s2921-113")
   res <- cg_bills(bill_id = bills)
   expect_is(res, "data.frame")
-  expect_is(res, "sunlight")
+  expect_is(res, "tbl_df")
   expect_equal(NROW(res), 3)
   expect_equal(res$bill_id, bills)
 })

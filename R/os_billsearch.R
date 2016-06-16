@@ -70,5 +70,5 @@ os_billsearch <- function(terms = NULL, state = NULL, window = NULL,
                        updated_since = updated_since, subject = subject, type = type,
                        search_window = search_window, sort = sort, page = page, per_page = per_page,
                        fields = paste(fields, collapse = ",")))
-  give(as, osurl(), "/bills", args, ...)
+  give(as, osurl(), endpt = "/bills", args, ...)
 }

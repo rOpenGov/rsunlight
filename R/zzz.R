@@ -16,6 +16,22 @@ return_obj <- function(x, y){
   }
 }
 
+flatten_df <- function(x) {
+  if (NROW(x) == 0) {
+    x
+  }
+  else {
+    for (i in seq_len(NCOL(x))) {
+      if (class(x[,i]) == "list") {
+        z <- unlist(x[,i])
+        if (length(z) != NROW(x)) z <- rep(NA_character_, NROW(x))
+        x[,i] <- z
+      }
+    }
+    x
+  }
+}
+
 # check if stupid single left bracket returned
 err_hand <- function(z) {
   tmp <- httr::content(z, "text")
@@ -31,7 +47,7 @@ err_hand <- function(z) {
 give_noiter <- function(as, url, endpt, args, ...) {
   tmp <- return_obj(as, query(paste0(url, endpt), args, ...))
   switch(as,
-         table = structure(tmp, class = c("sunlight", "data.frame")),
+         table = as_data_frame(flatten_df(tmp)),
          list = tmp,
          response = tmp)
 }
@@ -51,7 +67,8 @@ give <- function(as, url, endpt, args, ...) {
     }
   }
   switch(as,
-         table = structure(tmp, class = c("sunlight", "data.frame")),
+         table = as_data_frame(flatten_df(tmp)),
+         #table = structure(as_data_frame(tmp), class = c("sunlight", "data.frame", "tbl_df")),
          list = tmp,
          response = tmp)
 }
@@ -76,8 +93,7 @@ give_cg <- function(as, url, endpt, args, ...) {
     }
   }
   switch(as,
-         table = structure(if (length(iter) == 0) tmp$results else tmp,
-                           class = c("sunlight", "data.frame")),
+         table = if (length(iter) == 0) as_data_frame(flatten_df(tmp$results)) else as_data_frame(flatten_df(tmp)),
          list = tmp,
          response = tmp)
 }
@@ -93,12 +109,12 @@ get_iter <- function(z) {
   z[vapply(z, length, 1) > 1]
 }
 
-#' @export
-print.sunlight <- function(x, ..., n = 10){
-  cat("<Sunlight data>", sep = "\n")
-  cat(sprintf("   Dimensions:   [%s X %s]\n", NROW(x), NCOL(x)), sep = "\n")
-  trunc_mat(x, n = n)
-}
+# print.sunlight <- function(x, ..., n = 10){
+#   cat("<Sunlight data>", sep = "\n")
+#   cat(sprintf("   Dimensions:   [%s X %s]\n", NROW(x), NCOL(x)), sep = "\n")
+#   print(x)
+#   #trunc_mat(x, n = n)
+# }
 
 check_key <- function(x){
   tmp <- if (is.null(x)) {
