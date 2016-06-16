@@ -68,7 +68,6 @@ give <- function(as, url, endpt, args, ...) {
   }
   switch(as,
          table = as_data_frame(flatten_df(tmp)),
-         #table = structure(as_data_frame(tmp), class = c("sunlight", "data.frame", "tbl_df")),
          list = tmp,
          response = tmp)
 }
@@ -77,11 +76,16 @@ give_cg <- function(as, url, endpt, args, ...) {
   iter <- get_iter(args)
   if (length(iter) == 0) {
     tmp <- return_obj(as, query(paste0(url, endpt), args, ...))
+    found <- tmp$num_found
   } else {
     tmp <- lapply(iter[[1]], function(w) {
       args[[ names(iter) ]] <- w
       return_obj(as, query(paste0(url, endpt), args, ...))
     })
+    found <- as.list(stats::setNames(sapply(tmp, function(z) {
+      zz <- z$num_found
+      if (is.null(zz)) z$count
+    }), iter[[1]]))
     if (as == "table") {
       res <- lapply(tmp, "[[", "results")
       res <- Filter(function(x) !(is.null(x) || length(x) == 0), res)
@@ -92,10 +96,14 @@ give_cg <- function(as, url, endpt, args, ...) {
       tmp <- rbind.fill(res)
     }
   }
-  switch(as,
-         table = if (length(iter) == 0) as_data_frame(flatten_df(tmp$results)) else as_data_frame(flatten_df(tmp)),
+  structure(switch(as,
+         table = if (length(iter) == 0) {
+           as_data_frame(flatten_df(tmp$results))
+         } else {
+           as_data_frame(flatten_df(tmp))
+         },
          list = tmp,
-         response = tmp)
+         response = tmp), found = found)
 }
 
 one_vec <- function(x) {
@@ -108,13 +116,6 @@ one_vec <- function(x) {
 get_iter <- function(z) {
   z[vapply(z, length, 1) > 1]
 }
-
-# print.sunlight <- function(x, ..., n = 10){
-#   cat("<Sunlight data>", sep = "\n")
-#   cat(sprintf("   Dimensions:   [%s X %s]\n", NROW(x), NCOL(x)), sep = "\n")
-#   print(x)
-#   #trunc_mat(x, n = n)
-# }
 
 check_key <- function(x){
   tmp <- if (is.null(x)) {
