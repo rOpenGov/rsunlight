@@ -2,7 +2,7 @@
 % Please edit documentation in R/cw_phrases.R
 \name{cw_phrases}
 \alias{cw_phrases}
-\title{Capitol words phrases.json method. List the top phrases for a facet.}
+\title{List the top phrases for a facet.}
 \usage{
 cw_phrases(entity_type, entity_value, n = NULL, page = NULL,
   per_page = NULL, sort = NULL, as = "table", key = NULL, ...)
@@ -32,10 +32,17 @@ descending (see details), but if you forget, we make it ascending by default
 \item{...}{Further curl options (debugging tools mostly)}
 }
 \value{
-Data frame of observations by date.
+data.frame with the following columns
+\itemize{
+ \item tfidf - the tf-idf, or "Term Frequency, Inverse Document Frequency", which
+ indicates how important the word (i.e., ngram) is, see
+ \url{https://en.wikipedia.org/wiki/Tf–idf} for more information
+ \item count - count
+ \item ngram - the ngram text value
+}
 }
 \description{
-Capitol words phrases.json method. List the top phrases for a facet.
+List the top phrases for a facet.
 }
 \examples{
 \dontrun{

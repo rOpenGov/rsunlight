@@ -2,8 +2,7 @@
 % Please edit documentation in R/cw_text.R
 \name{cw_text}
 \alias{cw_text}
-\title{Capitol words text.json method. Search the congressional record for instances
-of a word or phrase.}
+\title{Full-text search the congressional record for instances of a word or phrase}
 \usage{
 cw_text(phrase = NULL, title = NULL, date = NULL, start_date = NULL,
   end_date = NULL, chamber = NULL, state = NULL, party = NULL,
@@ -54,8 +53,7 @@ See Details.}
 Phrases matched in a data.frame.
 }
 \description{
-Capitol words text.json method. Search the congressional record for instances
-of a word or phrase.
+Full-text search the congressional record for instances of a word or phrase
 }
 \details{
 Options for the \code{sort} parameter are:

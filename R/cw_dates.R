@@ -1,5 +1,4 @@
-#' Capitol words dates.json method. Search the congressional record for
-#' instances of a word or phrase over time.
+#' Find the popularity of a phrase over a period of time
 #'
 #' @template cw
 #' @template cw_dates_text
@@ -14,7 +13,7 @@
 #' @param entity_type The entity type to get top phrases for. One of 'date', 'month', 'state', or
 #'    'legislator'.
 #' @param entity_value The value of the entity given in \code{entity_type}. See Details.
-#' @return Data frame of observations by date.
+#' @return data.frame of phrases by date.
 #' @export
 #' @details
 #' Formats for \code{entity_value} parameter are as follows:
@@ -40,6 +39,9 @@
 #'    end_date='2009-04-30', granularity='month', party=c('R', 'D'))
 #' cw_dates(phrase=c('voting', 'hate'), start_date='2009-01-01',
 #'    end_date='2009-04-30', granularity='month', party='D')
+#'
+#' # search by bioguide_id
+#' cw_dates(phrase = "peace", bioguide_id = 'P000197')
 #' }
 cw_dates <- function(phrase = NULL, title = NULL, date = NULL, start_date = NULL,
   end_date = NULL, chamber = NULL, state = NULL, party = NULL, bioguide_id = NULL,

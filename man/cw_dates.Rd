@@ -2,8 +2,7 @@
 % Please edit documentation in R/cw_dates.R
 \name{cw_dates}
 \alias{cw_dates}
-\title{Capitol words dates.json method. Search the congressional record for
-instances of a word or phrase over time.}
+\title{Find the popularity of a phrase over a period of time}
 \usage{
 cw_dates(phrase = NULL, title = NULL, date = NULL, start_date = NULL,
   end_date = NULL, chamber = NULL, state = NULL, party = NULL,
@@ -64,11 +63,10 @@ the result objects. Valid values: 'true', 'false' (default) (character)}
 \item{...}{Further curl options (debugging tools mostly)}
 }
 \value{
-Data frame of observations by date.
+data.frame of phrases by date.
 }
 \description{
-Capitol words dates.json method. Search the congressional record for
-instances of a word or phrase over time.
+Find the popularity of a phrase over a period of time
 }
 \details{
 Formats for \code{entity_value} parameter are as follows:
@@ -96,6 +94,9 @@ cw_dates(phrase='voting', start_date='2009-01-01',
    end_date='2009-04-30', granularity='month', party=c('R', 'D'))
 cw_dates(phrase=c('voting', 'hate'), start_date='2009-01-01',
    end_date='2009-04-30', granularity='month', party='D')
+
+# search by bioguide_id
+cw_dates(phrase = "peace", bioguide_id = 'P000197')
 }
 }
 

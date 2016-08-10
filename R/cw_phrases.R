@@ -1,4 +1,4 @@
-#' Capitol words phrases.json method. List the top phrases for a facet.
+#' List the top phrases for a facet.
 #'
 #' @export
 #' @param entity_type The entity type to get top phrases for. One of 'date',
@@ -15,7 +15,14 @@
 #' @param key Your SunlightLabs API key; loads from .Rprofile.
 #' @param ... Further curl options (debugging tools mostly)
 #' @param as (character) One of table (default), list, or response (httr response object).
-#' @return Data frame of observations by date.
+#' @return data.frame with the following columns
+#' \itemize{
+#'  \item tfidf - the tf-idf, or "Term Frequency, Inverse Document Frequency", which
+#'  indicates how important the word (i.e., ngram) is, see
+#'  \url{https://en.wikipedia.org/wiki/Tf–idf} for more information
+#'  \item count - count
+#'  \item ngram - the ngram text value
+#' }
 #' @examples \dontrun{
 #' cw_phrases(entity_type='month', entity_value=201007)
 #' cw_phrases(entity_type='state', entity_value='NV')

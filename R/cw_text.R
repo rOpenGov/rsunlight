@@ -1,5 +1,4 @@
-#' Capitol words text.json method. Search the congressional record for instances
-#' of a word or phrase.
+#' Full-text search the congressional record for instances of a word or phrase
 #'
 #' @template cw
 #' @template cw_dates_text
