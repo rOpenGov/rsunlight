@@ -36,7 +36,7 @@ data.frame with the following columns
 \itemize{
  \item tfidf - the tf-idf, or "Term Frequency, Inverse Document Frequency", which
  indicates how important the word (i.e., ngram) is, see
- \url{https://en.wikipedia.org/wiki/Tf–idf} for more information
+ \url{https://en.wikipedia.org/wiki/Tf-idf} for more information
  \item count - count
  \item ngram - the ngram text value
 }
