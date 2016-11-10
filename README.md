@@ -9,6 +9,14 @@ rsunlight
 [![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/grand-total/rsunlight)](https://github.com/metacran/cranlogs.app)
 [![cran version](http://www.r-pkg.org/badges/version/rsunlight)](https://cran.r-project.org/package=rsunlight)
 
+
+
+
+__UPDATE: Sunlight is going bye bye - Some services have moved to Propublica, while others I'll look into.__
+
+
+
+
 + Maintainer: [Scott Chamberlain](https://github.com/sckott/)
 + License: [MIT](http://opensource.org/licenses/MIT)
 + Report any problems in the [Issues Tracker](https://github.com/ropengov/rsunlight/issues), or just fork and submit changes, etc.
@@ -77,7 +85,7 @@ library("rsunlight")
 cg_districts(latitude = 35.778788, longitude = -78.787805)
 #> <Sunlight data>
 #>    Dimensions:   [1 X 2]
-#> 
+#>
 #>   state district
 #> 1    NC        2
 ```
@@ -100,14 +108,14 @@ Search for bills with the term _agriculture_, in Texas, and in the upper chamber
 os_billsearch(terms = 'agriculture', state = 'tx', chamber = 'upper')
 #> <Sunlight data>
 #>    Dimensions:   [320 X 10]
-#> 
+#>
 #>                                                                          title
 #> 1  Relating to certain committees and programs to develop the wine industry in
 #> 2  Relating to a waiver of fees by the Department of Agriculture and the Parks
 #> 3  Urging the United States Department of Agriculture Food and Nutrition Servi
 #> 4  Relating to the designation of an office in the Department of Agriculture t
 #> 5  Relating to the office of water and the water advisory committee in the Dep
-#> 6  Relating to establishing an agriculture ombudsman office in the Department 
+#> 6  Relating to establishing an agriculture ombudsman office in the Department
 #> 7  Relating to authorizing the issuance of revenue bonds to fund capital proje
 #> 8  Relating to authorizing the issuance of revenue bonds to fund capital proje
 #> 9  Relating to authorizing the issuance of revenue bonds to fund capital proje
@@ -127,7 +135,7 @@ Search for Republican legislators in Nevada
 os_legislatorsearch(state = 'nv', party = 'republican')
 #> <Sunlight data>
 #>    Dimensions:   [36 X 26]
-#> 
+#>
 #>    last_name          updated_at           full_name        id  first_name
 #> 1    O'Neill 2015-12-15 08:41:55 Philip P.K. O'Neill NVL000291      Philip
 #> 2    Dooling 2015-12-15 08:42:35 Victoria A. Dooling NVL000273 Victoria A.
@@ -160,7 +168,7 @@ Get a list of how many times the phrase "united states" appears in the Congressi
 cw_timeseries(phrase='united states', start_date='2009-01-01', end_date='2009-04-30', granularity='month')
 #> <Sunlight data>
 #>    Dimensions:   [4 X 2]
-#> 
+#>
 #>   count      month
 #> 1  3805 2009-01-01
 #> 2  3512 2009-02-01
@@ -182,4 +190,4 @@ ggplot(dat_both, aes(day, count, colour=party)) +
   scale_colour_manual(values=c("blue","red"))
 ```
 
-![plot of chunk unnamed-chunk-10](inst/img/unnamed-chunk-10-1.png) 
+![plot of chunk unnamed-chunk-10](inst/img/unnamed-chunk-10-1.png)

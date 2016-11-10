@@ -6,12 +6,12 @@
 #' @param entity_value The value of the entity given in \code{entity_type}.
 #'    See Details. Required.
 #' @param n The size of phrase, in words, to search for (up to 5).
-#' @param page The page of results to show. 100 results are shown at a time. To get more than
-#' 100 results, use the page parameter.
-#' @param per_page Number of records to return. Default: 20. Max: 50.
-#' @param sort The value on which to sort the results. You have to specify ascending or
-#' descending (see details), but if you forget, we make it ascending by default
-#' (prevents 500 error :)). Valid values are 'tfidf' (default) and 'count'.
+#' @param page The page of results to show. Default: 1
+#' @param per_page Number of records to return. Default: 100
+#' @param sort The value on which to sort the results. You have to specify
+#' ascending or descending (see details), but if you forget, we make it
+#' ascending by default (prevents 500 error :)). Valid values are 'tfidf'
+#' (default) and 'count'.
 #' @param key Your SunlightLabs API key; loads from .Rprofile.
 #' @param ... Further curl options (debugging tools mostly)
 #' @param as (character) One of table (default), list, or response (httr response object).

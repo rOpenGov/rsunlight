@@ -17,9 +17,18 @@ knitr::opts_chunk$set(
 [![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/grand-total/rsunlight)](https://github.com/metacran/cranlogs.app)
 [![cran version](http://www.r-pkg.org/badges/version/rsunlight)](https://cran.r-project.org/package=rsunlight)
 
+
+
+
+__UPDATE: Sunlight is going bye bye - Some services have moved to Propublica, while others I'll look into.__
+
+
+
+
 + Maintainer: [Scott Chamberlain](https://github.com/sckott/)
 + License: [MIT](http://opensource.org/licenses/MIT)
 + Report any problems in the [Issues Tracker](https://github.com/ropengov/rsunlight/issues), or just fork and submit changes, etc.
+
 
 ## Description
 
