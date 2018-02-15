@@ -129,7 +129,7 @@ cg_members_bill_cosponsors <- function(member, type, key = NULL, as = 'table', .
 foo_bar <- function(as, url, path, args, key, parse = FALSE, ...) {
   key <- check_key(key, "PROPUBLICA_API_KEY")
   tmp <- query(url, path, args, 
-    headers = list(`X-API-KEY` = key), verbose = TRUE)
+    headers = list(`X-API-KEY` = key), ...)
   tmp <- err_hand(tmp)
   jsonlite::fromJSON(tmp, parse)
 }
