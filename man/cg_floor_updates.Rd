@@ -78,4 +78,3 @@ cg_floor_updates(chamber='house', query='Agreed to by voice vote')
 cg_floor_updates(chamber = c("house", "senate"))
 }
 }
-

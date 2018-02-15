@@ -85,4 +85,3 @@ cg_hearings(chamber = c('house', 'senate'))
 \references{
 \url{https://sunlightlabs.github.io/congress/hearings.html}
 }
-

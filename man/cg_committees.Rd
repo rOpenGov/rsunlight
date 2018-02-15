@@ -83,4 +83,3 @@ cg_committees(member_ids='L000551', as='response')
 cg_committees(committee_id = c('SSAP', 'SSGA01'))
 }
 }
-

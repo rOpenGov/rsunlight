@@ -54,4 +54,3 @@ os_legislatorsearch(state = c('dc', 'or'), chamber = 'upper')
 os_legislatorsearch(first_name = c('jane', 'bob'), chamber = 'upper')
 }
 }
-

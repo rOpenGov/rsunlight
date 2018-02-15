@@ -10,4 +10,3 @@ ie_lobbying(...)
 This function is defunct.
 }
 \keyword{internal}
-

@@ -110,4 +110,3 @@ cg_documents(fields=c('document_id','type'))
 cg_documents(chamber = c("house", "senate"))
 }
 }
-

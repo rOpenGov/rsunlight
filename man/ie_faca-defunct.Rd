@@ -10,4 +10,3 @@ ie_faca(...)
 This function is defunct.
 }
 \keyword{internal}
-

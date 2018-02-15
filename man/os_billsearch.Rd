@@ -92,4 +92,3 @@ os_billsearch(terms = 'agriculture', state = c('tx', 'or'))
 os_billsearch(terms = 'agriculture', state = "or", chamber = c('upper', 'lower'))
 }
 }
-

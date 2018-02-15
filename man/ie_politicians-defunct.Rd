@@ -10,4 +10,3 @@ ie_politicians(...)
 This function is defunct.
 }
 \keyword{internal}
-

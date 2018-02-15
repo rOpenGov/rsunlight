@@ -95,4 +95,3 @@ cw_text(phrase='climate change', start_date='2012-09-16', end_date='2012-09-20',
 cw_text(phrase=c('climate change', 'politics'), start_date='2012-09-16', end_date='2012-09-20')
 }
 }
-

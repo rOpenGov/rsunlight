@@ -60,15 +60,15 @@
 #' os_billsearch(terms = 'agriculture', state = "or", chamber = c('upper', 'lower'))
 #' }
 os_billsearch <- function(terms = NULL, state = NULL, window = NULL,
-    chamber = 'upper', sponsor_id = NULL, updated_since = NULL, subject = NULL, type=NULL,
-    search_window=NULL, sort=NULL, page=NULL, per_page=NULL, fields = NULL, as ='table',
-    key = NULL, ...) {
+    chamber = 'upper', sponsor_id = NULL, updated_since = NULL, subject = NULL, 
+    type=NULL, search_window=NULL, sort=NULL, page=NULL, per_page=NULL, 
+    fields = NULL, as ='table', key = NULL, ...) {
 
-  key <- check_key(key)
-  args <- sc(list(apikey = key, q = terms, state = state, window = window,
-                       chamber = chamber, sponsor_id = sponsor_id,
-                       updated_since = updated_since, subject = subject, type = type,
-                       search_window = search_window, sort = sort, page = page, per_page = per_page,
-                       fields = paste(fields, collapse = ",")))
-  give(as, osurl(), endpt = "/bills", args, ...)
+  key <- check_key(key, 'OPEN_STATES_KEY')
+  args <- sc(list(q = terms, state = state, window = window,
+    chamber = chamber, sponsor_id = sponsor_id,
+    updated_since = updated_since, subject = subject, type = type,
+    search_window = search_window, sort = sort, page = page, per_page = per_page,
+    fields = paste(fields, collapse = ",")))
+  give(as, osurl(), "bills", args, key, ...)
 }

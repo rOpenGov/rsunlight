@@ -16,14 +16,14 @@ See Details. Required.}
 
 \item{n}{The size of phrase, in words, to search for (up to 5).}
 
-\item{page}{The page of results to show. 100 results are shown at a time. To get more than
-100 results, use the page parameter.}
+\item{page}{The page of results to show. Default: 1}
 
-\item{per_page}{Number of records to return. Default: 20. Max: 50.}
+\item{per_page}{Number of records to return. Default: 100}
 
-\item{sort}{The value on which to sort the results. You have to specify ascending or
-descending (see details), but if you forget, we make it ascending by default
-(prevents 500 error :)). Valid values are 'tfidf' (default) and 'count'.}
+\item{sort}{The value on which to sort the results. You have to specify
+ascending or descending (see details), but if you forget, we make it
+ascending by default (prevents 500 error :)). Valid values are 'tfidf'
+(default) and 'count'.}
 
 \item{as}{(character) One of table (default), list, or response (httr response object).}
 
@@ -54,4 +54,3 @@ library('httr')
 head(cw_phrases(entity_type='month', entity_value=201007, config=verbose()))
 }
 }
-

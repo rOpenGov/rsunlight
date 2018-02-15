@@ -84,4 +84,3 @@ cg_upcoming_bills()
 cg_upcoming_bills(chamber = c("house", "senate"))
 }
 }
-

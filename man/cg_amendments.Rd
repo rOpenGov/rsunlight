@@ -96,4 +96,3 @@ cg_amendments(amends_bill_id='hr624-113')
 cg_amendments(chamber = c('house', 'senate'), per_page=2)
 }
 }
-

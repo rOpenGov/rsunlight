@@ -206,4 +206,3 @@ cg_legislators(party = c('D', 'R'))
 cg_legislators(last_name = c('Pelosi', 'Merkley'))
 }
 }
-

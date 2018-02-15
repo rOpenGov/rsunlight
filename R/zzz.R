@@ -9,9 +9,10 @@ return_obj <- function(x, y){
     y
   } else {
     if (x == 'list') {
-      jsonlite::fromJSON(y, simplifyVector = FALSE, flatten = TRUE)
+      tibble::as_tibble(jsonlite::fromJSON(y, simplifyVector = FALSE, 
+        flatten = TRUE))
     } else {
-      jsonlite::fromJSON(y, flatten = TRUE)
+      tibble::as_tibble(jsonlite::fromJSON(y, flatten = TRUE))
     }
   }
 }
@@ -34,14 +35,15 @@ flatten_df <- function(x) {
 
 # check if stupid single left bracket returned
 err_hand <- function(z) {
-  tmp <- httr::content(z, "text")
-  if (identical(tmp, "[")) {
-    q <- httr::parse_url(z$request$opts$url)$query
-    q <- paste0("\n - ", paste(names(q), q, sep = "="), collapse = "")
-    stop("The following query had no results:\n", q, call. = FALSE)
-  } else {
-    tmp
-  }
+  (tmp <- z$parse("UTF-8"))
+  # tmp <- httr::content(z, "text")
+  # if (identical(tmp, "[")) {
+  #   q <- httr::parse_url(z$request$opts$url)$query
+  #   q <- paste0("\n - ", paste(names(q), q, sep = "="), collapse = "")
+  #   stop("The following query had no results:\n", q, call. = FALSE)
+  # } else {
+  #   tmp
+  # }
 }
 
 give_noiter <- function(as, url, endpt, args, ...) {
@@ -52,14 +54,18 @@ give_noiter <- function(as, url, endpt, args, ...) {
          response = tmp)
 }
 
-give <- function(as, url, endpt, args, ...) {
+give <- function(as, url, endpt, args, key, ...) {
   iter <- get_iter(args)
   if (length(iter) == 0) {
-    tmp <- return_obj(as, query(paste0(url, endpt), args, ...))
+    out <- query(url = osurl(), path = sprintf("api/v1/%s/", endpt), args, 
+      headers = list(`X-API-KEY` = key), ...)
+    tmp <- return_obj(as, out)
   } else {
     tmp <- lapply(iter[[1]], function(w) {
       args[[ names(iter) ]] <- w
-      return_obj(as, query(paste0(url, endpt), args, ...))
+      out <- query(url = osurl(), path = sprintf("api/v1/%s/", endpt), args,
+        headers = list(`X-API-KEY` = key), ...)
+      return_obj(as, out)
     })
     if (as == "table") {
       tmp <- tmp[vapply(tmp, length, numeric(1)) != 0]
@@ -73,14 +79,17 @@ give <- function(as, url, endpt, args, ...) {
 }
 
 give_cg <- function(as, url, endpt, args, ...) {
+  key <- check_key(NULL, "PROPUBLICA_API_KEY")
   iter <- get_iter(args)
   if (length(iter) == 0) {
-    tmp <- return_obj(as, query(paste0(url, endpt), args, ...))
-    found <- tmp$num_found
+    tmp <- return_obj(as, query(file.path(url, endpt), args, 
+      headers = list(`X-API-KEY` = key), ...))
+    found <- tmp$results$num_results
   } else {
     tmp <- lapply(iter[[1]], function(w) {
       args[[ names(iter) ]] <- w
-      return_obj(as, query(paste0(url, endpt), args, ...))
+      return_obj(as, query(paste0(url, endpt), args, 
+        headers = list(`X-API-KEY` = key), ...))
     })
     found <- as.list(stats::setNames(sapply(tmp, function(z) {
       zz <- z$num_found
@@ -117,23 +126,20 @@ get_iter <- function(z) {
   z[vapply(z, length, 1) > 1]
 }
 
-check_key <- function(x){
-  tmp <- if (is.null(x)) {
-    Sys.getenv("SUNLIGHT_LABS_KEY", "")
-  } else {
-    x
-  }
-
-  if (tmp == "") {
-    getOption("SunlightLabsKey", stop("need an API key for Sunlight Labs"))
-  } else {
-    tmp
-  }
+check_key <- function(x, name){
+  tmp <- if (is.null(x)) Sys.getenv(name, "") else  x
+  if (tmp == "") stop("need an API key for Sunlight Labs") else tmp
 }
 
-cgurl <- function() 'https://congress.api.sunlightfoundation.com'
+cgurl <- function() 'https://api.propublica.org'
 cwurl <- function() 'http://capitolwords.org/api'
 ieurl <- function() 'http://transparencydata.com/api/1.0'
-osurl <- function() 'http://openstates.org/api/v1'
+osurl <- function() 'https://openstates.org'
 rtieurl <- function() "http://realtime.influenceexplorer.com/api/"
 
+
+as_dt <- function(z) {
+  (data.table::setDF(
+    data.table::rbindlist(z, fill = TRUE, use.names = TRUE)
+  ))
+}

@@ -10,4 +10,3 @@ ie_entities(...)
 This function is defunct.
 }
 \keyword{internal}
-

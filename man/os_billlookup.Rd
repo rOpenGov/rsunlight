@@ -47,9 +47,6 @@ os_billlookup(state='ca', session=20092010, bill_id='AB 667',
    per_page=3, fields=c('id','title'))
 os_billlookup(state='ca', session=20092010, bill_id='SB 425')
 os_billlookup(state='ca', session=20092010, bill_id=c('AB 667','SB 425'))
-
-library('httr')
-os_billlookup(state='ca', session=20092010, bill_id='AB 667', config=verbose(), per_page=1)
+os_billlookup(state='ca', session=20092010, bill_id='AB 667', verbose = TRUE)
 }
 }
-

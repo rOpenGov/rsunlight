@@ -10,4 +10,3 @@ ie_contracts(...)
 This function is defunct.
 }
 \keyword{internal}
-

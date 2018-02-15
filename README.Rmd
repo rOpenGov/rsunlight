@@ -32,11 +32,11 @@ __UPDATE: Sunlight is going bye bye - Some services have moved to Propublica, wh
 
 ## Description
 
-`rsunlight` is a collection of functions to search and acquire data from the various Sunlight Labs APIs for government data, at [http://sunlightfoundation.com/api/](http://sunlightfoundation.com/api/).
+`rsunlight` is a collection of functions to search and acquire data from the various Sunlight Labs APIs for government data, at [http://sunlightfoundation.com/api/](http://sunlightfoundation.com/api/), some of which are maintained now by ProPublica
 
 `rsunlight` wraps functions in APIs for:
 
-* Congress API (`cg`)
+* Congress API (`cg`) - Run by Propublica
 * Open States API (`os`)
 * Capitol Words API (`cw`)
 
@@ -48,21 +48,14 @@ Functions that wrap these sets of APIs will be prefixed by `cg`, `os`, or `cw` f
 
 where `fxn` would be a function to a interface with a specific Sunlight Foundation API.
 
-Please get your own API keys if you plant to use these functions for Sunlight Labs (http://sunlightfoundation.com/api/).
+* Get an Open States API key at <https://openstates.org/api/register/> - Store as
+`OPEN_STATES_KEY` 
 
-Data from the Sunlight Foundation API is provided by Sunlight Foundation.
-
-<a href="http://sunlightfoundation.com/api/"><img src="http://www.altweeklies.com/imager/b/main/5866471/f291/SunlightFoundationLogo_500wide.gif" alt="NYT API" /></a>
-
-You need API keys for Sunlight Foundation APIs. Please get your own API keys if you
-plan to use these functions for Sunlight Labs (http://services.sunlightlabs.com/).
 We set up the functions so that you can use either env vars, or R options. For env
 vars, put an entry in your `.Renviron` file with the name `SUNLIGHT_LABS_KEY`,
 so the full thing would be `SUNLIGHT_LABS_KEY=<key>`. For R options, put the key in
 your `.Rprofile` file like `options(SunlightLabsKey = "key")`. Both are called
 on R startup, and then you don't have to enter your API key for each run of a function.
-
-**Note** that Puerto Rico is not included in Sunlight Foundation data.
 
 ## Install rsunlight
 

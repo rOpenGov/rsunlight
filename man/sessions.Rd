@@ -8,4 +8,3 @@
 Congressional sessions, up to the 114th (2015-2016)
 }
 \keyword{datasets}
-

@@ -94,4 +94,3 @@ cg_votes(voter_ids.A000055__exists=TRUE)
 cg_votes(chamber = c('house', 'senate'))
 }
 }
-

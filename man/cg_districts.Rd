@@ -59,4 +59,3 @@ cg_districts(latitude = 35.778788, longitude = -78.787805)
 cg_districts(zip = c(27511, 97202))
 }
 }
-

@@ -225,4 +225,3 @@ cg_bills(per_page='all')
 cg_bills(bill_id = c("hjres131-113", "hjres129-113", "s2921-113"))
 }
 }
-

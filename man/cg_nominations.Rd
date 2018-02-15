@@ -81,4 +81,3 @@ cg_nominations(query='Petraeus')
 cg_nominations(party = c('PN1873-111', 'PN604-112'))
 }
 }
-

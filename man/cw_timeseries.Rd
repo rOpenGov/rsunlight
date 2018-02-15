@@ -97,4 +97,3 @@ ggplot(dat_both, aes(day, count, colour = party)) +
    scale_colour_manual(values=c("blue", "red"))
 }
 }
-

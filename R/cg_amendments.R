@@ -49,7 +49,7 @@ cg_amendments <- function(amendment_id=NULL, amendment_type=NULL, number=NULL, c
   key = NULL, as = 'table', ...) {
 
   key <- check_key(key)
-  url <- 'https://congress.api.sunlightfoundation.com/amendments'
+  # url <- 'https://congress.api.sunlightfoundation.com/amendments'
   args <- sc(list(apikey=key, amendment_id=amendment_id, amendment_type=amendment_type,
                           number=number, congress=congress, chamber=chamber, house_number=house_number,
                           introduced_on=introduced_on, last_action_at=last_action_at,

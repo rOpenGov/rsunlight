@@ -10,4 +10,3 @@ ie_sectors(...)
 This function is defunct.
 }
 \keyword{internal}
-

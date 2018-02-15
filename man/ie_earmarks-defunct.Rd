@@ -10,4 +10,3 @@ ie_earmarks(...)
 This function is defunct.
 }
 \keyword{internal}
-

@@ -10,4 +10,3 @@ ie_contr(...)
 This function is defunct.
 }
 \keyword{internal}
-

@@ -2,8 +2,8 @@
 % Please edit documentation in R/rsunlight-package.R
 \docType{package}
 \name{rsunlight-package}
-\alias{rsunlight}
 \alias{rsunlight-package}
+\alias{rsunlight}
 \title{Sunlight Foundation data from R}
 \description{
 You need API keys for Sunlight Foundation APIs. Please get your own API keys if you
@@ -32,4 +32,3 @@ Scott Chamberlain \email{myrmecocystus@gmail.com}
 Thomas J. Leeper \email{thosjleeper@gmail.com}
 }
 \keyword{package}
-

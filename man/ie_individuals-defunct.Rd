@@ -10,4 +10,3 @@ ie_individuals(...)
 This function is defunct.
 }
 \keyword{internal}
-

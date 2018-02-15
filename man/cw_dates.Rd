@@ -99,4 +99,3 @@ cw_dates(phrase=c('voting', 'hate'), start_date='2009-01-01',
 cw_dates(phrase = "peace", bioguide_id = 'P000197')
 }
 }
-
