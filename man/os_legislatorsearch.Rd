@@ -34,7 +34,7 @@ it's recommended to always specify which fields you will be using.}
 
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
 }
 \value{
 List of output fields.

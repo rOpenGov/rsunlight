@@ -5,7 +5,7 @@ query <- function(url, path, args, headers, ...) {
     opts = list(followlocation = TRUE, ...)
   )
   res <- cli$get(path, query = args)
-  # Check status. 403s are the most likely and we don't want to be just 
+  # Check status. 403s are the most likely and we don't want to be just
   if (res$status_code == 403) {
     stop("Your connection was not authorised: you have either not provided an API key, or provided
          an invalid one. Please see ?rsunlight", call. = FALSE)

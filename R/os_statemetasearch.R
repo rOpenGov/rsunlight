@@ -2,7 +2,7 @@
 #'
 #' @param state One or more two-letter state abbreviations (character)
 #' @param key your SunlightLabs API key; or loads from .Rprofile
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param ... Curl options passed on to \code{\link[crul]{HttpClient}}
 #' @return A list with metadata for each state.
 #' @export
 #' @examples \dontrun{

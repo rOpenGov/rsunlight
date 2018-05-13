@@ -30,7 +30,7 @@ per_page parameter to get more than the default or max number of results per pag
 
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
 }
 \value{
 List of output fields.

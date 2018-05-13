@@ -14,7 +14,7 @@
 #' it's recommended to always specify which fields you will be using.
 #' @param as (character) One of table (default), list, or response (httr response object)
 #' @param key your SunlightLabs API key; loads from .Rprofile
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param ... Curl options passed on to \code{\link[crul]{HttpClient}}
 #' @return List of output fields.
 #' @export
 #' @examples \dontrun{
@@ -31,10 +31,10 @@ os_legislatorsearch <- function(state = NULL, first_name = NULL,
     last_name = NULL, chamber = NULL, active = NULL, term = NULL, district = NULL,
     party = NULL, fields = NULL, as = 'table', key = NULL, ...) {
 
-  key <- check_key(key)
-  args <- sc(list(apikey = key, state = state, first_name = first_name,
-                       last_name = last_name, chamber = chamber, active = active,
-                       term = term, district = district, party = party,
-                       fields = paste(fields, collapse = ",")))
-  give(as, osurl(), "/legislators", args, ...)
+  key <- check_key(key, 'OPEN_STATES_KEY')
+  args <- sc(list(state = state, first_name = first_name,
+  	last_name = last_name, chamber = chamber, active = active,
+    term = term, district = district, party = party,
+    fields = paste(fields, collapse = ",")))
+  give(as, osurl(), "legislators", args, key, ...)
 }

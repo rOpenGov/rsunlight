@@ -34,7 +34,7 @@
 #' per_page parameter to get more than the default or max number of results per page.
 #' @param as (character) One of table (default), list, or response (httr response object)
 #' @param key your SunlightLabs API key; loads from .Rprofile
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param ... Curl options passed on to \code{\link[crul]{HttpClient}}
 #' @return a data.frame of bills.
 #' @export
 #' @examples \dontrun{
@@ -60,8 +60,8 @@
 #' os_billsearch(terms = 'agriculture', state = "or", chamber = c('upper', 'lower'))
 #' }
 os_billsearch <- function(terms = NULL, state = NULL, window = NULL,
-    chamber = 'upper', sponsor_id = NULL, updated_since = NULL, subject = NULL, 
-    type=NULL, search_window=NULL, sort=NULL, page=NULL, per_page=NULL, 
+    chamber = 'upper', sponsor_id = NULL, updated_since = NULL, subject = NULL,
+    type=NULL, search_window=NULL, sort=NULL, page=NULL, per_page=NULL,
     fields = NULL, as ='table', key = NULL, ...) {
 
   key <- check_key(key, 'OPEN_STATES_KEY')

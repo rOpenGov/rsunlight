@@ -17,13 +17,28 @@ return_obj <- function(x, y){
   }
 }
 
+return_obj_notibbles <- function(x, y){
+  y <- err_hand(y)
+  x <- match.arg(x, c('response', 'list', 'table', 'data.frame'))
+  if (x == 'response') {
+    y
+  } else {
+    if (x == 'list') {
+      jsonlite::fromJSON(y, simplifyVector = FALSE,
+        flatten = TRUE)
+    } else {
+      jsonlite::fromJSON(y, flatten = TRUE)
+    }
+  }
+}
+
 flatten_df <- function(x) {
   if (NROW(x) == 0) {
     x
   }
   else {
     for (i in seq_len(NCOL(x))) {
-      if (class(x[,i]) == "list") {
+      if (class(x[,i][[1L]]) == "list") {
         z <- unlist(x[,i])
         if (length(z) != NROW(x)) z <- rep(NA_character_, NROW(x))
         x[,i] <- z

@@ -15,7 +15,7 @@
 #' per_page parameter to get more than the default or max number of results per page.
 #' @param as (character) One of table (default), list, or response (httr response object)
 #' @param key your SunlightLabs API key; loads from .Rprofile
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param ... Curl options passed on to \code{\link[crul]{HttpClient}}
 #' @return List of output fields.
 #' @export
 #' @examples \dontrun{
@@ -39,9 +39,9 @@ os_billlookup <- function(state = NULL, session = NULL, bill_id = NULL,
     bill_id <- NULL
   }
   args <- sc(list(state = state, session = session, bill_id = bill_id,
-          bill_id__in = bills, per_page = per_page, page = page, 
+          bill_id__in = bills, per_page = per_page, page = page,
           fields = paste(fields, collapse = ",")))
-  out <- query(url = osurl(), path = "api/v1/bills/", args, 
+  out <- query(url = osurl(), path = "api/v1/bills/", args,
     headers = list(`X-API-KEY` = key), ...)
   return_obj(as, out)
 }
