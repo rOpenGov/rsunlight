@@ -9,7 +9,7 @@ return_obj <- function(x, y){
     y
   } else {
     if (x == 'list') {
-      tibble::as_tibble(jsonlite::fromJSON(y, simplifyVector = FALSE, 
+      tibble::as_tibble(jsonlite::fromJSON(y, simplifyVector = FALSE,
         flatten = TRUE))
     } else {
       tibble::as_tibble(jsonlite::fromJSON(y, flatten = TRUE))
@@ -47,7 +47,7 @@ err_hand <- function(z) {
 }
 
 give_noiter <- function(as, url, endpt, args, ...) {
-  tmp <- return_obj(as, query(paste0(url, endpt), args, ...))
+  tmp <- return_obj(as, query(url, endpt, args, NULL, ...))
   switch(as,
          table = as_data_frame(flatten_df(tmp)),
          list = tmp,
@@ -57,7 +57,7 @@ give_noiter <- function(as, url, endpt, args, ...) {
 give <- function(as, url, endpt, args, key, ...) {
   iter <- get_iter(args)
   if (length(iter) == 0) {
-    out <- query(url = osurl(), path = sprintf("api/v1/%s/", endpt), args, 
+    out <- query(url = osurl(), path = sprintf("api/v1/%s/", endpt), args,
       headers = list(`X-API-KEY` = key), ...)
     tmp <- return_obj(as, out)
   } else {
@@ -82,13 +82,13 @@ give_cg <- function(as, url, endpt, args, ...) {
   key <- check_key(NULL, "PROPUBLICA_API_KEY")
   iter <- get_iter(args)
   if (length(iter) == 0) {
-    tmp <- return_obj(as, query(file.path(url, endpt), args, 
+    tmp <- return_obj(as, query(file.path(url, endpt), args,
       headers = list(`X-API-KEY` = key), ...))
     found <- tmp$results$num_results
   } else {
     tmp <- lapply(iter[[1]], function(w) {
       args[[ names(iter) ]] <- w
-      return_obj(as, query(paste0(url, endpt), args, 
+      return_obj(as, query(paste0(url, endpt), args,
         headers = list(`X-API-KEY` = key), ...))
     })
     found <- as.list(stats::setNames(sapply(tmp, function(z) {
@@ -132,7 +132,7 @@ check_key <- function(x, name){
 }
 
 cgurl <- function() 'https://api.propublica.org'
-cwurl <- function() 'http://capitolwords.org/api'
+cwurl <- function() 'http://capitolwords.org'
 ieurl <- function() 'http://transparencydata.com/api/1.0'
 osurl <- function() 'https://openstates.org'
 rtieurl <- function() "http://realtime.influenceexplorer.com/api/"
