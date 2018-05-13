@@ -9,7 +9,7 @@
 #' @param id A unique ID for this district (separate from boundary_id).
 #' @param legislators List of legislators that serve in this district. (may be
 #' more than one if num_seats > 1)
-#' @param name Name of the district (e.g. ‘14’, ‘33A’, ‘Fifth Suffolk’)
+#' @param name Name of the district (e.g. '14', '33A', 'Fifth Suffolk')
 #' @param num_seats Number of legislators that are elected to this seat.
 #' Generally one, but will be 2 or more if the seat is a multi-member district.
 #' @param as (character) One of table (default), list, or response

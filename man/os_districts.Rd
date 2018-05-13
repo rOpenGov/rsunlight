@@ -23,7 +23,7 @@ lower chamber. (character)}
 \item{legislators}{List of legislators that serve in this district. (may be
 more than one if num_seats > 1)}
 
-\item{name}{Name of the district (e.g. ‘14’, ‘33A’, ‘Fifth Suffolk’)}
+\item{name}{Name of the district (e.g. '14', '33A', 'Fifth Suffolk')}
 
 \item{num_seats}{Number of legislators that are elected to this seat.
 Generally one, but will be 2 or more if the seat is a multi-member district.}
