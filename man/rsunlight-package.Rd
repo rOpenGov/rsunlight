@@ -21,7 +21,6 @@ where functions for each API are prefixed with a two letter code indicating the 
 \itemize{
  \item Congress API (`cg`)
  \item Open States API (`os`)
- \item Capitol Words API (`cw`)
 }
 
 Note that Puerto Rico is not included in Sunlight Foundation data.

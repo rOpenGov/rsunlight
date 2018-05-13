@@ -132,11 +132,9 @@ check_key <- function(x, name){
 }
 
 cgurl <- function() 'https://api.propublica.org'
-cwurl <- function() 'http://capitolwords.org'
 ieurl <- function() 'http://transparencydata.com/api/1.0'
 osurl <- function() 'https://openstates.org'
 rtieurl <- function() "http://realtime.influenceexplorer.com/api/"
-
 
 as_dt <- function(z) {
   (data.table::setDF(

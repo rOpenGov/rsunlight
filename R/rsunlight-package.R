@@ -14,7 +14,6 @@
 #' \itemize{
 #'  \item Congress API (`cg`)
 #'  \item Open States API (`os`)
-#'  \item Capitol Words API (`cw`)
 #' }
 #'
 #' Note that Puerto Rico is not included in Sunlight Foundation data.
