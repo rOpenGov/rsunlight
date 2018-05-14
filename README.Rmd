@@ -11,8 +11,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-[![Build Status](https://api.travis-ci.org/rOpenGov/rsunlight.png)](https://travis-ci.org/rOpenGov/rsunlight)
-[![Build status](https://ci.appveyor.com/api/projects/status/ytc2qdo3u2t3ltm6/branch/master)](https://ci.appveyor.com/project/sckott/rsunlight)
+[![Build Status](https://travis-ci.org/rOpenGov/rsunlight.svg?branch=master)](https://travis-ci.org/rOpenGov/rsunlight)
 [![codecov.io](https://codecov.io/github/rOpenGov/rsunlight/coverage.svg?branch=master)](https://codecov.io/github/rOpenGov/rsunlight?branch=master)
 [![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/grand-total/rsunlight)](https://github.com/metacran/cranlogs.app)
 [![cran version](http://www.r-pkg.org/badges/version/rsunlight)](https://cran.r-project.org/package=rsunlight)
@@ -73,10 +72,16 @@ library("rsunlight")
 
 ## Congress API
 
-Search congress people and senate members.
+Search for congress members by chamber and state
 
 ```{r}
-cg_legislators(last_name = 'Reed')
+cg_members_state_district('senate', 'RI')
+```
+
+Search for committees by congress and chamber
+
+```{r}
+cg_committees(115, "senate")[[1]]$committees[[1]]
 ```
 
 ## Open States API
