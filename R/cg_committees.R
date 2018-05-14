@@ -1,55 +1,96 @@
-#' @title Gets details (subcommittees + membership) for a committee by id.
-#'
-#' @description Names, IDs, contact info, and memberships of committees and subcommittees
-#' in the House and Senate. All committee information is sourced from bulk data at
-#' github.com/unitedstates, which in turn comes from official House and Senate sources.
-#' Feel free to open a ticket with any bugs or suggestions. We only provide information
-#' on current committees and memberships. For historic data on committee names, IDs,
-#' and contact info, refer to the bulk data.
+#' committees methods
 #'
 #' @export
-#' @param member_ids An array of bioguide IDs of legislators that are assigned to
-#' this committee.
-#' @param committee_id Official ID of the committee, as it appears in various official
-#' sources (Senate, House, and Library of Congress).
-#' @param chamber The chamber this committee is part of. 'house', 'senate', or 'joint'.
-#' @param subcommittee Whether or not the committee is a subcommittee.
-#' @param parent_committee_id If the committee is a subcommittee, the ID of its
-#' parent committee.
-#' @template cg
-#' @template cg_query
-#' @return Committee details including subcommittees and all members.
+#' @name committees
+#' @param congress (character) The number of the Congress this update
+#' took place during.
+#' @param chamber (character) The chamber this update took place in. 'house'
+#' or 'senate'.
+#' @param id (character) a commmitte id
+#' @param sub_id (character) a sub-committee id
+#' @param date (character) a date, of the form YYYY-MM-DD
+#' @param category (character) one of ec, pm, or pom
+#' @param key your ProPublica API key; pass in or loads from environment variable
+#' stored as `PROPUBLICA_API_KEY` in either your .Renviron, or similar file
+#' locatd in your home directory
+#' @param as (character) IGNORED FOR NOW
+#' @param ... optional curl options passed on to [crul::HttpClient].
+#' See [curl::curl_options()]
+#' @return various things for now, since return objects vary quite a bit
+#' among the different votes routes
 #' @examples \dontrun{
-#' cg_committees(member_ids='L000551')
-#' cg_committees(committee_id='SSAP')
-#' cg_committees(committee_id='SSAP', fields='members')
-#' cg_committees(chamber='joint', subcommittee=FALSE)
-#' cg_committees(parent_committee_id='HSWM')
-#'
-#' # Disable pagination
-#' cg_committees(per_page='all')
-#'
-#' # Output a list
-#' cg_committees(member_ids='L000551', as='list')
-#' # Output an httr response object, for debugging purposes
-#' cg_committees(member_ids='L000551', as='response')
-#'
-#' # most parameters are vectorized, pass in more than one value
-#' cg_committees(committee_id = c('SSAP', 'SSGA01'))
+#' cg_committees(115, "senate")
+#' cg_committee(115, "senate", "SSAF")
+#' cg_committee(115, "senate", "HSAS", sub_id = "HSAS28")
+#' cg_committee_hearings(115)
+#' cg_committee_hearings(115, "house", "HSRU")
+#' cg_committee_comms(115)
+#' cg_committees_comms_category(115, "pm")
+#' cg_committees_comms_date("2018-03-21")
+#' cg_committees_comms_chamber(115, "house")
 #' }
+cg_committees <- function(congress, chamber, key = NULL, as = 'table', ...) {
+  path <- sprintf("congress/v1/%s/%s/committees.json", congress, chamber)
+  foo_bar(as, cgurl(), path, args = list(), key, ...)$results
+}
 
-cg_committees <-  function(member_ids = NULL, committee_id = NULL, chamber = NULL, subcommittee = NULL,
-  parent_committee_id = NULL, query=NULL, fields = NULL, page = 1, per_page = 20, order = NULL,
+#' @export
+#' @rdname committees
+cg_committee <- function(congress, chamber, id, sub_id = NULL, key = NULL,
+  as = 'table', ...) {
+
+  if (!is.null(sub_id)) {
+    path <- sprintf("congress/v1/%s/%s/committees/%s/subcommittees/%s.json",
+      congress, chamber, id, sub_id)
+  } else {
+    path <- sprintf("congress/v1/%s/%s/committees/%s.json",
+      congress, chamber, id)
+  }
+  foo_bar(as, cgurl(), path, args = list(), key, ...)$results
+}
+
+#' @export
+#' @rdname committees
+cg_committee_hearings <- function(congress, chamber = NULL, id = NULL,
   key = NULL, as = 'table', ...) {
 
-  key <- check_key(key)
-  if (!is.null(subcommittee)) {
-    subcommittee <- ifelse(subcommittee, 'true', 'false')
+  if (!is.null(chamber) && !is.null(id)) {
+    path <- sprintf("congress/v1/%s/%s/committees/%s/hearings.json",
+      congress, chamber, id)
+  } else {
+    path <- sprintf("congress/v1/%s/committees/hearings.json", congress)
   }
-  fields <- paste0(fields, collapse = ",")
-  args <- sc(list(apikey = key, member_ids = member_ids, committee_id = committee_id,
-              chamber = chamber, subcommittee = subcommittee, fields = fields,
-              parent_committee_id = parent_committee_id, page = page, per_page = per_page,
-              query = query, order = order))
-  give_cg(as, cgurl(), "/committees", args, ...)
+  foo_bar(as, cgurl(), path, args = list(), key, ...)$results
+}
+
+#' @export
+#' @rdname committees
+cg_committee_comms <- function(congress, key = NULL, as = 'table', ...) {
+  path <- sprintf("congress/v1/%s/communications.json", congress)
+  foo_bar(as, cgurl(), path, args = list(), key, ...)$results
+}
+
+#' @export
+#' @rdname committees
+cg_committees_comms_category <- function(congress, category, key = NULL,
+  as = 'table', ...) {
+
+  path <- sprintf("congress/v1/%s/communications/category/%s.json", congress, category)
+  foo_bar(as, cgurl(), path, args = list(), key, ...)$results
+}
+
+#' @export
+#' @rdname committees
+cg_committees_comms_date <- function(date, key = NULL, as = 'table', ...) {
+  path <- sprintf("congress/v1/communications/date/%s.json", date)
+  foo_bar(as, cgurl(), path, args = list(), key, ...)$results
+}
+
+#' @export
+#' @rdname committees
+cg_committees_comms_chamber <- function(congress, chamber, key = NULL,
+  as = 'table', ...) {
+
+  path <- sprintf("congress/v1/%s/communications/%s.json", congress, chamber)
+  foo_bar(as, cgurl(), path, args = list(), key, ...)$results
 }
