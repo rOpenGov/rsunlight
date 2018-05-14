@@ -12,7 +12,7 @@
 #' stored as `PROPUBLICA_API_KEY` in either your .Renviron, or similar file
 #' locatd in your home directory
 #' @param as (character) IGNORED FOR NOW
-#' @param ... optional curl options passed on to [curl::HttpClient].
+#' @param ... optional curl options passed on to [crul::HttpClient].
 #' See [curl::curl_options()]
 #' @return various things for now, since return objects vary quite a bit
 #' among the different members routes

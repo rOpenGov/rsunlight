@@ -54,8 +54,10 @@ locatd in your home directory}
 
 \item{as}{(character) IGNORED FOR NOW}
 
-\item{...}{optional curl options passed on to \link[curl:HttpClient]{curl::HttpClient}.
+\item{...}{optional curl options passed on to \link[crul:HttpClient]{crul::HttpClient}.
 See \code{\link[curl:curl_options]{curl::curl_options()}}}
+
+\item{type}{(character) the vote type, one of missed, party, loneno or perfect}
 
 \item{year}{(integer) a four digit year of the form YYYY}
 

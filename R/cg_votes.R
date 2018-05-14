@@ -14,6 +14,7 @@
 #' @param start_date,end_date (character) start and end date, of the form
 #' YYYY-MM-DD
 #' @param votes (logical) whether to return votes data or not. default: `FALSE`
+#' @param type (character) the vote type, one of missed, party, loneno or perfect
 #' @param category attribute describing the general reason for the absence or
 #' incorrect vote. see Details.
 #' @param member_id (character) The ID of the member to retrieve; it is
@@ -24,7 +25,7 @@
 #' stored as `PROPUBLICA_API_KEY` in either your .Renviron, or similar file
 #' locatd in your home directory
 #' @param as (character) IGNORED FOR NOW
-#' @param ... optional curl options passed on to [curl::HttpClient].
+#' @param ... optional curl options passed on to [crul::HttpClient].
 #' See [curl::curl_options()]
 #' @return various things for now, since return objects vary quite a bit
 #' among the different votes routes
