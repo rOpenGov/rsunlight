@@ -2,33 +2,34 @@
 % Please edit documentation in R/os_statemetasearch.R
 \name{os_statemetasearch}
 \alias{os_statemetasearch}
-\title{Search OpenStates metadata.}
+\title{Search OpenStates metadata}
 \usage{
 os_statemetasearch(state = NULL, key = NULL, ...)
 }
 \arguments{
 \item{state}{One or more two-letter state abbreviations (character)}
 
-\item{key}{your SunlightLabs API key; or loads from .Rprofile}
+\item{key}{your SunlightLabs API key; loads from environment variable from .Renviron or
+from an option from .Rprofile}
 
-\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
+\item{...}{Optional additional curl options (debugging tools mostly)
+passed on to \code{\link[crul]{HttpClient}}}
+
+\item{as}{(character) One of table (default), list, or response (httr response object).
+When table is requested, the default, a table is not always returned, but is returned almost
+always. You can then make a table yourself if you like.}
 }
 \value{
 A list with metadata for each state.
 }
 \description{
-Search OpenStates metadata.
+Search OpenStates metadata
 }
 \examples{
 \dontrun{
 os_statemetasearch()
 os_statemetasearch('ca')
 os_statemetasearch('tx')
-out <- os_statemetasearch(c('tx','nv'))
-out$tx
-out$nv
-
-library('httr')
-os_statemetasearch('tx', config=verbose())
+os_statemetasearch('tx', verbose = TRUE)
 }
 }

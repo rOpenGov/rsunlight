@@ -25,6 +25,6 @@ Lookup Legislators geospatially
 }
 \examples{
 \dontrun{
-os_legislatorgeo(lat = 35.79, long = -78.78, verbose = TRUE)
+os_legislatorgeo(lat = 35.79, long = -78.78)
 }
 }

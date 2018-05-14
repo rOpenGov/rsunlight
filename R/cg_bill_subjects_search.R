@@ -2,6 +2,7 @@
 #'
 #' @export
 #' @param query (character) a word or phrase to search
+#' @template args
 #' @examples \dontrun{
 #' cg_bill_subjects_search('climate')
 #' }
