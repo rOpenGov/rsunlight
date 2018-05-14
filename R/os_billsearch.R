@@ -32,9 +32,10 @@
 #' @param per_page Number of records to return. Default: 20. Max: 50.
 #' @param page Page to return. Default: 1. You can use this in combination with the
 #' per_page parameter to get more than the default or max number of results per page.
-#' @param as (character) One of table (default), list, or response (httr response object)
+#' @param as (character) One of table (default), list, or response
+#' (crul response object)
 #' @param key your SunlightLabs API key; loads from .Rprofile
-#' @param ... Curl options passed on to \code{\link[crul]{HttpClient}}
+#' @param ... Curl options passed on to [crul::HttpClient]
 #' @return a data.frame of bills.
 #' @export
 #' @examples \dontrun{

@@ -1,30 +1,37 @@
-#' Sunlight Foundation data from R
+#' Methods for retreiving data from APIs that were
+#' previously under Sulight Labs
 #'
-#' You need API keys for Sunlight Foundation APIs. Please get your own API keys if you
-#' plant to use these functions for Sunlight Labs (http://services.sunlightlabs.com/).
-#' We set up the functions so that you can use either env vars, or R options. For env
-#' vars, put an entry in your \code{.Renviron} file with the name \code{SUNLIGHT_LABS_KEY},
-#' so the full thing would be \code{SUNLIGHT_LABS_KEY=<key>}. For R options, put the key in
-#' your \code{.Rprofile} file like \code{options(SunlightLabsKey = "key")}. Both are called
-#' on R startup, and then you don't have to enter your API key for each run of a function.
+#' The various APIs included here are now managed by ProPublica and
+#' OpenStates organizations.
 #'
-#' Currently we have functions to interface with the following Sunlight Foundation APIs,
-#' where functions for each API are prefixed with a two letter code indicating the service.
+#' You need API keys for Propublica APIs. Get them at
+#' <https://www.propublica.org/datastore/apis>
 #'
-#' \itemize{
-#'  \item Congress API (`cg`)
-#'  \item Open States API (`os`)
-#' }
+#' You need an API key for the OpenStates API. Get it at
+#' <https://openstates.org/api/register/>
 #'
-#' Note that Puerto Rico is not included in Sunlight Foundation data.
+#' We set up the functions so that you can use either env vars, or R options.
+#' For env vars, put an entry in your `.Renviron` file with the names
+#' `PROPUBLICA_API_KEY` and `OPEN_STATES_KEY`.
+#'
+#' Currently we have functions to interface with the following ProPublica API
+#' and OpenStates API:
+#'
+#' - ProPublica Congress API (`cg`)
+#' - Open States API (`os`)
+#'
+#' NOTES:
+#'
+#' - Capitol Words API is now defunct
+#' - We will support ProPublica campaign finance API in the future
 #'
 #' @importFrom methods is
 #' @importFrom utils head
-#' @importFrom httr GET content stop_for_status parse_url
 #' @importFrom jsonlite fromJSON
 #' @importFrom plyr rbind.fill
 #' @importFrom stringr str_sub
 #' @importFrom tibble as_data_frame
+#' @importFrom crul HttpClient
 #' @name rsunlight-package
 #' @aliases rsunlight
 #' @docType package

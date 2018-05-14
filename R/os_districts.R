@@ -15,7 +15,7 @@
 #' @param as (character) One of table (default), list, or response
 #' (`crul` response object)
 #' @param key your SunlightLabs API key; loads from .Rprofile
-#' @param ... Curl options passed on to \code{\link[crul]{HttpClient}}
+#' @param ... Curl options passed on to [crul::HttpClient]
 #' @return a data.frame of bills.
 #' @details this route appears to not support pagination, sorting or
 #' selecting fields

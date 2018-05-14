@@ -5,7 +5,7 @@
 #' @param key your SunlightLabs API key; loads from environment variable
 #' from .Renviron or from an option from .Rprofile
 #' @param ... Optional additional curl options (debugging tools mostly)
-#' passed on to \code{\link[crul]{HttpClient}}
+#' passed on to [crul::HttpClient]
 #' @return A list with metadata for each state.
 #' @examples \dontrun{
 #' os_statemetasearch()

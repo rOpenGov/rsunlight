@@ -49,17 +49,7 @@ flatten_df <- function(x) {
 }
 
 # check if stupid single left bracket returned
-err_hand <- function(z) {
-  (tmp <- z$parse("UTF-8"))
-  # tmp <- httr::content(z, "text")
-  # if (identical(tmp, "[")) {
-  #   q <- httr::parse_url(z$request$opts$url)$query
-  #   q <- paste0("\n - ", paste(names(q), q, sep = "="), collapse = "")
-  #   stop("The following query had no results:\n", q, call. = FALSE)
-  # } else {
-  #   tmp
-  # }
-}
+err_hand <- function(z) z$parse("UTF-8")
 
 give_noiter <- function(as, url, endpt, args, ...) {
   tmp <- return_obj(as, query(url, endpt, args, NULL, ...))

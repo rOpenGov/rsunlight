@@ -33,7 +33,7 @@ Generally one, but will be 2 or more if the seat is a multi-member district.}
 
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
-\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
+\item{...}{Curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }
 \value{
 a data.frame of bills.

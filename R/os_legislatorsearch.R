@@ -12,9 +12,9 @@
 #' are not returned unless requested. If you don't supply a fields parameter, you will get the
 #' most commonly used subset of fields only. To save on bandwidth, parsing time, and confusion,
 #' it's recommended to always specify which fields you will be using.
-#' @param as (character) One of table (default), list, or response (httr response object)
+#' @param as (character) One of table (default), list, or response (crul response object)
 #' @param key your SunlightLabs API key; loads from .Rprofile
-#' @param ... Curl options passed on to \code{\link[crul]{HttpClient}}
+#' @param ... Curl options passed on to [crul::HttpClient]
 #' @return List of output fields.
 #' @export
 #' @examples \dontrun{

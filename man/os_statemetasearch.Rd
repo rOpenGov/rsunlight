@@ -13,7 +13,7 @@ os_statemetasearch(state = NULL, key = NULL, ...)
 from .Renviron or from an option from .Rprofile}
 
 \item{...}{Optional additional curl options (debugging tools mostly)
-passed on to \code{\link[crul]{HttpClient}}}
+passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }
 \value{
 A list with metadata for each state.

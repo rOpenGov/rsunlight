@@ -18,13 +18,6 @@ knitr::opts_chunk$set(
 [![cran version](http://www.r-pkg.org/badges/version/rsunlight)](https://cran.r-project.org/package=rsunlight)
 
 
-
-
-__UPDATE: Sunlight is going bye bye - Some services have moved to Propublica, while others I'll look into.__
-
-
-
-
 + Maintainer: [Scott Chamberlain](https://github.com/sckott/)
 + License: [MIT](http://opensource.org/licenses/MIT)
 + Report any problems in the [Issues Tracker](https://github.com/ropengov/rsunlight/issues), or just fork and submit changes, etc.
@@ -34,28 +27,31 @@ __UPDATE: Sunlight is going bye bye - Some services have moved to Propublica, wh
 
 > NOTE: Capitol Words API is defunct
 
-`rsunlight` is a collection of functions to search and acquire data from the various Sunlight Labs APIs for government data, at [http://sunlightfoundation.com/api/](http://sunlightfoundation.com/api/), some of which are maintained now by ProPublica
+`rsunlight` is a collection of functions to search and acquire data from the various APIs that used to be housed under Sunlight Labs, but which are now housed under ProPublica.
 
 `rsunlight` wraps functions in APIs for:
 
-* Congress API (`cg`) - Run by Propublica
-* Open States API (`os`)
+* Congress API (`cg`) - Run by ProPublica
+* Open States API (`os`) - Run by OpenStates foundation
 
-Functions that wrap these sets of APIs will be prefixed by `cg`, `os`, or `cw` for the different methods listed above:
+Functions that wrap these sets of APIs will be prefixed by `cg` or `os` for the different methods listed above:
 
 * `cg` + `fxn`
 * `os` + `fxn`
 
-where `fxn` would be a function to a interface with a specific Sunlight Foundation API.
+where `fxn` would be a function to a interface with a specific API.
 
-* Get an Open States API key at <https://openstates.org/api/register/> - Store as
-`OPEN_STATES_KEY`
 
-We set up the functions so that you can use either env vars, or R options. For env
-vars, put an entry in your `.Renviron` file with the name `SUNLIGHT_LABS_KEY`,
-so the full thing would be `SUNLIGHT_LABS_KEY=<key>`. For R options, put the key in
-your `.Rprofile` file like `options(SunlightLabsKey = "key")`. Both are called
-on R startup, and then you don't have to enter your API key for each run of a function.
+You need API keys for Propublica APIs. Get them at
+<https://www.propublica.org/datastore/apis>
+
+You need an API key for the OpenStates API. Get it at
+<https://openstates.org/api/register/>
+
+
+We set up the functions so that you can use either env vars, or R options.
+For env vars, put an entry in your `.Renviron` file with the names
+`PROPUBLICA_API_KEY` and `OPEN_STATES_KEY`.
 
 ## Install rsunlight
 
@@ -77,31 +73,21 @@ library("rsunlight")
 
 ## Congress API
 
-### Get districts for a latitude/longitude.
+Search congress people and senate members.
 
 ```{r}
-cg_districts(latitude = 35.778788, longitude = -78.787805)
-```
-
-### Search congress people and senate members.
-
-```{r}
-out <- cg_legislators(last_name = 'Reed')
+cg_legislators(last_name = 'Reed')
 ```
 
 ## Open States API
 
-### Bill Search
-
-Search for bills with the term _agriculture_, in Texas, and in the upper chamber.
+Bill Search - Search for bills with the term _agriculture_, in Texas, and in the upper chamber.
 
 ```{r}
 os_billsearch(terms = 'agriculture', state = 'tx', chamber = 'upper')
 ```
 
-### Legislator Search
-
-Search for Republican legislators in Nevada
+Legislator Search - Search for Republican legislators in Nevada
 
 ```{r}
 os_legislatorsearch(state = 'nv', party = 'republican')

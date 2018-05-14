@@ -4,7 +4,7 @@
 #' @param long a longitude value (numeric,integer)
 #' @param as (character) One of table (default), list, or response
 #' @param key your SunlightLabs API key; loads from .Rprofile
-#' @param ... Curl options passed on to \code{\link[crul]{HttpClient}}
+#' @param ... Curl options passed on to [crul::HttpClient]
 #' @return various, depending on \code{as} parameter
 #' @export
 #' @examples \dontrun{

@@ -21,7 +21,7 @@ os_committees(state = NULL, chamber = "upper", committee = NULL,
 
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
-\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
+\item{...}{Curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }
 \value{
 a data.frame of bills.

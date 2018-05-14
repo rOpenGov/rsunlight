@@ -9,11 +9,12 @@ os_district(id, as = "table", key = NULL, ...)
 \arguments{
 \item{id}{a boundary id used in District Boundary Lookup (character)}
 
-\item{as}{(character) One of table (default), list, or response (httr response object)}
+\item{as}{(character) One of table (default), list, or response
+(crul response object)}
 
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
-\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
+\item{...}{Curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }
 \value{
 a data.frame of bills.

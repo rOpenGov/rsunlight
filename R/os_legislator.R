@@ -3,7 +3,7 @@
 #' @param id legislator id (character)
 #' @param as (character) One of table (default), list, or response
 #' @param key your SunlightLabs API key; loads from .Rprofile
-#' @param ... Curl options passed on to \code{\link[crul]{HttpClient}}
+#' @param ... Curl options passed on to [crul::HttpClient]
 #' @return List of output fields.
 #' @export
 #' @examples \dontrun{

@@ -26,11 +26,12 @@ it's recommended to always specify which fields you will be using.}
 \item{page}{Page to return. Default: 1. You can use this in combination with the
 per_page parameter to get more than the default or max number of results per page.}
 
-\item{as}{(character) One of table (default), list, or response (httr response object)}
+\item{as}{(character) One of table (default), list, or response
+(crul response object)}
 
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 
-\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
+\item{...}{Curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }
 \value{
 List of output fields.
