@@ -8,7 +8,7 @@ cg_bills_recent_subject(subject, key = NULL, as = "table", ...)
 }
 \arguments{
 \item{subject}{(character) A slug version of a legislative subject,
-displayed as `url_name` in subject responses.}
+displayed as \code{url_name} in subject responses.}
 
 \item{key}{your SunlightLabs API key; loads from environment variable from .Renviron or
 from an option from .Rprofile}

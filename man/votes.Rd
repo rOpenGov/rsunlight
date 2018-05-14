@@ -49,13 +49,13 @@ years, 2 is even-numbered years)}
 \item{id}{(integer) roll call number, i.e., vote id}
 
 \item{key}{your ProPublica API key; pass in or loads from environment variable
-stored as `PROPUBLICA_API_KEY` in either your .Renviron, or similar file
+stored as \code{PROPUBLICA_API_KEY} in either your .Renviron, or similar file
 locatd in your home directory}
 
 \item{as}{(character) IGNORED FOR NOW}
 
-\item{...}{optional curl options passed on to [curl::HttpClient].
-See [curl::curl_options()]}
+\item{...}{optional curl options passed on to \link[curl:HttpClient]{curl::HttpClient}.
+See \code{\link[curl:curl_options]{curl::curl_options()}}}
 
 \item{year}{(integer) a four digit year of the form YYYY}
 
@@ -64,7 +64,7 @@ See [curl::curl_options()]}
 \item{start_date, end_date}{(character) start and end date, of the form
 YYYY-MM-DD}
 
-\item{votes}{(logical) whether to return votes data or not. default: `FALSE`}
+\item{votes}{(logical) whether to return votes data or not. default: \code{FALSE}}
 
 \item{category}{attribute describing the general reason for the absence or
 incorrect vote. see Details.}
@@ -72,7 +72,7 @@ incorrect vote. see Details.}
 \item{member_id}{(character) The ID of the member to retrieve; it is
 assigned by the Biographical Directory of the United States Congress
 (http://bioguide.congress.gov/biosearch/biosearch.asp) or can be retrieved
-from a [cg_members()] request}
+from a \code{\link[=cg_members]{cg_members()}} request}
 }
 \value{
 various things for now, since return objects vary quite a bit
@@ -81,24 +81,25 @@ among the different votes routes
 \description{
 votes methods
 }
-\section{Categories for the `category` parameter}{
+\section{Categories for the \code{category} parameter}{
 
-
-- voted-incorrectly: Voted yes or no by mistake
-- official-business: Away on official congressional business
-- ambiguous: No reason given
-- travel-difficulties: Travel delays and issues
-- personal:  Personal or family reason
-- claims-voted:  Vote made but not recorded
-- medical: Medical issue for lawmaker (not family)
-- weather: Inclement weather
-- memorial:  Attending memorial service
-- misunderstanding:  Not informed of vote
-- leave-of-absence:  Granted leave of absence
-- prior-commitment:  Attending to prior commitment
-- election-related:  Participating in an election
-- military-service:  Military service
-- other: Other
+\itemize{
+\item voted-incorrectly: Voted yes or no by mistake
+\item official-business: Away on official congressional business
+\item ambiguous: No reason given
+\item travel-difficulties: Travel delays and issues
+\item personal:  Personal or family reason
+\item claims-voted:  Vote made but not recorded
+\item medical: Medical issue for lawmaker (not family)
+\item weather: Inclement weather
+\item memorial:  Attending memorial service
+\item misunderstanding:  Not informed of vote
+\item leave-of-absence:  Granted leave of absence
+\item prior-commitment:  Attending to prior commitment
+\item election-related:  Participating in an election
+\item military-service:  Military service
+\item other: Other
+}
 }
 
 \examples{

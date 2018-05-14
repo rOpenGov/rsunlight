@@ -40,13 +40,13 @@ cg_members_bill_cosponsors(member, type, key = NULL, as = "table", ...)
 \item{chamber}{The chamber this update took place in. 'house' or 'senate'.}
 
 \item{key}{your ProPublica API key; pass in or loads from environment variable
-stored as `PROPUBLICA_API_KEY` in either your .Renviron, or similar file
+stored as \code{PROPUBLICA_API_KEY} in either your .Renviron, or similar file
 locatd in your home directory}
 
 \item{as}{(character) IGNORED FOR NOW}
 
-\item{...}{optional curl options passed on to [curl::HttpClient].
-See [curl::curl_options()]}
+\item{...}{optional curl options passed on to \link[curl:HttpClient]{curl::HttpClient}.
+See \code{\link[curl:curl_options]{curl::curl_options()}}}
 
 \item{member, member1, member2}{A member ID}
 

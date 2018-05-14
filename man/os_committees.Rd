@@ -17,7 +17,7 @@ os_committees(state = NULL, chamber = "upper", committee = NULL,
 \item{subcommittee}{a subcommittee name (character)}
 
 \item{as}{(character) One of table (default), list, or response
-(`crul` response object)}
+(\code{crul} response object)}
 
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 

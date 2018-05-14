@@ -86,16 +86,16 @@ Search for data on documents
 }
 \details{
 \itemize{
- \item CV - Committee vote
- \item WS - Witness statement
- \item WT - Witness truth statement
- \item WB - Witness biography
- \item CR - Committee report
- \item BR - Bill
- \item FA - Floor amendment
- \item CA - Committee amendment
- \item HT - Transcript
- \item WD - Witness document
+\item CV - Committee vote
+\item WS - Witness statement
+\item WT - Witness truth statement
+\item WB - Witness biography
+\item CR - Committee report
+\item BR - Bill
+\item FA - Floor amendment
+\item CA - Committee amendment
+\item HT - Transcript
+\item WD - Witness document
 }
 \emph{other} is used for all other documents.
 }

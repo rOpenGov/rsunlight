@@ -9,8 +9,8 @@ cg_bills_recent_member(id, type, key = NULL, as = "table", ...)
 \arguments{
 \item{id}{(character) The ID of the member to retrieve; it is
 assigned by the Biographical Directory of the United States
-Congress (<http://bioguide.congress.gov/biosearch/biosearch.asp>)
-or can be retrieved from a [cg_members()] request}
+Congress (\url{http://bioguide.congress.gov/biosearch/biosearch.asp})
+or can be retrieved from a \code{\link[=cg_members]{cg_members()}} request}
 
 \item{type}{Type of bill. introduced or updated}
 

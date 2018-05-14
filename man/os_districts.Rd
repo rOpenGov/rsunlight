@@ -29,7 +29,7 @@ more than one if num_seats > 1)}
 Generally one, but will be 2 or more if the seat is a multi-member district.}
 
 \item{as}{(character) One of table (default), list, or response
-(`crul` response object)}
+(\code{crul} response object)}
 
 \item{key}{your SunlightLabs API key; loads from .Rprofile}
 

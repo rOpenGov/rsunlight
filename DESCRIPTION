@@ -15,7 +15,7 @@ Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     person("Thomas J.", "Leeper", role=c("ctb"),
     email="thosjleeper@gmail.com"))
 VignetteBuilder: knitr
-Roxygen: list(wrap = FALSE, markdon = TRUE)
+Roxygen: list(wrap = FALSE, markdown = TRUE)
 LazyData: true
 Imports:
     methods,

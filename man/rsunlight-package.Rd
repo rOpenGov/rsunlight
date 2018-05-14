@@ -19,8 +19,8 @@ Currently we have functions to interface with the following Sunlight Foundation 
 where functions for each API are prefixed with a two letter code indicating the service.
 
 \itemize{
- \item Congress API (`cg`)
- \item Open States API (`os`)
+\item Congress API (\code{cg})
+\item Open States API (\code{os})
 }
 
 Note that Puerto Rico is not included in Sunlight Foundation data.
