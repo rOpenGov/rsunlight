@@ -9,26 +9,17 @@ test_that("returns the correct", {
   # classes
   expect_is(a, "data.frame")
   expect_is(b, "list")
-  expect_is(b$ca, "list")
-  expect_is(b$ca$terms, "data.frame")
+  expect_is(b$name, "character")
+  expect_true(grepl("California", b$name))
 
   # values
-  expect_named(b, "ca")
-})
-
-test_that("vectorizing works", {
-  skip_on_cran()
-
-  res <- os_statemetasearch(c('tx','nv'))
-  expect_is(res, "list")
-  expect_equal(length(res), 2)
-  expect_named(res, c('tx', 'nv'))
+  expect_equal(b$abbreviation, "ca")
 })
 
 test_that("curl options work", {
   skip_on_cran()
 
-  expect_error(os_statemetasearch(config = httr::timeout(0.001)), "Timeout")
+  expect_error(os_statemetasearch(timeout_ms = 1), "Timeout")
 })
 
 test_that("fails well", {

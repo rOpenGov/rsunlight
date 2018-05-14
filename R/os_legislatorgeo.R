@@ -8,7 +8,7 @@
 #' @return various, depending on \code{as} parameter
 #' @export
 #' @examples \dontrun{
-#' os_legislatorgeo(lat = 35.79, long = -78.78, verbose = TRUE)
+#' os_legislatorgeo(lat = 35.79, long = -78.78)
 #' }
 os_legislatorgeo <- function(lat, long, as = 'table', key = NULL, ...) {
   key <- check_key(key, 'OPEN_STATES_KEY')
