@@ -22,8 +22,6 @@ knitr::opts_chunk$set(
 + Report any problems in the [Issues Tracker](https://github.com/ropengov/rsunlight/issues), or just fork and submit changes, etc.
 
 
-## Description
-
 > NOTE: Capitol Words API is defunct
 
 `rsunlight` is a collection of functions to search and acquire data from the various APIs that used to be housed under Sunlight Labs, but which are now housed under ProPublica.
