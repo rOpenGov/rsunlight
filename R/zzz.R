@@ -156,3 +156,11 @@ as_dt <- function(z) {
     data.table::rbindlist(z, fill = TRUE, use.names = TRUE)
   ))
 }
+
+foo_bar <- function(as, url, path, args, key, parse = FALSE, ...) {
+  key <- check_key(key, "PROPUBLICA_API_KEY")
+  tmp <- query(url, path, args,
+    headers = list(`X-API-KEY` = key), ...)
+  tmp <- err_hand(tmp)
+  jsonlite::fromJSON(tmp, parse)
+}

@@ -109,6 +109,14 @@ ie_sectors <- function(...){
   .Defunct(msg = "Sunlight Foundation Transparency/Influence Explorer API defunct as of January 2016")
 }
 
+#' This function is defunct.
+#' @export
+#' @rdname cg_votes-defunct
+#' @keywords internal
+cg_votes <- function(...){
+  .Defunct(msg = "See ?votes for the new functions")
+}
+
 #' Defunct functions in rsunlight
 #'
 #' \itemize{

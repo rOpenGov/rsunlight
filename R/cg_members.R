@@ -8,11 +8,11 @@
 #' @param state A two character state code
 #' @param district House of Representatives district number (House requests only)
 #' @param type Type of bill. cosponsored or withdrawn
-#' @param key your ProPublica API key; pass in or loads from environment variable 
-#' stored as `PROPUBLICA_API_KEY` in either your .Renviron, or similar file 
+#' @param key your ProPublica API key; pass in or loads from environment variable
+#' stored as `PROPUBLICA_API_KEY` in either your .Renviron, or similar file
 #' locatd in your home directory
 #' @param as (character) IGNORED FOR NOW
-#' @param ... optional curl options passed on to [curl::HttpClient]. 
+#' @param ... optional curl options passed on to [curl::HttpClient].
 #' See [curl::curl_options()]
 #' @return various things for now, since return objects vary quite a bit
 #' among the different members routes
@@ -51,7 +51,7 @@ cg_members_new <- function(key = NULL, as = 'table', ...) {
 
 #' @export
 #' @rdname members
-cg_members_state_district <- function(chamber, state, district = NULL, key = NULL, 
+cg_members_state_district <- function(chamber, state, district = NULL, key = NULL,
     as = 'table', ...) {
 
   path <- if (is.null(district)) {
@@ -85,20 +85,20 @@ cg_members_votes <- function(member, key = NULL, as = 'table', ...) {
 
 #' @export
 #' @rdname members
-cg_members_compare_votes <- function(member1, member2, congress, chamber, key = NULL, 
+cg_members_compare_votes <- function(member1, member2, congress, chamber, key = NULL,
     as = 'table', ...) {
 
-  path <- file.path("congress/v1/members", member1, "votes", member2, 
+  path <- file.path("congress/v1/members", member1, "votes", member2,
     congress, paste0(chamber, ".json"))
   foo_bar(as, cgurl(), path, args = list(), key, TRUE, ...)
 }
 
 #' @export
 #' @rdname members
-cg_members_compare_bill_sponsors <- function(member1, member2, congress, chamber, key = NULL, 
+cg_members_compare_bill_sponsors <- function(member1, member2, congress, chamber, key = NULL,
     as = 'table', ...) {
 
-  path <- file.path("congress/v1/members", member1, "bills", member2, 
+  path <- file.path("congress/v1/members", member1, "bills", member2,
     congress, paste0(chamber, ".json"))
   res <- foo_bar(as, cgurl(), path, args = list(), key, ...)
   bills <- tibble::as_tibble(as_dt(lapply(res$results[[1]]$bills, function(z) {
@@ -126,14 +126,6 @@ cg_members_bill_cosponsors <- function(member, type, key = NULL, as = 'table', .
 
 
 ## helpers -----
-foo_bar <- function(as, url, path, args, key, parse = FALSE, ...) {
-  key <- check_key(key, "PROPUBLICA_API_KEY")
-  tmp <- query(url, path, args, 
-    headers = list(`X-API-KEY` = key), ...)
-  tmp <- err_hand(tmp)
-  jsonlite::fromJSON(tmp, parse)
-}
-
 parse_members <- function(x) {
   out <- tibble::as_tibble(as_dt(lapply(x$results[[1]]$members, function(z) {
       z[vapply(z, class, character(1)) == "NULL"] <- NA_character_

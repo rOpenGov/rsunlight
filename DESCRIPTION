@@ -6,7 +6,7 @@ Description: Interface to three 'Sunlight' Foundation 'APIs' (http://
     'API'. 'Sunlight' Foundation is a 'nonpartison' 'nonprofit' that collects and
     provides data on government activities, and those that influence government.
     Functions are provided to interact with each of the three 'APIs'.
-Version: 0.4.8100
+Version: 0.6.9100
 License: MIT + file LICENSE
 URL: https://github.com/ropengov/rsunlight
 BugReports: https://github.com/ropengov/rsunlight/issues
@@ -15,7 +15,7 @@ Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     person("Thomas J.", "Leeper", role=c("ctb"),
     email="thosjleeper@gmail.com"))
 VignetteBuilder: knitr
-Roxygen: list(wrap = FALSE)
+Roxygen: list(wrap = FALSE, markdon = TRUE)
 LazyData: true
 Imports:
     methods,
