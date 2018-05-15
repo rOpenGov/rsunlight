@@ -1,9 +1,32 @@
+rsunlight 0.7.0
+===============
+
+## NEW FEATURES
+
+* xx (#xx)
+* xx (#xx)
+* xx (#xx)
+
+## MINOR IMPROVEMENTS
+
+* xx (#xx)
+* xx (#xx)
+* xx (#xx)
+
+## DEFUNCT
+
+* xx (#xx)
+* xx (#xx)
+* xx (#xx)
+
+
+
 rsunlight 0.4.2
 ===============
 
 ## DEFUNCT
 
-* Influence Explorer defunct as of January 2016. Thus, `ie_` functions 
+* Influence Explorer defunct as of January 2016. Thus, `ie_` functions
 are now defunct in this package. (#57)
 
 

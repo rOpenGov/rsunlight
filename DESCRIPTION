@@ -14,7 +14,6 @@ Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"),
     person("Thomas J.", "Leeper", role=c("ctb"),
     email="thosjleeper@gmail.com"))
-VignetteBuilder: knitr
 Roxygen: list(wrap = FALSE, markdown = TRUE)
 LazyData: true
 Imports:
@@ -28,7 +27,6 @@ Imports:
     tibble,
     data.table
 Suggests:
-    knitr,
     testthat
 Enhances: ggplot2
 RoxygenNote: 6.0.1
