@@ -1,12 +1,10 @@
 Package: rsunlight
-Title: Interface to 'Sunlight' Foundation 'APIs'
-Description: Interface to three 'Sunlight' Foundation 'APIs' (http://
-    sunlightfoundation.com/api/) for government data, including the
-    Congress 'API' 'v3', the Capitol Words 'API', and the Open States
-    'API'. 'Sunlight' Foundation is a 'nonpartison' 'nonprofit' that collects and
-    provides data on government activities, and those that influence government.
-    Functions are provided to interact with each of the three 'APIs'.
-Version: 0.6.9100
+Title: Interface to 'Sunlight' Foundation APIs
+Description: Interface to APIs for US government data previously under the 'Sunlight'
+    Foundation, now under 'ProPublica' (<https://www.propublica.org/datastore/apis>),
+    and Open States (<http://docs.openstates.org/en/latest/api/>). Functions are
+    provided to interact with each of the routes in each API.
+Version: 0.7.0
 License: MIT + file LICENSE
 URL: https://github.com/ropengov/rsunlight
 BugReports: https://github.com/ropengov/rsunlight/issues
