@@ -5,7 +5,7 @@ Description: Interface to 'APIs' for US government data previously under
     (<https://www.propublica.org/datastore/'apis'>), and Open States
     (<http://docs.openstates.org/en/latest/api/>). Functions are
     provided to interact with each of the routes in each API.
-Version: 0.7.0
+Version: 0.7.0.9100
 License: MIT + file LICENSE
 URL: https://github.com/ropengov/rsunlight
 BugReports: https://github.com/ropengov/rsunlight/issues
