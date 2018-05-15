@@ -29,7 +29,6 @@
 #' @importFrom utils head
 #' @importFrom jsonlite fromJSON
 #' @importFrom plyr rbind.fill
-#' @importFrom stringr str_sub
 #' @importFrom tibble as_data_frame
 #' @importFrom crul HttpClient
 #' @name rsunlight-package

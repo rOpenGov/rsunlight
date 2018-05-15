@@ -1,23 +1,17 @@
 rsunlight 0.7.0
 ===============
 
+Below changes mostly in response to APIs moving from Sunlight Labs to ProPublica.  (#64) (#67)
+
 ## NEW FEATURES
 
-* xx (#xx)
-* xx (#xx)
-* xx (#xx)
-
-## MINOR IMPROVEMENTS
-
-* xx (#xx)
-* xx (#xx)
-* xx (#xx)
+* Now importing packages `crul`, `tibble`, and `data.table` and no longer importing `httr`, `stringr`
+* New functions `cg_bills_recent`, `cg_bills_recent_member`, `cg_bills_recent_subject`, `cg_bills_upcoming`, `cg_committee`, `cg_committee_comms`, `cg_committee_hearings`, `cg_committees_comms_category`, `cg_committees_comms_chamber`, `cg_committees_comms_date`, `cg_floor_actions_date`, `cg_floor_actions_recent`, `cg_members`, `cg_members_bill_cosponsors`, `cg_members_compare_bill_sponsors`, `cg_members_compare_votes`, `cg_members_leaving`, `cg_members_new`, `cg_members_state_district`, `cg_members_votes`, `cg_nomination`, `cg_nominations_category`, `cg_nominations_state`, `cg_state_party_countes`, `cg_statements_date`, `cg_statements_member`, `cg_statements_recent`, `cg_statements_search`, `cg_statements_subject`, `cg_statements_subjects`, `cg_votes_date`, `cg_votes_explanations`, `cg_votes_explanations_category`, `cg_votes_explanations_member`, `cg_votes_recent`, `cg_votes_senatenoms`, `cg_votes_type`, `os_committee`, `os_committees`, `os_district`, `os_districts`, `os_legislator`, `os_legislatorgeo`
+* replace `httr` with `crul` (#65)
 
 ## DEFUNCT
 
-* xx (#xx)
-* xx (#xx)
-* xx (#xx)
+* Now defunct because API services are gone: `cg_votes`, `cg_districts`, `cg_documents`, `cg_floor_updates`, `cg_hearings`, `cg_legislators`, `cw_dates`, `cw_phrases`, `cw_text`, `cw_timeseries` (#64) (#67)
 
 
 

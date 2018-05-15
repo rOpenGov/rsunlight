@@ -18,7 +18,6 @@ LazyData: true
 Imports:
     methods,
     utils,
-    httr,
     crul,
     plyr,
     jsonlite,
