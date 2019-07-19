@@ -11,90 +11,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-[![Build Status](https://travis-ci.org/rOpenGov/rsunlight.svg?branch=master)](https://travis-ci.org/rOpenGov/rsunlight)
-[![codecov.io](https://codecov.io/github/rOpenGov/rsunlight/coverage.svg?branch=master)](https://codecov.io/github/rOpenGov/rsunlight?branch=master)
-[![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/rsunlight)](https://github.com/metacran/cranlogs.app)
-[![cran version](http://www.r-pkg.org/badges/version/rsunlight)](https://cran.r-project.org/package=rsunlight)
+[![Project Status: Abandoned – the project has been abandoned and the author(s) do not intend on continuing development.](https://www.repostatus.org/badges/latest/abandoned.svg)](https://www.repostatus.org/#abandoned)
 
-
-+ Maintainer: [Scott Chamberlain](https://github.com/sckott/)
-+ License: [MIT](http://opensource.org/licenses/MIT)
-+ Report any problems in the [Issues Tracker](https://github.com/ropengov/rsunlight/issues), or just fork and submit changes, etc.
-
-
-> NOTE: Capitol Words API is defunct
-
-`rsunlight` is a collection of functions to search and acquire data from the various APIs that used to be housed under Sunlight Labs, but which are now housed under ProPublica.
-
-`rsunlight` wraps functions in APIs for:
-
-* Congress API (`cg`) - Run by ProPublica
-* Open States API (`os`) - Run by OpenStates foundation
-
-Functions that wrap these sets of APIs will be prefixed by `cg` or `os` for the different methods listed above:
-
-* `cg` + `fxn`
-* `os` + `fxn`
-
-where `fxn` would be a function to a interface with a specific API.
-
-
-You need API keys for Propublica APIs. Get them at
-<https://www.propublica.org/datastore/apis>
-
-You need an API key for the OpenStates API. Get it at
-<https://openstates.org/api/register/>
-
-
-We set up the functions so that you can use either env vars, or R options.
-For env vars, put an entry in your `.Renviron` file with the names
-`PROPUBLICA_API_KEY` and `OPEN_STATES_KEY`.
-
-## Install rsunlight
-
-From CRAN
-
-```{r eval=FALSE}
-install.packages("rsunlight")
-```
-
-Or development version from Github
-
-```{r eval=FALSE}
-devtools::install_github("ropengov/rsunlight")
-```
-
-```{r}
-library("rsunlight")
-```
-
-## Congress API
-
-Search for congress members by chamber and state
-
-```{r}
-cg_members_state_district('senate', 'RI')
-```
-
-Search for committees by congress and chamber
-
-```{r}
-cg_committees(115, "senate")[[1]]$committees[[1]]
-```
-
-## Open States API
-
-Bill Search - Search for bills with the term _agriculture_, in Texas, and in the upper chamber.
-
-```{r}
-os_billsearch(terms = 'agriculture', state = 'tx', chamber = 'upper')
-```
-
-Legislator Search - Search for Republican legislators in Nevada
-
-```{r}
-os_legislatorsearch(state = 'nv', party = 'republican')
-```
+`rsunlight` has been abandoned - get in touch if you want to take over maintainance.
 
 ## Meta
 
